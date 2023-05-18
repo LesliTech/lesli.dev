@@ -1,0 +1,67 @@
+<%#
+
+Copyright (c) 2022, all rights reserved.
+
+All the information provided by this platform is protected by international laws related  to 
+industrial property, intellectual property, copyright and relative international laws. 
+All intellectual or industrial property rights of the code, texts, trade mark, design, 
+pictures and any other information belongs to the owner of this platform.
+
+Without the written permission of the owner, any replication, modification,
+transmission, publication is strictly forbidden.
+
+For more information read the license file including with this software.
+
+// · ~·~     ~·~     ~·~     ~·~     ~·~     ~·~     ~·~     ~·~     ~·~     ~·~     ~·~     ~·~
+// · 
+
+%>
+
+<% lesli = data.send(I18n.locale.to_sym).lesli %>
+
+<header class="lesli-header hero is-fullheight">
+    <div class="hero-head">
+    </div>
+    <div class="hero-body">
+        <div class="container">
+            <%= image_tag "brand/lesli-name.svg", :alt => "Lesli logo", :class => "lesli-logo" %>
+            <h2>Ruby on Rails high-level development platform.</h2>
+            <p class="text is-hidden-touch">
+                Lesli provides all the necessary tools to build your SaaS, empowering you and your team to focus on business and what makes your software special.
+            </p>
+
+            <% link_to("https://github.com/LesliTech/", :class=>"button is-dark is-outlined mr-1", :target=>"blank") do %>
+                <span class="icon-text">
+                    <span class="icon">
+                        <i class="ri-github-line"></i>
+                    </span>
+                    <span class="pt-1">Open source</span>
+                </span>
+            <% end %>
+
+            <% link_to("/documentation", :class=>"button is-primary is-outlined ml-1") do %>
+                <span class="icon-text">
+                    <span class="icon">
+                        <i class="ri-send-plane-line"></i>
+                    </span>
+                    <span class="pt-1">Documentation</span>
+                </span>
+            <% end %>
+        </div>
+    </div>
+    <div class="hero-fot">
+        <ul>
+            <li><p>built with awesome technologies</p></li>
+            <% tools_logos = ['postgresql', 'rails', 'vue', 'sass', 'bulma'] %>
+            <% tools_logos.each do |tool| %>
+                <li><%= lesli_svg("logo-#{tool}") %></li>
+            <% end %>
+        </ul>
+    </div>
+</header>
+
+<%= partial "components/description" %>
+<%= partial "components/corefeatures" %>
+<%= partial "components/cloudobjects" %>
+<%= partial "components/modulos" %>
+<%= partial "components/development" %>

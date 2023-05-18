@@ -1,0 +1,107 @@
+/*
+
+Lesli
+
+Copyright (c) 2023, Lesli Technologies, S. A.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see http://www.gnu.org/licenses/.
+
+Lesli · Ruby on Rails Development Platform.
+
+Made with ♥ by https://www.lesli.tech
+Building a better future, one line of code at a time.
+
+@contact  hello@lesli.tech
+@website  https://www.lesli.tech
+@license  GPLv3 http://www.gnu.org/licenses/gpl-3.0.en.html
+
+// · ~·~     ~·~     ~·~     ~·~     ~·~     ~·~     ~·~     ~·~     ~·~
+// · 
+*/
+
+
+// · 
+@import "../../lib/stylesheet/template";
+@import "../../lib/stylesheet/components/template";
+@import "../../lib/stylesheet/components/description";
+@import "../../lib/stylesheet/components/core-features";
+@import "../../lib/stylesheet/components/cloud-objects";
+@import "../../lib/stylesheet/components/modulos";
+@import "../../lib/stylesheet/components/development";
+
+
+// · 
+header.lesli-header {
+
+    .hero-head,
+    .hero-body {
+        text-align: center;
+        justify-content: center;
+    }
+
+    .lesli-logo {
+        width: 220px;
+        margin-bottom: -10px;
+    }
+
+    h2 {
+        font-size: 3rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        color: lesli-css-color(blue, 700);
+    }
+
+    .text {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+
+    .button {
+
+        font-size: 1.4rem;
+        border-radius: 3px;
+        padding: 1rem 2rem;
+    }
+
+    
+    .hero-fot {
+        background-color: $hint-of-red;
+        ul {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+
+            p {
+                font-size: 1.2rem;
+                font-weight: 400;
+                text-transform: uppercase;
+                color: lesli-css-color(silver, 900);
+            }
+
+            li {
+
+                svg {
+                    height: 60px;
+                    opacity: .8;
+                    display: inline-block;
+                }
+
+                &:nth-child(3) svg {
+                    width: 115px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,58 @@
+
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    // Get all "navbar-burger" elements
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+    // Check if there are any navbar burgers
+    if ($navbarBurgers.length > 0) {
+
+        // Add a click event on each of them
+        $navbarBurgers.forEach( el => {
+
+            el.addEventListener('click', () => {
+
+                // Get the target from the "data-target" attribute
+                const target = el.dataset.target;
+                const $target = document.getElementById(target);
+
+                // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                el.classList.toggle('is-active');
+                $target.classList.toggle('is-active');
+
+            });
+
+        });
+
+    }
+
+});
+
+</script>
+<nav class="navbar container" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand px-0">
+            <a href="/" class="navbar-item px-0">
+                <%= image_tag "brand/lesli-name.svg", width:"112", alt: "Lesli logo" %>
+            </a>
+            <a class="navbar-burger" data-target="lesli-navigation" role="button" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="lesli-navigation">
+            <div class="navbar-start">
+            </div>
+            <div class="navbar-end">
+                <%#= link_to("GitHub", "https://github.com/LesliTech/DatenBanken", :class => "navbar-item", :target => "_blank") %>
+                <%#= link_to("Documentation", "/documentation/10-introduction/", :class => "navbar-item") %>
+                <div class="navbar-item">
+                    <%= link_to("Github", "/login", :class => "button is-dark is-outlined") %>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
