@@ -34,14 +34,17 @@ Building a better future, one line of code at a time.
 section.lesli-component-cloud-objects {
 
     .columns {
-        /*
-        @include lesli-css-flex-columns(300px);
+        display: flex;
+        margin: 0 auto;
         flex-wrap: wrap;
+        max-width: 1200px;
+        justify-content: center;
+    }
 
-        .column {
-            min-width: 400px;
-        }
-        */
+    .column {
+        margin-top: 0rem;
+        flex-basis: 400px;
+        max-width: 400px;
     }
 
     .feature {
