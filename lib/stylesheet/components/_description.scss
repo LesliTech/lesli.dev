@@ -101,7 +101,8 @@ section.lesli-component-description {
 @include lesli-css-breakpoint-only-mobile() {
     section.lesli-component-description {
         p.description {
-            font-size: 1.8rem;
+            padding: 0 .85rem;
+            font-size: 1.5rem;
             margin-bottom: 6rem;
         }
     }

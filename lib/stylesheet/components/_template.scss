@@ -56,15 +56,12 @@ section {
 @include lesli-css-breakpoint-only-mobile() {
     section {
         .component-header {
-    
             h2 {
                 font-size: 2rem;
             }
-    
             p {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
             }
-    
         }
     }
 }

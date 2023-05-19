@@ -32,11 +32,11 @@ Building a better future, one line of code at a time.
 
 
 // · 
-@import "../../lib/stylesheet/template";
+@import "../../lib/stylesheet/template.scss";
 @import "../../lib/stylesheet/components/template";
 @import "../../lib/stylesheet/components/description";
-@import "../../lib/stylesheet/components/core-features";
-@import "../../lib/stylesheet/components/cloud-objects";
+@import "../../lib/stylesheet/components/corefeatures";
+@import "../../lib/stylesheet/components/cloudobjects";
 @import "../../lib/stylesheet/components/modulos";
 @import "../../lib/stylesheet/components/development";
 
@@ -68,7 +68,7 @@ header.lesli-header {
     }
 
     .button {
-
+        width: 250px;
         font-size: 1.4rem;
         border-radius: 3px;
         padding: 1rem 2rem;
@@ -100,6 +100,36 @@ header.lesli-header {
 
                 &:nth-child(3) svg {
                     width: 115px;
+                }
+            }
+        }
+    }
+}
+
+@include lesli-css-breakpoint-mobile() {
+	
+    header.lesli-header {
+
+        .lesli-logo {
+            width: 200px;
+        }
+    
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .button {
+            margin: 0 auto .6rem !important;
+        }
+
+        .hero-fot ul {
+            li {
+                svg {
+                    height: 40px;
+                }
+                &:nth-child(3) svg {
+                    width: 80px;
                 }
             }
         }

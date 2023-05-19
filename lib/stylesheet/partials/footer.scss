@@ -43,11 +43,11 @@ footer.lesli-footer {
         }
     }
 
-    nav a.navbar-item {
+    nav a.level-item {
         background-color: lesli-css-color(solid, white);
     }
 
-    .footer-navigation-bottom {
+    .navigation-footer {
         margin-top: .8rem;
         border-top: 1px solid lesli-css-color(silver, 300);
 
@@ -70,4 +70,8 @@ footer.lesli-footer {
             }
         }
     }
+}
+
+@include lesli-css-breakpoint-only-mobile() {
+
 }
