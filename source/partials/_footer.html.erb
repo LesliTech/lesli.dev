@@ -33,14 +33,15 @@ Building a better future, one line of code at a time.
 <% lesli = data.send(I18n.locale.to_sym).lesli %>
 <% footer = data.send(I18n.locale.to_sym).partial_footer %>
 
-<footer class="lesli-footer container">
+<footer class="lesli-footer container mb-2">
 
-    <!-- -->
-    <a href="/" class="navbar-item">
+    <% if lesli_current_page(current_page) != "documentation" %>
+    <a href="/" class="navbar-item mb-3">
         <%= image_tag "brand/lesli-name.svg", alt: "Lesli logo" %>
     </a>
+    <% end %>
 
-    <!--
+    <!-- 
     <div class="links">
         <%= link_to "About", "/about", :class=>"navbar-item" %>
         <span class="navbar-item">&bull;</span>

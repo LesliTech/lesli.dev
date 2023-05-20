@@ -48,11 +48,12 @@ footer.lesli-footer {
     }
 
     .navigation-footer {
-        margin-top: .8rem;
+        //margin-top: .8rem;
         border-top: 1px solid lesli-css-color(silver, 300);
 
         .copy {
             font-size: 1.1rem;
+            font-weight: 400;
         }
 
         ul.social {

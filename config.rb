@@ -47,6 +47,9 @@ page '/*.json', layout: false
 page '/*.xml', layout: false
 page '/*.txt', layout: false
 
+page "/404.html", :directory_index => false
+
+#redirect "documentation.html", to: "/documentation/lesli.html"
 
 
 # · Activate and configure extensions
@@ -79,8 +82,8 @@ end
 configure :build do
     activate :gzip
     activate :asset_hash
-    activate :minify_css
-    activate :minify_html
+    #activate :minify_css
+    #activate :minify_html
     activate :minify_javascript, :inline => true, compressor: proc { ::Uglifier.new(harmony: true)}
 end
 

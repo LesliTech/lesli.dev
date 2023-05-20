@@ -31,20 +31,27 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 </script>
-<nav class="navbar container" role="navigation" aria-label="main navigation">
+<nav class="navigation-header navbar container" role="navigation" aria-label="main navigation">
     <div class="container">
         <div class="navbar-brand px-0">
+            <%#
             <a href="/" class="navbar-item px-0">
-                <%= image_tag "brand/lesli-name.svg", width:"112", alt: "Lesli logo" %>
+                <%= image_tag "brand/lesli-name.svg", width:"112", alt: "Lesli logo" % >
             </a>
             <a class="navbar-burger" data-target="lesli-navigation" role="button" aria-label="menu" aria-expanded="false">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
             </a>
+            %>
         </div>
         <div class="navbar-menu" id="lesli-navigation">
             <div class="navbar-start">
+                <div class="navbar-start">
+                    <% if lesli_current_page(current_page) != "index" %>
+                        <%= link_to("Home", "/", :class => "navbar-item") %>
+                    <% end %>
+                </div>
             </div>
             <div class="navbar-end">
                 <%#= link_to("GitHub", "https://github.com/LesliTech/DatenBanken", :class => "navbar-item", :target => "_blank") %>

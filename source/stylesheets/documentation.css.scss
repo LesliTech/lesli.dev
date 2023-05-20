@@ -33,3 +33,136 @@ Building a better future, one line of code at a time.
 
 // · 
 @import "../../lib/stylesheet/template";
+
+
+// · 
+.navigation {
+    min-height: 100vh;
+    padding: 2rem 3rem;
+    text-align: right;
+    background-color: $primary;
+
+    // logo
+    svg {
+        width: 100px;
+        margin-bottom: 32px;
+        path,
+        circle {
+            fill: white;
+        }
+    }
+
+    // nav link containers
+    ul {
+        margin-bottom: 3rem;
+
+        li {
+            font-size: 1.1rem;
+            margin-bottom: .6rem;
+            text-transform: capitalize;
+
+            a {
+                color: lesli-css-color(silver, 100);
+            }
+
+            &:first-child {
+                text-transform: uppercase;
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+
+
+// · 
+.documentation {
+
+    .lesli-footer,
+    .navigation-header {
+        padding: 1rem 3rem;
+    }
+
+    .lesli-documentation {
+
+        .container {
+            width: 1100px;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+        }
+
+        h4, h5, h6 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-top: 1.2rem;
+            margin-bottom: .1rem;
+            color: lesli-css-color(slate, 700);
+        }
+    
+        h1 {
+            color: $primary;
+            font-size: 2.4rem;
+            margin-bottom: 0;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            margin-top: 3rem;
+            color: lesli-css-color(blue, 900);
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            margin-top: 2rem;
+            color: lesli-css-color(blue, 900);
+        }
+
+        pre {
+            margin-top: .6rem;
+            margin-bottom: .2rem;
+        }
+
+        & > ul {
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            padding-left: 2rem;
+            margin-top: .2rem;
+
+            ul {
+                margin-bottom: .8rem;
+            }
+        }
+
+        strong {
+            font-size: 1.15rem;
+            color: lesli-css-color(black);
+        }
+
+        p, li {
+            line-height: 1.6;
+            font-weight: 400;
+            font-size: 1.15rem;
+            color: lesli-css-color(black);
+        }
+
+        blockquote {
+            background: #f9f9f9;
+            border-left: 10px solid #ccc;
+            padding: 0.5em 10px;
+            quotes: "\201C""\201D""\2018""\2019";
+    
+            p {
+                display: inline;
+            }
+        }
+
+        .lesli-documentation-footer {
+            margin-top: 4rem;
+            text-align: right;
+        }
+    }
+}

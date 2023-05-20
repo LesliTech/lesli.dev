@@ -38,11 +38,10 @@ Building a better future, one line of code at a time.
 </head>
 <body>
     <%= partial "partials/icons" %>
-    <% if lesli_current_page(current_page) != "index" %>
-    <%= partial "partials/navigation" %>
-    <% end %>
     <%= yield %>
+    <% if lesli_current_page(current_page) != "documentation" %>
     <%= partial "partials/footer" %>
+    <% end %>
     <%= partial "partials/analytics" %>
 </body>
 </html>
