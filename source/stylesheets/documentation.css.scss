@@ -36,7 +36,7 @@ Building a better future, one line of code at a time.
 
 
 // · 
-.navigation {
+.documentation-navigation {
     min-height: 100vh;
     padding: 2rem 3rem;
     text-align: right;
@@ -52,23 +52,27 @@ Building a better future, one line of code at a time.
         }
     }
 
-    // nav link containers
+    // documentation links
     ul {
+        margin-top: 6px;
         margin-bottom: 3rem;
 
+        // link containers
         li {
             font-size: 1.1rem;
             margin-bottom: .6rem;
             text-transform: capitalize;
 
-            a {
-                color: lesli-css-color(silver, 100);
-            }
-
+            // section title
             &:first-child {
                 color: lesli-css-color(silver, 100);
                 text-transform: uppercase;
                 font-weight: 500;
+            }
+
+            // link to documentation files
+            a {
+                color: lesli-css-color(silver, 100);
             }
         }
     }
@@ -77,27 +81,40 @@ Building a better future, one line of code at a time.
 
 
 // · 
-.documentation {
+.documentation-container {
 
     .lesli-footer,
-    .navigation-header {
+    .navigation-header, 
+    .documentation-footer {
         padding: 1rem 3rem;
     }
 
-    .lesli-documentation {
+    .documentation-footer a {
+        font-size: 1.1rem;
+        font-weight: 400;
+    }
 
-        .container {
-            width: 1000px;
-        }
 
+    // documentation styles
+    .documentation-content {
+        width: 1000px;
+        margin: 0 auto 10rem;
+
+        // default styles for titles
         h1, h2, h3 {
             font-weight: 700;
+        }
+
+        h2, h3 {
+            margin-top: 4rem;
+            margin-bottom: 1rem;
+            color: lesli-css-color(blue, 900);
         }
 
         h4, h5, h6 {
             font-size: 1.1rem;
             font-weight: 700;
-            margin-top: 1.2rem;
+            margin-top: 2rem;
             margin-bottom: .1rem;
             color: lesli-css-color(slate, 700);
         }
@@ -110,39 +127,26 @@ Building a better future, one line of code at a time.
 
         h2 {
             font-size: 1.6rem;
-            margin-top: 3rem;
-            color: lesli-css-color(blue, 900);
         }
 
         h3 {
             font-size: 1.2rem;
-            margin-top: 2rem;
-            color: lesli-css-color(blue, 900);
         }
 
+        // code examples
         pre {
             margin-top: .6rem;
             margin-bottom: .6rem;
         }
 
-        & > ul {
-            margin-bottom: 1rem;
-        }
-
+        // list container (including nested lists)
         ul {
             padding-left: 2rem;
             margin-top: .2rem;
-
-            ul {
-                margin-bottom: .8rem;
-            }
+            margin-bottom: 1rem;
         }
 
-        strong {
-            font-size: 1.15rem;
-            color: lesli-css-color(black);
-        }
-
+        // styles for texts
         p, li {
             line-height: 1.6;
             font-weight: 400;
@@ -160,11 +164,6 @@ Building a better future, one line of code at a time.
             p {
                 display: inline;
             }
-        }
-
-        .lesli-documentation-footer {
-            margin-top: 10rem;
-            text-align: right;
         }
     }
 }

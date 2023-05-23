@@ -41,6 +41,29 @@ require "redcarpet"
 require "listen"
 
 
+namespace :docs do
+
+    desc ""
+    task :dev do 
+        listener = Listen.to(*[
+            "docs/about",
+            "docs/getting-started"
+        ]) do |modified, added, removed|
+            documentation
+        end
+        listener.start
+        documentation
+        sleep
+    end
+
+    desc "build"
+    task :build do
+        documentation
+    end
+end
+
+
+
 # This override is necessary to override some parts of the library to be able to include examples
 # of html code that renders normally, thats why I override the block_code method
 # if language is "raw" we should not process the code due we want to render that code
@@ -100,95 +123,83 @@ class CustomHTMLRender < Redcarpet::Render::HTML
 
 end
 
+
+
 DOCS_FOLDERS = ["about", "getting-started"]
 NAVIGATION_PATH = File.join("source", "documentation", "_navigation.html.erb")
 DOCUMENTATION_SOURCE_PATH = File.join("source", "documentation")
 DOCUMENTATION_DESTINATION_PATH = File.join("source", "documentation")
 
-markdown = Redcarpet::Markdown.new(
-    CustomHTMLRender.new,
-    fenced_code_blocks: true,
-    tables: true
-)
+def documentation
 
-FileUtils.rm_rf(DOCUMENTATION_SOURCE_PATH)
-FileUtils.mkdir_p(DOCUMENTATION_SOURCE_PATH)
+    markdown = Redcarpet::Markdown.new(
+        CustomHTMLRender.new,
+        fenced_code_blocks: true,
+        tables: true
+    )
 
-namespace :docs do
+    FileUtils.rm_rf(DOCUMENTATION_SOURCE_PATH)
+    FileUtils.mkdir_p(DOCUMENTATION_SOURCE_PATH)
 
-    desc ""
-    task :dev do 
-        listener = Listen.to(*[
-            "docs/about",
-            "docs/getting-started"
-        ]) do |modified, added, removed|
-            system("rake docs:build")
-        end
-        listener.start
-        system("rake docs:build")
-        sleep
-    end
+    sections = Hash.new
 
-    desc "build"
-    task :build do
-
-        sections = Hash.new
-
-        # iterate over the documentation folder in a desire specif order
-        DOCS_FOLDERS.each do |folder|
-
-            # get all the documentation files
-            files = Dir.glob(File.join("docs", folder, "*.md")).sort
-
-            # process every documentation file found
-            files.each do |file|
-
-                # extract information from file
-                path = file.sub("docs/", "").sub(".md", "").gsub("/","-")
-                path = file.sub("docs/", "").sub(".md", "")
-                file_name = File.basename(file, ".md")
-                file_label = file_name.tr("0-9", "").tr("-", " ")
-
-                # create a collection of documentation
-                sections[folder] = [] if !sections.has_key?(folder)
-
-                # render documentation from markdown to html
-                markdown_rendered = markdown.render(File.read(file))
-
-                # add some nice styles & format to the final html documentation
-                markdown_rendered = documentation_template(markdown_rendered, file)
-
-                # create the directory if does not exist
-                dirname = File.join(DOCUMENTATION_SOURCE_PATH, File.dirname(path + '.html.erb'))
-                FileUtils.mkdir_p(dirname) unless File.directory?(dirname)
-
-                # write processed documentation file
-                File.write(File.join(DOCUMENTATION_SOURCE_PATH, path + '.html.erb'), markdown_rendered, mode: 'w+')
-
-                # push the file to the vue apps container
-                sections[folder].push({ path: path, file: file_name, label: file_label })
-
-                L2.m "  Generate documentation for: #{File.join(DOCUMENTATION_SOURCE_PATH, path)}"
-            end
-        end
-
-        sections.each do |section, files|
-            File.open(NAVIGATION_PATH, 'a') do |f|
-                f.puts("<ul>")
-                f.puts("<li>#{section.gsub("-", " ")}</li>")
-                files.each do |file|
-                    f.puts("<li><a href=\"/documentation/#{file[:path]}\">#{file[:label]}</a></li>")
-                end
-                f.puts("</ul>")
-            end
-        end
-
-        # Duplicate the first file (introduction) so I can show this file as main documentation index file
-        FileUtils.cp(File.join(DOCUMENTATION_SOURCE_PATH, "getting-started", "about.html.erb"), File.join(DOCUMENTATION_SOURCE_PATH, "_introduction.html.erb"))
+    # iterate over the documentation folder in a desire specif order
+    DOCS_FOLDERS.each do |folder|
 
         L2.br
-        L2.info('Documentation build process completed!')
+
+        # get all the documentation files
+        files = Dir.glob(File.join("docs", folder, "*.md")).sort
+
+        # process every documentation file found
+        files.each do |file|
+
+            # extract information from file
+            path = file.sub("docs/", "").sub(".md", "").gsub("/","-")
+            path = file.sub("docs/", "").sub(".md", "")
+            file_name = File.basename(file, ".md")
+            file_label = file_name.tr("0-9", "").tr("-", " ")
+
+            # create a collection of documentation
+            sections[folder] = [] if !sections.has_key?(folder)
+
+            # render documentation from markdown to html
+            markdown_rendered = markdown.render(File.read(file))
+
+            # add some nice styles & format to the final html documentation
+            markdown_rendered = documentation_template(markdown_rendered, file)
+
+            # create the directory if does not exist
+            dirname = File.join(DOCUMENTATION_SOURCE_PATH, File.dirname(path + '.html.erb'))
+            FileUtils.mkdir_p(dirname) unless File.directory?(dirname)
+
+            # write processed documentation file
+            File.write(File.join(DOCUMENTATION_SOURCE_PATH, path + '.html.erb'), markdown_rendered, mode: 'w+')
+
+            # push the file to the vue apps container
+            sections[folder].push({ path: path, file: file_name, label: file_label })
+
+            L2.m "  Generate documentation for: #{File.join(DOCUMENTATION_SOURCE_PATH, path)}"
+        end
     end
+
+    sections.each do |section, files|
+        File.open(NAVIGATION_PATH, 'a') do |f|
+            f.puts("<ul>")
+            f.puts("<li>#{section.gsub("-", " ")}</li>")
+            files.each do |file|
+                f.puts("<li><a href=\"/documentation/#{file[:path]}\">#{file[:label]}</a></li>")
+            end
+            f.puts("</ul>")
+        end
+    end
+
+    # Duplicate the first file (introduction) so I can show this file as main documentation index file
+    FileUtils.cp(File.join(DOCUMENTATION_SOURCE_PATH, "getting-started", "about.html.erb"), File.join(DOCUMENTATION_SOURCE_PATH, "_introduction.html.erb"))
+
+    L2.br
+    L2.info('Documentation build process completed!')
+
 end
 
 
@@ -205,44 +216,35 @@ def documentation_template content, file
     dateo = DateTime.iso8601(datei)
     dates = dateo.strftime("%Y/%m/%d")
 
-    %(
-        <section>
-            <div class="columns mt-0">
-                <div class="navigation column is-3">
-                    <figure>
-                        <%= inline_svg("brand/lesli-name.svg") %>
-                    </figure>
-                    <%= partial("documentation/navigation") %>
-                </div>
-                <div class="documentation column">
-                    <%= partial("partials/navigation") %>
-                    <div class="lesli-documentation section pb-0">
-                        <div class="container">
-                            #{ content }
-                        </div>
-                        <div class="lesli-documentation-footer">
-                            <div class="level">
-                                <div class="level-left">
-                                    <p><a href="https://github.com/LesliTech/lesli.dev/blob/master/#{file}" target="_blank">
-                                        <span class="icon-text">
-                                            <span class="icon">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M10 6v2H5v11h11v-5h2v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6zm11-3v9l-3.794-3.793-5.999 6-1.414-1.414 5.999-6L12 3h9z"/></svg>
-                                            </span>
-                                            <span>
-                                                Edit this page on GitHub
-                                            </span>
-                                        </span>
-                                    </a></p>
-                                </div>
-                                <div class="level-right">
-                                    <p><b>Last Update: </b>#{ dates }</p>
-                                </div>
-                            </div>
+    %(<section class="columns mt-0">
+        <div class="documentation-navigation column is-3">
+            <figure>
+                <%= inline_svg("brand/lesli-name.svg") %>
+            </figure>
+            <%= partial("documentation/navigation") %>
+        </div>
+        <div class="documentation-container column">
+            <%= partial("partials/navigation") %>
+            <div class="documentation-content">
+                #{ content }
+            </div>
+            <div class="documentation-footer">
+                <div class="level">
+                    <div class="level-left">
+                        <div class="level-left">
+                            <a href="/" class="">
+                                <%= image_tag("brand/lesli-name.svg", alt: "Lesli logo", width: "68") %>
+                            </a>
                         </div>
                     </div>
-                    <%= partial("partials/footer") %>
+                    <div class="level-right">
+                        <a class="mx-5" href="https://github.com/LesliTech/lesli.dev/blob/master/#{file}" target="_blank">
+                            Edit this page on GitHub
+                        </a>
+                    </div>
                 </div>
             </div>
-        </section>
-    )
+            <%= partial("partials/footer") %>
+        </div>
+    </section>)
 end

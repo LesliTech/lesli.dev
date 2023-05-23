@@ -14,12 +14,12 @@ Change `project_name` with the name of your project.
 
 
 ### Ruby on Rails
-Lesli is a standard Ruby on Rails application, to install and run Lesli first we have to install gems, configure a database connection, create, migrate and seed the database and finally run Rails Server.
+Lesli is a standard Ruby on Rails application, to install and run Lesli first we have to install gems, configure a database connection, create, migrate and seed the database and finally run the Rails Server.
 
 
 
 #### Bundle 
-To install the necessary Gems to run Lesli, execute:
+To install the necessary Gems to run Lesli:
 
 ```shell
 bundle install
@@ -34,7 +34,7 @@ Edit the standard RoR credentials to add information about the database:
 EDITOR="nano" rails credentials:edit --environment development
 ```
 
-This is an example of how the credential should look like:
+This is an example of what the credentials should look like:
 
 ```yaml
 db:
@@ -49,12 +49,12 @@ Lesli include a Rake task to start our database:
 rake dev:db:reset
 ```
 
-This task is going to create, migrate, seed and initialize our database.
+This task is going to: create, migrate, seed and initialize our database.
 
 
 
 #### Run Lesli
-Finally we can start our awesome application :) 
+We can finally run our awesome application :) 
 
 ```shell
 rails server
@@ -64,7 +64,7 @@ rails server
 ### Logging into your new Lesli application
 The seeders comes with default users with different roles and privileges, to see Lesli in action use the owner user:
 
-* -username: hello@lesli.tech
-* -password: tardis2023$
+* - username: hello@lesli.tech
+* - password: tardis2023$
 
-> We can add development users, roles, privileges and more; we will explore this options later in the documentation.
+> It is possible to add development users, roles, privileges and more; we will explore this options later in the documentation.

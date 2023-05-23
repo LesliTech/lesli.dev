@@ -47,17 +47,20 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         <div class="navbar-menu" id="lesli-navigation">
             <div class="navbar-start">
-                <div class="navbar-start">
-                    <% if lesli_current_page(current_page) != "index" %>
-                        <%= link_to("Home", "/", :class => "navbar-item") %>
-                    <% end %>
-                </div>
+                <% if lesli_current_page(current_page) != "index" %>
+                    <%= link_to("Home", "/", :class => "navbar-item") %>
+                <% end %>
             </div>
             <div class="navbar-end">
                 <%#= link_to("GitHub", "https://github.com/LesliTech/DatenBanken", :class => "navbar-item", :target => "_blank") %>
                 <%#= link_to("Documentation", "/documentation/10-introduction/", :class => "navbar-item") %>
                 <div class="navbar-item">
-                    <%= link_to("Github", "/login", :class => "button is-dark is-outlined") %>
+                    <% link_to("https://github.com/LesliTech/", :class=>"button is-dark is-outlined", :target=>"blank") do %>
+                        <span class="icon">
+                            <i class="ri-github-line"></i>
+                        </span>
+                        <span>Github</span>
+                    <% end %>
                 </div>
             </div>
         </div>
