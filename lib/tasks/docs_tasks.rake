@@ -1,4 +1,35 @@
-require "json"
+=begin
+  
+Lesli
+
+Copyright (c) 2023, Lesli Technologies, S. A.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see http://www.gnu.org/licenses/.
+
+Lesli · Ruby on Rails Development Platform.
+
+Made with ♥ by https://www.lesli.tech
+Building a better future, one line of code at a time.
+
+@contact  hello@lesli.tech
+@website  https://www.lesli.tech
+@license  GPLv3 http://www.gnu.org/licenses/gpl-3.0.en.html
+
+// · ~·~     ~·~     ~·~     ~·~     ~·~     ~·~     ~·~     ~·~     ~·~
+// ·   
+=end
+
 
 require "L2"
 require "time"
@@ -7,6 +38,8 @@ require "rouge"
 require "nokogiri"
 require "fileutils"
 require "redcarpet"
+require "listen"
+
 
 # This override is necessary to override some parts of the library to be able to include examples
 # of html code that renders normally, thats why I override the block_code method
@@ -67,9 +100,10 @@ class CustomHTMLRender < Redcarpet::Render::HTML
 
 end
 
-
-documentation_path = File.join("source", "documentation")
-navigation_path = File.join("source", "documentation", "_navigation.html.erb")
+DOCS_FOLDERS = ["about", "getting-started"]
+NAVIGATION_PATH = File.join("source", "documentation", "_navigation.html.erb")
+DOCUMENTATION_SOURCE_PATH = File.join("source", "documentation")
+DOCUMENTATION_DESTINATION_PATH = File.join("source", "documentation")
 
 markdown = Redcarpet::Markdown.new(
     CustomHTMLRender.new,
@@ -77,20 +111,37 @@ markdown = Redcarpet::Markdown.new(
     tables: true
 )
 
-FileUtils.rm_rf(documentation_path)
-FileUtils.mkdir_p(documentation_path)
+FileUtils.rm_rf(DOCUMENTATION_SOURCE_PATH)
+FileUtils.mkdir_p(DOCUMENTATION_SOURCE_PATH)
 
 namespace :docs do
+
+    desc ""
+    task :dev do 
+        listener = Listen.to(*[
+            "docs/about",
+            "docs/getting-started"
+        ]) do |modified, added, removed|
+            system("rake docs:build")
+        end
+        listener.start
+        system("rake docs:build")
+        sleep
+    end
+
     desc "build"
     task :build do
 
         sections = Hash.new
 
-        ["about", "team", "design"].each do |folder|
+        # iterate over the documentation folder in a desire specif order
+        DOCS_FOLDERS.each do |folder|
 
+            # get all the documentation files
             files = Dir.glob(File.join("docs", folder, "*.md")).sort
 
-            files.each_with_index do |file, index|
+            # process every documentation file found
+            files.each do |file|
 
                 # extract information from file
                 path = file.sub("docs/", "").sub(".md", "").gsub("/","-")
@@ -98,6 +149,7 @@ namespace :docs do
                 file_name = File.basename(file, ".md")
                 file_label = file_name.tr("0-9", "").tr("-", " ")
 
+                # create a collection of documentation
                 sections[folder] = [] if !sections.has_key?(folder)
 
                 # render documentation from markdown to html
@@ -106,35 +158,33 @@ namespace :docs do
                 # add some nice styles & format to the final html documentation
                 markdown_rendered = documentation_template(markdown_rendered, file)
 
-                # Duplicate the first file (introduction) so I can show this file as main documentation index file
-                if index == 0
-                    File.write(File.join(documentation_path, '_introduction.html.erb'), markdown_rendered, mode: 'w+')
-                end
-
                 # create the directory if does not exist
-                dirname = File.join(documentation_path, File.dirname(path + '.html.erb'))
+                dirname = File.join(DOCUMENTATION_SOURCE_PATH, File.dirname(path + '.html.erb'))
                 FileUtils.mkdir_p(dirname) unless File.directory?(dirname)
 
                 # write processed documentation file
-                File.write(File.join(documentation_path, path + '.html.erb'), markdown_rendered, mode: 'w+')
+                File.write(File.join(DOCUMENTATION_SOURCE_PATH, path + '.html.erb'), markdown_rendered, mode: 'w+')
 
                 # push the file to the vue apps container
                 sections[folder].push({ path: path, file: file_name, label: file_label })
 
-                L2.m "  Generate documentation for: #{File.join(documentation_path, path)}"
+                L2.m "  Generate documentation for: #{File.join(DOCUMENTATION_SOURCE_PATH, path)}"
             end
         end
 
         sections.each do |section, files|
-            File.open(navigation_path, 'a') do |f|
+            File.open(NAVIGATION_PATH, 'a') do |f|
                 f.puts("<ul>")
-                f.puts("<li><a href=\"#\">#{section}</a></li>")
+                f.puts("<li>#{section.gsub("-", " ")}</li>")
                 files.each do |file|
                     f.puts("<li><a href=\"/documentation/#{file[:path]}\">#{file[:label]}</a></li>")
                 end
                 f.puts("</ul>")
             end
         end
+
+        # Duplicate the first file (introduction) so I can show this file as main documentation index file
+        FileUtils.cp(File.join(DOCUMENTATION_SOURCE_PATH, "getting-started", "about.html.erb"), File.join(DOCUMENTATION_SOURCE_PATH, "_introduction.html.erb"))
 
         L2.br
         L2.info('Documentation build process completed!')

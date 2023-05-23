@@ -144,6 +144,7 @@ PLATFORMS
 DEPENDENCIES
   L2
   builder (~> 3.0)
+  listen
   middleman (= 4.5.0)
   middleman-autoprefixer (= 3.0.0)
   middleman-deploy (= 2.0.0.pre.alpha)

@@ -1,0 +1,91 @@
+
+        <section>
+            <div class="columns mt-0">
+                <div class="navigation column is-3">
+                    <figure>
+                        <%= inline_svg("brand/lesli-name.svg") %>
+                    </figure>
+                    <%= partial("documentation/navigation") %>
+                </div>
+                <div class="documentation column">
+                    <%= partial("partials/navigation") %>
+                    <div class="lesli-documentation section pb-0">
+                        <div class="container">
+                            <h1>Install Lesli</h1>
+
+<h3>Clone the repo</h3>
+
+<p>Clone the repo from Github (available really soon):</p>
+<pre class="shell"><code>git clone git@github.com:LesliTech/Lesli.git project_name 
+</code></pre>
+<p>Change <code>project_name</code> with the name of your project.</p>
+
+<h3>Ruby on Rails</h3>
+
+<p>Lesli is a standard Ruby on Rails application, to install and run Lesli first we have to install gems, configure a database connection, create, migrate and seed the database and finally run Rails Server.</p>
+
+<h4>Bundle</h4>
+
+<p>To install the necessary Gems to run Lesli, execute:</p>
+<pre class="shell"><code>bundle <span style="color: #953800">install</span>
+</code></pre>
+<h4>Database</h4>
+
+<p>Edit the standard RoR credentials to add information about the database:</p>
+<pre class="shell"><code><span style="color: #0550ae">EDITOR</span><span style="color: #0550ae">=</span><span style="color: #0a3069">"nano"</span> rails credentials:edit <span style="color: #116329">--environment</span> development
+</code></pre>
+<p>This is an example of how the credential should look like:</p>
+<pre class="yaml"><code><span style="color: #116329">db</span><span style="color: #24292f;background-color: #f6f8fa">:</span>
+    <span style="color: #116329">database</span><span style="color: #24292f;background-color: #f6f8fa">:</span> <span style="color: #0a3069">"</span><span style="color: #0a3069">database-name"</span>
+    <span style="color: #116329">username</span><span style="color: #24292f;background-color: #f6f8fa">:</span> <span style="color: #0a3069">"</span><span style="color: #0a3069">database-username"</span>
+    <span style="color: #116329">password</span><span style="color: #24292f;background-color: #f6f8fa">:</span> <span style="color: #0a3069">"</span><span style="color: #0a3069">database-password"</span>
+</code></pre>
+<p>Lesli include a Rake task to start our database:</p>
+<pre class="shell"><code>rake dev:db:reset
+</code></pre>
+<p>This task is going to create, migrate, seed and initialize our database.</p>
+
+<h4>Run Lesli</h4>
+
+<p>Finally we can start our awesome application :) </p>
+<pre class="shell"><code>rails server
+</code></pre>
+<h3>Logging into your new Lesli application</h3>
+
+<p>The seeders comes with default users with different roles and privileges, to see Lesli in action use the owner user:</p>
+
+<ul>
+<li>-username: hello@lesli.tech</li>
+<li>-password: tardis2023$</li>
+</ul>
+
+<blockquote>
+<p>We can add development users, roles, privileges and more; we will explore this options later in the documentation.</p>
+</blockquote>
+
+                        </div>
+                        <div class="lesli-documentation-footer">
+                            <div class="level">
+                                <div class="level-left">
+                                    <p><a href="https://github.com/LesliTech/lesli.dev/blob/master/docs/getting-started/installation.md" target="_blank">
+                                        <span class="icon-text">
+                                            <span class="icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M10 6v2H5v11h11v-5h2v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6zm11-3v9l-3.794-3.793-5.999 6-1.414-1.414 5.999-6L12 3h9z"/></svg>
+                                            </span>
+                                            <span>
+                                                Edit this page on GitHub
+                                            </span>
+                                        </span>
+                                    </a></p>
+                                </div>
+                                <div class="level-right">
+                                    <p><b>Last Update: </b>2023/05/22</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <%= partial("partials/footer") %>
+                </div>
+            </div>
+        </section>
+    
