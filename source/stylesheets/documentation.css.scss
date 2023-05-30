@@ -41,6 +41,7 @@ Building a better future, one line of code at a time.
     padding: 2rem 3rem;
     text-align: right;
     background-color: $primary;
+    border-right: 3px solid darken($primary, 10);
 
     // logo
     svg {
@@ -68,11 +69,13 @@ Building a better future, one line of code at a time.
                 color: lesli-css-color(silver, 100);
                 text-transform: uppercase;
                 font-weight: 500;
+                font-weight: 600;
             }
 
             // link to documentation files
             a {
                 color: lesli-css-color(silver, 100);
+                font-weight: 400;
             }
         }
     }

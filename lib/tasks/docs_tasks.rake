@@ -216,7 +216,7 @@ def documentation_template content, file
     dateo = DateTime.iso8601(datei)
     dates = dateo.strftime("%Y/%m/%d")
 
-    %(<section class="columns mt-0">
+    %(<section class="columns mt-0 mb-0">
         <div class="documentation-navigation column is-3">
             <figure>
                 <%= inline_svg("brand/lesli-name.svg") %>
