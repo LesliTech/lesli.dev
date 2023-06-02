@@ -31,4 +31,4 @@ Building a better future, one line of code at a time.
 %>
 
 <%= stylesheet_link_tag(lesli_current_page(current_page)) %>
-<%#= javascript_include_tag(lesli_current_page(current_page)) %>
+<%= javascript_include_tag(lesli_current_page(current_page)) if lesli_current_page(current_page) == "documentation" %>

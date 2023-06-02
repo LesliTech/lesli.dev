@@ -140,6 +140,13 @@ Building a better future, one line of code at a time.
         pre {
             margin-top: .6rem;
             margin-bottom: .6rem;
+            position: relative;
+
+            button {
+                position: absolute;
+                top: 5px;
+                right: 5px;
+            }
         }
 
         // list container (including nested lists)
@@ -151,10 +158,14 @@ Building a better future, one line of code at a time.
 
         // styles for texts
         p, li {
-            line-height: 1.6;
+            line-height: 1.4;
             font-weight: 400;
             font-size: 1.15rem;
             color: lesli-css-color(black);
+        }
+
+        p + p {
+            margin-top: 1rem;
         }
 
         blockquote {

@@ -1,0 +1,174 @@
+<section class="columns mt-0 mb-0">
+        <div class="documentation-navigation column is-3">
+            <figure>
+                <%= inline_svg("brand/lesli-name.svg") %>
+            </figure>
+            <%= partial("documentation/navigation") %>
+        </div>
+        <div class="documentation-container column">
+            <%= partial("partials/navigation") %>
+            <div class="documentation-content">
+                <h1>Development environment</h1>
+
+<h3>Editor</h3>
+
+<p>We recommend using <a href="https://code.visualstudio.com/">Visual Studio Code</a>. It is a free and open source editor that is available for all platforms. You can add some extensions to it to make it more useful for you.</p>
+
+<h3>Ruby</h3>
+
+<p>Lesli uses <a href="https://www.ruby-lang.org/">Ruby</a> as its primary programming language. The backend is written in Ruby with <a href="https://rubyonrails.org/">Rails</a> as its framework. <strong>Lesli use the ruby version 3.1.2.</strong> For more information about how to use ruby with the Lesli standars you can go to this <a href="https://github.com/leitfaden/cloud_development/tree/master/documentation/rails">link</a>.</p>
+
+<h4>Installation</h4>
+
+<p>Ruby is available for all platforms. If you need more details for the installation you can following the instructions <a href="https://www.ruby-lang.org/en/documentation/quickstart/">here</a>.  </p>
+
+<p>For install Ruby, you have a couple of options. You can install <a href="https://www.ruby-lang.org/en/">Ruby from the official website</a>. If you choose to install it from there, you will have only one version of ruby and this can be a problem if you want to use multiple versions of ruby in different projects.  </p>
+
+<h4>Version Managers (recommended)</h4>
+
+<p>If you choose to install it with a version manager, you will have multiple versions of ruby and this is a good option if you want to use multiple versions of ruby in different projects.<br>
+In the Ruby community, there are two popular managers responsible for installing and maintaining multiple Ruby versions <a href="https://rvm.io/">rvm</a> (recommended) and <a href="https://rbenv.io/">rbenv</a>.  </p>
+
+<p><strong>RVM pros over Rbenv:</strong></p>
+
+<ul>
+<li>RVM is easier to install than Rbenv.</li>
+<li>RVM has more features than Rbenv.</li>
+<li>RVM includes a built-in Ruby installation mechanism while Rbenv does not.</li>
+</ul>
+
+<p><strong>Rbenv pros over RVM</strong>:</p>
+
+<ul>
+<li>Rbenv is lightweight, RVM is heavier.</li>
+<li>Rbenv is more developer-friendly than RVM.</li>
+<li>Rbenv has a dedicated plugin for Ruby installation mechanism, RVM has it built-in.</li>
+</ul>
+
+<p>For more information about this you can go to this <a href="https://hixonrails.com/ruby-on-rails-tutorials/ruby-environment-management/">link</a>.</p>
+
+<p>After you install ruby you need to install rails and bundler. You can use the following commands in your terminal:</p>
+
+<p>Install rails and bundler</p>
+<pre class="shell"><code>gem <span style="color: #953800">install </span>rails bundler
+</code></pre>
+<h3>Node.js</h3>
+
+<p>Node.js is a JavaScript runtime built on Chrome&#39;s V8 JavaScript engine. It is used for running JavaScript in the server side. Lesli uses node for run webpack, vue and other javascript libraries for the frontend. <strong>To work with Lesli you can use the LTS version of Node.</strong></p>
+
+<p><strong>Installation:</strong><br>
+Node.js is available for all platforms. If you need more details for the installation of specific version you can following the instructions <a href="https://nodejs.org/en/">here</a>.</p>
+
+<p><strong>Version Manager (recommended):</strong><br>
+Node Version Manager (nvm) is a tool that allows the user to switch between different versions of Node. js, helping reduce overhead when reproducing production bugs in development environments. <a href="https://github.com/nvm-sh/nvm">The default installation</a> is only supported on macOS and Linux environments. For windows users, you can follow the instructions <a href="https://content.breatheco.de/es/how-to/nvm-install-windows">here</a>.<br>
+For more information about nvm, you can go to this <a href="https://github.com/nvm-sh/nvm">link</a>.</p>
+
+<p>Then you need to install yarn. You can use the following command in your </p>
+
+<p>terminal:</p>
+<pre class="shell"><code>npm <span style="color: #953800">install</span> <span style="color: #116329">-g</span> yarn
+</code></pre>
+<h3>Postgresql</h3>
+
+<p>Lesli uses <a href="https://www.postgresql.org/">Postgresql</a> as its database engine. It is a free and open source database that is available for all platforms. You can install postgresql on your computer and then you can use it to create a database for Lesli. The following links provide more information about the installation of postgresql.<br>
+    - <a href="https://www.postgresqltutorial.com/postgresql-getting-started/install-postgresql/">Install PostgreSQL on Windows</a><br>
+    - <a href="https://www.postgresqltutorial.com/postgresql-getting-started/install-postgresql-macos/">Install PostgreSQL on macOS</a><br>
+    - <a href="https://www.postgresqltutorial.com/postgresql-getting-started/install-postgresql-linux/">Install PostgreSQL on Linux</a></p>
+
+<p><strong>Problems with PostgreSQL locally setup:</strong><br>
+If you have some problems with postgresql locally setup, you can install postgresql on your computer with docker.</p>
+
+<p>First you need to install docker. You can follow the instructions <a href="https://www.docker.com/community-edition/">here</a> and docker compose with this instructions <a href="https://docs.docker.com/compose/install/">here</a>.</p>
+
+<p>Then you can install postgresql with an image from docker. You can find all the images that you will need in <a href="https://hub.docker.com/r/postgres/">docker hub</a>. And if you need a software to view and manage the database you can use pgadmin4, datagrip or dbaver. </p>
+
+<p>In this example we will use pgadmin4.<br>
+You have to create a docker-compose.yml file on the root of Lesli and add </p>
+
+<p>the following lines:</p>
+<pre class="yaml"><code><span style="color: #116329">version</span><span style="color: #24292f;background-color: #f6f8fa">:</span> <span style="color: #0a3069">"</span><span style="color: #0a3069">3.8"</span>
+<span style="color: #116329">services</span><span style="color: #24292f;background-color: #f6f8fa">:</span>
+    <span style="color: #116329">pgadmin4</span><span style="color: #24292f;background-color: #f6f8fa">:</span>
+        <span style="color: #116329">image</span><span style="color: #24292f;background-color: #f6f8fa">:</span> <span style="color: #0a3069">dpage/pgadmin4</span>
+        <span style="color: #116329">environment</span><span style="color: #24292f;background-color: #f6f8fa">:</span>
+        <span style="color: #24292f;background-color: #f6f8fa">-</span> <span style="color: #0a3069">PGADMIN_DEFAULT_EMAIL=root@admin.com</span>
+        <span style="color: #24292f;background-color: #f6f8fa">-</span> <span style="color: #0a3069">PGADMIN_DEFAULT_PASSWORD=root</span>
+        <span style="color: #116329">ports</span><span style="color: #24292f;background-color: #f6f8fa">:</span>
+            <span style="color: #24292f;background-color: #f6f8fa">-</span> <span style="color: #0a3069">"</span><span style="color: #0a3069">5050:80"</span>
+    <span style="color: #116329">postgres</span><span style="color: #24292f;background-color: #f6f8fa">:</span>
+        <span style="color: #116329">image</span><span style="color: #24292f;background-color: #f6f8fa">:</span> <span style="color: #0a3069">postgres:13</span>
+        <span style="color: #116329">ports</span><span style="color: #24292f;background-color: #f6f8fa">:</span>
+            <span style="color: #24292f;background-color: #f6f8fa">-</span> <span style="color: #0a3069">"</span><span style="color: #0a3069">5432:5432"</span>
+        <span style="color: #116329">volumes</span><span style="color: #24292f;background-color: #f6f8fa">:</span>
+            <span style="color: #24292f;background-color: #f6f8fa">-</span> <span style="color: #0a3069">./postgres_data:/var/lib/postgresql/data</span>
+        <span style="color: #116329">environment</span><span style="color: #24292f;background-color: #f6f8fa">:</span>
+            <span style="color: #116329">POSTGRES_USER</span><span style="color: #24292f;background-color: #f6f8fa">:</span> <span style="color: #0a3069">"</span><span style="color: #0a3069">admin"</span>
+            <span style="color: #116329">POSTGRES_PASSWORD</span><span style="color: #24292f;background-color: #f6f8fa">:</span> <span style="color: #0a3069">"</span><span style="color: #0a3069">my_password"</span>
+            <span style="color: #116329">POSTGRES_DB</span><span style="color: #24292f;background-color: #f6f8fa">:</span> <span style="color: #0a3069">"</span><span style="color: #0a3069">lesli_development"</span>
+</code></pre>
+<p>You can use the credentials you have created to login to pgadmin4 and database. Then you can manage your containers with the following commands (maybe you need to run this commands with sudo, but it depends on your system):</p>
+
+<p>Start the containers (this start your database)<br>
+<strong>sudo docker-compose up -d</strong></p>
+
+<p>Stop the containers (this stop your database)<br>
+<strong>sudo docker-compose down</strong></p>
+
+<p>If you want to view the logs of the containers<br>
+<strong>sudo docker-compose logs postgres</strong></p>
+
+<p>You can pass the -f flag to follow the logs of the containers<br>
+<strong>sudo docker-compose logs -f postgres</strong></p>
+
+<p>If you want to view the containers that are running<br>
+<strong>sudo docker-compose ps</strong><br>
+<br/></p>
+
+<p>For more information about docker compose file, you can go to this <a href="https://docs.docker.com/compose/overview/">link</a>.</p>
+
+<h3>Credentials for rails</h3>
+
+<p>For create credentials for rails you can use the <a href="https://github.com/leitfaden/cloud_development/blob/master/documentation/rails/110-credentials.md">following instructions</a>.</p>
+
+<p>If you create a database with docker-compose you need to set the same credentials in the credentials file for rails.</p>
+
+<h3>Git</h3>
+
+<p>Git is a version control system that is used to track changes in files. It is used to manage the codebase of Lesli.</p>
+
+<p>Lesli have some standards to follow when using git. You can find more information about git in <a href="https://github.com/leitfaden/cloud_development/tree/master/documentation/git">this link</a>.</p>
+
+<h3>Github</h3>
+
+<p>Github is a web-based Git repository hosting service that is used to store the codebase of Lesli. For download the codebase you need to clone the repository with ssh or with https. If you want to use ssh you need to <br>
+create a ssh keys.</p>
+
+<p>For configure bundle and download the gems from github packages you need to create a personal token with read-only access. You can find more information about it, in this <a href="https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line">link</a>.</p>
+
+<p>Then you can set the personal token with the next command:</p>
+<pre class="shell"><code>bundle config https://rubygems.pkg.github.com/YOUR_COMPANY_PROFILE YOUR_TOKEN
+</code></pre>
+<h3>Install engines</h3>
+
+<p>Install engines you need to clone the repository that you want inside the engines folder. The only engine needed to run Lesli at the first time is LesliCloud.</p>
+
+            </div>
+            <div class="documentation-footer">
+                <div class="level">
+                    <div class="level-left">
+                        <div class="level-left">
+                            <a href="/" class="">
+                                <%= image_tag("brand/lesli-name.svg", alt: "Lesli logo", width: "68") %>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="level-right">
+                        <a class="mx-5" href="https://github.com/LesliTech/lesli.dev/blob/master/docs/getting-started/environment.md" target="_blank">
+                            Edit this page on GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <%= partial("partials/footer") %>
+        </div>
+    </section>
