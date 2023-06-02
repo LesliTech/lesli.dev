@@ -17,7 +17,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see http://www.gnu.org/licenses/.
 
-Lesli · Ruby on Rails Development Platform.
+Lesli · Ruby on Rails SaaS development platform.
 
 Made with ♥ by https://www.lesli.tech
 Building a better future, one line of code at a time.
@@ -27,7 +27,7 @@ Building a better future, one line of code at a time.
 @license  GPLv3 http://www.gnu.org/licenses/gpl-3.0.en.html
 
 // · ~·~     ~·~     ~·~     ~·~     ~·~     ~·~     ~·~     ~·~     ~·~
-// ·   
+// · 
 =end
 
 
@@ -46,8 +46,8 @@ namespace :docs do
     desc ""
     task :dev do 
         listener = Listen.to(*[
-            "docs/about",
-            "docs/getting-started"
+            "docs/getting-started",
+            "docs/git"
         ]) do |modified, added, removed|
             documentation
         end
@@ -125,7 +125,7 @@ end
 
 
 
-DOCS_FOLDERS = ["about", "getting-started"]
+DOCS_FOLDERS = ["getting-started", "git"]
 NAVIGATION_PATH = File.join("source", "documentation", "_navigation.html.erb")
 DOCUMENTATION_SOURCE_PATH = File.join("source", "documentation")
 DOCUMENTATION_DESTINATION_PATH = File.join("source", "documentation")
