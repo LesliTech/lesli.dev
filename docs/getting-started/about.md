@@ -10,4 +10,4 @@ Lesli provides a set of powerful features and can be extended through modules an
 ## Why Lesli? 
 Lesli is completely open source and comes with features and tools that can save you years of development effort, additionally, our pre-built modules can seamlessly extend Lesli's functionality, allowing you to build your own SaaS in a matter of minutes.
 
-Leslie is published under the General Public License version 3, which means you are free to copy, redistribute it and/or modify it (under the terms of the GNU General Public License).
+Leslie is published under the General Public License version 3, which means you are free to use, copy, redistribute it and/or modify it (under the terms of the GNU General Public License).

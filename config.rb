@@ -82,9 +82,9 @@ end
 configure :build do
     activate :gzip
     activate :asset_hash
-    #activate :minify_css
-    #activate :minify_html
-    activate :minify_javascript, :inline => true, compressor: proc { ::Uglifier.new(harmony: true)}
+    activate :minify_css
+    activate :minify_html
+    #activate :minify_javascript, :inline => true, compressor: proc { ::Uglifier.new(harmony: true)}
 end
 
 
