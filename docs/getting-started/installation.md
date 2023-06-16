@@ -14,7 +14,7 @@ Change `project_name` with the name of your project.
 
 
 ### Ruby on Rails
-Lesli is a standard Ruby on Rails application, to install and run Lesli first we have to install gems, configure a database connection, create, migrate and seed the database and finally run the Rails Server.
+Lesli is a standard Ruby on Rails application, to install and run Lesli first we have to install gems, configure database credentials, create, migrate and seed the database and finally run the Rails Server.
 
 
 
@@ -46,10 +46,10 @@ db:
 Lesli include a Rake task to start our database:
 
 ```shell
-rake dev:db:reset
+rake dev:db:setup
 ```
 
-This task is going to: create, migrate, seed and initialize our database.
+This task is going to create, migrate, seed and initialize our database.
 
 
 

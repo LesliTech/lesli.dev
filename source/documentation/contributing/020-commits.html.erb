@@ -1,0 +1,81 @@
+<section class="columns mt-0 mb-0">
+        <div class="documentation-navigation column is-3">
+            <figure>
+                <%= inline_svg("brand/lesli-name.svg") %>
+            </figure>
+            <%= partial("documentation/navigation") %>
+        </div>
+        <div class="documentation-container column">
+            <%= partial("partials/navigation") %>
+            <div class="documentation-content">
+                <h1>Commits</h1>
+
+<p>The commit is used to confirm a set of changes and make them permanent in the repository, before committing the following points must be fulfilled: </p>
+
+<ol>
+<li>Download the latest changes from github </li>
+<li>Solve integration errors (merge between commits) if needed</li>
+<li>Run tests </li>
+</ol>
+
+<p>Each commit has a specific structure in which information regarding work item, project, etc. is included. In addition to including a clear and precise description but also brief of the change that is being confirmed.</p>
+
+<p>Every commit must meet the <em>Conventional Commits</em> standard</p>
+
+<h2>Conventional Commits</h2>
+
+<p>The <a href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional Commits</a> specification is a lightweight convention on top of commit messages. It provides an easy set of rules for creating an explicit commit history; which makes it easier to write automated tools on top of. This convention dovetails with SemVer, by describing the features, fixes, and breaking changes made in commit messages.</p>
+
+<p>The commit message should be structured as follows:</p>
+<pre><code>[type][optional scope]: [description]
+
+[optional body]
+
+[optional footer(s)]
+
+git commit -m &quot;type: trello&#x2F;000 Brief description of changes included in this commits&quot;
+</code></pre>
+<p>An example of such a message: </p>
+<pre><code>fix: ABC-123: Caught Promise exception
+
+We did not catch the promise exception thrown by the API call
+and therefore we could not show the error message to the user
+</code></pre>
+<p>The commit type [type] can take one of these value:</p>
+
+<ul>
+<li><strong>fix</strong>: A bug fix</li>
+<li><strong>feat</strong>: A new feature</li>
+<li><strong>docs</strong>: Documentation only changes</li>
+<li><strong>perf</strong>: A code change that improves performance</li>
+<li><strong>test</strong>: Adding missing tests or correcting existing tests</li>
+<li><strong>build</strong>: Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)</li>
+<li><strong>style</strong>: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)</li>
+<li><strong>ci</strong>: Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)</li>
+<li><strong>refactor</strong>: A code change that neither fixes a bug nor adds a feature</li>
+<li><strong>upgrade</strong>: Changes a dependency version number (npm, gem, modules, etc)</li>
+<li><strong>assets</strong>: Changes due a asset compilation process</li>
+<li><strong>release</strong>: New version release process</li>
+<li><strong>BREAKING CHANGE:</strong> a breaking API change</li>
+</ul>
+
+            </div>
+            <div class="documentation-footer">
+                <div class="level">
+                    <div class="level-left">
+                        <div class="level-left">
+                            <a href="/" class="">
+                                <%= image_tag("brand/lesli-name.svg", alt: "Lesli logo", width: "68") %>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="level-right">
+                        <a class="mx-5" href="https://github.com/LesliTech/lesli.dev/blob/master/docs/contributing/020-commits.md" target="_blank">
+                            Edit this page on GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <%= partial("partials/footer") %>
+        </div>
+    </section>

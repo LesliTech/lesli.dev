@@ -19,7 +19,7 @@
 
 <h3>Ruby on Rails</h3>
 
-<p>Lesli is a standard Ruby on Rails application, to install and run Lesli first we have to install gems, configure a database connection, create, migrate and seed the database and finally run the Rails Server.</p>
+<p>Lesli is a standard Ruby on Rails application, to install and run Lesli first we have to install gems, configure database credentials, create, migrate and seed the database and finally run the Rails Server.</p>
 
 <h4>Bundle</h4>
 
@@ -38,9 +38,9 @@
     <span style="color: #116329">password</span><span style="color: #24292f;background-color: #f6f8fa">:</span> <span style="color: #0a3069">"</span><span style="color: #0a3069">database-password"</span>
 </code></pre>
 <p>Lesli include a Rake task to start our database:</p>
-<pre class="shell"><code>rake dev:db:reset
+<pre class="shell"><code>rake dev:db:setup
 </code></pre>
-<p>This task is going to: create, migrate, seed and initialize our database.</p>
+<p>This task is going to create, migrate, seed and initialize our database.</p>
 
 <h4>Run Lesli</h4>
 

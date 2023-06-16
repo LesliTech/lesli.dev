@@ -47,7 +47,7 @@ namespace :docs do
     task :dev do 
         listener = Listen.to(*[
             "docs/getting-started",
-            "docs/git"
+            "docs/contributing"
         ]) do |modified, added, removed|
             documentation
         end
@@ -125,7 +125,7 @@ end
 
 
 
-DOCS_FOLDERS = ["getting-started", "git"]
+DOCS_FOLDERS = ["getting-started", "contributing"]
 NAVIGATION_PATH = File.join("source", "documentation", "_navigation.html.erb")
 DOCUMENTATION_SOURCE_PATH = File.join("source", "documentation")
 DOCUMENTATION_DESTINATION_PATH = File.join("source", "documentation")

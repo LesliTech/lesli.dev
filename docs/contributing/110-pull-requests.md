@@ -47,3 +47,40 @@ Here are some suggestions about we can review:
 ## What a pull requests must include
 - Complete set of tests for the controller, model or api that the pull requests is about.
 - Clear and brief list of changes. (Use the description of the PR)
+
+
+## Pull Request Structure
+Before merging any commit into master, it is necessary a review from at least one developer other than the one who did the commit. The only exception to this rule are the compiled assets for production, which can be merged immediately and even commited and pushed directly into master. 
+
+If there is at least one small change in the code, a pull request has to be made. 
+
+More than one requirement can be included into a single pull request. However, these card *must* be related in a meaningful way; if they are not, two or more pull requests must be created. In order to ensure that every pull request contains all the information available of the changes, bug fixes and new features, the next structure has to be followed:
+
+__Title:__
+
+```
+Title: "[add|remove|fix|improve|etc.]: Brief description of changes included in this pull request"
+```
+
+__Description:__ 
+
+```
+Changelog:
+
+- Added x feature to y view
+- Removed x button from z view
+- Fixed n controller action to accept several params
+- etc.
+```
+
+## Merge process 
+Once the requirement is completed developers must check a few steps before send a pull request:
+
+- Run linters and fix any warning or error.
+- Run code static analysis tools, fix any issue related to your code :)
+- Add documentation about changes or new code/files
+- Execute the complete test suite 
+
+When everything is ready developer can send a pull request using the Github web interface or the Git cli.
+Github automatically checks for conflicts between branches, if there are no conflicts user can create the pull request and assign team members to review and authorize to merge the branch with master.
+If github detects any merge conflict developer must work with a team member to fix conflics and complete the merge process.

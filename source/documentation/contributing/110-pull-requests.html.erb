@@ -62,6 +62,40 @@ If someone has written particularly elegant or maintainable code or has made a g
 <li>Clear and brief list of changes. (Use the description of the PR)</li>
 </ul>
 
+<h2>Pull Request Structure</h2>
+
+<p>Before merging any commit into master, it is necessary a review from at least one developer other than the one who did the commit. The only exception to this rule are the compiled assets for production, which can be merged immediately and even commited and pushed directly into master. </p>
+
+<p>If there is at least one small change in the code, a pull request has to be made. </p>
+
+<p>More than one requirement can be included into a single pull request. However, these card <em>must</em> be related in a meaningful way; if they are not, two or more pull requests must be created. In order to ensure that every pull request contains all the information available of the changes, bug fixes and new features, the next structure has to be followed:</p>
+
+<p><strong>Title:</strong></p>
+<pre><code>Title: &quot;[add|remove|fix|improve|etc.]: Brief description of changes included in this pull request&quot;
+</code></pre>
+<p><strong>Description:</strong> </p>
+<pre><code>Changelog:
+
+- Added x feature to y view
+- Removed x button from z view
+- Fixed n controller action to accept several params
+- etc.
+</code></pre>
+<h2>Merge process</h2>
+
+<p>Once the requirement is completed developers must check a few steps before send a pull request:</p>
+
+<ul>
+<li>Run linters and fix any warning or error.</li>
+<li>Run code static analysis tools, fix any issue related to your code :)</li>
+<li>Add documentation about changes or new code/files</li>
+<li>Execute the complete test suite </li>
+</ul>
+
+<p>When everything is ready developer can send a pull request using the Github web interface or the Git cli.<br>
+Github automatically checks for conflicts between branches, if there are no conflicts user can create the pull request and assign team members to review and authorize to merge the branch with master.<br>
+If github detects any merge conflict developer must work with a team member to fix conflics and complete the merge process.</p>
+
             </div>
             <div class="documentation-footer">
                 <div class="level">
@@ -73,7 +107,7 @@ If someone has written particularly elegant or maintainable code or has made a g
                         </div>
                     </div>
                     <div class="level-right">
-                        <a class="mx-5" href="https://github.com/LesliTech/lesli.dev/blob/master/docs/git/110-pull-requests.md" target="_blank">
+                        <a class="mx-5" href="https://github.com/LesliTech/lesli.dev/blob/master/docs/contributing/110-pull-requests.md" target="_blank">
                             Edit this page on GitHub
                         </a>
                     </div>

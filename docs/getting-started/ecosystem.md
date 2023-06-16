@@ -35,7 +35,7 @@ __02 Sales & Marketing:__
 
 - 04. House: Advanced real estate management
 - 05. Mailer: Email automation system
-- 08. Proposal: Proposal and quotation management
+- 08. Proposal*: Proposal and quotation management
 
 __03 Productivity & Teamwork:__
 
@@ -44,13 +44,13 @@ __03 Productivity & Teamwork:__
 - 03. Focus: Task Management
 - 05. Text: Notes & Notebooks
 - 08. Bell: Notification system
-- 10. Talk: Business communication platform  (chat, voice calls, video calls through WebRTC)
+- 10. Talk*: Business communication platform  (chat, voice calls, video calls through WebRTC)
 
 __04 Finance:__
 
-- 01. Books: Accounting System
+- 01. Books*: Accounting System
 - 03. Things: Inventory management
-- 05. Realty: Real Estate Administration & Investment
+- 05. Realty*: Real Estate Administration & Investment
 
 __05 Analytics:__
 
@@ -66,17 +66,16 @@ __07 IT & Help Desk:__
 
 __08 Security & Privacy:__
 
-- 01. Audit: System log analytics
+- 01. Audit*: System log analytics
 - 02. Administration: Core system settings
 
 __09 Integrations:__
 
 - 01. Babel: Translation management
 - 02. Dispatcher: HTTP REST Web API
-- 03. Federation: Cloud collaboration engine
+- 03. Federation*: Cloud collaboration engine
 - 04. One: Cloud Infrastructure Management
-- 06. Development: Lesli Development Resources 
-- 07. MobileApp: Multi platform mobile application
+- 05. MobileApp: Multi platform mobile application
 
 <br><br>
 
