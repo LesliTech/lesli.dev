@@ -100,7 +100,8 @@ Building a better future, one line of code at a time.
 
     // documentation styles
     .documentation-content {
-        width: 1000px;
+        width: 90%;
+        max-width: 900px;
         margin: 0 auto 10rem;
 
         // default styles for titles

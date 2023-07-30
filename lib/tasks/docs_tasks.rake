@@ -183,15 +183,17 @@ def documentation
         end
     end
 
-    sections.each do |section, files|
-        File.open(NAVIGATION_PATH, 'a') do |f|
-            f.puts("<ul>")
-            f.puts("<li>#{section.gsub("-", " ")}</li>")
-            files.each do |file|
-                f.puts("<li><a href=\"/documentation/#{file[:path]}\">#{file[:label]}</a></li>")
+    File.open(NAVIGATION_PATH, 'a') do |f|
+        f.puts("<nav>")
+            sections.each do |section, files|
+                f.puts("<ul>")
+                f.puts("<li>#{section.gsub("-", " ")}</li>")
+                files.each do |file|
+                    f.puts("<li><a href=\"/documentation/#{file[:path]}\">#{file[:label]}</a></li>")
+                end
+                f.puts("</ul>")        
             end
-            f.puts("</ul>")
-        end
+        f.puts("</nav>")
     end
 
     # Duplicate the first file (introduction) so I can show this file as main documentation index file
@@ -217,7 +219,7 @@ def documentation_template content, file
     dates = dateo.strftime("%Y/%m/%d")
 
     %(<section class="columns mt-0 mb-0">
-        <div class="documentation-navigation column is-3">
+        <div class="documentation-navigation column is-3 is-hidden-touch">
             <figure>
                 <%= inline_svg("brand/lesli-name.svg") %>
             </figure>
