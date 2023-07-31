@@ -127,7 +127,8 @@ end
 
 
 DOCS_FOLDERS = ["getting-started", "contributing", "database", "ruby-on-rails"]
-NAVIGATION_PATH = File.join("source", "documentation", "_navigation.html.erb")
+NAVIGATION_NAVBAR_PATH = File.join("source", "documentation", "_navigation-navbar.html.erb")
+NAVIGATION_SIDEBAR_PATH = File.join("source", "documentation", "_navigation-sidebar.html.erb")
 DOCUMENTATION_SOURCE_PATH = File.join("source", "documentation")
 DOCUMENTATION_DESTINATION_PATH = File.join("source", "documentation")
 
@@ -184,7 +185,7 @@ def documentation
         end
     end
 
-    File.open(NAVIGATION_PATH, 'a') do |f|
+    File.open(NAVIGATION_SIDEBAR_PATH, 'a') do |f|
         f.puts("<nav>")
             sections.each do |section, files|
                 f.puts("<ul>")
@@ -194,6 +195,38 @@ def documentation
                 end
                 f.puts("</ul>")        
             end
+        f.puts("</nav>")
+    end
+
+    File.open(NAVIGATION_NAVBAR_PATH, 'a') do |f|
+        f.puts("<nav class=\"navigation-header navbar is-hidden-desktop\" role=\"navigation\" aria-label=\"main navigation\">")
+            f.puts(%(
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="https://bulma.io">
+                        <%= inline_svg("brand/lesli-name.svg") %>
+                    </a>
+                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+            ))
+
+            f.puts("<div id=\"navbarBasicExample\" class=\"navbar-menu\">")
+                sections.each do |section, files|
+                    f.puts("<div class=\"navbar-end\">")
+                        f.puts("<div class=\"navbar-item has-dropdown is-hoverable\">")
+                            f.puts("<a class=\"navbar-link\">#{section.gsub("-", " ")}</a>")
+                            f.puts("<div class=\"navbar-dropdown\">")
+                                files.each do |file|
+                                    f.puts("<a class=\"navbar-item\" href=\"/documentation/#{file[:path]}\">#{file[:label]}</a>")
+                                end
+                            f.puts("</div>")
+                        f.puts("</div>")
+                    f.puts("</div>")
+                end
+            f.puts("</div>")
         f.puts("</nav>")
     end
 
@@ -224,10 +257,10 @@ def documentation_template content, file
             <figure>
                 <%= inline_svg("brand/lesli-name.svg") %>
             </figure>
-            <%= partial("documentation/navigation") %>
+            <%= partial("documentation/navigation-sidebar") %>
         </div>
         <div class="documentation-container column">
-            <%= partial("partials/navigation") %>
+            <%= partial("documentation/navigation-navbar") %>
             <div class="documentation-content">
                 #{ content }
             </div>
