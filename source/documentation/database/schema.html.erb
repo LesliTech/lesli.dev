@@ -1,0 +1,130 @@
+<section class="columns mt-0 mb-0">
+        <div class="documentation-navigation column is-3 is-hidden-touch">
+            <figure>
+                <%= inline_svg("brand/lesli-name.svg") %>
+            </figure>
+            <%= partial("documentation/navigation") %>
+        </div>
+        <div class="documentation-container column">
+            <%= partial("partials/navigation") %>
+            <div class="documentation-content">
+                <h1>Database Schemas</h1>
+
+<p>Database schema documentation and migration standards</p>
+
+<h2>About Documentation</h2>
+
+<p>The database structure of all engines must be documented and maintained within the respective engine in the following path: <em>engine_root/docs/database.md</em>. If you make any changes that add, remove or renumber any table, you <strong>must</strong> document it within this file, or your pull request will be rejected. At the current time, only changes to tables are being documented, so new columns or column name changes don&#39;t require you to modify <em>database.md</em>.</p>
+
+<p>These changes must also meet all standards written below.</p>
+
+<h2>Collection and Engine Numbering Standard</h2>
+
+<p>A rails migration must containt a number as a prefix that helps rails identify which migrations must be run and in which order. We take advantage of this behavior by replacing the default rails numeration for our custom one. The prefix number of each table must be a 8 digit decimal number that meets the format <strong>CC.EE.NN.TT.VV</strong> where:</p>
+
+<p><strong>— CC</strong> is a 2-digit number that represents a the collection of the table. Engines that work within the same area have the same collection number. For Example <strong>CloudFocus</strong> (the task management system) and <strong>CloudNotes</strong> (the notes management system) are both under the <strong>03</strong> collection. There is a detailed list of all collections in the <a href="/development/roadmap">roadmap section</a>. </p>
+
+<p><strong>— EE</strong> is a 2-digit number that identifies a specific engine within a collection. In our previous example, CloudFocus is <strong>03.03</strong> and CloudNotes is <strong>03.05</strong> There is a detailed list of all engines (implemented or not) in the <a href="/development/roadmap">roadmap section</a>. </p>
+
+<p><strong>— NN</strong> is a 2-digit number that identifies a namespace within the engine. Namespaces must e unique within the engine, but 2 different engines can (and will in some cases) have the same namespace. For example, the table <strong>cloud_focus_task</strong> and all its child tables are all within the <strong>03.05.10</strong> namespace.</p>
+
+<p><strong>— TT</strong> is a 2-digit number that identifies a specific table within the namespace. For example, the table <strong>cloud_focus_task</strong> has the code <strong>03.05.10.01</strong> while the table <strong>cloud_focus_task_activities</strong> has the code <strong>03.05.10.04</strong>.</p>
+
+<p><strong>— VV</strong> is a 2-digit number that identifies the version of the migration, this number correspond to the folder version inside the migration folder.</p>
+
+<h2>Namespace and Table Number Standard and Required Tables</h2>
+
+<p>To calculate engines and tables numerations, you should meet the following requirements:</p>
+
+<p><strong>1.</strong> Each engine has an account table, that isolates the resources to each account, this table is always the code <strong>CC.EE.00.01</strong> </p>
+
+<p><strong>2.</strong> After the account, the catalogs namespace is used with the numeration <strong>CC.EE.01</strong>. A catalog table is a table that has only data, with no foreign key other than the account, and is used to provide data to other more complex tables. Your first catalog table must have the code <strong>CC.EE.01.01</strong> </p>
+
+<p><strong>3.</strong> The workflows namespace is next and it contains the codes <strong>CC.EE.02.TT</strong> starting with the table <strong>CC.EE.02.01</strong>: <strong>cloud_ENGINE_workflows</strong> </p>
+
+<p><strong>4.</strong> The custom_fields namespace is next and it contains the codes <strong>CC.EE.03.TT</strong> starting with the table <strong>CC.EE.03.01</strong>: <strong>cloud_ENGINE_custom_fields</strong> </p>
+
+<p><strong>5.</strong> The custom_validations namespace is next and it contains the codes <strong>CC.EE.04.TT</strong> starting with the table <strong>CC.EE.04.01</strong>: <strong>cloud_ENGINE_custom_validations</strong></p>
+
+<p><strong>6.</strong> The dashboards namespace is next and it contains the codes <strong>CC.EE.05.TT</strong> starting with the table <strong>CC.EE.05.01</strong>: <strong>cloud_ENGINE_dashboards</strong> </p>
+
+<p>The codes <strong>CC.EE.06.TT</strong> to <strong>CC.EE.09.TT</strong> are reserved for future usage. </p>
+
+<p>After this you can create any number of tables depending on the amount of resources you will have in your engine. Starting with the namespace <strong>CC.EE.10</strong>, these tables have the following format:</p>
+
+<ul>
+<li><strong>CC.EE.10.00</strong> Main table</li>
+<li><strong>CC.EE.10.01</strong> Main table actions</li>
+<li><strong>CC.EE.10.02</strong> Main table activities</li>
+<li><strong>CC.EE.10.03</strong> Main table discussions</li>
+<li><strong>CC.EE.10.04</strong> Main table subscribers</li>
+<li><strong>CC.EE.10.05</strong> Main table files</li>
+<li><strong>CC.EE.10.06</strong> Main table custom_field_values</li>
+<li><strong>CC.EE.10.07</strong> to <strong>10.09</strong> are reserved</li>
+<li><strong>CC.EE.10.10</strong> and higher are for your custom tables</li>
+</ul>
+
+<h2>Example of database.md file</h2>
+
+<p>Here is an example of a database.md file for the CloudHelp engine (code <strong>07.02</strong>) (this is just an example, for the real database documentation you should review the <strong>DATABASE STRUCTURE</strong> section):</p>
+<pre class="textplain"><code>    00.01. help/account                     # Required table
+
+    01.01. help/catalogs                    # Required table
+    01.02. help/catalog/ticket_categories 
+    01.03. help/catalog/ticket_priorities
+
+    02.01. help/workflows                   # Required table
+    02.02. help/workflow/statuses           # Required table
+    02.03. help/workflow/associations       # Required table
+    02.04. help/workflow/actions            # Required table
+
+    03.01. help/custom_fields               # Required table
+
+    04.01. help/custom_validations          # Required table
+    04.02. help/custom_validation/rules     # Required table
+    04.03. help/custom_validation/fields    # Required table
+
+    05.01. help/dashboards                  # Required table
+    05.02. help/dasboard/components         # Required table
+
+    # Note that here 06.XX to 09.XX are unused and reserved
+
+    10.00. help/tickets
+    10.01. help/ticket/actions              # Required child table for tickets
+    10.02. help/ticket/activities           # Required child table for tickets
+    10.03. help/ticket/discussions          # Required child table for tickets
+    10.04. help/ticket/subscribers          # Required child table for tickets
+    10.05. help/ticket/files                # Required child table for tickets
+    10.06. help/ticket/custom_field_values  # Required child table for tickets
+    10.10. help/ticket/timelines
+    10.11. help/ticket/assignments
+
+    11.00. help/slas
+    11.01. help/sla/actions                 # Required child table for tickets
+    11.02. help/sla/activities              # Required child table for tickets
+    11.03. help/sla/discussions             # Required child table for tickets
+    11.04. help/sla/subscribers             # Required child table for tickets
+    11.05. help/sla/files                   # Required child table for tickets
+    11.06. help/sla/custom_field_values     # Required child table for tickets
+    11.10. help/sla/associations
+</code></pre>
+            </div>
+            <div class="documentation-footer">
+                <div class="level">
+                    <div class="level-left">
+                        <div class="level-left">
+                            <a href="/" class="">
+                                <%= image_tag("brand/lesli-name.svg", alt: "Lesli logo", width: "68") %>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="level-right">
+                        <a class="mx-5" href="https://github.com/LesliTech/lesli.dev/blob/master/docs/database/schema.md" target="_blank">
+                            Edit this page on GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <%= partial("partials/footer") %>
+        </div>
+    </section>

@@ -1,0 +1,164 @@
+<section class="columns mt-0 mb-0">
+        <div class="documentation-navigation column is-3 is-hidden-touch">
+            <figure>
+                <%= inline_svg("brand/lesli-name.svg") %>
+            </figure>
+            <%= partial("documentation/navigation") %>
+        </div>
+        <div class="documentation-container column">
+            <%= partial("partials/navigation") %>
+            <div class="documentation-content">
+                <h1>Rails router</h1>
+
+<h2>Builder routes</h2>
+
+<p>Routes specification for builder engine routes file</p>
+<pre class="ruby"><code><span style="color: #cf222e">module</span> <span style="color: #953800">RoutesEngine</span>
+    <span style="color: #cf222e">def</span> <span style="color: #953800">self</span><span style="color: #0550ae">.</span><span style="color: #8250df">extended</span><span style="color: #24292f;background-color: #f6f8fa">(</span><span style="color: #24292f;background-color: #f6f8fa">router</span><span style="color: #24292f;background-color: #f6f8fa">)</span>
+        <span style="color: #24292f;background-color: #f6f8fa">router</span><span style="color: #24292f;background-color: #f6f8fa">.</span><span style="color: #8250df">instance_exec</span> <span style="color: #cf222e">do</span>
+
+            <span style="color: #6e7781"># after login routes</span>
+            <span style="color: #24292f;background-color: #f6f8fa">authenticated</span> <span style="color: #0a3069">:user</span> <span style="color: #cf222e">do</span>
+
+                <span style="color: #6e7781"># self-mount builder engine at root path</span>
+                <span style="color: #24292f;background-color: #f6f8fa">mount</span> <span style="color: #953800">LesliCloud</span><span style="color: #0550ae">::</span><span style="color: #953800">Engine</span> <span style="color: #0550ae">=&gt;</span> <span style="color: #0a3069">"/"</span>
+
+                <span style="color: #6e7781"># self-mount builder engine with a path</span>
+                <span style="color: #24292f;background-color: #f6f8fa">mount</span> <span style="color: #953800">LesliCloud</span><span style="color: #0550ae">::</span><span style="color: #953800">Engine</span> <span style="color: #0550ae">=&gt;</span> <span style="color: #0a3069">"/crm"</span>
+
+                <span style="color: #6e7781"># override default root path</span>
+                <span style="color: #24292f;background-color: #f6f8fa">get</span> <span style="color: #0a3069">"dashboard"</span><span style="color: #24292f;background-color: #f6f8fa">,</span> <span style="color: #0a3069">to: </span><span style="color: #0a3069">"lesli_cloud/dashboards#show"</span>
+
+            <span style="color: #cf222e">end</span>
+
+            <span style="color: #6e7781"># public routes</span>
+            <span style="color: #24292f;background-color: #f6f8fa">unauthenticated</span> <span style="color: #0a3069">:user</span> <span style="color: #cf222e">do</span> 
+
+                <span style="color: #6e7781"># override public root path with a redirection</span>
+                <span style="color: #24292f;background-color: #f6f8fa">root</span> <span style="color: #0a3069">to: </span><span style="color: #24292f;background-color: #f6f8fa">redirect</span><span style="color: #24292f;background-color: #f6f8fa">(</span><span style="color: #0a3069">"/login"</span><span style="color: #24292f;background-color: #f6f8fa">),</span> <span style="color: #0a3069">as: :root_lesli_app_unauthenticated</span>
+
+                <span style="color: #6e7781"># override public root path with a custom page</span>
+                <span style="color: #24292f;background-color: #f6f8fa">root</span> <span style="color: #0a3069">to: </span><span style="color: #0a3069">"lesli_cloud/websites#landing"</span><span style="color: #24292f;background-color: #f6f8fa">,</span> <span style="color: #0a3069">as: :root_lesli_app_unauthenticated</span>
+
+            <span style="color: #cf222e">end</span>
+
+        <span style="color: #cf222e">end</span>
+    <span style="color: #cf222e">end</span>
+<span style="color: #cf222e">end</span>
+</code></pre>
+<h2>App routes</h2>
+
+<p>Standard routes for CRUD operations</p>
+<pre class="ruby"><code><span style="color: #24292f;background-color: #f6f8fa">resources</span> <span style="color: #0a3069">:notebooks</span><span style="color: #24292f;background-color: #f6f8fa">,</span> <span style="color: #0a3069">only: </span><span style="color: #24292f;background-color: #f6f8fa">[</span><span style="color: #0a3069">:index</span><span style="color: #24292f;background-color: #f6f8fa">,</span> <span style="color: #0a3069">:show</span><span style="color: #24292f;background-color: #f6f8fa">,</span> <span style="color: #0a3069">:edit</span><span style="color: #24292f;background-color: #f6f8fa">,</span> <span style="color: #0a3069">:update</span><span style="color: #24292f;background-color: #f6f8fa">,</span> <span style="color: #0a3069">:new</span><span style="color: #24292f;background-color: #f6f8fa">,</span> <span style="color: #0a3069">:create</span><span style="color: #24292f;background-color: #f6f8fa">]</span> <span style="color: #cf222e">do</span>
+<span style="color: #6e7781"># GET    /notebooks(.:format)                              cloud_text/notebooks#index</span>
+<span style="color: #6e7781"># POST   /notebooks(.:format)                              cloud_text/notebooks#create</span>
+<span style="color: #6e7781"># GET    /notebooks/new(.:format)                          cloud_text/notebooks#new</span>
+<span style="color: #6e7781"># GET    /notebooks/:id/edit(.:format)                     cloud_text/notebooks#edit</span>
+<span style="color: #6e7781"># GET    /notebooks/:id(.:format)                          cloud_text/notebooks#show</span>
+<span style="color: #6e7781"># PATCH  /notebooks/:id(.:format)                          cloud_text/notebooks#update</span>
+<span style="color: #6e7781"># PUT    /notebooks/:id(.:format)                          cloud_text/notebooks#update</span>
+
+
+    <span style="color: #6e7781"># resource cloud objects</span>
+    <span style="color: #24292f;background-color: #f6f8fa">scope</span> <span style="color: #0a3069">module: :notebook</span> <span style="color: #cf222e">do</span>
+
+        <span style="color: #24292f;background-color: #f6f8fa">resources</span> <span style="color: #0a3069">:files</span><span style="color: #24292f;background-color: #f6f8fa">,</span>       <span style="color: #0a3069">only: </span><span style="color: #24292f;background-color: #f6f8fa">[</span><span style="color: #0a3069">:index</span><span style="color: #24292f;background-color: #f6f8fa">,</span> <span style="color: #0a3069">:get</span><span style="color: #24292f;background-color: #f6f8fa">,</span> <span style="color: #0a3069">:create</span><span style="color: #24292f;background-color: #f6f8fa">,</span> <span style="color: #0a3069">:update</span><span style="color: #24292f;background-color: #f6f8fa">,</span> <span style="color: #0a3069">:destroy</span><span style="color: #24292f;background-color: #f6f8fa">]</span>
+        <span style="color: #6e7781"># GET    /notebooks/:notebook_id/files(.:format)           cloud_text/notebook/files#index</span>
+        <span style="color: #6e7781"># POST   /notebooks/:notebook_id/files(.:format)           cloud_text/notebook/files#create</span>
+        <span style="color: #6e7781"># PATCH  /notebooks/:notebook_id/files/:id(.:format)       cloud_text/notebook/files#update</span>
+        <span style="color: #6e7781"># PUT    /notebooks/:notebook_id/files/:id(.:format)       cloud_text/notebook/files#update</span>
+        <span style="color: #6e7781"># DELETE /notebooks/:notebook_id/files/:id(.:format)       cloud_text/notebook/files#destroy</span>
+
+
+        <span style="color: #24292f;background-color: #f6f8fa">resources</span> <span style="color: #0a3069">:actions</span><span style="color: #24292f;background-color: #f6f8fa">,</span>     <span style="color: #0a3069">only: </span><span style="color: #24292f;background-color: #f6f8fa">[</span><span style="color: #0a3069">:index</span><span style="color: #24292f;background-color: #f6f8fa">,</span> <span style="color: #0a3069">:get</span><span style="color: #24292f;background-color: #f6f8fa">,</span> <span style="color: #0a3069">:create</span><span style="color: #24292f;background-color: #f6f8fa">,</span> <span style="color: #0a3069">:update</span><span style="color: #24292f;background-color: #f6f8fa">,</span> <span style="color: #0a3069">:destroy</span><span style="color: #24292f;background-color: #f6f8fa">]</span>
+        <span style="color: #6e7781"># GET    /notebooks/:notebook_id/actions(.:format)         cloud_text/notebook/actions#index</span>
+        <span style="color: #6e7781"># POST   /notebooks/:notebook_id/actions(.:format)         cloud_text/notebook/actions#create</span>
+        <span style="color: #6e7781"># PATCH  /notebooks/:notebook_id/actions/:id(.:format)     cloud_text/notebook/actions#update</span>
+        <span style="color: #6e7781"># PUT    /notebooks/:notebook_id/actions/:id(.:format)     cloud_text/notebook/actions#update</span>
+        <span style="color: #6e7781"># DELETE /notebooks/:notebook_id/actions/:id(.:format)     cloud_text/notebook/actions#destroy</span>
+
+
+        <span style="color: #24292f;background-color: #f6f8fa">resources</span> <span style="color: #0a3069">:activities</span><span style="color: #24292f;background-color: #f6f8fa">,</span>  <span style="color: #0a3069">only: </span><span style="color: #24292f;background-color: #f6f8fa">[</span><span style="color: #0a3069">:index</span><span style="color: #24292f;background-color: #f6f8fa">,</span> <span style="color: #0a3069">:get</span><span style="color: #24292f;background-color: #f6f8fa">,</span> <span style="color: #0a3069">:create</span><span style="color: #24292f;background-color: #f6f8fa">,</span> <span style="color: #0a3069">:update</span><span style="color: #24292f;background-color: #f6f8fa">,</span> <span style="color: #0a3069">:destroy</span><span style="color: #24292f;background-color: #f6f8fa">]</span>
+        <span style="color: #6e7781"># GET    /notebooks/:notebook_id/activities(.:format)      cloud_text/notebook/activities#index</span>
+        <span style="color: #6e7781"># POST   /notebooks/:notebook_id/activities(.:format)      cloud_text/notebook/activities#create</span>
+        <span style="color: #6e7781"># PATCH  /notebooks/:notebook_id/activities/:id(.:format)  cloud_text/notebook/activities#update</span>
+        <span style="color: #6e7781"># PUT    /notebooks/:notebook_id/activities/:id(.:format)  cloud_text/notebook/activities#update</span>
+        <span style="color: #6e7781"># DELETE /notebooks/:notebook_id/activities/:id(.:format)  cloud_text/notebook/activities#destroy</span>
+
+
+        <span style="color: #24292f;background-color: #f6f8fa">resources</span> <span style="color: #0a3069">:discussions</span><span style="color: #24292f;background-color: #f6f8fa">,</span> <span style="color: #0a3069">only: </span><span style="color: #24292f;background-color: #f6f8fa">[</span><span style="color: #0a3069">:index</span><span style="color: #24292f;background-color: #f6f8fa">,</span> <span style="color: #0a3069">:get</span><span style="color: #24292f;background-color: #f6f8fa">,</span> <span style="color: #0a3069">:create</span><span style="color: #24292f;background-color: #f6f8fa">,</span> <span style="color: #0a3069">:update</span><span style="color: #24292f;background-color: #f6f8fa">,</span> <span style="color: #0a3069">:destroy</span><span style="color: #24292f;background-color: #f6f8fa">]</span>
+        <span style="color: #6e7781"># GET    /notebooks/:notebook_id/discussions(.:format)     cloud_text/notebook/discussions#index</span>
+        <span style="color: #6e7781"># POST   /notebooks/:notebook_id/discussions(.:format)     cloud_text/notebook/discussions#create</span>
+        <span style="color: #6e7781"># PATCH  /notebooks/:notebook_id/discussions/:id(.:format) cloud_text/notebook/discussions#update</span>
+        <span style="color: #6e7781"># PUT    /notebooks/:notebook_id/discussions/:id(.:format) cloud_text/notebook/discussions#update</span>
+        <span style="color: #6e7781"># DELETE /notebooks/:notebook_id/discussions/:id(.:format) cloud_text/notebook/discussions#destroy</span>
+
+
+        <span style="color: #24292f;background-color: #f6f8fa">resources</span> <span style="color: #0a3069">:subscribers</span><span style="color: #24292f;background-color: #f6f8fa">,</span> <span style="color: #0a3069">only: </span><span style="color: #24292f;background-color: #f6f8fa">[</span><span style="color: #0a3069">:index</span><span style="color: #24292f;background-color: #f6f8fa">,</span> <span style="color: #0a3069">:get</span><span style="color: #24292f;background-color: #f6f8fa">,</span> <span style="color: #0a3069">:create</span><span style="color: #24292f;background-color: #f6f8fa">,</span> <span style="color: #0a3069">:update</span><span style="color: #24292f;background-color: #f6f8fa">,</span> <span style="color: #0a3069">:destroy</span><span style="color: #24292f;background-color: #f6f8fa">]</span>
+        <span style="color: #6e7781"># GET    /notebooks/:notebook_id/subscribers(.:format)      cloud_text/notebook/subscribers#index</span>
+        <span style="color: #6e7781"># POST   /notebooks/:notebook_id/subscribers(.:format)      cloud_text/notebook/subscribers#create</span>
+        <span style="color: #6e7781"># PATCH  /notebooks/:notebook_id/subscribers/:id(.:format)  cloud_text/notebook/subscribers#update</span>
+        <span style="color: #6e7781"># PUT    /notebooks/:notebook_id/subscribers/:id(.:format)  cloud_text/notebook/subscribers#update</span>
+        <span style="color: #6e7781"># DELETE /notebooks/:notebook_id/subscribers/:id(.:format)  cloud_text/notebook/subscribers#destroy</span>
+
+    <span style="color: #cf222e">end</span>
+
+    <span style="color: #6e7781"># extended controller methods</span>
+    <span style="color: #24292f;background-color: #f6f8fa">collection</span> <span style="color: #cf222e">do</span>
+
+        <span style="color: #24292f;background-color: #f6f8fa">get</span>  <span style="color: #0a3069">:list</span>
+        <span style="color: #24292f;background-color: #f6f8fa">get</span>  <span style="color: #0a3069">:options</span>
+        <span style="color: #24292f;background-color: #f6f8fa">post</span> <span style="color: #0a3069">:search</span>
+
+        <span style="color: #6e7781"># GET    /notebooks/list(.:format)       cloud_text/notebooks#list</span>
+        <span style="color: #6e7781"># GET    /notebooks/options(.:format)    cloud_text/notebooks#options</span>
+        <span style="color: #6e7781"># POST   /notebooks/search(.:format)     cloud_text/notebooks#search</span>
+
+    <span style="color: #cf222e">end</span>
+
+    <span style="color: #6e7781"># extend resource routes</span>
+    <span style="color: #24292f;background-color: #f6f8fa">member</span> <span style="color: #cf222e">do</span>
+
+        <span style="color: #6e7781"># extend resource actions</span>
+        <span style="color: #24292f;background-color: #f6f8fa">scope</span> <span style="color: #0a3069">:actions</span> <span style="color: #cf222e">do</span>
+
+            <span style="color: #24292f;background-color: #f6f8fa">get</span>  <span style="color: #0a3069">:aditional_action_get</span>
+            <span style="color: #24292f;background-color: #f6f8fa">post</span> <span style="color: #0a3069">:aditional_action_post</span>
+
+            <span style="color: #6e7781"># GET    /notebooks/:id/actions/aditional_action_get(.:format)   cloud_text/notebooks#aditional_action_get</span>
+            <span style="color: #6e7781"># POST   /notebooks/:id/actions/aditional_action_post(.:format)  cloud_text/notebooks#aditional_action_post</span>
+
+        <span style="color: #cf222e">end</span>
+
+        <span style="color: #6e7781"># resources that belongs to a resource</span>
+        <span style="color: #24292f;background-color: #f6f8fa">scope</span> <span style="color: #0a3069">:resources</span> <span style="color: #cf222e">do</span>
+
+            <span style="color: #24292f;background-color: #f6f8fa">get</span>  <span style="color: #0a3069">:images</span>
+            <span style="color: #6e7781"># GET    /notebooks/:id/resources/images(.:format)   cloud_text/notebooks#images</span>
+
+        <span style="color: #cf222e">end</span>
+
+    <span style="color: #cf222e">end</span>
+
+<span style="color: #cf222e">end</span>
+</code></pre>
+            </div>
+            <div class="documentation-footer">
+                <div class="level">
+                    <div class="level-left">
+                        <div class="level-left">
+                            <a href="/" class="">
+                                <%= image_tag("brand/lesli-name.svg", alt: "Lesli logo", width: "68") %>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="level-right">
+                        <a class="mx-5" href="https://github.com/LesliTech/lesli.dev/blob/master/docs/ruby-on-rails/130-router.md" target="_blank">
+                            Edit this page on GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <%= partial("partials/footer") %>
+        </div>
+    </section>

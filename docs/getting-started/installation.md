@@ -1,9 +1,9 @@
-# Install Lesli
+# Install Lesli core
 
 
 
 ### Clone the repo
-Clone the repo from Github (available really soon):
+Clone the repo from Github:
 
 ```shell
 git clone git@github.com:LesliTech/Lesli.git project_name 

@@ -92,6 +92,7 @@ class CustomHTMLRender < Redcarpet::Render::HTML
             when 'shell' then lexer = Rouge::Lexers::Shell.new;     # parser for shell code
             when 'nginx' then lexer = Rouge::Lexers::Nginx.new;     # parser for nginx code
             when 'textplain' then lexer = Rouge::Lexers::PlainText.new;
+            when 'plaintext' then lexer = Rouge::Lexers::PlainText.new;
         end
 
         # do not format for raw or non specific code blocks
@@ -125,7 +126,7 @@ end
 
 
 
-DOCS_FOLDERS = ["getting-started", "contributing"]
+DOCS_FOLDERS = ["getting-started", "contributing", "database", "ruby-on-rails"]
 NAVIGATION_PATH = File.join("source", "documentation", "_navigation.html.erb")
 DOCUMENTATION_SOURCE_PATH = File.join("source", "documentation")
 DOCUMENTATION_DESTINATION_PATH = File.join("source", "documentation")
