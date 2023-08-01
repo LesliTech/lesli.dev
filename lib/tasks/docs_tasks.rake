@@ -185,6 +185,8 @@ def documentation
         end
     end
 
+    L2.br
+
     File.open(NAVIGATION_SIDEBAR_PATH, 'a') do |f|
         f.puts("<nav>")
             sections.each do |section, files|
@@ -196,6 +198,7 @@ def documentation
                 f.puts("</ul>")        
             end
         f.puts("</nav>")
+        L2.m "  Writing navigation sidebar"
     end
 
     File.open(NAVIGATION_NAVBAR_PATH, 'a') do |f|
@@ -228,6 +231,7 @@ def documentation
                 end
             f.puts("</div>")
         f.puts("</nav>")
+        L2.m "  Writing navigation navbar"
     end
 
     # Duplicate the first file (introduction) so I can show this file as main documentation index file
@@ -252,14 +256,14 @@ def documentation_template content, file
     dateo = DateTime.iso8601(datei)
     dates = dateo.strftime("%Y/%m/%d")
 
-    %(<section class="columns mt-0 mb-0">
-        <div class="documentation-navigation column is-3 is-hidden-touch">
+    %(<main class="columns mt-0 mb-0">
+        <aside class="documentation-navigation column is-3 is-hidden-touch">
             <figure>
                 <%= inline_svg("brand/lesli-name.svg") %>
             </figure>
             <%= partial("documentation/navigation-sidebar") %>
-        </div>
-        <div class="documentation-container column">
+        </aside>
+        <section class="documentation-container column">
             <%= partial("documentation/navigation-navbar") %>
             <div class="documentation-content">
                 #{ content }
@@ -281,6 +285,6 @@ def documentation_template content, file
                 </div>
             </div>
             <%= partial("partials/footer") %>
-        </div>
-    </section>)
+        </section>
+    </main>)
 end
