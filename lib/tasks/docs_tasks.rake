@@ -39,7 +39,7 @@ require "nokogiri"
 require "fileutils"
 require "redcarpet"
 require "listen"
-
+require 'json'
 
 namespace :docs do
 
@@ -186,7 +186,7 @@ def documentation
     end
 
     L2.br
-
+=begin
     File.open(NAVIGATION_SIDEBAR_PATH, 'a') do |f|
         f.puts("<nav>")
             sections.each do |section, files|
@@ -233,13 +233,23 @@ def documentation
         f.puts("</nav>")
         L2.m "  Writing navigation navbar"
     end
-
+=end
     # Duplicate the first file (introduction) so I can show this file as main documentation index file
     FileUtils.cp(File.join(DOCUMENTATION_SOURCE_PATH, "getting-started", "about.html.erb"), File.join(DOCUMENTATION_SOURCE_PATH, "_introduction.html.erb"))
 
     L2.br
     L2.info('Documentation build process completed!')
 
+
+    # Convert the hash to JSON format
+    json_data = JSON.generate(sections)
+    json_data = JSON.pretty_generate(sections)
+
+
+    # Save the JSON data to a file (e.g., data.json)
+    File.open('data.json', 'w') do |file|
+        file.write(json_data)
+    end
 end
 
 
@@ -261,10 +271,11 @@ def documentation_template content, file
             <figure>
                 <%= inline_svg("brand/lesli-name.svg") %>
             </figure>
-            <%= partial("documentation/navigation-sidebar") %>
+            <%#= partial("documentation/navigation-sidebar") %>
+            <%= partial("partials/docs-navigation-aside")%>
         </aside>
         <section class="documentation-container column">
-            <%= partial("documentation/navigation-navbar") %>
+            <%= partial("partials/docs-navigation-navbar")%>
             <div class="documentation-content">
                 #{ content }
             </div>

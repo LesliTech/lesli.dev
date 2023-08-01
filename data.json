@@ -1,0 +1,70 @@
+{
+  "getting-started": [
+    {
+      "path": "getting-started/about",
+      "file": "about",
+      "label": "about"
+    },
+    {
+      "path": "getting-started/ecosystem",
+      "file": "ecosystem",
+      "label": "ecosystem"
+    },
+    {
+      "path": "getting-started/installation",
+      "file": "installation",
+      "label": "installation"
+    }
+  ],
+  "contributing": [
+    {
+      "path": "contributing/001-environment",
+      "file": "001-environment",
+      "label": " environment"
+    },
+    {
+      "path": "contributing/010-git-flow",
+      "file": "010-git-flow",
+      "label": " git flow"
+    },
+    {
+      "path": "contributing/020-commits",
+      "file": "020-commits",
+      "label": " commits"
+    },
+    {
+      "path": "contributing/030-pull-requests",
+      "file": "030-pull-requests",
+      "label": " pull requests"
+    }
+  ],
+  "database": [
+    {
+      "path": "database/schema",
+      "file": "schema",
+      "label": "schema"
+    },
+    {
+      "path": "database/versioning",
+      "file": "versioning",
+      "label": "versioning"
+    }
+  ],
+  "ruby-on-rails": [
+    {
+      "path": "ruby-on-rails/110-lesli-file",
+      "file": "110-lesli-file",
+      "label": " lesli file"
+    },
+    {
+      "path": "ruby-on-rails/120-credentials",
+      "file": "120-credentials",
+      "label": " credentials"
+    },
+    {
+      "path": "ruby-on-rails/130-router",
+      "file": "130-router",
+      "label": " router"
+    }
+  ]
+}

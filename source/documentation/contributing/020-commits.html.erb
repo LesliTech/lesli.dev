@@ -3,10 +3,11 @@
             <figure>
                 <%= inline_svg("brand/lesli-name.svg") %>
             </figure>
-            <%= partial("documentation/navigation-sidebar") %>
+            <%#= partial("documentation/navigation-sidebar") %>
+            <%= partial("partials/docs-navigation-aside")%>
         </aside>
-        <div class="documentation-container column">
-            <%= partial("documentation/navigation-navbar") %>
+        <section class="documentation-container column">
+            <%= partial("partials/docs-navigation-navbar")%>
             <div class="documentation-content">
                 <h1>Commits</h1>
 
@@ -77,5 +78,5 @@ and therefore we could not show the error message to the user
                 </div>
             </div>
             <%= partial("partials/footer") %>
-        </div>
-    </section>
+        </section>
+    </main>

@@ -1,0 +1,35 @@
+<%
+json_data = File.read('data.json')
+data = JSON.parse(json_data)
+sections = data
+%>
+
+<nav class="navigation-header navbar is-hidden-desktop" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://bulma.io">
+            <%= inline_svg("brand/lesli-name.svg") %>
+        </a>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+        <% sections.each do |section, files| %>
+            <div class="navbar-end">
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link"><%= section.gsub("-", " ") %></a>
+                    <div class="navbar-dropdown">
+                        <% files.each do |file| %>
+                            <a class="navbar-item" href="/documentation/<%= file[:path] %>">
+                                <%= file[:label] %>
+                            </a>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</nav>

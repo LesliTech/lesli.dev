@@ -3,10 +3,11 @@
             <figure>
                 <%= inline_svg("brand/lesli-name.svg") %>
             </figure>
-            <%= partial("documentation/navigation-sidebar") %>
+            <%#= partial("documentation/navigation-sidebar") %>
+            <%= partial("partials/docs-navigation-aside")%>
         </aside>
-        <div class="documentation-container column">
-            <%= partial("documentation/navigation-navbar") %>
+        <section class="documentation-container column">
+            <%= partial("partials/docs-navigation-navbar")%>
             <div class="documentation-content">
                 <h1>Development environment</h1>
 
@@ -109,5 +110,5 @@ For more information about nvm, you can go to this <a href="https://github.com/n
                 </div>
             </div>
             <%= partial("partials/footer") %>
-        </div>
-    </section>
+        </section>
+    </main>
