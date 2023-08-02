@@ -1,7 +1,6 @@
 <%
-json_data = File.read('data.json')
-data = JSON.parse(json_data)
-sections = data
+json_data = File.read("source/documentation/navigation.json")
+sections = JSON.parse(json_data)
 %>
 
 <nav>
@@ -9,7 +8,11 @@ sections = data
         <ul>
             <li><%= section.gsub("-", " ") %></li>
             <% files.each do |file| %>
-                <li><a href="/documentation/<%= file[:path] %>"><%= file[:label] %></a></li>
+                <li>
+                    <a href="/documentation/<%= file["path"] %>">
+                        <%= file["label"] %>
+                    </a>
+                </li>
             <% end %>
         </ul>
     <% end %>
