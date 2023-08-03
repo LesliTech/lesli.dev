@@ -61,7 +61,7 @@ Building a better future, one line of code at a time.
         // link containers
         li {
             font-size: 1.1rem;
-            margin-bottom: .6rem;
+            margin-bottom: .2rem;
             text-transform: capitalize;
 
             // section title
@@ -87,7 +87,9 @@ Building a better future, one line of code at a time.
 .documentation-container {
 
     .navigation-header {
-        padding: 1rem 1.75rem;
+        width: 90%;
+        max-width: 900px;
+        margin: auto;
         svg {
             width: 100px;
         }

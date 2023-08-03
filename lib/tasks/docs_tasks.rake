@@ -34,6 +34,7 @@ Building a better future, one line of code at a time.
 require "L2"
 require "time"
 require "date"
+require "json"
 require "rouge"
 require "nokogiri"
 require "fileutils"
@@ -185,61 +186,22 @@ def documentation
         end
     end
 
-    L2.br
-
-    File.open(NAVIGATION_SIDEBAR_PATH, 'a') do |f|
-        f.puts("<nav>")
-            sections.each do |section, files|
-                f.puts("<ul>")
-                f.puts("<li>#{section.gsub("-", " ")}</li>")
-                files.each do |file|
-                    f.puts("<li><a href=\"/documentation/#{file[:path]}\">#{file[:label]}</a></li>")
-                end
-                f.puts("</ul>")        
-            end
-        f.puts("</nav>")
-        L2.m "  Writing navigation sidebar"
-    end
-
-    File.open(NAVIGATION_NAVBAR_PATH, 'a') do |f|
-        f.puts("<nav class=\"navigation-header navbar is-hidden-desktop\" role=\"navigation\" aria-label=\"main navigation\">")
-            f.puts(%(
-                <div class="navbar-brand">
-                    <a class="navbar-item" href="https://bulma.io">
-                        <%= inline_svg("brand/lesli-name.svg") %>
-                    </a>
-                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                    </a>
-                </div>
-            ))
-
-            f.puts("<div id=\"navbarBasicExample\" class=\"navbar-menu\">")
-                sections.each do |section, files|
-                    f.puts("<div class=\"navbar-end\">")
-                        f.puts("<div class=\"navbar-item has-dropdown is-hoverable\">")
-                            f.puts("<a class=\"navbar-link\">#{section.gsub("-", " ")}</a>")
-                            f.puts("<div class=\"navbar-dropdown\">")
-                                files.each do |file|
-                                    f.puts("<a class=\"navbar-item\" href=\"/documentation/#{file[:path]}\">#{file[:label]}</a>")
-                                end
-                            f.puts("</div>")
-                        f.puts("</div>")
-                    f.puts("</div>")
-                end
-            f.puts("</div>")
-        f.puts("</nav>")
-        L2.m "  Writing navigation navbar"
-    end
-
     # Duplicate the first file (introduction) so I can show this file as main documentation index file
     FileUtils.cp(File.join(DOCUMENTATION_SOURCE_PATH, "getting-started", "about.html.erb"), File.join(DOCUMENTATION_SOURCE_PATH, "_introduction.html.erb"))
 
+
+    # Convert the hash to JSON format
+    json_data = JSON.pretty_generate(sections)
+
+
+    # Save the JSON data to a file (e.g., data.json)
+    File.open(File.join(DOCUMENTATION_SOURCE_PATH, "navigation.json"), "w") do |file|
+        file.write(json_data)
+    end
+
+
     L2.br
     L2.info('Documentation build process completed!')
-
 end
 
 
@@ -261,10 +223,11 @@ def documentation_template content, file
             <figure>
                 <%= inline_svg("brand/lesli-name.svg") %>
             </figure>
-            <%= partial("documentation/navigation-sidebar") %>
+            <%#= partial("documentation/navigation-sidebar") %>
+            <%= partial("partials/docs-navigation-aside")%>
         </aside>
         <section class="documentation-container column">
-            <%= partial("documentation/navigation-navbar") %>
+            <%= partial("partials/docs-navigation-navbar")%>
             <div class="documentation-content">
                 #{ content }
             </div>

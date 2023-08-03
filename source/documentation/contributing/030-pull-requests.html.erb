@@ -3,10 +3,11 @@
             <figure>
                 <%= inline_svg("brand/lesli-name.svg") %>
             </figure>
-            <%= partial("documentation/navigation-sidebar") %>
+            <%#= partial("documentation/navigation-sidebar") %>
+            <%= partial("partials/docs-navigation-aside")%>
         </aside>
-        <div class="documentation-container column">
-            <%= partial("documentation/navigation-navbar") %>
+        <section class="documentation-container column">
+            <%= partial("partials/docs-navigation-navbar")%>
             <div class="documentation-content">
                 <h1>Pull requests</h1>
 
@@ -114,5 +115,5 @@ If github detects any merge conflict developer must work with a team member to f
                 </div>
             </div>
             <%= partial("partials/footer") %>
-        </div>
-    </section>
+        </section>
+    </main>
