@@ -38,6 +38,28 @@
       "label": " pull requests"
     }
   ],
+  "design": [
+    {
+      "path": "design/10-colors",
+      "file": "10-colors",
+      "label": " colors"
+    },
+    {
+      "path": "design/20-layout",
+      "file": "20-layout",
+      "label": " layout"
+    },
+    {
+      "path": "design/30-typography",
+      "file": "30-typography",
+      "label": " typography"
+    },
+    {
+      "path": "design/40-customization",
+      "file": "40-customization",
+      "label": " customization"
+    }
+  ],
   "database": [
     {
       "path": "database/schema",

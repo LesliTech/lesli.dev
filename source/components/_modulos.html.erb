@@ -41,7 +41,8 @@ Building a better future, one line of code at a time.
             </div>
             <div class="columns">
                 <% collections[:collection].each do |collection| %>
-                    <% collection[:modulos].each do |modulo| %>   
+                    <% collection[:modulos].each do |modulo| %>
+                        <% next if ["Things", "Realty"].include?(modulo[:name]) %>
                         <div class="column">    
                             <div class="module">
                                 <% svg = "cloud-#{modulo[:name].downcase}" %>

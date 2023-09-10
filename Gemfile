@@ -30,6 +30,10 @@ Building a better future, one line of code at a time.
 // · 
 =end
 
+# if any issue with eventmachine and ruby 3
+# gem install eventmachine -v '1.2.7' -- --with-openssl-dir=/usr/local/opt/openssl@3
+
+
 source "https://rubygems.org"
 
 gem "middleman", "4.5.0"

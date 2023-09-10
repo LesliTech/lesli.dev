@@ -127,7 +127,7 @@ end
 
 
 
-DOCS_FOLDERS = ["getting-started", "contributing", "database", "ruby-on-rails"]
+DOCS_FOLDERS = ["getting-started", "contributing", "design", "database", "ruby-on-rails"]
 NAVIGATION_NAVBAR_PATH = File.join("source", "documentation", "_navigation-navbar.html.erb")
 NAVIGATION_SIDEBAR_PATH = File.join("source", "documentation", "_navigation-sidebar.html.erb")
 DOCUMENTATION_SOURCE_PATH = File.join("source", "documentation")
