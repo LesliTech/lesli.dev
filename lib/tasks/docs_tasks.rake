@@ -187,7 +187,7 @@ def documentation
     end
 
     # Duplicate the first file (introduction) so I can show this file as main documentation index file
-    FileUtils.cp(File.join(DOCUMENTATION_SOURCE_PATH, "getting-started", "about.html.erb"), File.join(DOCUMENTATION_SOURCE_PATH, "_introduction.html.erb"))
+    FileUtils.cp(File.join(DOCUMENTATION_SOURCE_PATH, "getting-started", "1-about.html.erb"), File.join(DOCUMENTATION_SOURCE_PATH, "_introduction.html.erb"))
 
 
     # Convert the hash to JSON format
@@ -220,9 +220,11 @@ def documentation_template content, file
 
     %(<main class="columns mt-0 mb-0">
         <aside class="documentation-navigation column is-3 is-hidden-touch">
-            <figure>
-                <%= inline_svg("brand/lesli-name.svg") %>
-            </figure>
+            <a href="/">
+                <figure>
+                    <%= inline_svg("brand/lesli-name.svg") %>
+                </figure>
+            </a>
             <%#= partial("documentation/navigation-sidebar") %>
             <%= partial("partials/docs-navigation-aside")%>
         </aside>

@@ -11,12 +11,31 @@
         <section class="documentation-container column">
             <%= partial("partials/docs-navigation-navbar")%>
             <div class="documentation-content">
-                <pre class="html"><code><span style="color: #116329">&lt;section</span> <span style="color: #116329">class=</span><span style="color: #0a3069">"application-component"</span><span style="color: #116329">&gt;</span>
-    <span style="color: #116329">&lt;lesli-header</span> <span style="color: #116329">title=</span><span style="color: #0a3069">"My resources"</span><span style="color: #116329">&gt;&lt;/lesli-header&gt;</span>
-<span style="color: #116329">&lt;/section&gt;</span>
-</code></pre><section class="application-component m-0" style="height:auto;">
-    <lesli-header title="My resources"></lesli-header>
-</section>
+                <h1>Using Docker to run Lesli</h1>
+
+<p><br /></p>
+
+<p>Clone the LesliDemo repository from Github</p>
+<pre class="shell"><code><span style="color: #6e7781"># Inside your Rails root folder</span>
+git clone git@github.com:LesliTech/LesliDemo.git 
+</code></pre>
+<p>Run the Lesli image</p>
+<pre class="shell"><code>docker compose up
+</code></pre>
+<h3>Logging into your new Lesli application</h3>
+
+<p>The seeders comes with default users with different roles and privileges, to see Lesli in action use the owner user:</p>
+
+<ul>
+<li>- username: hello@lesli.tech</li>
+<li>- password: tardis2023$</li>
+</ul>
+
+<p><br /></p>
+
+<blockquote>
+<p>The Lesli demo Docker image includes all the Lesli modules pre-installed and a collection of sample data.</p>
+</blockquote>
 
             </div>
             <div class="documentation-footer">
@@ -29,7 +48,7 @@
                         </div>
                     </div>
                     <div class="level-right">
-                        <a class="mx-5" href="https://github.com/LesliTech/lesli.dev/blob/master/docs/design/20-layout.md" target="_blank">
+                        <a class="mx-5" href="https://github.com/LesliTech/lesli.dev/blob/master/docs/getting-started/5-demo.md" target="_blank">
                             Edit this page on GitHub
                         </a>
                     </div>

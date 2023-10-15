@@ -1,0 +1,64 @@
+<main class="columns mt-0 mb-0">
+        <aside class="documentation-navigation column is-3 is-hidden-touch">
+            <a href="/">
+                <figure>
+                    <%= inline_svg("brand/lesli-name.svg") %>
+                </figure>
+            </a>
+            <%#= partial("documentation/navigation-sidebar") %>
+            <%= partial("partials/docs-navigation-aside")%>
+        </aside>
+        <section class="documentation-container column">
+            <%= partial("partials/docs-navigation-navbar")%>
+            <div class="documentation-content">
+                <h1>Install Lesli core</h1>
+
+<p>Lesli is a Ruby on Rails gem designed to seamlessly integrate with your application. It ensures complete isolation of code, database, and assets, preventing any interference with your main RoR application.</p>
+
+<h3>Install the Lesli core gem</h3>
+
+<p>Add Lesli gem to your Rails app</p>
+<pre class="shell"><code>bundle add lesli
+</code></pre>
+<p>Lesli include a Rake task to start the database:</p>
+<pre class="shell"><code><span style="color: #6e7781"># This task is going to migrate, seed and initialize our database.</span>
+rake lesli:db:setup
+</code></pre>
+<p>Mount Lesli in your main Rails application</p>
+<pre class="ruby"><code><span style="color: #953800">Rails</span><span style="color: #24292f;background-color: #f6f8fa">.</span><span style="color: #8250df">application</span><span style="color: #24292f;background-color: #f6f8fa">.</span><span style="color: #8250df">routes</span><span style="color: #24292f;background-color: #f6f8fa">.</span><span style="color: #8250df">draw</span> <span style="color: #cf222e">do</span>
+    <span style="color: #24292f;background-color: #f6f8fa">mount</span> <span style="color: #953800">Lesli</span><span style="color: #0550ae">::</span><span style="color: #953800">Engine</span> <span style="color: #0550ae">=&gt;</span> <span style="color: #0a3069">"/lesli"</span>
+<span style="color: #cf222e">end</span>
+</code></pre>
+<h3>Logging into your new Lesli application</h3>
+
+<p>The seeders comes with default users with different roles and privileges, to see Lesli in action use the owner user:</p>
+
+<ul>
+<li>- username: hello@lesli.tech</li>
+<li>- password: tardis2023$</li>
+</ul>
+
+<blockquote>
+<p>It is possible to add development users, roles, privileges and more; we will explore this options later in the documentation.</p>
+</blockquote>
+
+            </div>
+            <div class="documentation-footer">
+                <div class="level">
+                    <div class="level-left">
+                        <div class="level-left">
+                            <a href="/" class="">
+                                <%= image_tag("brand/lesli-name.svg", alt: "Lesli logo", width: "68") %>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="level-right">
+                        <a class="mx-5" href="https://github.com/LesliTech/lesli.dev/blob/master/docs/getting-started/3-installation.md" target="_blank">
+                            Edit this page on GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <%= partial("partials/footer") %>
+        </section>
+    </main>
