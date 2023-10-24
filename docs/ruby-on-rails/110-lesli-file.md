@@ -1,34 +1,85 @@
 
-# Lesli configuration file
-Lesli use a file to initialize the basic settings needed to start the app. We can customize this settings using dedicated instance lesli.yml file or dedicated file per server. 
+# Lesli initialization file
+Lesli use a .rb file to initialize the basic settings needed to start the app. We can customize this settings adding or generating a initializer for our gem.
 
-Lesli core includes the base lesli.yml configuration file, every engine must include a lesli.yml file.
-
-**Important:** Only a builder engine can override the configuration.
-
-### Location
-```plaintext
-    Lesli/
-        app
-        config
-        engines/
-            standard_engine
-                lesli.yml   -> required
-            builder_instance/
-                lesli.yml   -> required, can override the base configuration
-        lib
-        public
-        storage
-        vendor
-        lesli.yml           -> required
-        lesli.server.yml    -> optional
+```shell
+# Generate Lesli initializer
+rails g lesli:install
 ```
 
-### Server configuration file
-You can include a file at the root of the app path to override the settings, this option is usefull to when we need to change some settings for an instalation or server, for example: if we have a test server we can change the default url for email using this special file. __IMPORTANT__: this file only works at the root of the rails app and is ignored in github, so you have to create the file if you want to use this feature.  
+Lesli includes the base lesli configuration, so you can only edit the parts required for your specific needs.
 
-### NOTE: 
-The core base settings include all the configurations available, but in the instance or server file you can include only the settings you want to change.
+```ruby
+Lesli.configure do |config|
 
-lesli.yml example located at: [https://github.com/LesliTech/Lesli/blob/master/lesli.yml](https://github.com/LesliTech/Lesli/blob/master/lesli.yml)
+    # Installation identifier
+    config.instance = "Lesli"
 
+
+    # Information about the main account in the platform
+    config.company = {
+        name: "Lesli",
+        email: "hello@lesli.tech",
+        tagline: "Ruby on Rails SaaS Development Platform."
+    }
+
+
+    # Available languages globally (Requires LesliBabel)
+    config.locales = {
+        :en => "English",       # English
+        # :de => "Deutsch",     # Deutsch/German
+        # :pl => "Polski",      # Polski/Polish/Poland
+        # :nl => "Dutch",       # Dutch/Nederlands/Netherlands
+        :es => "Español",       # Español/Spanish
+        # :uk => "украї́нська",  # украї́нська/Ukrainian
+        # :sr => "Српски",      # Српски/Srpski/Serbian
+        # :it => "Italiano",    # Italiano/Italian
+        # :hr => "Hrvatski",    # Hrvatski/Croatian
+        # :fr => "Français",    # French
+        # :pt => "Português",   # Portuguese
+        # :tr => "Türkçe",      # Turkish
+        # :ro => "Română",      # Romanian
+        # :bg => "български"    # Bulgarian
+    }
+
+
+    # Time localization
+    config.datetime = {
+        time_zone: "America/Guatemala",
+        start_week_on: "monday",
+        formats: {
+            date: "%d/%m/%Y",
+            time: "%H:%M",
+            date_time: "%d/%m/%Y %H:%M",
+            date_words: "%A, %B %d, %Y",
+            date_time_words: "%A, %B %d, %Y, %H:%M"
+        }
+    }
+
+
+    # Instance security settings
+    config.security = {
+        password: "tardis",
+        enable_debug: false,
+        enable_becoming: false,
+        enable_analytics: true,
+        enable_login_otp: true,
+        enable_login_link: true,
+        allow_multiaccount: true,
+        allow_registration: true
+    }
+
+
+    # Main color palette for Lesli
+    config.theme = {
+        color_primary: "#193d8d",
+        color_sidebar: "#ffffff",
+        color_header: "transparent",
+        color_footer: "transparent",
+        color_background: "#eef2f6",
+        color_sidebar_hover: "#dee7ec"
+    }
+end
+```
+
+> You can edit this at runtime, the initializer file is needed only to setup Lesli for the very first time.

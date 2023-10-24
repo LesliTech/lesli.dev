@@ -1,71 +1,66 @@
 {
   "getting-started": [
     {
-      "path": "getting-started/1-about",
+      "path": "getting-started/about",
       "file": "1-about",
       "label": " about"
     },
     {
-      "path": "getting-started/2-ecosystem",
+      "path": "getting-started/ecosystem",
       "file": "2-ecosystem",
       "label": " ecosystem"
     },
     {
-      "path": "getting-started/3-installation",
+      "path": "getting-started/installation",
       "file": "3-installation",
       "label": " installation"
     },
     {
-      "path": "getting-started/4-development",
+      "path": "getting-started/development",
       "file": "4-development",
       "label": " development"
     },
     {
-      "path": "getting-started/5-demo",
+      "path": "getting-started/demo",
       "file": "5-demo",
       "label": " demo"
     }
   ],
   "contributing": [
     {
-      "path": "contributing/001-environment",
+      "path": "contributing/environment",
       "file": "001-environment",
       "label": " environment"
     },
     {
-      "path": "contributing/010-git-flow",
+      "path": "contributing/git-flow",
       "file": "010-git-flow",
       "label": " git flow"
     },
     {
-      "path": "contributing/020-commits",
+      "path": "contributing/commits",
       "file": "020-commits",
       "label": " commits"
     },
     {
-      "path": "contributing/030-pull-requests",
+      "path": "contributing/pull-requests",
       "file": "030-pull-requests",
       "label": " pull requests"
     }
   ],
   "design": [
     {
-      "path": "design/10-colors",
+      "path": "design/colors",
       "file": "10-colors",
       "label": " colors"
     },
     {
-      "path": "design/20-layout",
-      "file": "20-layout",
-      "label": " layout"
-    },
-    {
-      "path": "design/30-typography",
+      "path": "design/typography",
       "file": "30-typography",
       "label": " typography"
     },
     {
-      "path": "design/40-customization",
+      "path": "design/customization",
       "file": "40-customization",
       "label": " customization"
     }
@@ -84,17 +79,17 @@
   ],
   "ruby-on-rails": [
     {
-      "path": "ruby-on-rails/110-lesli-file",
+      "path": "ruby-on-rails/lesli-file",
       "file": "110-lesli-file",
       "label": " lesli file"
     },
     {
-      "path": "ruby-on-rails/120-credentials",
+      "path": "ruby-on-rails/credentials",
       "file": "120-credentials",
       "label": " credentials"
     },
     {
-      "path": "ruby-on-rails/130-router",
+      "path": "ruby-on-rails/router",
       "file": "130-router",
       "label": " router"
     }

@@ -13,11 +13,7 @@
             <div class="documentation-content">
                 <h1>Database Schemas</h1>
 
-<p>Database schema documentation and migration standards</p>
-
-<h2>About Documentation</h2>
-
-<p>The database structure of all engines must be documented and maintained within the respective engine in the following path: <em>engine_root/docs/database.md</em>. If you make any changes that add, remove or renumber any table, you <strong>must</strong> document it within this file, or your pull request will be rejected. At the current time, only changes to tables are being documented, so new columns or column name changes don&#39;t require you to modify <em>database.md</em>.</p>
+<p>The database structure of Lesli and all the engines must be documented and maintained within the respective engine in the following path: <em>engine_root/docs/database.md</em>. If you make any changes that add, remove or renumber any table, you <strong>must</strong> document it within this file, or your pull request will be rejected. At the current time, only changes to tables are being documented, so new columns or column name changes don&#39;t require you to modify <em>database.md</em>.</p>
 
 <p>These changes must also meet all standards written below.</p>
 
@@ -25,15 +21,27 @@
 
 <p>A rails migration must containt a number as a prefix that helps rails identify which migrations must be run and in which order. We take advantage of this behavior by replacing the default rails numeration for our custom one. The prefix number of each table must be a 8 digit decimal number that meets the format <strong>CC.EE.NN.TT.VV</strong> where:</p>
 
-<p><strong>— CC</strong> is a 2-digit number that represents a the collection of the table. Engines that work within the same area have the same collection number. For Example <strong>CloudFocus</strong> (the task management system) and <strong>CloudNotes</strong> (the notes management system) are both under the <strong>03</strong> collection. There is a detailed list of all collections in the <a href="/development/roadmap">roadmap section</a>. </p>
+<p><br /></p>
 
-<p><strong>— EE</strong> is a 2-digit number that identifies a specific engine within a collection. In our previous example, CloudFocus is <strong>03.03</strong> and CloudNotes is <strong>03.05</strong> There is a detailed list of all engines (implemented or not) in the <a href="/development/roadmap">roadmap section</a>. </p>
+<p><strong>— CC</strong> is a 2-digit number that represents a the collection of the table. Engines that work within the same area have the same collection number. For Example <strong>CloudFocus</strong> (the task management system) and <strong>CloudNotes</strong> (the notes management system) are both under the <strong>03</strong> collection. There is a detailed list of all collections in the <a href="/documentation/getting-started/2-ecosystem">Ecosystem section.</a>. </p>
+
+<p><br /></p>
+
+<p><strong>— EE</strong> is a 2-digit number that identifies a specific engine within a collection. In our previous example, CloudFocus is <strong>03.03</strong> and CloudNotes is <strong>03.05</strong> There is a detailed list of all engines (implemented or not) in the <a href="/documentation/getting-started/2-ecosystem">Ecosystem section.</a>.  </p>
+
+<p><br /></p>
 
 <p><strong>— NN</strong> is a 2-digit number that identifies a namespace within the engine. Namespaces must e unique within the engine, but 2 different engines can (and will in some cases) have the same namespace. For example, the table <strong>cloud_focus_task</strong> and all its child tables are all within the <strong>03.05.10</strong> namespace.</p>
 
+<p><br /></p>
+
 <p><strong>— TT</strong> is a 2-digit number that identifies a specific table within the namespace. For example, the table <strong>cloud_focus_task</strong> has the code <strong>03.05.10.01</strong> while the table <strong>cloud_focus_task_activities</strong> has the code <strong>03.05.10.04</strong>.</p>
 
+<p><br /></p>
+
 <p><strong>— VV</strong> is a 2-digit number that identifies the version of the migration, this number correspond to the folder version inside the migration folder.</p>
+
+<p><br /></p>
 
 <h2>Namespace and Table Number Standard and Required Tables</h2>
 

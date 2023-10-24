@@ -41,7 +41,9 @@ Building a better future, one line of code at a time.
     padding: 2rem 3rem;
     text-align: right;
     background-color: $primary;
+    background-color: whitesmoke;
     border-right: 3px solid darken($primary, 10);
+    border-right: none;
 
     // logo
     svg {
@@ -50,6 +52,7 @@ Building a better future, one line of code at a time.
         path,
         circle {
             fill: white;
+            fill: $primary;
         }
     }
 
@@ -67,6 +70,7 @@ Building a better future, one line of code at a time.
             // section title
             &:first-child {
                 color: lesli-css-color(silver, 100);
+                color: lesli-css-color(silver, 900);
                 text-transform: uppercase;
                 font-weight: 500;
                 font-weight: 600;
@@ -75,6 +79,7 @@ Building a better future, one line of code at a time.
             // link to documentation files
             a {
                 color: lesli-css-color(silver, 100);
+                color: lesli-css-color(silver, 900);
                 font-weight: 400;
             }
         }
@@ -85,6 +90,15 @@ Building a better future, one line of code at a time.
 
 // · 
 .documentation-container {
+
+    div.lesli-typography-domine {
+        margin-top: 2rem;
+        h1, h2, h3, h4, h5, h6 {
+            margin: 0 0 1rem !important;
+            font-family: "Domine" !important;
+            color: lesli-css-color(black, 500) !important;
+        }
+    }
 
     .navigation-header {
         width: 90%;

@@ -2,7 +2,7 @@
 Lesli uses rails credentials to manage sensitive application credentials securely. It allows developers to store and access sensitive information, such as API keys, database passwords, and other secrets, in an encrypted format.
 
 
-##### Manage credentials
+#### Manage credentials within Ruby on Rails
 
 ```shell
 # Ubuntu:
@@ -19,51 +19,58 @@ EDITOR="nano" rails credentials:edit
 ```
 
 
-##### Standard credentials structure for Lesli
+#### Standard credentials structure for Lesli
+
+Some credentials are required by some engines, this is necessary to work with third-party services like: AWS, Google, Firagase, HoneyBadger, etc. 
 
 ```yaml
+
+# Identify your Lesli installation across multiple environments
 implementation: "lesli-localhost"
+
+# Standard ruby
 db:
     database: ""
     username: ""
     password: ""
     host: "" # optional
     port: "" # optional
+
+# Internal Lesli services
 services:
+
+    # Used by LesliDispatcher to sign JWTs
     jwt:
         secret: "your-secret-json-web-token-key"
+
+# Third-party integration keys
 providers:
-    aws:
+
+    # AWS Simple Storage Service
+    aws_s3: 
+        region: eu-central-1
+        bucket: ""
+        access_key_id: ""
+        secret_access_key: ""
+
+    # AWS Simple Email Service
+    aws_ses: 
+        access_key_id: ""
+        secret_access_key: ""
+    # AWS Simple Notification Service
+    aws_sns: 
         region: eu-central-1
         access_key_id: ""
         secret_access_key: ""
-        s3: 
-            region: eu-central-1
-            bucket: ""
-            access_key_id: ""
-            secret_access_key: ""
-        ses: 
-            access_key_id: ""
-            secret_access_key: ""
-        sns: 
-            region: eu-central-1
-            access_key_id: ""
-            secret_access_key: ""
+
+    # Integration with Google services
     google:
+        client_id: ""
+        client_secret: ""
         maps_sdk_token: ""
         analytics: track_id
-        client_id: ""
-        client_secret: ""
-    facebook:
-        client_id: ""
-        client_secret: ""
-    apple:
-        mapkit_token: ""
-        client_id: ""
-        team_id: ""
-        key_id: ""
-        key: ""
-        validity_period: 10
+
+    # Firebase, backend and frontend credentials
     firebase:
         api_key: ""
         admin_sdk_private_key:
@@ -84,11 +91,12 @@ providers:
             storageBucket: ""
             messagingSenderId: ""
             appId: ""
+
+    # Honey badger keys
     honey_badger:
         api_key: ""
         personal_token: ""
-    motomo: site_id
+
+# Standard ruby secret
 secret_key_base: "your-secret-key-base"
 ```
-
-TODO: Add explanation for every entry in the credentials file

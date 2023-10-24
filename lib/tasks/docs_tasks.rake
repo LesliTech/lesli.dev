@@ -17,7 +17,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see http://www.gnu.org/licenses/.
 
-Lesli · Ruby on Rails SaaS development platform.
+Lesli · Ruby on Rails SaaS Development Framework.
 
 Made with ♥ by https://www.lesli.tech
 Building a better future, one line of code at a time.
@@ -158,8 +158,7 @@ def documentation
         files.each do |file|
 
             # extract information from file
-            path = file.sub("docs/", "").sub(".md", "").gsub("/","-")
-            path = file.sub("docs/", "").sub(".md", "")
+            path = file.sub("docs/", "").sub(".md", "").tr("0-9", "").sub("/-", "/")
             file_name = File.basename(file, ".md")
             file_label = file_name.tr("0-9", "").tr("-", " ")
 
@@ -187,7 +186,7 @@ def documentation
     end
 
     # Duplicate the first file (introduction) so I can show this file as main documentation index file
-    FileUtils.cp(File.join(DOCUMENTATION_SOURCE_PATH, "getting-started", "1-about.html.erb"), File.join(DOCUMENTATION_SOURCE_PATH, "_introduction.html.erb"))
+    FileUtils.cp(File.join(DOCUMENTATION_SOURCE_PATH, "getting-started", "about.html.erb"), File.join(DOCUMENTATION_SOURCE_PATH, "_introduction.html.erb"))
 
 
     # Convert the hash to JSON format

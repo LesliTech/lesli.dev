@@ -50,3 +50,10 @@ Building a better future, one line of code at a time.
     src: font-url("Remixicon/remixicon.ttf") format("truetype");
     font-display: swap;
 }
+
+// · Font family for titles
+@font-face {
+    font-family: "Domine";
+    src: font-url("Domine/Domine-VariableFont_wght.ttf") format("truetype");
+    font-display: swap;
+}

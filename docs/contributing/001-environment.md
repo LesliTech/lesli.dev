@@ -76,14 +76,6 @@ Git is a version control system that is used to track changes in files. It is us
 ### Github
 Github is a web-based Git repository hosting service that is used to store the codebase of Lesli. For download the codebase you need to clone the repository with ssh or with https. If you want to use ssh you need to create a ssh keys.
 
-To configure bundle and download the gems from github packages you need to create a personal token with read-only access. You can find more information about it, in this [link](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line).
-
-Then you can set the personal token with the next command:
-
-```shell
-bundle config https://rubygems.pkg.github.com/YOUR_COMPANY_PROFILE YOUR_TOKEN
-```
-
 
 ### Install engines
-Install engines you need to clone the repository that you want inside the engines folder. The only engine needed to run Lesli at the first time is LesliCloud.
+To install engines you need to clone the repository inside the engines folder. 

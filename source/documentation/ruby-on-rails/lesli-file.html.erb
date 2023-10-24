@@ -1,0 +1,115 @@
+<main class="columns mt-0 mb-0">
+        <aside class="documentation-navigation column is-3 is-hidden-touch">
+            <a href="/">
+                <figure>
+                    <%= inline_svg("brand/lesli-name.svg") %>
+                </figure>
+            </a>
+            <%#= partial("documentation/navigation-sidebar") %>
+            <%= partial("partials/docs-navigation-aside")%>
+        </aside>
+        <section class="documentation-container column">
+            <%= partial("partials/docs-navigation-navbar")%>
+            <div class="documentation-content">
+                <h1>Lesli initialization file</h1>
+
+<p>Lesli use a .rb file to initialize the basic settings needed to start the app. We can customize this settings adding or generating a initializer for our gem.</p>
+<pre class="shell"><code><span style="color: #6e7781"># Generate Lesli initializer</span>
+rails g lesli:install
+</code></pre>
+<p>Lesli includes the base lesli configuration, so you can only edit the parts required for your specific needs.</p>
+<pre class="ruby"><code><span style="color: #953800">Lesli</span><span style="color: #24292f;background-color: #f6f8fa">.</span><span style="color: #8250df">configure</span> <span style="color: #cf222e">do</span> <span style="color: #0550ae">|</span><span style="color: #24292f;background-color: #f6f8fa">config</span><span style="color: #0550ae">|</span>
+
+    <span style="color: #6e7781"># Installation identifier</span>
+    <span style="color: #24292f;background-color: #f6f8fa">config</span><span style="color: #24292f;background-color: #f6f8fa">.</span><span style="color: #8250df">instance</span> <span style="color: #0550ae">=</span> <span style="color: #0a3069">"Lesli"</span>
+
+
+    <span style="color: #6e7781"># Information about the main account in the platform</span>
+    <span style="color: #24292f;background-color: #f6f8fa">config</span><span style="color: #24292f;background-color: #f6f8fa">.</span><span style="color: #8250df">company</span> <span style="color: #0550ae">=</span> <span style="color: #24292f;background-color: #f6f8fa">{</span>
+        <span style="color: #0a3069">name: </span><span style="color: #0a3069">"Lesli"</span><span style="color: #24292f;background-color: #f6f8fa">,</span>
+        <span style="color: #0a3069">email: </span><span style="color: #0a3069">"hello@lesli.tech"</span><span style="color: #24292f;background-color: #f6f8fa">,</span>
+        <span style="color: #0a3069">tagline: </span><span style="color: #0a3069">"Ruby on Rails SaaS Development Platform."</span>
+    <span style="color: #24292f;background-color: #f6f8fa">}</span>
+
+
+    <span style="color: #6e7781"># Available languages globally (Requires LesliBabel)</span>
+    <span style="color: #24292f;background-color: #f6f8fa">config</span><span style="color: #24292f;background-color: #f6f8fa">.</span><span style="color: #8250df">locales</span> <span style="color: #0550ae">=</span> <span style="color: #24292f;background-color: #f6f8fa">{</span>
+        <span style="color: #0a3069">:en</span> <span style="color: #0550ae">=&gt;</span> <span style="color: #0a3069">"English"</span><span style="color: #24292f;background-color: #f6f8fa">,</span>       <span style="color: #6e7781"># English</span>
+        <span style="color: #6e7781"># :de =&gt; "Deutsch",     # Deutsch/German</span>
+        <span style="color: #6e7781"># :pl =&gt; "Polski",      # Polski/Polish/Poland</span>
+        <span style="color: #6e7781"># :nl =&gt; "Dutch",       # Dutch/Nederlands/Netherlands</span>
+        <span style="color: #0a3069">:es</span> <span style="color: #0550ae">=&gt;</span> <span style="color: #0a3069">"Español"</span><span style="color: #24292f;background-color: #f6f8fa">,</span>       <span style="color: #6e7781"># Español/Spanish</span>
+        <span style="color: #6e7781"># :uk =&gt; "украї́нська",  # украї́нська/Ukrainian</span>
+        <span style="color: #6e7781"># :sr =&gt; "Српски",      # Српски/Srpski/Serbian</span>
+        <span style="color: #6e7781"># :it =&gt; "Italiano",    # Italiano/Italian</span>
+        <span style="color: #6e7781"># :hr =&gt; "Hrvatski",    # Hrvatski/Croatian</span>
+        <span style="color: #6e7781"># :fr =&gt; "Français",    # French</span>
+        <span style="color: #6e7781"># :pt =&gt; "Português",   # Portuguese</span>
+        <span style="color: #6e7781"># :tr =&gt; "Türkçe",      # Turkish</span>
+        <span style="color: #6e7781"># :ro =&gt; "Română",      # Romanian</span>
+        <span style="color: #6e7781"># :bg =&gt; "български"    # Bulgarian</span>
+    <span style="color: #24292f;background-color: #f6f8fa">}</span>
+
+
+    <span style="color: #6e7781"># Time localization</span>
+    <span style="color: #24292f;background-color: #f6f8fa">config</span><span style="color: #24292f;background-color: #f6f8fa">.</span><span style="color: #8250df">datetime</span> <span style="color: #0550ae">=</span> <span style="color: #24292f;background-color: #f6f8fa">{</span>
+        <span style="color: #0a3069">time_zone: </span><span style="color: #0a3069">"America/Guatemala"</span><span style="color: #24292f;background-color: #f6f8fa">,</span>
+        <span style="color: #0a3069">start_week_on: </span><span style="color: #0a3069">"monday"</span><span style="color: #24292f;background-color: #f6f8fa">,</span>
+        <span style="color: #0a3069">formats: </span><span style="color: #24292f;background-color: #f6f8fa">{</span>
+            <span style="color: #0a3069">date: </span><span style="color: #0a3069">"%d/%m/%Y"</span><span style="color: #24292f;background-color: #f6f8fa">,</span>
+            <span style="color: #0a3069">time: </span><span style="color: #0a3069">"%H:%M"</span><span style="color: #24292f;background-color: #f6f8fa">,</span>
+            <span style="color: #0a3069">date_time: </span><span style="color: #0a3069">"%d/%m/%Y %H:%M"</span><span style="color: #24292f;background-color: #f6f8fa">,</span>
+            <span style="color: #0a3069">date_words: </span><span style="color: #0a3069">"%A, %B %d, %Y"</span><span style="color: #24292f;background-color: #f6f8fa">,</span>
+            <span style="color: #0a3069">date_time_words: </span><span style="color: #0a3069">"%A, %B %d, %Y, %H:%M"</span>
+        <span style="color: #24292f;background-color: #f6f8fa">}</span>
+    <span style="color: #24292f;background-color: #f6f8fa">}</span>
+
+
+    <span style="color: #6e7781"># Instance security settings</span>
+    <span style="color: #24292f;background-color: #f6f8fa">config</span><span style="color: #24292f;background-color: #f6f8fa">.</span><span style="color: #8250df">security</span> <span style="color: #0550ae">=</span> <span style="color: #24292f;background-color: #f6f8fa">{</span>
+        <span style="color: #0a3069">password: </span><span style="color: #0a3069">"tardis"</span><span style="color: #24292f;background-color: #f6f8fa">,</span>
+        <span style="color: #0a3069">enable_debug: </span><span style="color: #cf222e">false</span><span style="color: #24292f;background-color: #f6f8fa">,</span>
+        <span style="color: #0a3069">enable_becoming: </span><span style="color: #cf222e">false</span><span style="color: #24292f;background-color: #f6f8fa">,</span>
+        <span style="color: #0a3069">enable_analytics: </span><span style="color: #cf222e">true</span><span style="color: #24292f;background-color: #f6f8fa">,</span>
+        <span style="color: #0a3069">enable_login_otp: </span><span style="color: #cf222e">true</span><span style="color: #24292f;background-color: #f6f8fa">,</span>
+        <span style="color: #0a3069">enable_login_link: </span><span style="color: #cf222e">true</span><span style="color: #24292f;background-color: #f6f8fa">,</span>
+        <span style="color: #0a3069">allow_multiaccount: </span><span style="color: #cf222e">true</span><span style="color: #24292f;background-color: #f6f8fa">,</span>
+        <span style="color: #0a3069">allow_registration: </span><span style="color: #cf222e">true</span>
+    <span style="color: #24292f;background-color: #f6f8fa">}</span>
+
+
+    <span style="color: #6e7781"># Main color palette for Lesli</span>
+    <span style="color: #24292f;background-color: #f6f8fa">config</span><span style="color: #24292f;background-color: #f6f8fa">.</span><span style="color: #8250df">theme</span> <span style="color: #0550ae">=</span> <span style="color: #24292f;background-color: #f6f8fa">{</span>
+        <span style="color: #0a3069">color_primary: </span><span style="color: #0a3069">"#193d8d"</span><span style="color: #24292f;background-color: #f6f8fa">,</span>
+        <span style="color: #0a3069">color_sidebar: </span><span style="color: #0a3069">"#ffffff"</span><span style="color: #24292f;background-color: #f6f8fa">,</span>
+        <span style="color: #0a3069">color_header: </span><span style="color: #0a3069">"transparent"</span><span style="color: #24292f;background-color: #f6f8fa">,</span>
+        <span style="color: #0a3069">color_footer: </span><span style="color: #0a3069">"transparent"</span><span style="color: #24292f;background-color: #f6f8fa">,</span>
+        <span style="color: #0a3069">color_background: </span><span style="color: #0a3069">"#eef2f6"</span><span style="color: #24292f;background-color: #f6f8fa">,</span>
+        <span style="color: #0a3069">color_sidebar_hover: </span><span style="color: #0a3069">"#dee7ec"</span>
+    <span style="color: #24292f;background-color: #f6f8fa">}</span>
+<span style="color: #cf222e">end</span>
+</code></pre>
+<blockquote>
+<p>You can edit this at runtime, the initializer file is needed only to setup Lesli for the very first time.</p>
+</blockquote>
+
+            </div>
+            <div class="documentation-footer">
+                <div class="level">
+                    <div class="level-left">
+                        <div class="level-left">
+                            <a href="/" class="">
+                                <%= image_tag("brand/lesli-name.svg", alt: "Lesli logo", width: "68") %>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="level-right">
+                        <a class="mx-5" href="https://github.com/LesliTech/lesli.dev/blob/master/docs/ruby-on-rails/110-lesli-file.md" target="_blank">
+                            Edit this page on GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <%= partial("partials/footer") %>
+        </section>
+    </main>

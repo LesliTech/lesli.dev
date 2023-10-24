@@ -15,6 +15,7 @@ Run the Lesli image
 docker compose up
 ```
 
+Navigate to the Lesli demo website using your favorite web browser: [http://127.0.0.1:300](http://127.0.0.1:300)
 
 
 ### Logging into your new Lesli application

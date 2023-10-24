@@ -1,7 +1,7 @@
 # Collections and Modules
 Lesli core is meant to work with modules (Standard RoR engines) to extend the Lesli features and create custom software as required.
 
-There are several engines created and ready for production created by the Lesli team, must of them are open source.
+There are several engines created and ready for production developed by the Lesli team, must of them are open source.
 
 ### Collections 
 A collection is a group of modules that belongs to a category or a business industry.
@@ -81,4 +81,4 @@ __09 Integrations:__
 
 <br><br>
 
-You can create your own modules, we cover that part later in this documentation.
+> You can create your own modules, we'll cover that part later in this documentation.

@@ -31,17 +31,3 @@
         EASY BLUE <br> #7E9BF1
     </div>
 </div>
-
-<br><br><br><br>
-
-## Typography
-<img alt="Lesli logo negative" src="/assets/cloud_development/documentation/design-system/typography.png" />
-
-### Headings & titles
-
-<h1 class="title is-1 m-3">Title 1</h1>
-<h2 class="title is-2 m-3">Title 2</h2>
-<h3 class="title is-3 m-3">Title 3</h3>
-<h4 class="title is-4 m-3">Title 4</h4>
-<h5 class="title is-5 m-3">Title 5</h5>
-<h6 class="title is-6 m-3">Title 6</h6>
