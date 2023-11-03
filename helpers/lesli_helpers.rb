@@ -32,19 +32,15 @@ Building a better future, one line of code at a time.
 
 module LesliHelpers
 
-    def lesli_current_page2 current_page
-        return "index" if current_page.blank?
-        return "index" if current_page.path == "index.html"
-        return current_page.path.sub("#{lang}/","").sub(".html", "")
-    end
-
-    def lesli_current_page current_page
-        
+    def lesli_current_section current_page
         return "index" if current_page.blank?
         return "index" if current_page.path == 'index.html'
         return "documentation" if current_page.path.start_with?("documentation")
-        return current_page.path.sub '.html', ''
-        
+    end
+
+    def lesli_current_page current_page
+        return "index" if current_page.blank?
+        return current_page.path.sub('.html', '')
     end
 
     def lesli_website_version

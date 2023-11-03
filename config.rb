@@ -48,6 +48,7 @@ page '/*.xml', layout: false
 page '/*.txt', layout: false
 
 page "/404.html", :directory_index => false
+page "/dist/*", :directory_index => false
 
 #redirect "documentation.html", to: "/documentation/lesli.html"
 

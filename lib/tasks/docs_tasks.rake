@@ -42,6 +42,14 @@ require "redcarpet"
 require "listen"
 
 
+DOCS_FOLDERS = ["getting-started", "contributing", "database", "ruby-on-rails", "frontend", "theming", "testing"]
+SOURCE_PATH = File.join("source")
+NAVIGATION_NAVBAR_PATH = File.join("source", "documentation", "_navigation-navbar.html.erb")
+NAVIGATION_SIDEBAR_PATH = File.join("source", "documentation", "_navigation-sidebar.html.erb")
+DOCUMENTATION_SOURCE_PATH = File.join("source", "documentation")
+DOCUMENTATION_DESTINATION_PATH = File.join("source", "documentation")
+
+
 namespace :docs do
 
     desc ""
@@ -125,14 +133,6 @@ class CustomHTMLRender < Redcarpet::Render::HTML
 
 end
 
-
-
-DOCS_FOLDERS = ["getting-started", "contributing", "design", "database", "ruby-on-rails"]
-NAVIGATION_NAVBAR_PATH = File.join("source", "documentation", "_navigation-navbar.html.erb")
-NAVIGATION_SIDEBAR_PATH = File.join("source", "documentation", "_navigation-sidebar.html.erb")
-DOCUMENTATION_SOURCE_PATH = File.join("source", "documentation")
-DOCUMENTATION_DESTINATION_PATH = File.join("source", "documentation")
-
 def documentation
 
     markdown = Redcarpet::Markdown.new(
@@ -155,7 +155,7 @@ def documentation
         files = Dir.glob(File.join("docs", folder, "*.md")).sort
 
         # process every documentation file found
-        files.each do |file|
+        files.each_with_index do |file, index|
 
             # extract information from file
             path = file.sub("docs/", "").sub(".md", "").tr("0-9", "").sub("/-", "/")
@@ -169,7 +169,7 @@ def documentation
             markdown_rendered = markdown.render(File.read(file))
 
             # add some nice styles & format to the final html documentation
-            markdown_rendered = documentation_template(markdown_rendered, file)
+            markdown_rendered = documentation_template(file, markdown_rendered)
 
             # create the directory if does not exist
             dirname = File.join(DOCUMENTATION_SOURCE_PATH, File.dirname(path + '.html.erb'))
@@ -178,15 +178,21 @@ def documentation
             # write processed documentation file
             File.write(File.join(DOCUMENTATION_SOURCE_PATH, path + '.html.erb'), markdown_rendered, mode: 'w+')
 
+            if index == 0
+                File.write(File.join(DOCUMENTATION_SOURCE_PATH, folder, 'index.html.erb'), markdown_rendered, mode: 'w+')
+            end
+
             # push the file to the vue apps container
             sections[folder].push({ path: path, file: file_name, label: file_label })
 
             L2.m "  Generate documentation for: #{File.join(DOCUMENTATION_SOURCE_PATH, path)}"
+
         end
+
     end
 
     # Duplicate the first file (introduction) so I can show this file as main documentation index file
-    FileUtils.cp(File.join(DOCUMENTATION_SOURCE_PATH, "getting-started", "about.html.erb"), File.join(DOCUMENTATION_SOURCE_PATH, "_introduction.html.erb"))
+    FileUtils.cp(File.join(DOCUMENTATION_SOURCE_PATH, "getting-started", "about.html.erb"), File.join(DOCUMENTATION_SOURCE_PATH, "index.html.erb"))
 
 
     # Convert the hash to JSON format
@@ -206,7 +212,7 @@ end
 
 # create a template compatible with vue componentes
 # add aditional information to documentation page
-def documentation_template content, file
+def documentation_template file, content
 
     content = content.gsub("{{", "{&#8205;{")
     content = content.gsub("}}", "}&#8205;}")
@@ -219,7 +225,7 @@ def documentation_template content, file
 
     %(<main class="columns mt-0 mb-0">
         <aside class="documentation-navigation column is-3 is-hidden-touch">
-            <a href="/">
+            <a class="documentation-navigation-logo" href="/">
                 <figure>
                     <%= inline_svg("brand/lesli-name.svg") %>
                 </figure>

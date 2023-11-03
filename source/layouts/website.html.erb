@@ -39,9 +39,7 @@ Building a better future, one line of code at a time.
 <body>
     <%= partial "partials/icons" %>
     <%= yield %>
-    <% if lesli_current_page(current_page) != "documentation" %>
-    <%= partial "partials/footer" %>
-    <% end %>
+    <%= partial "partials/footer" if lesli_current_section(current_page) != "documentation" %>
     <%= partial "partials/analytics" %>
 </body>
 </html>

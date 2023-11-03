@@ -48,23 +48,6 @@
       "label": " pull requests"
     }
   ],
-  "design": [
-    {
-      "path": "design/colors",
-      "file": "10-colors",
-      "label": " colors"
-    },
-    {
-      "path": "design/typography",
-      "file": "30-typography",
-      "label": " typography"
-    },
-    {
-      "path": "design/customization",
-      "file": "40-customization",
-      "label": " customization"
-    }
-  ],
   "database": [
     {
       "path": "database/schema",
@@ -92,6 +75,37 @@
       "path": "ruby-on-rails/router",
       "file": "130-router",
       "label": " router"
+    }
+  ],
+  "frontend": [
+    {
+      "path": "frontend/test",
+      "file": "test",
+      "label": "test"
+    }
+  ],
+  "theming": [
+    {
+      "path": "theming/colors",
+      "file": "10-colors",
+      "label": " colors"
+    },
+    {
+      "path": "theming/typography",
+      "file": "30-typography",
+      "label": " typography"
+    },
+    {
+      "path": "theming/customization",
+      "file": "40-customization",
+      "label": " customization"
+    }
+  ],
+  "testing": [
+    {
+      "path": "testing/test",
+      "file": "test",
+      "label": "test"
     }
   ]
 }
