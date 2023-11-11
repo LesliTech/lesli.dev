@@ -77,13 +77,6 @@
       "label": " router"
     }
   ],
-  "frontend": [
-    {
-      "path": "frontend/test",
-      "file": "test",
-      "label": "test"
-    }
-  ],
   "theming": [
     {
       "path": "theming/colors",
@@ -99,13 +92,6 @@
       "path": "theming/customization",
       "file": "40-customization",
       "label": " customization"
-    }
-  ],
-  "testing": [
-    {
-      "path": "testing/test",
-      "file": "test",
-      "label": "test"
     }
   ]
 }

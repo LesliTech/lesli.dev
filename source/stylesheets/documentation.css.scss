@@ -87,25 +87,18 @@ Building a better future, one line of code at a time.
 
             // section title
             &:first-child a {
-                color: lesli-css-color(silver, 100);
-                color: lesli-css-color(silver, 900);
                 color: lesli-css-color(black, 300);
-                //text-transform: uppercase;
-                font-weight: 500;
                 font-weight: 700;
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
 
             // link to documentation files
             a {
-                color: lesli-css-color(silver, 100);
                 color: lesli-css-color(silver, 900);
-                font-size: 1rem;
-                font-weight: 400;
                 font-weight: 500;
                 padding: .2rem 0;
                 display: block;
-                
+                font-size: .9rem;
             }
         }
     }
@@ -252,6 +245,23 @@ Building a better future, one line of code at a time.
             p {
                 display: inline;
                 font-weight: 300;
+            }
+        }
+
+
+        @include lesli-css-color-print;
+
+        div.columns.lesli-css-color-collections {
+            & > div.column div {
+                font-size: 1.1rem;
+                border-radius: 6px;
+            }
+        }
+
+        div.columns.lesli-css-colors {
+            & > div.column > div {
+                border-radius: 6px;
+                height: 3rem;
             }
         }
     }

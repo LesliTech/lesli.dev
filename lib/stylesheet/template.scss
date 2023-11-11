@@ -37,7 +37,8 @@ $hint-of-red: #f8f5f5;
 
 
 // · Include frameworks
-@import "../../node_modules/lesli-css/";
+//@import "../../node_modules/lesli-css/";
+@import "../../../lesli-css/";
 @import "../../node_modules/bulma/bulma.sass";
 
 

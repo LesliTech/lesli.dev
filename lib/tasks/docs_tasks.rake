@@ -42,7 +42,8 @@ require "redcarpet"
 require "listen"
 
 
-DOCS_FOLDERS = ["getting-started", "contributing", "database", "ruby-on-rails", "frontend", "theming", "testing"]
+#DOCS_FOLDERS = ["getting-started", "contributing", "database", "ruby-on-rails", "lesli-vue", "theming", "testing"]
+DOCS_FOLDERS = ["getting-started", "contributing", "database", "ruby-on-rails", "theming"]
 SOURCE_PATH = File.join("source")
 NAVIGATION_NAVBAR_PATH = File.join("source", "documentation", "_navigation-navbar.html.erb")
 NAVIGATION_SIDEBAR_PATH = File.join("source", "documentation", "_navigation-sidebar.html.erb")

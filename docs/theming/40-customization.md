@@ -1,4 +1,4 @@
-# Theme
+# Customization
 
 The Lesli gem offers a seamless customization experience through an initialization file. By editing this file, you can tailor colors to create a unique and personalized theme for your Rails application.
 
