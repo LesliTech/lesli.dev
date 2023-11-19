@@ -5,4 +5,6 @@
 .idea
 Gemfile.lock
 node_modules/
+source/docs/
 build/
+docsource/source/.vitepress/cache/

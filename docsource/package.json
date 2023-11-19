@@ -1,0 +1,14 @@
+{
+    "name": "docs.lesli.dev",
+    "version": "0.0.1",
+    "description": "Lesli Framework Documentation",
+    "devDependencies": {
+        "vitepress": "1.0.0-rc.27",
+        "vitepress-plugin-search": "1.0.4-alpha.20"
+    },
+    "scripts": {
+        "docs:dev": "vitepress dev source",
+        "docs:build": "vitepress build source",
+        "docs:preview": "vitepress preview source"
+    }
+}

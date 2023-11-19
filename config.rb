@@ -34,7 +34,7 @@ Building a better future, one line of code at a time.
 # · custom comopressor for javascript
 require "uglifier"
 
-
+#ignore "/docs/*"
 
 # · 
 config[:host] = "https://www.lesli.dev"
@@ -48,6 +48,7 @@ page '/*.xml', layout: false
 page '/*.txt', layout: false
 
 page "/404.html", :directory_index => false
+page "/docs/*", :directory_index => false
 page "/dist/*", :directory_index => false
 
 #redirect "documentation.html", to: "/documentation/lesli.html"
