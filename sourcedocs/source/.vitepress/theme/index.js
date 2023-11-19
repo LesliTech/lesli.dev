@@ -5,7 +5,6 @@ import DefaultTheme from 'vitepress/theme'
 import './style.css'
 import './bulma.min.css'
 
-console.log(DefaultTheme)
 
 /** @type {import('vitepress').Theme} */
 export default {

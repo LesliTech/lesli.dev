@@ -141,3 +141,19 @@
 .br-5 {
     border-radius: 5px;
 }
+
+
+/* Font family for the body */
+@font-face {
+    font-family: "OpenSans";
+    src: url("/fonts/OpenSans/OpenSans-Variable.ttf") format("truetype");
+    font-display: swap;
+}
+
+
+/* Font family for titles */
+@font-face {
+    font-family: "Domine";
+    src: url("/fonts/Domine/Domine-VariableFont_wght.ttf") format("truetype");
+    font-display: swap;
+}

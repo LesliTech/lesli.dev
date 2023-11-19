@@ -32,7 +32,18 @@ Building a better future, one line of code at a time.
 
 
 // · 
-@import "../../lib/stylesheet/template";
+$primary: #0d52bf;
+$hint-of-red: #f8f5f5;
+
+
+// · Include frameworks
+@import "../../../lesli-css/";
+@import "../../node_modules/bulma/sass/helpers/color";
+@import "../../node_modules/bulma/sass/helpers/spacing";
+@import "../../node_modules/bulma/sass/helpers/typography";
+@import "../../node_modules/bulma/sass/layout/hero";
+@import "../../node_modules/bulma/sass/grid/columns";
+@import "../../node_modules/bulma/sass/elements/container";
 
 
 // · 

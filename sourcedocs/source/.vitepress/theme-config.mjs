@@ -2,6 +2,7 @@
 
 // https://vitepress.dev/reference/site-config
 export default {
+
     nav: [
         { text: "Home", link: "/" },
     ],
