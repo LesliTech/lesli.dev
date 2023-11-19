@@ -11,7 +11,7 @@ export default defineConfig({
     title: "Lesli Documentation",
     description: "Ruby on Rails SaaS Development Framework.",
     base: "/docs/",
-    outDir: "../../source/docs",
+    outDir: "../../build/docs",
     themeConfig: themeConfig,
     vite: { plugins: [SearchPlugin({})] }
 })

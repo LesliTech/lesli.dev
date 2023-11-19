@@ -4,7 +4,7 @@
 .sass-cache
 .idea
 Gemfile.lock
+sourcedocs/source/.vitepress/cache/
 node_modules/
 source/docs/
 build/
-docsource/source/.vitepress/cache/

@@ -34,7 +34,7 @@ Building a better future, one line of code at a time.
 # · custom comopressor for javascript
 require "uglifier"
 
-#ignore "/docs/*"
+ignore "/docs/*"
 
 # · 
 config[:host] = "https://www.lesli.dev"
@@ -93,8 +93,8 @@ end
 
 # · deploy settings 
 activate :deploy do |deploy|
-    system "rm -rf ./build"
-    deploy.build_before = true
+    #system "rm -rf ./build"
+    #deploy.build_before = true
     deploy.deploy_method = :git
     deploy.branch = "production"
 end
