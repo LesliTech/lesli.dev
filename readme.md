@@ -2,7 +2,7 @@
     <img width="110" alt="Lesli logo" src="./source/images/brand/lesli-name.svg" />
 </p>
 
-<h3 align="center">Lesli - Official website</h3>
+<h3 align="center">Official website & documentation</h3>
 
 <hr/>
 

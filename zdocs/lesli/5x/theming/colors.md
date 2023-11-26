@@ -1,8 +1,8 @@
 <script setup>
 const palettes_variant = [100, 300, 500, 700, 900]
 const palettes = [
-    "blue", "lime", "mint", "banana", "orange", "bubble", 
-    "berry", "grape", "cocoa", "silver", "slate", "black"
+    "silver", "blue", "lime", "mint", "banana", "orange", 
+    "bubble", "berry", "grape", "cocoa", "slate", "black"
 ]
 </script>
 

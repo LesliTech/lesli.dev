@@ -45,6 +45,18 @@ export default defineConfig({
     base: "/docs/",
     outDir: "../build/docs",
     vite: { plugins: [SearchPlugin({})] },
-    head: [["link", { rel: "icon", href: "/favicon.png" }]],
+    head: [
+        ["link", { rel: "icon", href: "/favicon.png" }],
+        [
+            "script", {
+                async: true,
+                src: "https://www.googletagmanager.com/gtag/js?id=G-8SZFQK2DZB",
+            },
+        ],
+        [
+            "script", {},
+            "window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-8SZFQK2DZB');",
+        ]
+    ],
     themeConfig: themeConfig
 })

@@ -17,7 +17,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see http://www.gnu.org/licenses/.
 
-Lesli · Ruby on Rails Development Platform.
+Lesli · Ruby on Rails SaaS Development Framework.
 
 Made with ♥ by https://www.lesli.tech
 Building a better future, one line of code at a time.
@@ -32,9 +32,6 @@ Building a better future, one line of code at a time.
 
 
 // · Import Bulma and Buefy styles
-@import "../../../node_modules/bulma/bulma.sass";
-
-/*
 @import "../../../node_modules/bulma/sass/utilities/_all";
 @import "../../../node_modules/bulma/sass/base/_all";
 
@@ -43,9 +40,10 @@ Building a better future, one line of code at a time.
 @import "../../../node_modules/bulma/sass/helpers/typography";
 @import "../../../node_modules/bulma/sass/layout/hero";
 
+@import "../../../node_modules/bulma/sass/components/level";
+
 @import "../../../node_modules/bulma/sass/grid/columns";
 
 @import "../../../node_modules/bulma/sass/elements/container";
 @import "../../../node_modules/bulma/sass/elements/button";
 @import "../../../node_modules/bulma/sass/elements/icon";
-*/

@@ -35,6 +35,11 @@ Building a better future, one line of code at a time.
 footer.lesli-footer {
     background-color: lesli-css-color(solid, white);
 
+    .footer-logo {
+        display: inline-block;
+        width: 100px;
+    }
+
     .links {
         display: flex;
         a {
