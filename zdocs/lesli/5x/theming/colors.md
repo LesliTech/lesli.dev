@@ -14,11 +14,11 @@ const palettes = [
 <div class="columns mt-4">
     <div class="column pt-4 pl-6 pb-6 has-background-grey-lighter">
         <h4 class="mb-2">Standard</h4>
-        <img src="../../../public/images/brand/lesli-name.svg" alt="Lesli logo" width="200" />
+        <img src="../../../public/images/brand/lesli.svg" alt="Lesli logo" width="200" />
     </div>
     <div class="column pt-4 pl-6 pb-6 has-background-grey-darker">
         <h4 class="mb-2 has-text-white">Negative</h4>
-        <img src="../../../public/images/brand/lesli-name-white.svg" alt="Lesli logo" width="200" />
+        <img src="../../../public/images/brand/lesli-white.svg" alt="Lesli logo" width="200" />
     </div>
 </div>
 
