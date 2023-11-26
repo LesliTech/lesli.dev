@@ -33,6 +33,7 @@ Building a better future, one line of code at a time.
 
 // · docs navigation
 import lesli5Navigation from "./lesli-5-navigation"
+import lesliCSS1Navigation from "./lesli-css-1-navigation"
 
 
 // · 
@@ -44,6 +45,7 @@ export default {
 
     nav: [
         { text: "Home", link: "https://www.lesli.dev/", target: "_self" },
+        { text: "Lesli", link: "/" },
         { text: "Vue", link: "/lesli-vue/1x/" },
         { text: "CSS", link: "/lesli-css/1x/" },
         { text: "JS", link: "/" },
@@ -51,7 +53,8 @@ export default {
     ],
 
     sidebar: {
-        "/lesli/5x/": lesli5Navigation
+        "/lesli/5x/": lesli5Navigation,
+        "/lesli-css/1x/": lesliCSS1Navigation,
     },
 
     editLink: {

@@ -9,11 +9,12 @@ html:not(.dark) .accent,
     -webkit-text-fill-color: transparent;
 }
 
-section {
-    padding: 42px 32px;
-}
-
 .docs-header {
+
+    .hero-body {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
 
     img {
         margin: 0 auto 2rem;
@@ -21,11 +22,12 @@ section {
 
     h1.title {
         font-size: 4rem;
-        line-height: 1.25;
-        font-weight: 900;
-        letter-spacing: -1.5px;
         max-width: 960px;
+        font-weight: 900;
+        text-align: center;
+        line-height: 1.25;
         margin: 0px auto 4rem;
+        letter-spacing: -1.5px;
         font-family: "Domine";
     }
 
@@ -33,10 +35,12 @@ section {
         text-align: center;
         font-size: 3rem;
         font-weight: 150;
+        line-height: 1;
     }
 }
 
 .docs-content {
+    padding: 0 1rem;
 
     .columns {
         flex-wrap: wrap;
@@ -81,11 +85,19 @@ section {
 }
 
 
-@media screen and (max-width: 600px) {
-    .docs-header .hero-body {
-        padding: 0;
-    }
-    .tagline {
-        font-size: 3rem;
+@include lesli-css-breakpoint-mobile() {
+    .docs-header {
+
+        img {
+            width: 100px;
+        }
+
+        h1.title {
+            font-size: 2.9rem;
+        }
+
+        p.description {
+            font-size: 2.6rem;
+        }
     }
 }

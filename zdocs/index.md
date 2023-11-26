@@ -2,8 +2,8 @@
 layout: home
 ---
 
-<section class="hero is-medium docs-header">
-    <div class="hero-body">
+<header class="hero is-medium docs-header">
+    <section class="hero-body">
         <img class="m-auto" alt="cat docs" src="/images/cats/docs.svg" />
         <h1 class="title">
             The Open Source Ruby on Rails <span class="accent">SaaS Development Framework.</span>
@@ -11,8 +11,8 @@ layout: home
         <p class="description">
             Lesli Official Documentation
         </p>
-    </div>
-</section>
+    </section>
+</header>
 
 <section class="container docs-content">
     <div class="columns">
@@ -129,7 +129,7 @@ layout: home
             </a>
         </div>
         <div class="column">
-            <a href="/docs/lesli-css/1x/about/">
+            <a href="/docs/lesli-css/1x/">
                 <span class="icon">
                     <i class="ri-css3-line"></i>
                 </span>
