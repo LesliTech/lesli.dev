@@ -31,60 +31,21 @@ Building a better future, one line of code at a time.
 */
 
 
-// · 
-@import "lesli_dev/lesli/settings";
-
-
-// · 
-$primary: $lesli-color-primary;
-
-
 // · Import Bulma and Buefy styles
-@import "bulma/bulma.sass";
-@import "bulma/sass/utilities/functions";
-
+@import "../../../node_modules/bulma/bulma.sass";
 
 /*
-// · 
-//@import "themes/lesli-ocean/settings/colors.scss";
-@import "bulma/sass/utilities/_all";
+@import "../../../node_modules/bulma/sass/utilities/_all";
+@import "../../../node_modules/bulma/sass/base/_all";
 
+@import "../../../node_modules/bulma/sass/helpers/color";
+@import "../../../node_modules/bulma/sass/helpers/spacing";
+@import "../../../node_modules/bulma/sass/helpers/typography";
+@import "../../../node_modules/bulma/sass/layout/hero";
 
-// · 
-$primary: lesli-css-color(lesli, brand);
-$primary-invert: $info-invert;
+@import "../../../node_modules/bulma/sass/grid/columns";
 
-
-// · Links
-$link: $info;
-$link-invert: $info-invert;
-$link-focus-border: $info;
-
-
-// · Override framework colors
-$custom-colors: (
-    "primary": ($primary, $primary-invert), 
-    "link": ($link, $link-invert)
-);
-
-
-$colors: mergeColorMaps(
-    (
-        "white": ($white, $black), 
-        "black": ($black, $white), 
-        "light": ($light, $light-invert), 
-        "dark": ($dark, $dark-invert), 
-        "primary": ($primary, $primary-invert, $primary-light, $primary-dark), 
-        "link": ($link, $link-invert, $link-light, $link-dark), 
-        "info": ($info, $info-invert, $info-light, $info-dark), 
-        "success": ($success, $success-invert, $success-light, $success-dark), 
-        "warning": ($warning, $warning-invert, $warning-light, $warning-dark), 
-        "danger": ($danger, $danger-invert, $danger-light, $danger-dark)
-    ), 
-    $custom-colors
-);
-
-
-// · Import Bulma and Buefy styles
-@import "bulma/bulma.sass";
+@import "../../../node_modules/bulma/sass/elements/container";
+@import "../../../node_modules/bulma/sass/elements/button";
+@import "../../../node_modules/bulma/sass/elements/icon";
 */

@@ -1,5 +1,5 @@
-=begin
-  
+/*
+
 Lesli
 
 Copyright (c) 2023, Lesli Technologies, S. A.
@@ -17,7 +17,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see http://www.gnu.org/licenses/.
 
-Lesli · Ruby on Rails Development Platform.
+Lesli · Ruby on Rails SaaS Development Framework.
 
 Made with ♥ by https://www.lesli.tech
 Building a better future, one line of code at a time.
@@ -27,5 +27,24 @@ Building a better future, one line of code at a time.
 @license  GPLv3 http://www.gnu.org/licenses/gpl-3.0.en.html
 
 // · ~·~     ~·~     ~·~     ~·~     ~·~     ~·~     ~·~     ~·~     ~·~
-// ·   
-=end
+// · 
+*/
+
+
+// · 
+import { defineConfig } from "vitepress"
+import { SearchPlugin } from "vitepress-plugin-search";
+import themeConfig from "./theme-config.mjs"
+
+
+
+// · website config
+export default defineConfig({
+    title: "Lesli Documentation",
+    description: "Ruby on Rails SaaS Development Framework.",
+    base: "/docs/",
+    outDir: "../build/docs",
+    vite: { plugins: [SearchPlugin({})] },
+    head: [["link", { rel: "icon", href: "/favicon.png" }]],
+    themeConfig: themeConfig
+})

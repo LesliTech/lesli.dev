@@ -60,6 +60,11 @@ header.lesli-header {
         margin-top: 2rem;
         margin-bottom: 1rem;
         color: lesli-css-color(blue, 700);
+
+        background: -webkit-linear-gradient(315deg, #0D52Bf 25%, #001F66 );
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 
     .text {

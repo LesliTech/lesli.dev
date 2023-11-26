@@ -35,7 +35,7 @@ Building a better future, one line of code at a time.
 
 source "https://rubygems.org"
 
-gem "middleman", "4.5.0"
+gem "middleman", "4.5.1"
 
 gem "middleman-inline_svg"
 
@@ -50,14 +50,6 @@ gem "middleman-deploy", "2.0.0.pre.alpha"
 gem "builder", "~> 3.0"
 
 gem "L2"
-
-gem "rake", "13.0.6"
-
-gem "rouge", "4.1.1"
-
-gem "nokogiri", "1.15.1"
-
-gem "redcarpet", "3.6.0"
 
 gem "listen"
 

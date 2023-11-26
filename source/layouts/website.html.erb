@@ -37,9 +37,9 @@ Building a better future, one line of code at a time.
     <%= partial "partials/assets" %>
 </head>
 <body>
-    <%= partial "partials/icons" %>
     <%= yield %>
-    <%= partial "partials/footer" if lesli_current_section(current_page) != "documentation" %>
+    <%= partial "partials/footer" %>
     <%= partial "partials/analytics" %>
+    <%= partial "partials/icons" %>
 </body>
 </html>

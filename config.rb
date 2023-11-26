@@ -34,11 +34,13 @@ Building a better future, one line of code at a time.
 # · custom comopressor for javascript
 require "uglifier"
 
+
+# · Ignore vitepress docs
 ignore "/docs/*"
+
 
 # · 
 config[:host] = "https://www.lesli.dev"
-
 
 
 # · Layouts
@@ -51,8 +53,6 @@ page "/404.html", :directory_index => false
 page "/docs/*", :directory_index => false
 page "/dist/*", :directory_index => false
 
-#redirect "documentation.html", to: "/documentation/lesli.html"
-
 
 # · Activate and configure extensions
 activate :directory_indexes
@@ -60,10 +60,8 @@ activate :livereload
 activate :inline_svg
 
 
-
 # · localization
 activate :i18n, :mount_at_root => :en
-
 
 
 # · extensions settings
@@ -72,12 +70,10 @@ activate :autoprefixer do |prefix|
 end
 
 
-
 # · development settings 
 configure :development do
     set :debug_assets, true
 end
-
 
 
 # · build settings (production)
@@ -88,7 +84,6 @@ configure :build do
     activate :minify_html
     #activate :minify_javascript, :inline => true, compressor: proc { ::Uglifier.new(harmony: true)}
 end
-
 
 
 # · deploy settings 

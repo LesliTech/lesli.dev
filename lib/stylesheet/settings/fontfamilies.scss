@@ -31,6 +31,14 @@ Building a better future, one line of code at a time.
 */
 
 
+// · Font family for titles
+@font-face {
+    font-family: "Domine";
+    src: font-url("Domine/Domine-VariableFont_wght.ttf") format("truetype");
+    font-display: swap;
+}
+
+
 // · Font family for the body
 @font-face {
     font-family: "OpenSans";
@@ -38,16 +46,10 @@ Building a better future, one line of code at a time.
     font-display: swap;
 }
 
+
 // · Font family for icons
 @font-face {
     font-family: "remixicon";
     src: font-url("Remixicon/remixicon.ttf") format("truetype");
-    font-display: swap;
-}
-
-// · Font family for titles
-@font-face {
-    font-family: "Domine";
-    src: font-url("Domine/Domine-VariableFont_wght.ttf") format("truetype");
     font-display: swap;
 }
