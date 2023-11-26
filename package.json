@@ -8,6 +8,7 @@
         "lesli-css": "1.6.1",
 
         "sass": "1.69.5",
+        "remixicon": "3.5.0",
         "vitepress": "1.0.0-rc.31",
         "vitepress-plugin-search": "1.0.4-alpha.20"
     },

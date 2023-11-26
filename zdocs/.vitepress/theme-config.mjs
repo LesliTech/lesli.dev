@@ -40,12 +40,12 @@ export default {
 
     siteTitle: false,
     lastUpdated: true,
-    logo: "/images/brand/lesli-name.svg",
+    logo: "/images/brand/lesli.svg",
 
     nav: [
         { text: "Home", link: "https://www.lesli.dev/", target: "_self" },
-        { text: "Vue", link: "/" },
-        { text: "CSS", link: "/" },
+        { text: "Vue", link: "/lesli-vue/1x/" },
+        { text: "CSS", link: "/lesli-css/1x/" },
         { text: "JS", link: "/" },
         { text: "Mails", link: "/" },
     ],

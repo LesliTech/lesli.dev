@@ -36,6 +36,7 @@ import { h } from "vue"
 import DefaultTheme from "vitepress/theme"
 import "./style.css"
 import "./docs.css"
+import "remixicon/fonts/remixicon.css"
 
 
 
