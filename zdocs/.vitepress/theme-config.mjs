@@ -43,6 +43,10 @@ export default {
     lastUpdated: true,
     logo: "/images/brand/lesli.svg",
 
+    search: {
+        provider: "local"
+    },
+
     nav: [
         { text: "Home", link: "https://www.lesli.dev/", target: "_self" },
         { text: "Lesli", link: "/" },

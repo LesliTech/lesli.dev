@@ -36,6 +36,7 @@ module LesliHelpers
         return "index" if current_page.blank?
         return "index" if current_page.path == 'index.html'
         return "documentation" if current_page.path.start_with?("documentation")
+        return lesli_current_page(current_page)
     end
 
     def lesli_current_page current_page

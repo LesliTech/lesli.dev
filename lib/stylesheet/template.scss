@@ -50,7 +50,8 @@ $hint-of-red: #f8f5f5;
 
 
 // · 
-@include lesli-css-fonts-standard;
+
+@include lesli-css-fonts-standard("Domine", "OpenSans");
 
 
 // · 

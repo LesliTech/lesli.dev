@@ -33,11 +33,10 @@ Building a better future, one line of code at a time.
 
 // · 
 import { h } from "vue"
-import DefaultTheme from "vitepress/theme"
+import DefaultTheme from "vitepress/theme-without-fonts"
+import "remixicon/fonts/remixicon.css"
 import "./style.css"
 import "./docs.css"
-import "remixicon/fonts/remixicon.css"
-
 
 
 // · global components

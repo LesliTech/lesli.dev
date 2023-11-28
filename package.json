@@ -9,12 +9,12 @@
 
         "sass": "1.69.5",
         "remixicon": "3.5.0",
-        "vitepress": "1.0.0-rc.31",
-        "vitepress-plugin-search": "1.0.4-alpha.20"
+        "vitepress": "1.0.0-rc.31"
     },
     "scripts": {
-        "docs:dev": "vitepress dev zdocs",
-        "docs:build": "vitepress build zdocs",
-        "docs:preview": "vitepress preview zdocs"
+        "dev": "vitepress dev zdocs",
+        "start": "vitepress dev zdocs",
+        "build": "vitepress build zdocs",
+        "preview": "vitepress preview zdocs"
     }
 }

@@ -162,3 +162,14 @@
 .VPLink.vp-external-link-icon::after {
     display: none !important;
 }
+
+
+html, body {
+    font-family: "OpenSans";
+}
+
+h1, h2, h3 {
+    font-family: "Domine";
+}
+
+

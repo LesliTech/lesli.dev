@@ -44,7 +44,7 @@ export default defineConfig({
     description: "Ruby on Rails SaaS Development Framework.",
     base: "/docs/",
     outDir: "../build/docs",
-    vite: { plugins: [SearchPlugin({})] },
+    //vite: { plugins: [SearchPlugin({})] },
     head: [
         ["link", { rel: "icon", href: "/favicon.png" }],
         [
