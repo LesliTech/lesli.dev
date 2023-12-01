@@ -73,7 +73,7 @@ layout: home
             </a>
         </div>
         <div class="column">
-            <a href="/docs/lesli/5x/theming/">
+            <a href="/docs/lesli/5x/security/">
                 <span class="icon">
                     <i class="ri-shield-line"></i>
                 </span>
@@ -81,7 +81,7 @@ layout: home
             </a>
         </div>
         <div class="column">
-            <a href="/docs/lesli/5x/theming/">
+            <a href="/docs/lesli/5x/generators/">
                 <span class="icon">
                     <i class="ri-code-line"></i>
                 </span>
@@ -89,7 +89,7 @@ layout: home
             </a>
         </div>
         <div class="column">
-            <a href="/docs/lesli/5x/contributing/">
+            <a href="/docs/lesli/5x/testing/">
                 <span class="icon">
                     <i class="ri-bug-line"></i>
                 </span>
@@ -97,7 +97,7 @@ layout: home
             </a>
         </div>
         <div class="column">
-            <a href="/docs/lesli/5x/theming/">
+            <a href="/docs/lesli/5x/engines/">
                 <span class="icon">
                     <i class="ri-shapes-line"></i>
                 </span>
@@ -105,7 +105,7 @@ layout: home
             </a>
         </div>
         <div class="column">
-            <a href="/docs/lesli/5x/theming/">
+            <a href="/docs/lesli/5x/deployment/">
                 <span class="icon">
                     <i class="ri-flashlight-line"></i>
                 </span>
@@ -113,7 +113,7 @@ layout: home
             </a>
         </div>
         <div class="column">
-            <a href="/docs/lesli-vue/1x/about/">
+            <a href="/docs/lesli-vue/1x/">
                 <span class="icon">
                     <i class="ri-vuejs-line"></i>
                 </span>
@@ -121,7 +121,7 @@ layout: home
             </a>
         </div>
         <div class="column">
-            <a href="/docs/lesli-js/1x/about/">
+            <a href="/docs/lesli-js/1x/">
                 <span class="icon">
                     <i class="ri-javascript-line"></i>
                 </span>
@@ -137,7 +137,7 @@ layout: home
             </a>
         </div>
         <div class="column">
-            <a href="/docs/lesli-mails/1x/about/">
+            <a href="/docs/lesli-mails/1x/">
                 <span class="icon">
                     <i class="ri-mail-open-line"></i>
                 </span>

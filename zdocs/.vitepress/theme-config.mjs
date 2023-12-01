@@ -33,6 +33,7 @@ Building a better future, one line of code at a time.
 
 // · docs navigation
 import lesli5Navigation from "./lesli-5-navigation"
+import lesliVue1Navigation from "./lesli-vue-1-navigation"
 import lesliCSS1Navigation from "./lesli-css-1-navigation"
 
 
@@ -58,6 +59,7 @@ export default {
 
     sidebar: {
         "/lesli/5x/": lesli5Navigation,
+        "/lesli-vue/1x/": lesliVue1Navigation,
         "/lesli-css/1x/": lesliCSS1Navigation,
     },
 

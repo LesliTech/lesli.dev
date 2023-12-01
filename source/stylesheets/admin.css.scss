@@ -67,7 +67,7 @@ header.lesli-header {
 
         .arrows .icon,
         .settings .icon {
-            $size: 2.5rem;
+            $size: 2rem;
             height: $size;
             width: $size;
             background-color: white;
@@ -76,18 +76,19 @@ header.lesli-header {
             line-height: 1;
             margin-left: 1rem;
             span {
-                $size: 20px;
+                $size: 18px;
                 width: $size;
                 height: $size;
                 border-radius: 50%;
                 display: inline-block;
                 &:nth-child(1) { background-color: #ff8585; }
                 &:nth-child(3) { background-color: #74ed94; }
-                &:nth-child(2) { background-color: #ffd071; margin: auto 11px;}
+                &:nth-child(2) { background-color: #ffd071; margin: auto 8px;}
             }
         }
         .arrows {
-            margin-left: 4rem;
+            line-height: 1;
+            margin-left: 2rem;
             .icon {
                 i {
                     font-size: 2rem;
@@ -96,15 +97,16 @@ header.lesli-header {
             }
         }
         .address {
-            margin-left: 2rem;
             flex-grow: 1;
-            background-color: white;
+            font-size: 16px;
+            margin-left: 2rem;
             border-radius: 2px;
-            padding: .2rem 1rem;
-            font-size: 1.4rem;
-            font-family: Arial, Helvetica, sans-serif;
             letter-spacing: 2px;
+            padding: .25rem 1rem;
+            background-color: white;
+            font-family: Arial, Helvetica, sans-serif;
             color: lesli-css-color(silver, 700);
+
             p {
                 text-align: left;
                 span {
