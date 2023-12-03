@@ -32,13 +32,14 @@ Building a better future, one line of code at a time.
 
 
 // · 
-@import "../../lib/stylesheet/template.scss";
+@import "../../lib/stylesheet/templates/base.scss";
 @import "../../lib/stylesheet/components/template";
 @import "../../lib/stylesheet/components/description";
 @import "../../lib/stylesheet/components/corefeatures";
 @import "../../lib/stylesheet/components/cloudobjects";
 @import "../../lib/stylesheet/components/modulos";
 @import "../../lib/stylesheet/components/development";
+@import "../../lib/stylesheet/components/demo";
 
 
 // · 
@@ -52,14 +53,11 @@ header.lesli-header {
 
     .lesli-logo {
         width: 220px;
-        margin-bottom: -35px;
     }
 
     h2 {
         font-weight: 600;
         font-size: 3rem;
-        margin-top: 2rem;
-        margin-bottom: 1rem;
         color: lesli-css-color(blue, 700);
 
         background: -webkit-linear-gradient(315deg, #0D52Bf 25%, #001F66 );
@@ -78,10 +76,11 @@ header.lesli-header {
         font-size: 1.4rem;
         border-radius: 3px;
         padding: 1rem 2rem;
+        margin-bottom: .5rem;
     }
 
     p.alpha {
-        margin: 1rem auto;
+        margin: 0 auto;
         font-weight: 400;
     }
 

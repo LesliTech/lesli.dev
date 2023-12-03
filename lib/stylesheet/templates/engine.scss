@@ -1,4 +1,4 @@
-/*
+/*!
 
 Lesli
 
@@ -17,7 +17,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see http://www.gnu.org/licenses/.
 
-Lesli · Ruby on Rails Development Platform.
+Lesli · Ruby on Rails SaaS Development Framework.
 
 Made with ♥ by https://www.lesli.tech
 Building a better future, one line of code at a time.
@@ -31,33 +31,25 @@ Building a better future, one line of code at a time.
 */
 
 
-// · 
-$primary: #0d52bf;
-$hint-of-red: #f8f5f5;
-
-
-// · Include frameworks
-//@import "../../node_modules/lesli-css/";
-@import "../../../lesli-css/";
-@import "./settings/bulma";
-
 
 // · 
-@import "./settings/remixicons";
-@import "./settings/fontfamilies";
-@import "./partials/navigation";
-@import "./partials/footer";
+@import "../templates/base.scss";
 
 
-// · 
+header.lesli-header {
+    text-align: center;
 
-@include lesli-css-fonts-standard("Domine", "OpenSans");
+    h1.title {
+        line-height: 1;
+        font-weight: 900;
+        font-size: 4rem;
+        background: -webkit-linear-gradient(315deg, #0D52Bf 25%, #001F66 );
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 
-
-// · 
-body {
-    font-weight: 300;
-    line-height: 1.5;
-    background-color: #fdfefe;
-    color: lesli-css-color(silver, 900);
+    p.description {
+        font-size: 2rem;
+    }
 }

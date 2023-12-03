@@ -1,0 +1,52 @@
+<%#
+
+%>
+
+<% lesli = data.send(I18n.locale.to_sym).lesli %>
+
+<header class="lesli-header hero is-medium">
+    <div class="hero-head">
+    </div>
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">Lesli</h1>
+            <p class="description">
+                Administration area for the Lesli Framework.
+            </p>
+
+            <div class="browser">
+                <div class="toolbar">
+                    <div class="controls">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="arrows">
+                        <span class="icon">
+                            <i class="ri-arrow-left-s-line"></i>
+                        </span>
+                        <span class="icon">
+                            <i class="ri-arrow-right-s-line"></i>
+                        </span>
+                    </div>
+                    <div class="address">
+                        <p>
+                            <span class="icon is-small">
+                                <i class="ri-lock-line"></i>
+                            </span>
+                            <span>https://</span>www.lesli.dev
+                        </p>
+                    </div>
+                    <div class="settings">
+                        <span class="icon">
+                            <i class="ri-equalizer-fill"></i>
+                        </span>
+                    </div>
+                </div>
+                <%= image_tag "engines/admin/screenshot.png", :alt => "Lesli Admin screenshot" %>
+            </div>
+        </div>
+    </div>
+    <div class="hero-fot">
+    </div>
+</header>

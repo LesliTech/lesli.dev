@@ -17,19 +17,11 @@ layout: home
 <section class="container docs-content">
     <div class="columns">
         <div class="column">
-            <a href="/docs/lesli/5x/about/">
+            <a href="/docs/about/">
                 <span class="icon">
                     <i class="ri-heart-line"></i>
                 </span>
                 About
-            </a>
-        </div>
-        <div class="column">
-            <a href="/docs/lesli/5x/contributing/">
-                <span class="icon">
-                    <i class="ri-git-pull-request-line"></i>
-                </span>
-                Contributing
             </a>
         </div>
         <div class="column">
@@ -38,6 +30,14 @@ layout: home
                     <i class="ri-send-plane-line"></i>
                 </span>
                 Getting started
+            </a>
+        </div>
+        <div class="column">
+            <a href="/docs/lesli/5x/contributing/">
+                <span class="icon">
+                    <i class="ri-git-pull-request-line"></i>
+                </span>
+                Contributing
             </a>
         </div>
         <div class="column">
@@ -148,5 +148,5 @@ layout: home
 </section>
 
 <style>
-    @import "./.vitepress/theme/stylesheets/index.scss";
+    @import "./.vitepress/theme/stylesheets/page.scss";
 </style>

@@ -24,11 +24,29 @@ For more information read the license file including with this software.
     </div>
     <div class="hero-body">
         <div class="container">
-            <%= image_tag "brand/lesli-name.svg", :alt => "Lesli logo", :class => "lesli-logo" %>
+            <%= image_tag "brand/lesli-name.svg", :alt => "Lesli logo", :class => "lesli-logo mb-5" %>
             <h2>Ruby on Rails SaaS Development Framework.</h2>
             <p class="text is-hidden-touch">
                 Lesli provides all the necessary tools to build your SaaS, empowering you and your team to focus on business and what makes your software special.
             </p>
+
+            <% link_to("/docs/about/five-minutes.html", :class=>"button is-dark is-outlined") do %>
+                <span class="icon-text">
+                    <span class="icon">
+                        <i class="ri-send-plane-line"></i>
+                    </span>
+                    <span class="pt-1">Getting started</span>
+                </span>
+            <% end %>
+
+            <% link_to("/docs", :class=>"button is-primary is-outlined mx-1") do %>
+                <span class="icon-text">
+                    <span class="icon">
+                        <i class="ri-book-2-line"></i>
+                    </span>
+                    <span class="pt-1">Documentation</span>
+                </span>
+            <% end %>
 
             <% link_to("https://github.com/LesliTech/Lesli", :class=>"button is-dark is-outlined mr-1", :target=>"blank") do %>
                 <span class="icon-text">
@@ -39,16 +57,7 @@ For more information read the license file including with this software.
                 </span>
             <% end %>
 
-            <% link_to("/docs", :class=>"button is-primary is-outlined ml-1") do %>
-                <span class="icon-text">
-                    <span class="icon">
-                        <i class="ri-send-plane-line"></i>
-                    </span>
-                    <span class="pt-1">Documentation</span>
-                </span>
-            <% end %>
-
-            <p class="alpha">Lesli is currently in alpha, but we're excited about the promising improvements coming soon!</p>
+            <p class="alpha">{{ &nbsp;&nbsp; Lesli is currently in alpha, but we're excited about the promising improvements coming soon! &nbsp;&nbsp; }}</p>
         </div>
     </div>
     <div class="hero-fot">
@@ -62,8 +71,11 @@ For more information read the license file including with this software.
     </div>
 </header>
 
+
+
 <%= partial "components/description" %>
 <%= partial "components/corefeatures" %>
 <%= partial "components/cloudobjects" %>
 <%= partial "components/modulos" %>
 <%= partial "components/development" %>
+<%#= partial "components/demo" %>

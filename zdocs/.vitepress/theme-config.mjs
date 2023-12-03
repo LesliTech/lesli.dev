@@ -58,6 +58,7 @@ export default {
     ],
 
     sidebar: {
+        "/about/": lesli5Navigation,
         "/lesli/5x/": lesli5Navigation,
         "/lesli-vue/1x/": lesliVue1Navigation,
         "/lesli-css/1x/": lesliCSS1Navigation,

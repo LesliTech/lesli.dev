@@ -35,17 +35,9 @@ Building a better future, one line of code at a time.
 export default [{
     text: "About",
     items: [
-        { text: "Lesli", link: "/lesli/5x/about/lesli" },
-        { text: "Ecosystem", link: "/lesli/5x/about/ecosystem" },
-        { text: "Versioning", link: "/lesli/5x/about/versioning" }
-    ]
-}, {
-    text: "Contributing",
-    items: [
-        { text: "Environment", link: "/lesli/5x/contributing/environment" },
-        { text: "Gitflow", link: "/lesli/5x/contributing/git-flow" },
-        { text: "Commits", link: "/lesli/5x/contributing/commits" },
-        { text: "Pull requests", link: "/lesli/5x/contributing/pull-requests" }
+        { text: "Lesli", link: "/about/lesli" },
+        { text: "Ecosystem", link: "/about/ecosystem" },
+        { text: "Five minutes", link: "/about/five-minutes" },
     ]
 }, {
     text: "Getting started",
@@ -57,6 +49,14 @@ export default [{
         { text: "Configuration", link: "/lesli/5x/getting-started/configuration" },
         { text: "Directory Structure", link: "/lesli/5x/getting-started/directory-structure" },
         { text: "Frontend", link: "/lesli/5x/getting-started/frontend" }
+    ]
+}, {
+    text: "Contributing",
+    items: [
+        { text: "Environment", link: "/lesli/5x/contributing/environment" },
+        { text: "Gitflow", link: "/lesli/5x/contributing/git-flow" },
+        { text: "Commits", link: "/lesli/5x/contributing/commits" },
+        { text: "Pull requests", link: "/lesli/5x/contributing/pull-requests" }
     ]
 }, {
     text: "Database",

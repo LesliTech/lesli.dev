@@ -17,7 +17,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see http://www.gnu.org/licenses/.
 
-Lesli · Ruby on Rails SaaS Development Framework.
+Lesli · Ruby on Rails Development Platform.
 
 Made with ♥ by https://www.lesli.tech
 Building a better future, one line of code at a time.
@@ -30,23 +30,27 @@ Building a better future, one line of code at a time.
 // · 
 */
 
+@import "./browser";
 
-// · Import Bulma and Buefy styles
-@import "../../../node_modules/bulma/sass/utilities/_all";
-@import "../../../node_modules/bulma/sass/base/_all";
+// · 
+section.lesli-component-demo {
+    background-color: $hint-of-red;
 
-@import "../../../node_modules/bulma/sass/helpers/color";
-@import "../../../node_modules/bulma/sass/helpers/spacing";
-@import "../../../node_modules/bulma/sass/helpers/flexbox";
-@import "../../../node_modules/bulma/sass/helpers/typography";
+    h3 {
+        font-size: 2rem;
+    }
+
+    .button {
+        width: 220px;
+        font-size: 1.4rem;
+        border-radius: 3px;
+        padding: .8rem 0;
+    }
+}
 
 
-@import "../../../node_modules/bulma/sass/layout/hero";
+@include lesli-css-breakpoint-only-mobile() {
+    section.lesli-component-demo {
 
-@import "../../../node_modules/bulma/sass/components/level";
-
-@import "../../../node_modules/bulma/sass/grid/columns";
-
-@import "../../../node_modules/bulma/sass/elements/container";
-@import "../../../node_modules/bulma/sass/elements/button";
-@import "../../../node_modules/bulma/sass/elements/icon";
+    }
+}

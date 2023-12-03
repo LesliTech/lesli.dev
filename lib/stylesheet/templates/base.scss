@@ -17,7 +17,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see http://www.gnu.org/licenses/.
 
-Lesli · Ruby on Rails SaaS Development Framework.
+Lesli · Ruby on Rails Development Platform.
 
 Made with ♥ by https://www.lesli.tech
 Building a better future, one line of code at a time.
@@ -31,22 +31,31 @@ Building a better future, one line of code at a time.
 */
 
 
-// · Import Bulma and Buefy styles
-@import "../../../node_modules/bulma/sass/utilities/_all";
-@import "../../../node_modules/bulma/sass/base/_all";
-
-@import "../../../node_modules/bulma/sass/helpers/color";
-@import "../../../node_modules/bulma/sass/helpers/spacing";
-@import "../../../node_modules/bulma/sass/helpers/flexbox";
-@import "../../../node_modules/bulma/sass/helpers/typography";
+// · 
+$primary: #0d52bf;
+$hint-of-red: #f8f5f5;
 
 
-@import "../../../node_modules/bulma/sass/layout/hero";
+// · Include frameworks
+@import "../../../../lesli-css/";
+@import "../settings/bulma";
 
-@import "../../../node_modules/bulma/sass/components/level";
 
-@import "../../../node_modules/bulma/sass/grid/columns";
+// · 
+@import "../settings/remixicons";
+@import "../settings/fontfamilies";
+@import "../partials/navigation";
+@import "../partials/footer";
 
-@import "../../../node_modules/bulma/sass/elements/container";
-@import "../../../node_modules/bulma/sass/elements/button";
-@import "../../../node_modules/bulma/sass/elements/icon";
+
+// · 
+@include lesli-css-fonts-standard("Domine", "OpenSans");
+
+
+// · 
+body {
+    font-weight: 300;
+    line-height: 1.4;
+    background-color: #fdfefe;
+    color: lesli-css-color(silver, 900);
+}
