@@ -106,7 +106,7 @@ layout: home
 
 <style scoped lang="scss">
 @import "lesli-css";
-@import "../../.vitepress/theme/stylesheets/index.scss";
+@import "../../.vitepress/theme/stylesheets/page.scss";
 .docs-header {
     img {
         width: 280px;

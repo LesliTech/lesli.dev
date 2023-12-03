@@ -10,11 +10,11 @@ A rails migration must containt a number as a prefix that helps rails identify w
 
 <br />
 
-**— CC** is a 2-digit number that represents a the collection of the table. Engines that work within the same area have the same collection number. For Example **CloudFocus** (the task management system) and **CloudNotes** (the notes management system) are both under the **03** collection. There is a detailed list of all collections in the [Ecosystem section.](/lesli/5x/about/ecosystem). 
+**— CC** is a 2-digit number that represents a the collection of the table. Engines that work within the same area have the same collection number. For Example **CloudFocus** (the task management system) and **CloudNotes** (the notes management system) are both under the **03** collection. There is a detailed list of all collections in the [Ecosystem section.](/about/ecosystem). 
 
 <br />
 
-**— EE** is a 2-digit number that identifies a specific engine within a collection. In our previous example, CloudFocus is **03.03** and CloudNotes is **03.05** There is a detailed list of all engines (implemented or not) in the [Ecosystem section.](/lesli/5x/about/ecosystem).  
+**— EE** is a 2-digit number that identifies a specific engine within a collection. In our previous example, CloudFocus is **03.03** and CloudNotes is **03.05** There is a detailed list of all engines (implemented or not) in the [Ecosystem section.](/about/ecosystem).  
 
 <br />
 
