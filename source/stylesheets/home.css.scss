@@ -33,115 +33,67 @@ Building a better future, one line of code at a time.
 
 // · 
 @import "../../lib/stylesheet/templates/base.scss";
-@import "../../lib/stylesheet/components/template";
-@import "../../lib/stylesheet/components/description";
-@import "../../lib/stylesheet/components/corefeatures";
-@import "../../lib/stylesheet/components/cloudobjects";
-@import "../../lib/stylesheet/components/modulos";
-@import "../../lib/stylesheet/components/development";
-@import "../../lib/stylesheet/components/demo";
+
+@import "./components/page-header.scss";
+@import "./components/page-content-boxes.scss";
+
+@import "./components/lesli-component-template.scss";
+@import "./components/lesli-component-description.scss";
+@import "./components/lesli-component-corefeatures.scss";
+@import "./components/lesli-component-engines.scss";
+@import "./components/lesli-component-development.scss";
 
 
 // · 
-header.lesli-header {
+.lesli-page-content-boxes {
+    margin-bottom: 8rem;
+}
 
-    .hero-head,
-    .hero-body {
-        text-align: center;
-        justify-content: center;
-    }
+section.lesli-techstack {
+    background-color: #f8f5f5;
 
-    .lesli-logo {
-        width: 220px;
-    }
+    ul {
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
 
-    h2 {
-        font-weight: 600;
-        font-size: 3rem;
-        color: lesli-css-color(blue, 700);
+        p {
+            font-size: 1.2rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: lesli-css-color(silver, 900);
+        }
 
-        background: -webkit-linear-gradient(315deg, #0D52Bf 25%, #001F66 );
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
+        li {
 
-    .text {
-        font-size: 1.8rem;
-        margin-bottom: 2rem;
-    }
-
-    .button {
-        width: 250px;
-        font-size: 1.4rem;
-        border-radius: 3px;
-        padding: 1rem 2rem;
-        margin-bottom: .5rem;
-    }
-
-    p.alpha {
-        margin: 0 auto;
-        font-weight: 400;
-    }
-
-    
-    .hero-fot {
-        background-color: $hint-of-red;
-        ul {
-            height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: space-evenly;
-
-            p {
-                font-size: 1.2rem;
-                font-weight: 400;
-                text-transform: uppercase;
-                color: lesli-css-color(silver, 900);
+            svg {
+                height: 60px;
+                opacity: .8;
+                display: inline-block;
             }
 
-            li {
-
-                svg {
-                    height: 60px;
-                    opacity: .8;
-                    display: inline-block;
-                }
-
-                &:nth-child(3) svg {
-                    width: 115px;
-                }
+            &:nth-child(3) svg {
+                width: 115px;
             }
         }
     }
 }
 
+
+// · 
 @include lesli-css-breakpoint-mobile() {
-	
-    header.lesli-header {
-
-        .lesli-logo {
-            width: 200px;
-        }
-    
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
+    .docs-header {
+        img {
+            width: 100px;
         }
 
-        .button {
-            margin: 0 auto .6rem !important;
+        h1.title {
+            font-size: 2.9rem;
         }
 
-        .hero-fot ul {
-            li {
-                svg {
-                    height: 40px;
-                }
-                &:nth-child(3) svg {
-                    width: 80px;
-                }
-            }
+        p.description {
+            font-size: 2.6rem;
         }
     }
 }

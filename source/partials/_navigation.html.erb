@@ -31,37 +31,38 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 </script>
-<nav class="navigation-header navbar container" role="navigation" aria-label="main navigation">
+<nav class="lesli-navigation-header navbar container" role="navigation" aria-label="main navigation">
     <div class="container">
         <div class="navbar-brand px-0">
-            <%#
             <a href="/" class="navbar-item px-0">
-                <%= image_tag "brand/lesli-name.svg", width:"112", alt: "Lesli logo" % >
+                <%= image_tag "brand/lesli-name.svg", width:"112", alt: "Lesli logo" %>
             </a>
             <a class="navbar-burger" data-target="lesli-navigation" role="button" aria-label="menu" aria-expanded="false">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
             </a>
-            %>
         </div>
         <div class="navbar-menu" id="lesli-navigation">
             <div class="navbar-start">
-                <% if lesli_current_page(current_page) != "index" %>
-                    <%= link_to("Home", "/", :class => "navbar-item") %>
-                <% end %>
             </div>
             <div class="navbar-end">
-                <%#= link_to("GitHub", "https://github.com/LesliTech/DatenBanken", :class => "navbar-item", :target => "_blank") %>
-                <%#= link_to("Documentation", "/documentation/10-introduction/", :class => "navbar-item") %>
-                <div class="navbar-item">
-                    <% link_to("https://github.com/LesliTech/Lesli", :class=>"button is-dark is-outlined", :target=>"blank") do %>
-                        <span class="icon">
-                            <i class="ri-github-line"></i>
-                        </span>
-                        <span>Github</span>
-                    <% end %>
-                </div>
+                <%= link_to("Home", "/documentation/10-introduction/", :class => "navbar-item") %>
+                <%= link_to("Lesli", "/documentation/10-introduction/", :class => "navbar-item") %>
+                <%= link_to("Vue", "/documentation/10-introduction/", :class => "navbar-item") %>
+                <%= link_to("CSS", "/documentation/10-introduction/", :class => "navbar-item") %>
+                <%= link_to("JS", "/documentation/10-introduction/", :class => "navbar-item") %>
+                <%= link_to("Mails", "/documentation/10-introduction/", :class => "navbar-item") %>
+                <% link_to("https://github.com/LesliTech", :class=>"navbar-item", :target=>"blank") do %>
+                    <span class="icon is-medium">
+                        <i class="ri-github-line"></i>
+                    </span>
+                <% end %>
+                <% link_to("https://twitter.com/LesliTech", :class=>"navbar-item", :target=>"blank") do %>
+                    <span class="icon">
+                        <i class="ri-twitter-line"></i>
+                    </span>
+                <% end %>
             </div>
         </div>
     </div>
