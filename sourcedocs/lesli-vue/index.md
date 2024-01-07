@@ -1,58 +1,44 @@
 ---
 layout: home
 ---
+<script setup>
+    const links = [{
+        href: "/docs/lesli-vue/1x/composables/url",
+        icon: "ri-link",
+        text: "URL"
+    }, {
+        href: "/docs/lesli-vue/1x/composables/msg",
+        icon: "ri-chat-2-line",
+        text: "Getting started"
+    }, {
+        href: "/docs/lesli/5x/contributing/",
+        icon: "ri-git-pull-request-line",
+        text: "Contributing"
+    }]
+</script>
 
-<header class="hero is-medium docs-header">
+<header class="hero is-medium lesli-page-header">
     <section class="hero-body">
-        <img alt="Lesli-CSS logo" src="/images/brand/lesli-css.svg" />
-        <p class="description">
-            Utilities for websites and web applications
-        </p>
+        <div class="container">
+            <img class="m-auto" src="/images/brand/lesli-css.svg" />
+            <p class="description">
+                Utilities for websites and web applications
+            </p>
+        </div>
     </section>
 </header>
 
-<section class="container docs-content">
+<section class="container lesli-page-content-boxes">
     <div class="columns">
-        <div class="column">
-            <a href="/docs/lesli-vue/1x/composables/url">
-                <span class="icon">
-                    <i class="ri-link"></i>
-                </span>
-                URL
-            </a>
-        </div>
-        <div class="column">
-            <a href="/docs/lesli-vue/1x/composables/msg">
-                <span class="icon">
-                    <i class="ri-chat-2-line"></i>
-                </span>
-                Msg
-            </a>
-        </div>
-        <div class="column">
-            <a href="/docs/lesli-vue/1x/components/chart-line">
-                <span class="icon">
-                    <i class="ri-line-chart-line"></i>
-                </span>
-                Msg
+        <div class="column" v-for="link in links">
+            <a :href="link.href">
+                <i :class="link.icon"></i>
+                {{ link.text }}
             </a>
         </div>
     </div>
 </section>
 
-<style scoped lang="scss">
-@import "lesli-css";
-@import "../.vitepress/theme/stylesheets/page.scss";
-.docs-header {
-    img {
-        width: 280px;
-    }
-}
-@include lesli-css-breakpoint-mobile() {
-    .docs-header {
-        img {
-            width: 200px;
-        }
-    }
-}
+<style lang="scss">
+    @import "../.vitepress/theme/stylesheets/pages/lesli-vue.scss";
 </style>

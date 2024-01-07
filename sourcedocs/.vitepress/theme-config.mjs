@@ -51,8 +51,8 @@ export default {
     nav: [
         { text: "Home", link: "https://www.lesli.dev/", target: "_self" },
         { text: "Lesli", link: "/lesli/" },
-        { text: "Vue", link: "/lesli-vue/" },
-        { text: "CSS", link: "/lesli-css/" },
+        //{ text: "Vue", link: "/lesli-vue/" },
+        //{ text: "CSS", link: "/lesli-css/" },
         //{ text: "JS", link: "/" },
         //{ text: "Mails", link: "/" },
     ],

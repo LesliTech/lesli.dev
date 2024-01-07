@@ -2,15 +2,18 @@
 layout: home
 ---
 
-<header class="hero is-medium docs-header">
+<header class="hero is-medium lesli-page-header">
     <section class="hero-body">
-        <img alt="Lesli-CSS logo" src="/images/brand/lesli-css.svg" />
-        <p class="description">
-            Utilities for websites and web applications
-        </p>
+        <div class="container">
+            <img class="m-auto" src="/images/brand/lesli-css.svg" />
+            <p class="description">
+                Utilities for websites and web applications
+            </p>
+        </div>
     </section>
 </header>
 
+<!-- 
 <section class="container docs-content">
     <div class="columns">
         <div class="column">
@@ -103,20 +106,8 @@ layout: home
         </div>
     </div>
 </section>
+-->
 
-<style scoped lang="scss">
-@import "lesli-css";
-@import "../.vitepress/theme/stylesheets/page.scss";
-.docs-header {
-    img {
-        width: 280px;
-    }
-}
-@include lesli-css-breakpoint-mobile() {
-    .docs-header {
-        img {
-            width: 200px;
-        }
-    }
-}
+<style lang="scss">
+    @import "../.vitepress/theme/stylesheets/pages/lesli-css.scss";
 </style>

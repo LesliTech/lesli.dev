@@ -31,24 +31,25 @@ Building a better future, one line of code at a time.
 */
 
 
-// · Import Bulma and Buefy styles
-//@import "bulma/bulma.sass";
-
-@import "bulma/sass/utilities/_all";
-@import "bulma/sass/base/_all";
-
-@import "bulma/sass/helpers/color";
-@import "bulma/sass/helpers/spacing";
-@import "bulma/sass/helpers/flexbox";
-@import "bulma/sass/helpers/typography";
+// · 
+@import "../template.scss";
+@import "../components/page-header.scss";
+@import "../components/page-content-boxes.scss";
 
 
-@import "bulma/sass/layout/hero";
 
-@import "bulma/sass/components/level";
+// · 
 
-@import "bulma/sass/grid/columns";
 
-@import "bulma/sass/elements/container";
-@import "bulma/sass/elements/button";
-@import "bulma/sass/elements/icon";
+.lesli-page-header {
+    img {
+        width: 280px;
+    }
+}
+@include lesli-css-breakpoint-mobile() {
+    .lesli-page-header {
+        img {
+            width: 200px;
+        }
+    }
+}
