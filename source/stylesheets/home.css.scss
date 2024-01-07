@@ -83,17 +83,28 @@ section.lesli-techstack {
 
 // · 
 @include lesli-css-breakpoint-mobile() {
-    .docs-header {
-        img {
-            width: 100px;
-        }
-
-        h1.title {
-            font-size: 2.9rem;
-        }
+    .lesli-page-header {
 
         p.description {
-            font-size: 2.6rem;
+            display: none;
+        }
+    }
+
+    section.lesli-techstack {
+    
+        ul {
+            height: 120px;
+    
+            p {
+                display: none;
+            }
+    
+            li {
+    
+                svg {
+                    height: 35px;
+                }
+            }
         }
     }
 }

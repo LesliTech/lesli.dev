@@ -38,13 +38,13 @@ export default [{
         { text: "Lesli", link: "/about/lesli" },
         { text: "Ecosystem", link: "/about/ecosystem" },
         { text: "Five minutes", link: "/about/five-minutes" },
+        { text: "Demo", link: "/about/demo" }
     ]
 }, {
     text: "Getting started",
     items: [
         { text: "Installation", link: "/lesli/5x/getting-started/installation" },
         { text: "Development", link: "/lesli/5x/getting-started/development" },
-        { text: "Demo", link: "/lesli/5x/getting-started/demo" },
         { text: "Credentials", link: "/lesli/5x/getting-started/credentials" },
         { text: "Configuration", link: "/lesli/5x/getting-started/configuration" },
         { text: "Directory Structure", link: "/lesli/5x/getting-started/directory-structure" },

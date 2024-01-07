@@ -50,15 +50,19 @@ export default {
 
     nav: [
         { text: "Home", link: "https://www.lesli.dev/", target: "_self" },
-        { text: "Lesli", link: "/" },
-        { text: "Vue", link: "/lesli-vue/1x/" },
-        { text: "CSS", link: "/lesli-css/1x/" },
-        { text: "JS", link: "/" },
-        { text: "Mails", link: "/" },
+        { text: "Lesli", link: "/lesli/" },
+        { text: "Vue", link: "/lesli-vue/" },
+        { text: "CSS", link: "/lesli-css/" },
+        //{ text: "JS", link: "/" },
+        //{ text: "Mails", link: "/" },
     ],
 
     sidebar: {
         "/about/": lesli5Navigation,
+        "/lesli/": lesli5Navigation,
+        "/lesli-vue/": lesliVue1Navigation,
+        "/lesli-css/": lesliCSS1Navigation,
+
         "/lesli/5x/": lesli5Navigation,
         "/lesli-vue/1x/": lesliVue1Navigation,
         "/lesli-css/1x/": lesliCSS1Navigation,

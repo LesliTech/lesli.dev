@@ -64,3 +64,32 @@ Building a better future, one line of code at a time.
         }
     }
 }
+
+
+// · 
+@include lesli-css-breakpoint-mobile() {
+
+    .lesli-page-content-boxes {
+
+        .columns {
+
+            .column {
+                padding: 1rem 0;
+    
+                a { 
+                    padding: 0;
+                    display: flex;
+                    font-size: 1.2rem;
+                    align-items: center;
+                    border: 0;
+                    border-bottom: 1px solid silver;
+
+                    [class^="ri-"] {
+                        margin: 0 1rem 0 2.4rem;
+                        font-size: 2rem;
+                    }
+                }
+            }
+        }
+    }
+}
