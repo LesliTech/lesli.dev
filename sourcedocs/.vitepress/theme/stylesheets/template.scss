@@ -67,9 +67,14 @@ body {
 
 // · 
 header {
+
     nav.VPNavBarMenu {
         .vp-external-link-icon::after {
             display: none !important;
         }
+    }
+
+    div.VPNavBarAppearance {
+        display: none !important;
     }
 }

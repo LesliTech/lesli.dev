@@ -39,6 +39,8 @@ import "./style.css"
 //import "./stylesheets/template.scss";
 //import "./docs.css"
 
+//localStorage.setItem("vitepress-theme-appearance", "light");
+
 
 // · global components
 import WorkInProgress from "./components/WorkInProgress.vue"

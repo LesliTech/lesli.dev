@@ -34,14 +34,14 @@ Building a better future, one line of code at a time.
 // · 
 @import "../../lib/stylesheet/templates/base.scss";
 
-@import "./components/page-header.scss";
-@import "./components/page-content-boxes.scss";
+@import "./components/page-header";
+@import "./components/page-content-boxes";
 
-@import "./components/lesli-component-template.scss";
-@import "./components/lesli-component-description.scss";
-@import "./components/lesli-component-corefeatures.scss";
-@import "./components/lesli-component-engines.scss";
-@import "./components/lesli-component-development.scss";
+@import "./components/lesli-component-template";
+@import "./components/lesli-component-description";
+@import "./components/lesli-component-corefeatures";
+@import "./components/lesli-component-engines";
+@import "./components/lesli-component-development";
 
 
 // · 

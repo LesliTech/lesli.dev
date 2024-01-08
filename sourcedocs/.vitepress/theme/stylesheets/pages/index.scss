@@ -77,17 +77,13 @@ section.lesli-techstack {
 
 // · 
 @include lesli-css-breakpoint-mobile() {
-    .docs-header {
+    .lesli-page-header {
         img {
             width: 100px;
         }
 
-        h1.title {
-            font-size: 2.9rem;
-        }
-
         p.description {
-            font-size: 2.6rem;
+            display: none;
         }
     }
 }

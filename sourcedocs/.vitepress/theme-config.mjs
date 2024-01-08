@@ -43,6 +43,7 @@ export default {
     siteTitle: false,
     lastUpdated: true,
     logo: "/images/brand/lesli.svg",
+    appearance: false,
 
     search: {
         provider: "local"

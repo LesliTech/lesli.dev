@@ -56,11 +56,46 @@ Building a better future, one line of code at a time.
                 }
             }
 
-            &:nth-child(1) a i { color: lesli-css-color(blue, 700); }
-            &:nth-child(2) a i { color: lesli-css-color(orange, 500); }
-            &:nth-child(3) a i { color: lesli-css-color(bubble, 500); }
-            &:nth-child(4) a i { color: lesli-css-color(banana, 500); }
-            &:nth-child(5) a i { color: lesli-css-color(grape, 500); }
+            $collections: 
+            "administration", 
+            "intelligence", 
+            "productivity", 
+            "integration", 
+            "analytics",
+            "finance", 
+            "sales", 
+            "it",
+            "administration", 
+            "intelligence", 
+            "productivity", 
+            "integration", 
+            "analytics",
+            "finance", 
+            "sales", 
+            "it",
+            "administration", 
+            "intelligence", 
+            "productivity", 
+            "integration", 
+            "analytics",
+            "finance", 
+            "sales", 
+            "it";
+        
+            $index: 0;
+        
+            @each $collection in $collections {
+        
+                $index: $index + 1;
+        
+                $i: index($collections, $collection);
+        
+                $color: lesli-css-color(collection, $collection);
+        
+                &:nth-child(#{$index}) a i { 
+                    color: $color;
+                }
+            }
         }
     }
 }
@@ -72,6 +107,7 @@ Building a better future, one line of code at a time.
     .lesli-page-content-boxes {
 
         .columns {
+            margin: 0;
 
             .column {
                 padding: 1rem 0;

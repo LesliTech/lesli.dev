@@ -32,33 +32,4 @@ Building a better future, one line of code at a time.
 
 
 // · 
-.lesli-page-header {
-
-    .hero-body {
-        padding-left: 2rem;
-        padding-right: 2rem;
-    }
-
-    svg.logo {
-        margin: 0 auto 2rem;
-        max-width: 200px;
-    }
-
-    h1.title {
-        font-size: 4rem;
-        max-width: 960px;
-        font-weight: 900;
-        text-align: center;
-        line-height: 1.25;
-        margin: 0px auto 4rem;
-        letter-spacing: -1.5px;
-        font-family: "Domine";
-    }
-
-    p.description {
-        text-align: center;
-        font-size: 2.4rem;
-        font-weight: 100;
-        line-height: 1.2;
-    }
-}
+@import "../../../../../source/stylesheets/components/page-header";
