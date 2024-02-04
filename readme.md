@@ -32,11 +32,11 @@ http://localhost:4567
 
 ### Structure
 
-- https://www.lesli.dev/docs/lesli/5x/about/ 
-- https://www.lesli.dev/docs/lesli-vue/1x/about/ 
-- https://www.lesli.dev/docs/lesli-css/1x/about/ 
-- https://www.lesli.dev/docs/lesli-js/1x/about/ 
-- https://www.lesli.dev/docs/lesli-mails/1x/about/ 
+- https://www.lesli.dev/ 
+- https://www.lesli.dev/about/ 
+- https://www.lesli.dev/start/ 
+- https://www.lesli.dev/lesli/ 
+- https://www.lesli.dev/vue/ 
 
 
 

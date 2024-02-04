@@ -1,0 +1,92 @@
+<script setup>
+/*
+Lesli
+
+Copyright (c) 2023, Lesli Technologies, S. A.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see http://www.gnu.org/licenses/.
+
+Lesli · Ruby on Rails SaaS Development Framework.
+
+Made with ♥ by https://www.lesli.tech
+Building a better future, one line of code at a time.
+
+@contact  hello@lesli.tech
+@website  https://www.lesli.tech
+@license  GPLv3 http://www.gnu.org/licenses/gpl-3.0.en.html
+
+// · ~·~     ~·~     ~·~     ~·~     ~·~     ~·~     ~·~     ~·~     ~·~
+// · 
+*/
+
+
+// · 
+import DefaultTheme from 'vitepress/theme'
+
+
+// · 
+const { Layout } = DefaultTheme
+
+</script>
+<template>
+    <Layout>
+        <template #not-found>
+            <section class="lesli-component-404">
+                <img alt="404 cat" src="/images/cats/404.png" />
+                <h3>404</h3>
+                <p>PAGE NOT FOUND</p>
+                <a href="/">Take me home</a>
+            </section>
+        </template>
+    </Layout>
+</template>
+<style lang="scss">
+
+// · 
+@import "lesli-css";
+
+// · 
+section.lesli-component-404 {
+    @include lesli-css-flex-center('vertical');
+    text-align: center;
+    min-height: 60vh;
+
+    img {
+        width:150px;
+        margin: 0 auto 2rem;
+
+    }
+
+    h3 {
+        font-size: 5rem;
+        margin-bottom: 2rem;
+    }
+
+    p {
+        font-size: 1.8rem;
+        margin-bottom: 1.6rem;
+    }
+
+    a {
+        color: var(--vp-c-brand-2);
+        border-color: var(--vp-c-brand-2);
+        border: 1px solid var(--vp-c-brand-1);
+        transition: border-color 0.25s, color 0.25s;
+        border-radius: 16px;
+        font-weight: 500;
+        font-size: 14px;
+        padding: 6px 16px;
+    }
+}
+</style>
