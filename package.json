@@ -1,8 +1,8 @@
 {
-    "name": "docs.lesli.dev",
-    "description": "Lesli - Official documentation",
+    "name": "lesli.dev",
+    "description": "Lesli - Official website & documentation",
     "license": "GPLv3",
-    "version": "0.3.0",
+    "version": "5.0.0",
     "dependencies": {},
     "devDependencies": {
         

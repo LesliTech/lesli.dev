@@ -1,8 +1,9 @@
 <p align="center">
-    <img width="110" alt="Lesli logo" src="./source/images/brand/lesli-name.svg" />
+    <img width="110" alt="Lesli logo" src="./source/public/images/brand/lesli.svg" />
+    <h3 align="center">Official website & documentation</h3>
 </p>
 
-<h3 align="center">Official website & documentation</h3>
+
 
 <hr/>
 
@@ -15,17 +16,14 @@ Version 1.0.0
 # Clone the repo
 git clone git@github.com:LesliTech/lesli.dev.git
 
-# Install ruby dependencies
-bundle install
-
-# Install npm dependencies
-npm install
+# Install vitepress, Lesli and some other dependencies
+npm install install
 
 # Run the dev server
-middleman server
+npm run start
 
 # Open the website on your browser
-http://localhost:4567
+http://localhost:5173
 
 ```
 
