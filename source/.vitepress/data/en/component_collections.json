@@ -102,7 +102,7 @@
         "desc": "Protect your data with an advanced administration panel and detailed access configuration for your users, guests or third-party apps.",
         "engines": [{
             "name": "Guard",
-            "text": "Security management module",
+            "text": "Security management",
             "desc": "Description about the module should be here",
             "feat": ["Manage your users", "Define permissions for the roles on the system"]
         }]

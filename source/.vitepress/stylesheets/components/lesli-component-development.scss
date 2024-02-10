@@ -1,4 +1,3 @@
-<script setup>
 /*
 Lesli
 
@@ -32,25 +31,46 @@ Building a better future, one line of code at a time.
 
 
 // · 
-import DefaultTheme from "vitepress/theme"
+@import "../component.scss";
 
 
 // · 
-const { Layout } = DefaultTheme
+section.lesli-component-development {
+    padding: 8rem 0 4rem;
 
-</script>
-<template>
-    <Layout>
-        <template #not-found>
-            <section class="lesli-component-404">
-                <img alt="404 cat" src="/images/cats/404.png" />
-                <h3>404</h3>
-                <p>PAGE NOT FOUND</p>
-                <a href="/">Take me home</a>
-            </section>
-        </template>
-    </Layout>
-</template>
-<style lang="scss">
-@import "../stylesheets/components/lesli-404.scss";
-</style>
+    .columns {
+        display: flex;
+        margin: 0 auto;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        justify-content: center;
+    }
+
+    .column {
+        margin-top: 0rem;
+        flex-basis: 400px;
+        max-width: 400px;
+    }
+
+    .feature {
+        height: 100%;
+        padding: 30px;
+        border-radius: 5px 5px 5px 5px;
+        border: 1px solid lesli-css-color(silver, 300);
+        box-shadow: 0px 2px 18px 0px rgba(lesli-css-color(blue, 300),0.1);
+        
+        i {
+            font-size: 3rem;
+            color: lesli-css-color(silver, 900)
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 1.1rem;
+        }
+    }
+}

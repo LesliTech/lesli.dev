@@ -29,47 +29,5 @@ import development from "../data/en/component_development.json"
 <style lang="scss">
 
 // · 
-@import "../stylesheets/component.scss";
-
-
-// · 
-section.lesli-component-development {
-    padding: 8rem 0 4rem;
-
-    .columns {
-        display: flex;
-        margin: 0 auto;
-        flex-wrap: wrap;
-        max-width: 1200px;
-        justify-content: center;
-    }
-
-    .column {
-        margin-top: 0rem;
-        flex-basis: 400px;
-        max-width: 400px;
-    }
-
-    .feature {
-        height: 100%;
-        padding: 30px;
-        border-radius: 5px 5px 5px 5px;
-        border: 1px solid lesli-css-color(silver, 300);
-        box-shadow: 0px 2px 18px 0px rgba(lesli-css-color(blue, 300),0.1);
-        
-        i {
-            font-size: 3rem;
-            color: lesli-css-color(silver, 900)
-        }
-
-        h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-
-        p {
-            font-size: 1.1rem;
-        }
-    }
-}
+@import "../stylesheets/components/lesli-component-development.scss";
 </style>

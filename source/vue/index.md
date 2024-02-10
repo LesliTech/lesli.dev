@@ -1,5 +1,6 @@
 ---
 pageClass: lesli-vue
+aside: false
 ---
 <script setup>
 const links = [{

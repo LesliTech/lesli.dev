@@ -36,6 +36,9 @@ http://localhost:5173
 - https://www.lesli.dev/lesli/ 
 - https://www.lesli.dev/vue/ 
 
+- https://www.lesli.dev/engines/lesli 
+- https://www.lesli.dev/engines/guard
+
 
 
 ### License  

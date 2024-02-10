@@ -44,6 +44,7 @@ import driver from "../../assets/icons/lesli/cloud-driver.svg"
 import support from "../../assets/icons/lesli/cloud-support.svg"
 import letter from "../../assets/icons/lesli/cloud-letter.svg"
 
+
 // · 
 const logos = {
     audit, admin, guard, babel, driver, support, letter
@@ -59,7 +60,7 @@ const logos = {
             <template v-for="collection in collections.collection">
                 <template v-for="engine in collection.engines">
                     <div class="column" v-if="logos[engine.name.toLowerCase()]">
-                        <a>
+                        <a :href="'/engines/' + engine.name.toLowerCase() + '/'">
                             <component :is="logos[engine.name.toLowerCase()]"></component>
                             <h3>{{ engine.name }}</h3>
                             <p>{{ engine.text }}</p>

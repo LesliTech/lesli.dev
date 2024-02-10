@@ -31,15 +31,23 @@ Building a better future, one line of code at a time.
 */
 
 
+// · 
 import LesliAboutNavigation from "./navigation/lesli-about-navigation"
 import LesliStartNavigation from "./navigation/lesli-start-navigation"
 import LesliContributingNavigation from "./navigation/lesli-contributing-navigation"
 
+
+// · 
 import lesliCoreNavigation from "./navigation/lesli-core-navigation"
 import lesliVueNavigation from "./navigation/lesli-vue-navigation"
 import lesliCSSNavigation from "./navigation/lesli-css-navigation"
 
 
+// · 
+import LesliEngineGuard from "./navigation/lesli-engines"
+
+
+// · 
 const navigationAbout = [
     ...LesliAboutNavigation, 
     ...LesliStartNavigation, 
@@ -55,5 +63,7 @@ export default {
 
     "/lesli/": lesliCoreNavigation,
     "/vue/": lesliVueNavigation,
-    "/css/": lesliVueNavigation
+    "/css/": lesliVueNavigation,
+
+    "/engines/": LesliEngineGuard
 }

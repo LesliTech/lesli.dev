@@ -174,3 +174,8 @@ h1, h2, h3 {
 header div.VPNavBarAppearance {
     display: none !important;
 }
+
+
+.VPHome {
+    padding-bottom: 15px !important;
+}
