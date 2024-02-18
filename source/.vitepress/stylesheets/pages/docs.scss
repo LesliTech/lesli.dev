@@ -32,16 +32,20 @@ Building a better future, one line of code at a time.
 
 
 // · 
-export default [{
-    collapsed: false,
-    text: "Getting started",
-    items: [
-        { text: "Installation", link: "/start/installation" },
-        { text: "Development", link: "/start/development" },
-        { text: "Credentials", link: "/start/credentials" },
-        { text: "Configuration", link: "/start/configuration" },
-        { text: "Directory Structure", link: "/start/directory-structure" },
-        { text: "Frontend", link: "/start/frontend" }
-    ]
+@import "../template.scss";
+@import "../components/page-header.scss";
+@import "../components/page-content-boxes.scss";
+
+
+// · 
+.lesli-page-header {
+    margin: 4rem auto 5rem;
 }
-]
+
+@include lesli-css-breakpoint-mobile() {
+    .lesli-page-header {
+        img {
+            max-width: 200px;
+        }
+    }
+}

@@ -1,5 +1,6 @@
 ---
-aside: false
+layout: home
+pageClass: docs-page
 ---
 <script setup>
 
@@ -40,11 +41,14 @@ const links = [{
     icon: "ri-flashlight-line",
     text: "Deployment"
 }]
+
+import componentLesliEngines from "./.vitepress/components/lesli-engines.vue"
+import componentLesliFooter from "./.vitepress/components/lesli-footer.vue"
 </script>
 
 <header class="lesli-page-header">
-    <img class="logo m-auto" alt="cat docs" src="/images/brand/lesli.svg" />
-    <p class="description">Lesli Core Documentation</p>
+    <img class="logo m-auto" alt="cat docs" src="/images/cats/docs.svg" />
+    <p class="description">Lesli Documentation</p>
 </header>
 
 <section class="container lesli-page-content-boxes">
@@ -56,8 +60,16 @@ const links = [{
             </a>
         </div>
     </div>
+    <componentLesliEngines :title="false" />
 </section>
 
+<br />
+<br />
+<br />
+<br />
+
+<componentLesliFooter/>
+
 <style lang="scss">
-    @import "../.vitepress/stylesheets/pages/lesli.scss";
+    @import "./.vitepress/stylesheets/pages/docs.scss";
 </style>

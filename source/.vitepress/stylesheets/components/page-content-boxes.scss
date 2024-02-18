@@ -37,6 +37,8 @@ Building a better future, one line of code at a time.
     .columns {
         flex-wrap: wrap;
         justify-content: center;
+        max-width:1200px;
+        margin: 0 auto;
 
         .column {
 

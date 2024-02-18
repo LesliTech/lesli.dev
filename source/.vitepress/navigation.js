@@ -32,38 +32,57 @@ Building a better future, one line of code at a time.
 
 
 // · 
-import LesliAboutNavigation from "./navigation/lesli-about-navigation"
-import LesliStartNavigation from "./navigation/lesli-start-navigation"
-import LesliContributingNavigation from "./navigation/lesli-contributing-navigation"
+import LesliCoreAboutNavigation from "./navigation/lesli-core-about-navigation"
+import LesliCoreStartNavigation from "./navigation/lesli-core-start-navigation"
+import LesliCoreContribNavigation from "./navigation/lesli-core-contrib-navigation"
 
 
 // · 
-import lesliCoreNavigation from "./navigation/lesli-core-navigation"
 import lesliVueNavigation from "./navigation/lesli-vue-navigation"
 import lesliCSSNavigation from "./navigation/lesli-css-navigation"
+import lesliFrameworkNavigation from "./navigation/lesli-framework-navigation"
 
 
 // · 
-import LesliEngineGuard from "./navigation/lesli-engines"
+import LesliEngineNavigation from "./navigation/lesli-engines-navigation"
 
 
 // · 
-const navigationAbout = [
-    ...LesliAboutNavigation, 
-    ...LesliStartNavigation, 
-    ...LesliContributingNavigation
+const navigationCoreAbout = [
+    ...LesliCoreAboutNavigation(false), 
+    ...LesliCoreStartNavigation(true), 
+    ...LesliCoreContribNavigation(true)
+]
+
+const navigationCoreStart = [
+    ...LesliCoreAboutNavigation(true), 
+    ...LesliCoreStartNavigation(false), 
+    ...LesliCoreContribNavigation(true)
+]
+
+const navigationCoreContrib = [
+    ...LesliCoreAboutNavigation(true), 
+    ...LesliCoreStartNavigation(true), 
+    ...LesliCoreContribNavigation(false)
+]
+
+const navigationLesli = [
+    ...LesliCoreAboutNavigation(true), 
+    ...LesliCoreStartNavigation(true), 
+    ...LesliCoreContribNavigation(true),
+    ...lesliFrameworkNavigation
 ]
 
 
 // · 
 export default {
-    "/about/": navigationAbout,
-    "/start/": navigationAbout,
-    "/contributing/": navigationAbout,
+    "/about/": navigationCoreAbout,
+    "/start/": navigationCoreStart,
+    "/contrib/": navigationCoreContrib,
 
-    "/lesli/": lesliCoreNavigation,
+    "/lesli/": navigationLesli,
     "/vue/": lesliVueNavigation,
     "/css/": lesliVueNavigation,
 
-    "/engines/": LesliEngineGuard
+    "/engines/guard": LesliEngineNavigation("Guard")
 }

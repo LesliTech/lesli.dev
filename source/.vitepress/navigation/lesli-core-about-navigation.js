@@ -32,14 +32,16 @@ Building a better future, one line of code at a time.
 
 
 // · 
-export default [{
-    collapsed: false,
-    text: "About",
-    items: [
-        { text: "Lesli", link: "/about/lesli" },
-        { text: "Ecosystem", link: "/about/ecosystem" },
-        { text: "Five minutes", link: "/about/five-minutes" },
-        { text: "Demo", link: "/about/demo" }
-    ]
+export default function(collapsed) {
+
+    return [{
+        collapsed: collapsed,
+        text: "About",
+        items: [
+            { text: "Lesli", link: "/about/lesli" },
+            { text: "Ecosystem", link: "/about/ecosystem" },
+            { text: "Five minutes", link: "/about/five-minutes" },
+            { text: "Demo", link: "/about/demo" }
+        ]
+    }]    
 }
-]

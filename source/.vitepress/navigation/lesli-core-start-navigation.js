@@ -32,48 +32,18 @@ Building a better future, one line of code at a time.
 
 
 // · 
-@import "lesli-css";
+export default function (collapsed) {
 
-
-// · 
-$hint-of-red: #f8f5f5;
-
-
-// · 
-section {
-    .component-header {
-        text-align: center;
-        padding-bottom: 6rem;
-
-        h2 {
-            line-height: 1.1;
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            color: lesli-css-color(black, 300);
-        }
-
-        p {
-            font-size: 2rem;
-            max-width: 1100px;
-            margin: 0 auto;
-            font-size: 2.2rem;
-            text-align: center;
-            color: lesli-css-color(silver, 900);
-        }
-    }
-}
-
-
-// · 
-@include lesli-css-breakpoint-only-mobile() {
-    section {
-        .component-header {
-            h2 {
-                font-size: 2rem;
-            }
-            p {
-                font-size: 1.3rem;
-            }
-        }
-    }
+    return [{
+        collapsed: collapsed,
+        text: "Getting started",
+        items: [
+            { text: "Installation", link: "/start/installation" },
+            { text: "Development", link: "/start/development" },
+            { text: "Credentials", link: "/start/credentials" },
+            { text: "Configuration", link: "/start/configuration" },
+            { text: "Directory Structure", link: "/start/directory-structure" },
+            { text: "Frontend", link: "/start/frontend" }
+        ]
+    }]
 }

@@ -12,7 +12,7 @@ git clone git@github.com:LesliTech/LesliDemo.git
 Run the Lesli image
 
 ```shell
-docker compose up
+docker compose up --build
 ```
 
 Navigate to the Lesli demo website using your favorite web browser: [http://127.0.0.1:300](http://127.0.0.1:300)

@@ -14,7 +14,7 @@ import LesliBrowser from "../../.vitepress/components/lesli-browser.vue"
 </header>
 
 <lesli-browser url="guard">
-    <img alt="Guard front page" src="/images/engines/guard/portada.png" />
+    <img alt="Guard front page" src="/images/engines/guard/screenshot.png" />
 </lesli-browser>
 
 <style lang="scss">

@@ -11,12 +11,14 @@ const palettes = [
 
 ## Logos
 
-<div class="columns mt-4">
+<div class="columns mt-4 lesli-css-color-logos">
     <div class="column pt-4 pl-6 pb-6 has-background-grey-lighter">
         <h4 class="mb-2">Standard</h4>
+        <img width="200" alt="Lesli Framework logo blue" src="/images/brand/lesli.svg" />
     </div>
     <div class="column pt-4 pl-6 pb-6 has-background-grey-darker">
         <h4 class="mb-2 has-text-white">Negative</h4>
+        <img width="200" alt="Lesli Framework logo white" src="/images/brand/lesli-white.svg" />
     </div>
 </div>
 
@@ -113,7 +115,24 @@ const palettes = [
     </div>
 </div>
 
-<style>
+<style lang="scss">
+    @import "lesli-css";
+    @import "bulma/sass/grid/columns";
+    @import "bulma/sass/helpers/color";
+    @import "bulma/sass/helpers/spacing";
+    @import "bulma/sass/helpers/typography";
+
+    @include lesli-css-color-print(background, bg-lesli-css-color);
+
+    .lesli-css-color-logos .column {
+        &:first-child {
+            border-radius: 6px 0 0 6px;
+        }
+        &:last-child {
+            border-radius: 2rem;
+            border-radius: 0 2rem 2rem 0;
+        }
+    }
     .lesli-css-color-collections .column div {
         border-radius: 6px;
         font-size: 1.1rem;

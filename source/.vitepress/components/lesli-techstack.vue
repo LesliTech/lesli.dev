@@ -82,4 +82,22 @@ section.lesli-techstack {
         }
     }
 }
+
+// · 
+@include lesli-css-breakpoint-mobile() {
+    section.lesli-techstack {
+        ul {
+            li {
+
+                img {
+                    height: 40px;
+                }
+
+                &:nth-child(3) img {
+                    height: 32px;
+                }
+            }
+        }
+    }
+}
 </style>

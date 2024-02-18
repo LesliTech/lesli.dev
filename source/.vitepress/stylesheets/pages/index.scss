@@ -37,7 +37,20 @@ Building a better future, one line of code at a time.
 @import "../components/page-content-boxes.scss";
 
 
-// · 
-.lesli-component-links {
-    margin-bottom: 8rem !important;
+.lesli-page {
+
+    .lesli-component-links {
+        margin-bottom: 8rem !important;
+    }
+
+    .lesli-component-engines {
+        padding: 8rem 0 6rem;
+    }
+
+
+    .lesli-component-engines {
+        .column {
+            max-width: 300px;
+        }
+    }
 }

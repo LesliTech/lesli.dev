@@ -49,10 +49,19 @@ import letter from "../../assets/icons/lesli/cloud-letter.svg"
 const logos = {
     audit, admin, guard, babel, driver, support, letter
 }
+
+
+// · 
+const props = defineProps({
+    title: {
+        type: Boolean,
+        default: true
+    }
+})
 </script>
 <template>
-    <section class="lesli-component-engines hero is-fullheight">
-        <div class="component-header">
+    <section class="lesli-component-engines">
+        <div v-if="title" class="component-header">
             <h2>{{ collections.title }}</h2>
             <p class="description">{{ collections.text }}</p>
         </div>

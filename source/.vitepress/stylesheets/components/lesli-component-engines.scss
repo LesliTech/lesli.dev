@@ -4,20 +4,18 @@
 
 // · 
 section.lesli-component-engines {
-    padding: 10rem 0 6rem;
-    text-align: center;
+    margin: 0 auto;
 
     .columns {
-        display: flex;
-        margin: 0 auto;
         flex-wrap: wrap;
         max-width:1200px;
         justify-content: center;
+        margin: 0 auto;
     }
 
     .column {
         flex-basis: 300px;
-        max-width: 300px;
+        margin: 0 auto;
     }
 
     a {
@@ -46,8 +44,6 @@ section.lesli-component-engines {
             font-weight: 100;
             font-size: 1.1rem;
             color: lesli-css-color(black, 300);
-        }
-
-        
+        }       
     }
 }

@@ -84,9 +84,13 @@ footer.lesli-footer {
 @include lesli-css-breakpoint-only-mobile() {
 
     footer.lesli-footer {
+
+        a.footer-logo {
+            margin: 0 auto;
+            display: block;
+        }
     
         .navigation-footer {
-
             ul.social {
                 justify-content: center;
             }

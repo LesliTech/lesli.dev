@@ -32,13 +32,16 @@ Building a better future, one line of code at a time.
 
 
 // · 
-export default [{
-    collapsed: false,
-    text: "Contributing",
-    items: [
-        { text: "Environment", link: "/lesli/contributing/environment" },
-        { text: "Gitflow", link: "/lesli/contributing/git-flow" },
-        { text: "Commits", link: "/lesli/contributing/commits" },
-        { text: "Pull requests", link: "/lesli/contributing/pull-requests" }
-    ]
-}]
+export default function(collapsed) {
+
+    return [{
+        collapsed: collapsed,
+        text: "Contributing",
+        items: [
+            { text: "Environment", link: "/lesli/contributing/environment" },
+            { text: "Gitflow", link: "/lesli/contributing/git-flow" },
+            { text: "Commits", link: "/lesli/contributing/commits" },
+            { text: "Pull requests", link: "/lesli/contributing/pull-requests" }
+        ]
+    }]
+}
