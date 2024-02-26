@@ -37,16 +37,30 @@ Building a better future, one line of code at a time.
 @import "../components/page-content-boxes.scss";
 
 
+
+
 .lesli-page {
 
+    .is-home {
+        padding-top: 0 !important;
+    }
+
+    .lesli-page-header {
+        background-size: 115px 115px;
+        background-color: #ffffff;
+        background-position: 0 0,55px 55px;
+        background-image:  
+            radial-gradient(#0d52bf 2px, transparent 2px), 
+            radial-gradient(#0d52bf 2px, #ffffff 2px);
+    }
+
     .lesli-component-links {
-        margin-bottom: 8rem !important;
+        padding-bottom: 8rem !important;
     }
 
     .lesli-component-engines {
         padding: 8rem 0 6rem;
     }
-
 
     .lesli-component-engines {
         .column {

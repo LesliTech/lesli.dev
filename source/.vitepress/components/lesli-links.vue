@@ -51,13 +51,15 @@ const links = [{
 }]
 </script>
 <template>
-    <section class="container lesli-component-links lesli-page-content-boxes">
-        <div class="columns">
-            <div class="column" v-for="link in links">
-                <a :href="link.href">
-                    <i :class="link.icon"></i>
-                    {{ link.text }}
-                </a>
+    <section class="lesli-component-links lesli-page-content-boxes">
+        <div class="container">
+            <div class="columns">
+                <div class="column" v-for="link in links">
+                    <a class="has-background-white" :href="link.href">
+                        <i :class="link.icon"></i>
+                        {{ link.text }}
+                    </a>
+                </div>
             </div>
         </div>
     </section>

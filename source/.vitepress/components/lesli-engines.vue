@@ -36,13 +36,13 @@ import collections from "../data/en/component_collections.json"
 
 
 // · 
-import audit  from "../../assets/icons/lesli/cloud-audit.svg"
-import admin from "../../assets/icons/lesli/cloud-admin.svg"
-import guard from "../../assets/icons/lesli/cloud-guard.svg"
-import babel from "../../assets/icons/lesli/cloud-babel.svg"
-import driver from "../../assets/icons/lesli/cloud-driver.svg"
-import support from "../../assets/icons/lesli/cloud-support.svg"
-import letter from "../../assets/icons/lesli/cloud-letter.svg"
+import audit  from "../../assets/icons/lesli/engine-audit.svg"
+import admin from "../../assets/icons/lesli/engine-admin.svg"
+import guard from "../../assets/icons/lesli/engine-guard.svg"
+import babel from "../../assets/icons/lesli/engine-babel.svg"
+import driver from "../../assets/icons/lesli/engine-driver.svg"
+import support from "../../assets/icons/lesli/engine-support.svg"
+import letter from "../../assets/icons/lesli/engine-letter.svg"
 
 
 // · 
@@ -60,7 +60,7 @@ const props = defineProps({
 })
 </script>
 <template>
-    <section class="lesli-component-engines">
+    <section class="lesli-component-engines has-background-white">
         <div v-if="title" class="component-header">
             <h2>{{ collections.title }}</h2>
             <p class="description">{{ collections.text }}</p>

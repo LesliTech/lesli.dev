@@ -24,9 +24,10 @@ pageClass: lesli-page
             </p>
         </div>
     </section>
+    <componentLesliLinks class="lesli-component-links" />
 </header>
 
-<componentLesliLinks class="lesli-component-links" />
+
 
 <componentLesliTechStack />
 

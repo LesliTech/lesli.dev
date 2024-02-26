@@ -179,3 +179,8 @@ header div.VPNavBarAppearance {
 .VPHome {
     padding-bottom: 15px !important;
 }
+
+.VPDoc {
+    font-weight: 400;
+    font-size: 1.1rem;
+}

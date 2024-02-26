@@ -38,14 +38,17 @@ Building a better future, one line of code at a time.
 
 
 // · 
-.lesli-page-header {
-    margin: 4rem auto 5rem;
-}
+.lesli-vue {
 
-@include lesli-css-breakpoint-mobile() {
     .lesli-page-header {
-        img {
-            max-width: 200px;
+        margin-bottom: 2rem;
+    }
+
+    @include lesli-css-breakpoint-mobile() {
+        .lesli-page-header {
+            img {
+                max-width: 200px;
+            }
         }
     }
 }

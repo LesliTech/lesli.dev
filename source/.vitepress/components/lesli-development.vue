@@ -13,7 +13,7 @@ import development from "../data/en/component_development.json"
             <div class="hero-body">
                 <div class="columns ">
                     <div class="column" v-for="highlight in development.content">
-                        <div class="feature">
+                        <div class="feature has-background-white">
                             <figure>
                                 <i :class="highlight.icon"></i>
                             </figure>

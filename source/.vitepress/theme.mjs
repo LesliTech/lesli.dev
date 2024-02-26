@@ -53,8 +53,8 @@ export default {
         { text: "Lesli", link: "/lesli/" },
         { text: "Engines", link: "/engines/" },
         { text: "Vue", link: "/vue/" },
-        { text: "Css", link: "/css/" },
-        { text: "Mails", link: "/mails/" },
+        //{ text: "Css", link: "/css/" },
+        //{ text: "Mails", link: "/mails/" },
     ],
 
     sidebar: navigation,

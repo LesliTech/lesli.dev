@@ -41,8 +41,9 @@ import svgLoader from 'vite-svg-loader'
 export default defineConfig({
     title: "Lesli · Ruby on Rails SaaS Development Framework",
     description: "Ruby on Rails SaaS Development Framework.",
-    base: "/",
+    themeConfig: themeConfig,
     outDir: "../build",
+    base: "/",
     vite: { plugins: [svgLoader()] },
     head: [
         ["link", { rel: "icon", href: "/favicon.png" }],
@@ -60,6 +61,5 @@ export default defineConfig({
             "script", {},
             'document.addEventListener("DOMContentLoaded", () => { localStorage.setItem("vitepress-theme-appearance", "light"); var htmlElement = document.querySelector("html"); htmlElement.classList.remove("dark");})'
         ]
-    ],
-    themeConfig: themeConfig
+    ]
 })

@@ -2,7 +2,7 @@
 aside: false
 ---
 <script setup>
-import guard from "../../assets/icons/lesli/cloud-guard.svg"
+import guard from "../../assets/icons/lesli/engine-guard.svg"
 import LesliBrowser from "../../.vitepress/components/lesli-browser.vue"
 </script>
 

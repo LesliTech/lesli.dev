@@ -37,6 +37,12 @@ Building a better future, one line of code at a time.
 // · 
 section.lesli-component-development {
     padding: 8rem 0 4rem;
+    background-size: 115px 115px;
+    background-color: #ffffff;
+    background-position: 0 0,55px 55px;
+    background-image:  
+        radial-gradient(lesli-css-color(silver) 2px, transparent 2px), 
+        radial-gradient(lesli-css-color(silver) 2px, #ffffff 2px);
 
     .columns {
         display: flex;

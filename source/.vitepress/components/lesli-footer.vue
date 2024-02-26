@@ -36,7 +36,7 @@ import lesli from "../data/en/lesli.json"
 import footer from "../data/en/partial_footer.json"
 </script>
 <template>
-    <footer class="lesli-footer container pt-6 pb-4">
+    <footer class="lesli-footer container pt-6 pb-4 has-background-white">
 
         <a href="/" class="footer-logo navbar-item mb-3">
             <img class="logo" alt="Lesli Framework logo" src="/images/brand/lesli.svg" />

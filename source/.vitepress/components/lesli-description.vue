@@ -36,7 +36,7 @@ import data from "../data/en/component_description.json"
 
 </script>
 <template>
-    <section class="lesli-component-description">
+    <section class="lesli-component-description has-background-white">
         <div class="component-header">
             <p v-html="data.description"></p>
         </div>

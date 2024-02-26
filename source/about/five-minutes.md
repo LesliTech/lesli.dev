@@ -1,3 +1,7 @@
+<script setup>
+import Browser from "../.vitepress/components/lesli-browser.vue"
+</script>
+
 # Five minutes tutorial
 Build your own SaaS in a matter of minutes with the Lesli engines.
 
@@ -116,6 +120,9 @@ rails server
 
 Using your favorite web browser navigate to <a href="http://127.0.0.1:3000" targer="_blank">http://127.0.0.1:3000/login</a>, Lesli mounted devise at root level, so you already have an authentication engine working.
 
+<browser url="login">
+    <img src="/images/engines/shield/login.png">
+</browser>
 
 The seeders comes with default users with different roles and privileges, to see Lesli in action use the owner user:
 

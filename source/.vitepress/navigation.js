@@ -81,8 +81,9 @@ export default {
     "/contrib/": navigationCoreContrib,
 
     "/lesli/": navigationLesli,
+    "/engines/": navigationLesli,
     "/vue/": lesliVueNavigation,
     "/css/": lesliVueNavigation,
 
-    "/engines/guard": LesliEngineNavigation("Guard")
+    "/engines/guard/": LesliEngineNavigation("Guard")
 }
