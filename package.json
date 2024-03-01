@@ -17,6 +17,9 @@
 
         "vue-router": "4.2.4"
     },
+    "optionalDependencies": {
+        "@rollup/rollup-linux-x64-gnu": "4.6.1"
+      },
     "scripts": {
         "dev": "vitepress dev source",
         "start": "vitepress dev source",
