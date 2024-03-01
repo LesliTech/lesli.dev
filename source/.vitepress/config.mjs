@@ -51,7 +51,7 @@ export default defineConfig({
             alias: [
               {
                 find: '@lesli-vue',
-                replacement: fileURLToPath(new URL('../../tmp/lesli-vue', import.meta.url))
+                replacement: fileURLToPath(new URL('../../temp/lesli-vue', import.meta.url))
               },
             ]
           }
