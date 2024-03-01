@@ -28,9 +28,6 @@ jobs:
     - name: Install dependencies
       run: |
         ls
-        cd lesli.dev.repo
-        echo "inside repo"
-        ls
         npm install
 
     - name: Build
