@@ -17,7 +17,7 @@ jobs:
         fetch-depth: '0'
 
     - name: Install dependencies w
-      run: git clone git@github.com:LesliTech/lesli-vue.git
+      run: git clone https://github.com/LesliTech/lesli-vue.git
 
     - name: Install dependencies
       run: |
