@@ -32,6 +32,7 @@ Building a better future, one line of code at a time.
 
 
 // · 
+import { fileURLToPath } from "node:url"
 import { defineConfig } from "vitepress"
 import themeConfig from "./theme.mjs"
 import svgLoader from 'vite-svg-loader'
@@ -44,7 +45,17 @@ export default defineConfig({
     themeConfig: themeConfig,
     outDir: "../build",
     base: "/",
-    vite: { plugins: [svgLoader()] },
+    vite: { 
+        plugins: [svgLoader()],
+        resolve: {
+            alias: [
+              {
+                find: '@lesli-vue',
+                replacement: fileURLToPath(new URL('../../../lesli-vue', import.meta.url))
+              },
+            ]
+          }
+    },
     head: [
         ["link", { rel: "icon", href: "/favicon.png" }],
         [

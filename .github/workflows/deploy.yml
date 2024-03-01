@@ -16,8 +16,14 @@ jobs:
         path: ./lesli.dev.repo/
         fetch-depth: '0'
 
-    - name: Install dependencies w
-      run: git clone https://github.com/LesliTech/lesli-vue.git
+    # Clone our custom actions
+    - name: Checkout github actions repo
+      uses: actions/checkout@v3
+      with:
+        ref: master
+        fetch-depth: '0'
+        repository: LesliTech/lesli-vue
+
 
     - name: Install dependencies
       run: |
