@@ -23,21 +23,24 @@ jobs:
       run: |
         ls
         cd lesli.dev.repo
+        echo "inside repo"
         ls
         npm install
 
     - name: Build
       run: |
+        cd lesli.dev.repo
         npm run build 
 
     - name: Configure Git
       run: |
+        cd lesli.dev.repo
         git config user.name "${{ github.actor }}"
         git config user.email "${{ github.actor }}@users.noreply.github.com"
 
     - name: Commit changes
       run: |
-        cd build
+        cd lesli.dev.repo/build
         git init
         git add .
         git commit -m "Build and commit changes"
