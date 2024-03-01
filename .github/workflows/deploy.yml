@@ -39,4 +39,4 @@ jobs:
         git add .
         git commit -m "Build and commit changes"
         git branch -m production
-        git push origin production # Adjust the branch name as needed
+        git push origin production --force
