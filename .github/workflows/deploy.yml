@@ -13,14 +13,17 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
-        path: ./lesli.dev/
+        path: ./lesli.dev.repo/
         fetch-depth: '0'
 
     - name: Install dependencies w
-      run: cd lesli.dev
+      run: cd lesli.dev.repo
 
     - name: Install dependencies
       run: |
+        ls
+        cd lesli.dev.repo
+        ls
         npm install
 
     - name: Build
