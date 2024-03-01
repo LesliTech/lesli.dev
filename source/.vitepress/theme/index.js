@@ -40,7 +40,7 @@ import DefaultTheme from "vitepress/theme-without-fonts"
 import componentLesli404 from "../components/lesli-404.vue"
 import componentLesliWorking from "../components/lesli-working.vue"
 import "./style.css";
-
+import "../stylesheets/template.scss"
 
 /** @type {import('vitepress').Theme} */
 export default {

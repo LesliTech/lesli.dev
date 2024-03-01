@@ -30,59 +30,38 @@ Building a better future, one line of code at a time.
 // · 
 */
 
+import path from "path"
+import fs from "fs"
+
+function getNavigation(folderPath, namespace) {
+
+    folderPath = path.resolve(folderPath)
+
+    // Read the contents of the folder
+    return fs.readdirSync(folderPath)
+    .filter(file => path.extname(file) === '.md')
+    .filter(file => file.toLowerCase() !== 'index.md')
+    .map(file => file.replace(".md", ""))
+    .map(file => {
+        return {
+            text: file.charAt(0).toUpperCase() + file.substr(1),
+            link: `/vue/${namespace}/${file}`
+        }
+    })
+}
+
 
 // · 
 export default [{
     collapsed: true,
     text: "Elements",
-    items: [
-        // { text: "Autocomplete",    link: "/lesli-css/1x/normalize" },
-        // { text: "Avatar",        link: "/lesli-css/1x/fonts" },
-        { text: "Button",        link: "/vue/elements/button" },
-        // { text: "Calendar",        link: "/lesli-css/1x/fonts" },
-        // { text: "Card",        link: "/lesli-css/1x/fonts" },
-        // { text: "Collapse",        link: "/lesli-css/1x/fonts" },
-        // { text: "Columns",        link: "/lesli-css/1x/fonts" },
-        // { text: "Control",        link: "/lesli-css/1x/fonts" },
-        // { text: "Dropdown",        link: "/lesli-css/1x/fonts" },
-        // { text: "Empty",        link: "/lesli-css/1x/fonts" },
-        // { text: "FileUploader",        link: "/lesli-css/1x/fonts" },
-        // { text: "Form",        link: "/lesli-css/1x/fonts" },
-        // { text: "Gallery",        link: "/lesli-css/1x/fonts" },
-        // { text: "Header",        link: "/lesli-css/1x/fonts" },
-        // { text: "icon",        link: "/lesli-css/1x/fonts" },
-        // { text: "Input",        link: "/lesli-css/1x/fonts" },
-        // { text: "InputTag",        link: "/lesli-css/1x/fonts" },
-        // { text: "Link",        link: "/lesli-css/1x/fonts" },
-        // { text: "Loading",        link: "/lesli-css/1x/fonts" },
-        // { text: "Map",        link: "/lesli-css/1x/fonts" },
-        // { text: "Navbar",        link: "/lesli-css/1x/fonts" },
-        // { text: "Navigation",        link: "/lesli-css/1x/fonts" },
-        // { text: "Pagination",        link: "/lesli-css/1x/fonts" },
-        // { text: "Panel",        link: "/lesli-css/1x/fonts" },
-        // { text: "Select",        link: "/lesli-css/1x/fonts" },
-        { text: "Table",        link: "/vue/elements/table" },
-        //{ text: "Tabs",        link: "/vue/elements/tabs" },
-        // { text: "Toggle",        link: "/lesli-css/1x/fonts" },
-        { text: "Toolbar",        link: "/vue/elements/toolbar" },
-    ]
+    items: getNavigation("source/vue/elements", "elements")
 }, {
     collapsed: true,
     text: "Components",
-    items: [
-        { text: "Charts",  link: "/lesli-css/1x/blockquotes" },
-        { text: "Diagrams",      link: "/lesli-css/1x/columns" },
-        { text: "Editors",    link: "/lesli-css/1x/container" },
-    ]
+    items: getNavigation("source/vue/components", "components")
 }, {
     collapsed: true,
     text: "Composables",
-    items: [
-        { text: "Date",       link: "/lesli-css/1x/colors" },
-        { text: "Dialog",       link: "/lesli-css/1x/colors" },
-        { text: "HTTP",       link: "/lesli-css/1x/colors" },
-        { text: "Msg",       link: "/lesli-css/1x/colors" },
-        { text: "Url",       link: "/lesli-css/1x/colors" },
-        { text: "Utils",       link: "/lesli-css/1x/colors" }
-    ]
+    items: getNavigation("source/vue/composables", "composables")
 }]

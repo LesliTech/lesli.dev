@@ -32,58 +32,59 @@ Building a better future, one line of code at a time.
 
 
 // · 
-import LesliCoreAboutNavigation from "./navigation/lesli-core-about-navigation"
-import LesliCoreStartNavigation from "./navigation/lesli-core-start-navigation"
-import LesliCoreContribNavigation from "./navigation/lesli-core-contrib-navigation"
+import path from "path"
+import fs from "fs"
 
 
 // · 
-import lesliVueNavigation from "./navigation/lesli-vue-navigation"
-import lesliCSSNavigation from "./navigation/lesli-css-navigation"
-import lesliFrameworkNavigation from "./navigation/lesli-framework-navigation"
+function getNavigation(folder, name) {
+
+    let folderPath = path.resolve("source", folder)
+    let links = fs.readdirSync(folderPath)
+    .filter(file => path.extname(file) === '.md')
+    .filter(file => file.toLowerCase() !== 'index.md')
+    .map(file => file.replace(".md", ""))
+    .map(file => {
+        console.log(file)
+        return {
+            text: file.charAt(0).toUpperCase() + file.substr(1),
+            link: `/${folder}/${file}`
+        }
+    })
+
+    return [{
+        collapsed: false,
+        text: name,
+        items: links
+    }]
+}
 
 
 // · 
-import LesliEngineNavigation from "./navigation/lesli-engines-navigation"
-
-
-// · 
-const navigationCoreAbout = [
-    ...LesliCoreAboutNavigation(false), 
-    ...LesliCoreStartNavigation(true), 
-    ...LesliCoreContribNavigation(true)
+const navigationCore = [
+    ...getNavigation("about", "About"),
+    ...getNavigation("start", "Getting started"),
+    ...getNavigation("contrib", "Contributing")
 ]
-
-const navigationCoreStart = [
-    ...LesliCoreAboutNavigation(true), 
-    ...LesliCoreStartNavigation(false), 
-    ...LesliCoreContribNavigation(true)
-]
-
-const navigationCoreContrib = [
-    ...LesliCoreAboutNavigation(true), 
-    ...LesliCoreStartNavigation(true), 
-    ...LesliCoreContribNavigation(false)
-]
-
-const navigationLesli = [
-    ...LesliCoreAboutNavigation(true), 
-    ...LesliCoreStartNavigation(true), 
-    ...LesliCoreContribNavigation(true),
-    ...lesliFrameworkNavigation
-]
-
 
 // · 
 export default {
-    "/about/": navigationCoreAbout,
-    "/start/": navigationCoreStart,
-    "/contrib/": navigationCoreContrib,
+    "/about/": navigationCore,
+    "/start/": navigationCore,
+    "/contrib/": navigationCore,
+    "/engines/": navigationCore,
 
-    "/lesli/": navigationLesli,
-    "/engines/": navigationLesli,
-    "/vue/": lesliVueNavigation,
-    "/css/": lesliVueNavigation,
+    "/engines/guard/": getNavigation("engines/guard", "Engine Guard"),
 
-    "/engines/guard/": LesliEngineNavigation("Guard")
+    "/lesli/": [
+        ...getNavigation("lesli/database", "Database"),
+        ...getNavigation("lesli/ruby-on-rails", "Ruby on Rails"),
+        ...getNavigation("lesli/frontend", "Frontend")
+    ],
+    
+    "/vue/": [
+        ...getNavigation("vue/elements", "Elements"),
+        ...getNavigation("vue/components", "Components"),
+        ...getNavigation("vue/composables", "Composables"),
+    ]
 }
