@@ -12,10 +12,11 @@ pageClass: lesli-page
     import componentLesliFooter from "./.vitepress/components/lesli-footer.vue"
 </script>
 
+
 <header class="hero is-medium lesli-page-header">
     <section class="hero-body">
         <div class="container">
-            <img class="mb-6 logo" alt="Lesli Framework logo" src="/images/brand/lesli.svg" />
+            <img class="mb-5 logo" alt="Lesli Framework logo" src="/images/brand/lesli.svg" />
             <h1 class="title">
                 The Open Source Ruby on Rails <span class="lesli-title-colored">SaaS Development Framework.</span>
             </h1>
@@ -26,7 +27,6 @@ pageClass: lesli-page
     </section>
     <componentLesliLinks class="lesli-component-links" />
 </header>
-
 
 
 <componentLesliTechStack />

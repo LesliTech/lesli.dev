@@ -45,7 +45,6 @@ function getNavigation(folder, name) {
     .filter(file => file.toLowerCase() !== 'index.md')
     .map(file => file.replace(".md", ""))
     .map(file => {
-        console.log(file)
         return {
             text: file.charAt(0).toUpperCase() + file.substr(1),
             link: `/${folder}/${file}`

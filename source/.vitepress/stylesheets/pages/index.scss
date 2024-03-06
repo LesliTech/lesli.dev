@@ -38,7 +38,7 @@ Building a better future, one line of code at a time.
 
 
 
-
+// · 
 .lesli-page {
 
     .is-home {
@@ -52,6 +52,21 @@ Building a better future, one line of code at a time.
         background-image:  
             radial-gradient(#0d52bf 2px, transparent 2px), 
             radial-gradient(#0d52bf 2px, #ffffff 2px);
+
+        img {
+            padding: 1rem;
+            margin: 0 auto 0rem;
+            background-color: #ffffff;
+            max-width: 250px;
+        }
+
+        h1 {
+            background-color: #ffffff;
+        }
+
+        .description {
+            background-color: #ffffff;
+        }
     }
 
     .lesli-component-links {
