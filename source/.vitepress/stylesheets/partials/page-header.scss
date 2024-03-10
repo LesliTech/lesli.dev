@@ -46,11 +46,21 @@ Building a better future, one line of code at a time.
         max-width: 200px;
     }
 
+    svg.engine-logo {
+        width: 130px;
+        margin: 0 auto 2rem;
+        fill: darken(lesli-css-color(blue, 900), 10);
+    }
+
+    h1,h2 {
+        text-align: center;
+    }
+
     h1.title {
         font-size: 4rem;
         max-width: 960px;
         font-weight: 900;
-        text-align: center;
+        
         line-height: 1.1;
         margin: 0px auto 4rem;
         letter-spacing: -1.5px;

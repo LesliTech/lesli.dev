@@ -39,17 +39,13 @@ import DefaultTheme from 'vitepress/theme'
 const { Layout } = DefaultTheme
 </script>
 <template>
-    <Layout>
-        <template #not-found>
-            <section>
-                <div>
-                    <img alt="cat docs" src="/images/cats/dev.png" />
-                    <p>Work in progress...</p>
-                    <a href="/">Take me home</a>
-                </div>
-            </section>
-        </template>
-    </Layout>
+    <section>
+        <div>
+            <img alt="cat docs" src="/images/cats/dev.png" />
+            <p>Work in progress...</p>
+            <a href="/">Take me home</a>
+        </div>
+    </section>
 </template>
 <style lang="scss" scoped>
 
@@ -82,6 +78,7 @@ section {
         font-weight: 500;
         font-size: 14px;
         padding: 6px 16px;
+        text-decoration: none;
     }
 }
 </style>

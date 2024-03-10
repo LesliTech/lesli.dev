@@ -45,13 +45,10 @@ export default function(name) {
         items: [
             { text: "About",        link: url(name) },
             { text: "Installation", link: url(name, "installation") },
-            { text: "Configuration",link: url(name, "configuration") },
             { text: "Translations", link: url(name, "translations") },
             { text: "Dashboards",   link: url(name, "dashboards") },
             { text: "Database",     link: url(name, "database") },
-            { text: "Testing",      link: url(name, "testing") },
-            { text: "Tasks",        link: url(name, "tasks") },
-            { text: "Demo",         link: url(name, "demo") }
+            { text: "Tasks",        link: url(name, "tasks") }
         ]
     }, {
         collapsed: false,

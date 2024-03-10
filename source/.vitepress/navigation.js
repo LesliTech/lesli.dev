@@ -37,12 +37,32 @@ import fs from "fs"
 
 
 // · 
-function getNavigation(folder, name) {
+function getNavigation(folder, name) { 
 
-    let folderPath = path.resolve("source", folder)
-    let links = fs.readdirSync(folderPath)
+    const folderPath = path.resolve("source", folder)
+
+    const links = [
+        { text: "About",        link: `/${folder}/about` },
+        { text: "Installation", link: `/${folder}/installation` },
+        { text: "Translations", link: `/${folder}/translations` },
+        { text: "Dashboards",   link: `/${folder}/dashboards` },
+        { text: "Database",     link: `/${folder}/database` },
+        { text: "Tasks",        link: `/${folder}/tasks` }
+    ]
+
+    const pages = fs.readdirSync(folderPath)
     .filter(file => path.extname(file) === '.md')
     .filter(file => file.toLowerCase() !== 'index.md')
+    .filter(file => {
+        return ![
+            "about.md",
+            "installation.md", 
+            "translations.md", 
+            "dashboards.md", 
+            "database.md", 
+            "tasks.md"
+        ].includes(file)
+    })
     .map(file => file.replace(".md", ""))
     .map(file => {
         return {
@@ -52,9 +72,11 @@ function getNavigation(folder, name) {
     })
 
     return [{
-        collapsed: false,
         text: name,
         items: links
+    },{
+        text: "",
+        items: pages
     }]
 }
 
@@ -74,6 +96,7 @@ export default {
     "/engines/": navigationCore,
 
     "/engines/guard/": getNavigation("engines/guard", "Engine Guard"),
+    "/engines/babel/": getNavigation("engines/babel", "Engine Babel"),
 
     "/lesli/": [
         ...getNavigation("lesli/database", "Database"),

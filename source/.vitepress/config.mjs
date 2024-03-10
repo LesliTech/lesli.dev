@@ -36,10 +36,11 @@ import { fileURLToPath } from "node:url"
 import { defineConfig } from "vitepress"
 import themeConfig from "./theme.mjs"
 import svgLoader from 'vite-svg-loader'
+import { withMermaid } from "vitepress-plugin-mermaid";
 
 
 // · website config
-export default defineConfig({
+const config = defineConfig({
     title: "Lesli · Ruby on Rails SaaS Development Framework",
     description: "Ruby on Rails SaaS Development Framework.",
     themeConfig: themeConfig,
@@ -48,12 +49,13 @@ export default defineConfig({
     vite: { 
         plugins: [svgLoader()],
         resolve: {
-            alias: [
-              {
+            alias: [{
+                find: '@lesli-dev',
+                replacement: fileURLToPath(new URL('./', import.meta.url))
+            },{
                 find: '@lesli-vue',
                 replacement: fileURLToPath(new URL('../../../lesli-vue', import.meta.url))
-              },
-            ]
+            }]
           }
     },
     head: [
@@ -74,3 +76,6 @@ export default defineConfig({
         ]
     ]
 })
+
+
+export default withMermaid(config);

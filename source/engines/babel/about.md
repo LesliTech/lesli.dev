@@ -1,15 +1,28 @@
+<script setup>
+    import LesliBrowser from "../../.vitepress/components/lesli-browser.vue"
+    import LesliBabelLogo from "../../assets/icons/lesli/engine-babel.svg"
+</script>
 
-<p align="center">
-	<img width="75" alt="LesliBabel logo" src="../app/assets/images/lesli_babel/babel-logo.svg" />
-    <h3 align="center">Translation Management System for the Lesli Framework.</h3>
-</p>
+<header class="lesli-page-header">
+    <LesliBabelLogo class="engine-logo"/>
+    <h1>
+        Translation Management System for the <br />
+        <span class="lesli-title-colored">Lesli Framework.</span>
+    </h1>
+</header>
 
 In the dynamic world of web development, creating multilingual applications is a necessity. To streamline the process of managing translations in Rails applications, we proudly introduce LesliBabel – a powerful and versatile module designed to simplify the complexities of handling multilingual content.
 
 
 LesliBabel is a translation management module specifically crafted for the Lesli Framework but compatible with Ruby on Rails standard apps. It provides users with a robust set of tools to efficiently handle string translations across multiple languages. With LesliBabel, the process of managing, modifying, adding, and translating strings becomes an intuitive and seamless experience.
 
-<img alt="LesliBabel logo" src="./images/screenshot-dashboard.png" />
+<lesli-browser url="babel">
+    <img alt="LesliBabel logo" src="/images/engines/babel/screenshot-dashboard.png" />
+</lesli-browser>
+
+<hr />
+
+
 
 ### Key Features:
 
@@ -25,6 +38,9 @@ LesliBabel simplifies the process of modifying and adding new strings to your ap
 **Translation Workflow:**
 LesliBabel comes equipped with a streamlined translation workflow. Developers can effortlessly translate strings, review pending translations, and ensure the accuracy of content across various languages.
 
+<hr />
+
+
 
 ### The database:
 
@@ -37,21 +53,30 @@ erDiagram
 
 ```
 
+<hr />
 
-#### lesli_babel_modules
 
-This table has a single record for every engine you have installed in the host Rails app, this record acts as main owner of the all translations that belongs to this specific engine.
+
+### Modules
+
+Modules has a single record for every engine you have installed in the host Rails app, this record acts as main owner of the all translations that belongs to this specific engine.
 
 ::: info
 The host app is also considered as a module.
 :::
 
-<img alt="LesliBabel logo" src="./images/screenshot-translations-sidebar.png" />
+
+<lesli-browser url="babel">
+    <img alt="LesliBabel logo" src="/images/engines/babel/screenshot-translations-sidebar.png" />
+</lesli-browser>
+
+<hr />
 
 
-#### lesli_babel_buckets
 
-This table has a single record for every controller registered in the routes file of the engine. The following example represent two different buckets of strings inside LesliBabel:
+### Buckets
+
+Buckets is a representation for every controller registered in the routes file of the engine. The following example represent two different buckets of strings inside LesliBabel:
 
 ```ruby
 Rails.application.routes.draw do
@@ -62,10 +87,16 @@ end
 
 Buckets basically acts as containers for all the translations that belongs to an app that works under an specific route.
 
-<img alt="LesliBabel logo" src="./images/screenshot-translations-buckets.png" />
+
+<lesli-browser url="babel">
+    <img alt="LesliBabel logo" src="/images/engines/babel/screenshot-translations-buckets.png" />
+</lesli-browser>
+
+<hr />
 
 
-#### lesli_babel_strings
+
+### Strings
 
 Finally, this table has the strings that we are going to use into our application (we can use this strings into ruby or javascript code), inside lesli_babel_strings we can find a record for every strings we want to translate.
 
@@ -76,18 +107,23 @@ Example:
 | hello | Hello | Hola | Ciao | Bonjour |
 | bye | Bye | Adios | Ciao | au revoir |
 
+<hr />
+
+
 
 ### The editor
 LesliBabel includes a useful web editor, eliminating the need for technical skills to edit translations. This feature enables users to collaborate on translations effectively.
 
 The translation editor offers a straightforward yet valuable interface, allowing you to easily check the status of all translations.
 
-<img alt="LesliBabel logo" src="./images/screenshot-translations-editor.png" />
-
+<lesli-browser url="babel">
+    <img alt="LesliBabel logo" src="/images/engines/babel/screenshot-translations-editor.png" />
+</lesli-browser>
 
 You have the capability to expand each string container, providing you with a comprehensive view of the individual strings and their corresponding translations for every supported language. This feature allows for in-depth inspection and modification, empowering users to meticulously review and update translations in a user-friendly manner. The detailed view within the string container simplifies the translation management process.
 
-<img alt="LesliBabel logo" src="./images/screenshot-translations-editor-string.png" />
-
+<lesli-browser url="babel">
+    <img alt="LesliBabel logo" src="/images/engines/babel/screenshot-translations-editor-string.png" />
+</lesli-browser>
 
 You can check an online demo of this module at: [https://demo.lesli.dev/babel](https://demo.lesli.dev/babel)
