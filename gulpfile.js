@@ -4,9 +4,17 @@ const { src, dest, task, series } = require('gulp');
 const rename = require('gulp-rename');
 const replace = require('gulp-replace');
 
-task("default", series(taskReplace))
+task("default", series(taskCopy))
 
 function taskCopy() {
+
+    return gulp.src('../LesliBuilder/engines/*/docs/*.md')
+    .pipe(rename((file) => {
+        const engineName = file.dirname.split('/')[4]; // Extract the ENGINE_NAME
+        file.dirname = `lesli.dev/engines/${engineName}`;
+    }))
+    .pipe(gulp.dest('.'));
+
     // return src("../LesliBuilder/engines/**/docs/*.md",)
     // .pipe(dest('./source/engines/'));
 

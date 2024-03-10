@@ -32,23 +32,14 @@ Building a better future, one line of code at a time.
 
 
 // · 
-import path from "path"
 import fs from "fs"
+import path from "path"
 
 
 // · 
 function getNavigation(folder, name) { 
 
     const folderPath = path.resolve("source", folder)
-
-    const links = [
-        { text: "About",        link: `/${folder}/about` },
-        { text: "Installation", link: `/${folder}/installation` },
-        { text: "Translations", link: `/${folder}/translations` },
-        { text: "Dashboards",   link: `/${folder}/dashboards` },
-        { text: "Database",     link: `/${folder}/database` },
-        { text: "Tasks",        link: `/${folder}/tasks` }
-    ]
 
     const pages = fs.readdirSync(folderPath)
     .filter(file => path.extname(file) === '.md')
@@ -71,11 +62,26 @@ function getNavigation(folder, name) {
         }
     })
 
+
+    if (folder.startsWith("engine")) {
+        return [{
+                text: name,
+                items: [
+                    { text: "About",        link: `/${folder}/about` },
+                    { text: "Installation", link: `/${folder}/installation` },
+                    { text: "Translations", link: `/${folder}/translations` },
+                    { text: "Dashboards",   link: `/${folder}/dashboards` },
+                    { text: "Database",     link: `/${folder}/database` },
+                    { text: "Tasks",        link: `/${folder}/tasks` }
+                ]
+        }, {
+            text: "",
+            items: pages
+        }]
+    }
+
     return [{
         text: name,
-        items: links
-    },{
-        text: "",
         items: pages
     }]
 }

@@ -35,6 +35,13 @@ Building a better future, one line of code at a time.
 @import "../component.scss";
 
 
+// · 
+@keyframes rotateBackground {
+    to {
+        background-position: 115px 115px, 170px 170px;
+    }
+}
+
 
 // · 
 .lesli-page {
@@ -50,6 +57,7 @@ Building a better future, one line of code at a time.
         background-image:  
             radial-gradient(#0d52bf 2px, transparent 2px), 
             radial-gradient(#0d52bf 2px, #ffffff 2px);
+            animation: rotateBackground 10s linear infinite;
 
         img {
             padding: 1rem;
