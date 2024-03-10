@@ -1,6 +1,7 @@
 
 
 const { src, dest, task, series } = require('gulp');
+const gulp = require("gulp")
 const rename = require('gulp-rename');
 const replace = require('gulp-replace');
 
@@ -11,7 +12,7 @@ function taskCopy() {
     return gulp.src('../LesliBuilder/engines/*/docs/*.md')
     .pipe(rename((file) => {
         const engineName = file.dirname.split('/')[4]; // Extract the ENGINE_NAME
-        file.dirname = `lesli.dev/engines/${engineName}`;
+        file.dirname = `source/engines/${engineName}`;
     }))
     .pipe(gulp.dest('.'));
 
