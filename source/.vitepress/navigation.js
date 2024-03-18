@@ -62,8 +62,7 @@ function getNavigation(folder, name) {
         }
     })
 
-
-    if (folder.startsWith("engine")) {
+    if (folder.startsWith("engines/") && !folder.startsWith("engines/lesli")) {
         return [{
                 text: name,
                 items: [
@@ -103,11 +102,13 @@ export default {
 
     "/engines/guard/": getNavigation("engines/guard", "Engine Guard"),
     "/engines/babel/": getNavigation("engines/babel", "Engine Babel"),
-
-    "/lesli/": [
-        ...getNavigation("lesli/database", "Database"),
-        ...getNavigation("lesli/ruby-on-rails", "Ruby on Rails"),
-        ...getNavigation("lesli/frontend", "Frontend")
+    "/engines/lesli/": [
+        ...getNavigation("engines/lesli/database", "Database"),
+        ...getNavigation("engines/lesli/ruby-on-rails", "Ruby on Rails"),
+        ...getNavigation("engines/lesli/frontend", "Frontend"),
+        ...getNavigation("engines/lesli/theming", "Theming"),
+        ...getNavigation("engines/lesli/testing", "Testing"),
+        ...getNavigation("engines/lesli/security", "Security")
     ],
     
     "/vue/": [

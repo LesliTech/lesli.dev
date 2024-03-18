@@ -29,6 +29,7 @@
         "dev": "vitepress dev source",
         "start": "vitepress dev source",
         "build": "vitepress build source",
-        "preview": "vitepress preview source"
+        "preview": "vitepress preview source",
+        "docs": "gulp"
     }    
 }

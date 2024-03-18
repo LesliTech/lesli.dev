@@ -46,8 +46,9 @@ Building a better future, one line of code at a time.
         max-width: 200px;
     }
 
+    img.engine-logo,
     svg.engine-logo {
-        width: 130px;
+        width: 120px;
         margin: 0 auto 2rem;
         fill: darken(lesli-css-color(blue, 900), 10);
     }

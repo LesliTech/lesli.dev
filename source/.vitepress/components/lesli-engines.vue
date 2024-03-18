@@ -47,7 +47,7 @@ import letter from "../../assets/icons/lesli/engine-letter.svg"
 
 // · 
 const logos = {
-    audit, admin, guard, babel, driver, support, letter
+    audit, admin, guard, babel, support
 }
 
 

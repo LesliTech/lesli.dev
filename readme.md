@@ -33,8 +33,11 @@ http://localhost:5173
 - https://www.lesli.dev/ 
 - https://www.lesli.dev/about/ 
 - https://www.lesli.dev/start/ 
-- https://www.lesli.dev/lesli/ 
+- https://www.lesli.dev/contrib/ 
+- https://www.lesli.dev/production/ 
+
 - https://www.lesli.dev/vue/ 
+- https://www.lesli.dev/css/ 
 
 - https://www.lesli.dev/engines/lesli 
 - https://www.lesli.dev/engines/guard

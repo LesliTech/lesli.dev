@@ -1,10 +1,9 @@
 <script setup>
     import LesliBrowser from "../../.vitepress/components/lesli-browser.vue"
-    import LesliBabelLogo from "../../assets/icons/lesli/engine-babel.svg"
 </script>
 
-<header class="lesli-page-header">
-    <LesliBabelLogo class="engine-logo"/>
+<header align="center" class="lesli-page-header">
+    <img width="75" class="engine-logo" alt="LesliBabel logo" src="/images/engines/babel/babel-logo.svg" />
     <h1>
         Translation Management System for the <br />
         <span class="lesli-title-colored">Lesli Framework.</span>
@@ -17,7 +16,7 @@ In the dynamic world of web development, creating multilingual applications is a
 LesliBabel is a translation management module specifically crafted for the Lesli Framework but compatible with Ruby on Rails standard apps. It provides users with a robust set of tools to efficiently handle string translations across multiple languages. With LesliBabel, the process of managing, modifying, adding, and translating strings becomes an intuitive and seamless experience.
 
 <lesli-browser url="babel">
-    <img alt="LesliBabel logo" src="/images/engines/babel/screenshot-dashboard.png" />
+    <img alt="LesliBabel screenshot" src="/images/engines/babel/screenshot-dashboard.png" />
 </lesli-browser>
 
 <hr />
