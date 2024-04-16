@@ -100,7 +100,8 @@ export default {
     "/contrib/": navigationCore,
     "/engines/": navigationCore,
 
-    "/engines/guard/": getNavigation("engines/guard", "Engine Guard"),
+    "/engines/security/": getNavigation("engines/security", "Engine Security"),
+    "/engines/shield/": getNavigation("engines/shield", "Engine Shield"),
     "/engines/babel/": getNavigation("engines/babel", "Engine Babel"),
     "/engines/lesli/": [
         ...getNavigation("engines/lesli/database", "Database"),
