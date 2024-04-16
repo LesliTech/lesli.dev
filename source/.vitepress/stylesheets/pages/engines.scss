@@ -40,29 +40,14 @@ Building a better future, one line of code at a time.
 
     // · 
     .lesli-page-header {
-        margin-bottom: 0;
-
-        svg {
-            width: 175px;
-            margin: 0 auto;
-            fill: darken(lesli-css-color(blue, 900), 10);
-        }
-        p.description {
-            font-size: 2.2rem
-        }
+        margin: 4rem auto;
     }
 
 
     // · 
-    .columns {
-        max-width:1200px;
-        margin: 0 auto;
+    .lesli-component-engines {
+        margin-bottom: 6rem;
     }
-
-    .column {
-        max-width: 300px;
-    }
-
 
 
     // · 

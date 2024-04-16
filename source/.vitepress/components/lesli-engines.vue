@@ -19,7 +19,7 @@ along with this program. If not, see http://www.gnu.org/licenses/.
 
 Lesli · Ruby on Rails SaaS Development Framework.
 
-Made with ♥ by https://www.lesli.tech
+Made with ♥ by LesliTech
 Building a better future, one line of code at a time.
 
 @contact  hello@lesli.tech
@@ -36,18 +36,19 @@ import collections from "../data/en/component_collections.json"
 
 
 // · 
-import audit  from "../../assets/icons/lesli/engine-audit.svg"
+import bell from "../../assets/icons/lesli/engine-bell.svg"
 import admin from "../../assets/icons/lesli/engine-admin.svg"
-import guard from "../../assets/icons/lesli/engine-guard.svg"
 import babel from "../../assets/icons/lesli/engine-babel.svg"
-import driver from "../../assets/icons/lesli/engine-driver.svg"
+import audit from "../../assets/icons/lesli/engine-audit.svg"
+import shield from "../../assets/icons/lesli/engine-shield.svg"
 import support from "../../assets/icons/lesli/engine-support.svg"
-import letter from "../../assets/icons/lesli/engine-letter.svg"
+import security from "../../assets/icons/lesli/engine-security.svg"
+import calendar from "../../assets/icons/lesli/engine-calendar.svg"
 
 
 // · 
 const logos = {
-    audit, admin, guard, babel, support
+    admin, calendar, bell, audit, support, shield, security, babel
 }
 
 

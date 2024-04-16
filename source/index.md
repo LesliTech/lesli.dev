@@ -1,6 +1,6 @@
 ---
 layout: home
-pageClass: lesli-page
+pageClass: lesli-home
 ---
 <script setup>
     import componentLesliLinks from "./.vitepress/components/lesli-links.vue"

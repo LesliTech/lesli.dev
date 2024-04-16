@@ -31,7 +31,7 @@
         "code": "productivity",
         "desc": "Plan your project activities, assign work, manage resources and collaborate with your team better to get things done on time.",
         "engines": [{
-            "name": "Driver",
+            "name": "Calendar",
             "text": "Unified calendar app",
             "desc": "Description about the module should be here",
             "feat": ["Never forget an important event again", "Syncronization with external calendars", "Private and shared calendars", "Matching available time for meeting"]
@@ -101,8 +101,13 @@
         "code": "security-privacy",
         "desc": "Protect your data with an advanced administration panel and detailed access configuration for your users, guests or third-party apps.",
         "engines": [{
-            "name": "Guard",
-            "text": "Security management",
+            "name": "Shield",
+            "text": "Authentication & Authorization module",
+            "desc": "Description about the module should be here",
+            "feat": ["Manage your users", "Define permissions for the roles on the system"]
+        }, {
+            "name": "Security",
+            "text": "Users, Privileges & Access Management",
             "desc": "Description about the module should be here",
             "feat": ["Manage your users", "Define permissions for the roles on the system"]
         }]
