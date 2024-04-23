@@ -1,5 +1,5 @@
 <p align="center">
-	<img width="90" alt="Lesli Shield logo" src="./app/assets/images/lesli_shield/shield-logo.svg" />
+	<img width="90" alt="Lesli Shield logo" src="/images/engines/shield/shield-logo.svg" />
     <h3 align="center">Authentication & Authorization for the Lesli Framework.</h3>
 </p>
 

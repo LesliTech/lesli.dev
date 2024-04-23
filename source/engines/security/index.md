@@ -1,5 +1,5 @@
 <p align="center">
-	<img width="90" alt="LesliSecurity logo" src="/images/engines/security/guard-logo.svg" />
+	<img width="90" alt="LesliSecurity logo" src="/images/engines/security/security-logo.svg" />
     <h3 align="center">Security Management Module for the Lesli Framework.</h3>
 </p>
 
