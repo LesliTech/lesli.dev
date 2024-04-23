@@ -37,5 +37,5 @@ const links = [{
 </section>
 
 <style lang="scss" scoped>
-@import "../.vitepress/stylesheets/pages/lesli-vue.scss";
+@import "./.vitepress/stylesheets/pages/lesli-vue.scss";
 </style>

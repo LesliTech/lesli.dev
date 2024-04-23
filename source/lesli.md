@@ -5,44 +5,43 @@ pageClass: docs-page
 <script setup>
 
 const links = [{
-    href: "/docs/lesli/5x/database/",
+    href: "/engines/lesli/database/",
     icon: "ri-database-line",
     text: "Database"
 }, {
-    href: "/docs/lesli/5x/ruby-on-rails/",
+    href: "/engines/lesli/ruby-on-rails/",
     icon: "ri-server-line",
     text: "Ruby on Rails"
 }, {
-    href: "/docs/lesli/5x/theming/",
+    href: "/engines/lesli/theming/",
     icon: "ri-window-line",
     text: "Frontend"
 }, {
-    href: "/docs/lesli/5x/theming/",
+    href: "/engines/lesli/theming/",
     icon: "ri-palette-line",
     text: "Theming"
 }, {
-    href: "/docs/lesli/5x/security/",
+    href: "/engines/lesli/security/",
     icon: "ri-shield-line",
     text: "Security"
 }, {
-    href: "/docs/lesli/5x/generators/",
+    href: "/engines/lesli/generators/",
     icon: "ri-code-line",
     text: "Generators"
 }, {
-    href: "/docs/lesli/5x/testing/",
+    href: "/engines/lesli/testing/",
     icon: "ri-bug-line",
     text: "Testing"
 }, {
-    href: "/docs/lesli/5x/engines/",
+    href: "/engines/lesli/engines/",
     icon: "ri-shapes-line",
     text: "Engines"
 }, {
-    href: "/docs/lesli/5x/deployment/",
+    href: "/engines/lesli/deployment/",
     icon: "ri-flashlight-line",
     text: "Deployment"
 }]
 
-import componentLesliEngines from "./.vitepress/components/lesli-engines.vue"
 import componentLesliFooter from "./.vitepress/components/lesli-footer.vue"
 </script>
 
@@ -60,7 +59,6 @@ import componentLesliFooter from "./.vitepress/components/lesli-footer.vue"
             </a>
         </div>
     </div>
-    <componentLesliEngines :title="false" />
 </section>
 
 <br />

@@ -98,8 +98,6 @@ export default {
     "/about/": navigationCore,
     "/start/": navigationCore,
     "/contrib/": navigationCore,
-    "/engines/": navigationCore,
-
     "/engines/security/": getNavigation("engines/security", "Engine Security"),
     "/engines/shield/": getNavigation("engines/shield", "Engine Shield"),
     "/engines/babel/": getNavigation("engines/babel", "Engine Babel"),

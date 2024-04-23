@@ -50,9 +50,9 @@ export default {
     },
 
     nav: [
-        { text: "Lesli", link: "/engines/lesli/" },
+        { text: "Lesli", link: "/lesli" },
         { text: "Engines", link: "/engines" },
-        { text: "Vue", link: "/vue/" },
+        { text: "Vue", link: "/vue" },
         //{ text: "Css", link: "/css/" },
         //{ text: "Mails", link: "/mails/" },
     ],
