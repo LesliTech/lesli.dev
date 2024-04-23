@@ -45,7 +45,7 @@ const links = [{
     icon: "ri-git-pull-request-line",
     text: "Contributing"
 }, {
-    href: "/docs.html",
+    href: "/lesli.html",
     icon: "ri-book-2-line",
     text: "Documentation"
 }]
