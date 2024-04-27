@@ -39,22 +39,48 @@ $hint-of-red: #f8f5f5;
 // · 
 @import "lesli-css";
 @import "./settings/bulma";
-@import "./settings/mdicons";
+@import "./settings/mdicons"; // required by lesli-vue
 @import "./partials/page-boxes.scss";
 @import "./partials/page-header.scss";
 @import "remixicon/fonts/remixicon.css";
 
 
+// · Font family for the body 
+@font-face {
+    font-family: "OpenSans";
+    src: url("/fonts/OpenSans/OpenSans-Variable.ttf") format("truetype");
+    font-display: swap;
+}
+
+
+// · Font family for titles 
+@font-face {
+    font-family: "Domine";
+    src: url("/fonts/Domine/Domine-VariableFont_wght.ttf") format("truetype");
+    font-display: swap;
+}
+
+
 // · 
-//@include lesli-css-fonts-standard("Domine", "OpenSans");
+html, body {
+    font-weight: 100;
+    font-family: "OpenSans" !important;
+}
 
 
 // · 
 body {
-    font-weight: 300;
-    line-height: 1.4;
-    background-color: #fdfefe;
+    font-weight: 400;
+    // line-height: 1.4;
+    // background-color: #fdfefe;
     color: lesli-css-color(silver, 900);
+}
+
+
+
+// · 
+h1, h2, h3 {
+    font-family: "Domine";
 }
 
 
@@ -64,4 +90,49 @@ body {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+
+
+// · vitepress overrides · //
+
+
+
+// home should use 100% of the available width
+.is-home{
+    .vp-doc.container {
+        max-width: 100%;
+        padding: 0;
+    }    
+}
+
+
+// Hide theme selector 
+header div.VPNavBarAppearance {
+    display: none !important;
+}
+
+
+// do not decorate links
+.vp-doc a {
+    text-decoration: none;
+}
+
+
+// increase doc the separation
+.vp-doc hr {
+    margin: 2rem auto 4rem;
+}
+
+
+// center mermaid diagrams
+.mermaid svg {
+    margin: 0 auto;
+}
+
+
+// remove bullets from lists
+li {
+    list-style: none;
+    margin: 0;
 }

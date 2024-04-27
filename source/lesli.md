@@ -1,6 +1,6 @@
 ---
 layout: home
-pageClass: docs-page
+pageClass: lesli-page
 ---
 <script setup>
 
@@ -45,11 +45,15 @@ const links = [{
 import componentLesliFooter from "./.vitepress/components/lesli-footer.vue"
 </script>
 
-<header class="lesli-page-header">
-    <img class="logo m-auto" alt="cat docs" src="/images/cats/docs.svg" />
-    <p class="description">Lesli Documentation</p>
+<header class="lesli-page-header container">
+    <div class="hero is-medium">
+        <div class="hero-body">
+            <img alt="Lesli Framework logo" src="/images/brand/lesli.svg" />
+            <h1>Core documentation</h1>
+            <p>Lesli is a SaaS development framework designed to build highly scalable, secure and customizable software products.</p>
+        </div>
+    </div>
 </header>
-
 <section class="container lesli-page-content-boxes">
     <div class="columns">
         <div class="column" v-for="link in links">
@@ -69,5 +73,5 @@ import componentLesliFooter from "./.vitepress/components/lesli-footer.vue"
 <componentLesliFooter/>
 
 <style lang="scss">
-    @import "./.vitepress/stylesheets/pages/docs.scss";
+    
 </style>

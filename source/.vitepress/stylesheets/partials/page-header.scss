@@ -32,64 +32,40 @@ Building a better future, one line of code at a time.
 
 
 // · 
+
 .lesli-page-header {
+    text-align: center;
 
-    img.logo,
-    svg.logo {
+    img {
+        width: 200px;
         margin: 0 auto 2rem;
-        max-width: 200px;
+
+        &.engine-logo {
+            max-width: 140px;
+        }
     }
 
-    img.engine-logo,
-    svg.engine-logo {
-        width: 120px;
-        margin: 0 auto 2rem;
-        fill: darken(lesli-css-color(blue, 900), 10);
-    }
-
-    h1,h2 {
-        text-align: center;
-    }
-
-    h1.title {
-        font-size: 4rem;
-        max-width: 960px;
-        font-weight: 900;
-        
-        line-height: 1.1;
-        margin: 0px auto 4rem;
-        letter-spacing: -1.5px;
-        font-family: "Domine";
+    h1 {
+        font-size: 3rem;
+        font-weight: 400;
+        margin-bottom: 1rem;
         color: lesli-css-color(black, 300);
     }
 
-    p.description {
-        font-family: "OpenSans";
-        text-align: center;
-        font-size: 2.4rem;
-        font-weight: 100;
-        line-height: 1.2;
+    h2 {
+        font-size: 2rem;
+        font-weight: 500;
+        margin-bottom: 1rem;
+        color: lesli-css-color(black, 300);
     }
-}
 
-
-// · 
-@include lesli-css-breakpoint-mobile() {
-    .lesli-page-header {
-
-        img.logo,
-        svg.logo {
-            width: 130px;
-        }
-
-        h1.title {
-            font-size: 2.2rem;
-        }
-
-        p.description {
-            font-size: 1.6rem;
-            text-align: justify;
-            text-align-last: center;
-        }
+    p {
+        font-size: 2rem;
+        max-width: 1100px;
+        margin: 0 auto;
+        font-size: 2.2rem;
+        text-align: center;
+        color: lesli-css-color(silver, 900);
+        line-height: 1.1;
     }
 }

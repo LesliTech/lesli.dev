@@ -12,15 +12,14 @@ pageClass: lesli-home
     import componentLesliFooter from "./.vitepress/components/lesli-footer.vue"
 </script>
 
-
-<header class="hero is-medium lesli-page-header">
+<header class="hero is-medium lesli-home-header">
     <section class="hero-body">
         <div class="container">
             <img class="mb-5 logo" alt="Lesli Framework logo" src="/images/brand/lesli.svg" />
-            <h1 class="title">
+            <h1>
                 The Open Source Ruby on Rails <span class="lesli-title-colored">SaaS Development Framework.</span>
             </h1>
-            <p class="description">
+            <p>
                 Lesli provides all the necessary tools to build your SaaS, empowering you and your team to focus on business and what makes your software special. 
             </p>
         </div>

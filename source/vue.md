@@ -1,6 +1,6 @@
 ---
-pageClass: lesli-vue
-aside: false
+layout: home
+pageClass: lesli-page
 ---
 <script setup>
 const links = [{
@@ -18,11 +18,14 @@ const links = [{
 }]
 </script>
 
-<header class="lesli-page-header">
-    <img class="logo m-auto" src="/images/brand/lesli-css.svg" />
-    <p class="description">
-        Utilities for websites and web applications
-    </p>
+<header class="lesli-page-header container">
+    <div class="hero is-medium">
+        <div class="hero-body">
+            <img class="Lesli CSS logo" src="/images/brand/lesli-css.svg" />
+            <h1>LesliCSS</h1>
+            <p>Utilities for websites and web applications</p>
+        </div>
+    </div>
 </header>
 
 <section class="container lesli-page-content-boxes">
@@ -37,5 +40,5 @@ const links = [{
 </section>
 
 <style lang="scss" scoped>
-@import "./.vitepress/stylesheets/pages/lesli-vue.scss";
+/* @import "./.vitepress/stylesheets/pages/lesli-vue.scss"; */
 </style>

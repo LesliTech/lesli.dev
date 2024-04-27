@@ -32,10 +32,6 @@ Building a better future, one line of code at a time.
 
 
 // · 
-@import "../component.scss";
-
-
-// · 
 @keyframes rotateBackground {
     to {
         background-position: 115px 115px, 170px 170px;
@@ -50,7 +46,7 @@ Building a better future, one line of code at a time.
         padding-top: 0 !important;
     }
 
-    .lesli-page-header {
+    .lesli-home-header {
         background-size: 115px 115px;
         background-color: #ffffff;
         background-position: 0 0,55px 55px;
@@ -67,10 +63,21 @@ Building a better future, one line of code at a time.
         }
 
         h1 {
+            font-size: 4rem;
+            max-width: 960px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin: 0px auto 4rem;
+            letter-spacing: -1.5px;
             background-color: #ffffff;
+            color: lesli-css-color(black, 300);
         }
 
-        .description {
+        p {
+            text-align: center;
+            font-size: 2.4rem;
+            font-weight: 100;
+            line-height: 1.2;
             background-color: #ffffff;
         }
     }

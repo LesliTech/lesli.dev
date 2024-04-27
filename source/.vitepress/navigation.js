@@ -68,7 +68,6 @@ function getNavigation(folder, name) {
                 items: [
                     { text: "About",        link: `/${folder}/about` },
                     { text: "Installation", link: `/${folder}/installation` },
-                    { text: "Translations", link: `/${folder}/translations` },
                     { text: "Dashboards",   link: `/${folder}/dashboards` },
                     { text: "Database",     link: `/${folder}/database` },
                     { text: "Tasks",        link: `/${folder}/tasks` }
@@ -100,6 +99,7 @@ export default {
     "/contrib/": navigationCore,
     "/engines/security/": getNavigation("engines/security", "Engine Security"),
     "/engines/shield/": getNavigation("engines/shield", "Engine Shield"),
+    "/engines/admin/": getNavigation("engines/admin", "Engine Admin"),
     "/engines/babel/": getNavigation("engines/babel", "Engine Babel"),
     "/engines/lesli/": [
         ...getNavigation("engines/lesli/database", "Database"),

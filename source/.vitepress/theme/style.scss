@@ -138,56 +138,21 @@
 }
 
 
-.br-5 {
-    border-radius: 5px;
-}
+// .br-5 {
+//     border-radius: 5px;
+// }
 
 
 
-/* Font family for the body */
-@font-face {
-    font-family: "OpenSans";
-    src: url("/fonts/OpenSans/OpenSans-Variable.ttf") format("truetype");
-    font-display: swap;
-}
+// .VPHome {
+//     padding-bottom: 15px !important;
+// }
 
+// .VPDoc {
+//     font-weight: 400;
+//     font-size: 1.1rem;
+// }
 
-/* Font family for titles */
-@font-face {
-    font-family: "Domine";
-    src: url("/fonts/Domine/Domine-VariableFont_wght.ttf") format("truetype");
-    font-display: swap;
-}
-
-
-html, body {
-    font-weight: 100;
-    font-family: "OpenSans" !important;
-}
-
-h1, h2, h3 {
-    font-family: "Domine";
-}
-
-.vp-doc hr {
-    margin: 2rem auto;
-}
-
-/* Hide theme selector */
-header div.VPNavBarAppearance {
-    display: none !important;
-}
-
-
-.VPHome {
-    padding-bottom: 15px !important;
-}
-
-.VPDoc {
-    font-weight: 400;
-    font-size: 1.1rem;
-}
-
-.mermaid svg {
-    margin: 0 auto;
-}
+// .mermaid svg {
+//     margin: 0 auto;
+// }

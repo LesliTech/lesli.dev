@@ -39,7 +39,7 @@ import DefaultTheme from "vitepress/theme-without-fonts"
 // · global components
 import componentLesli404 from "../components/lesli-404.vue"
 import componentLesliWorking from "../components/lesli-working.vue"
-import "./style.css";
+import "./style.scss";
 import "../stylesheets/template.scss"
 
 /** @type {import('vitepress').Theme} */

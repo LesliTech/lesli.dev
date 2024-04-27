@@ -67,5 +67,5 @@ import footer from "../data/en/partial_footer.json"
 <style lang="scss">
 
 // · 
-@import "../stylesheets/components/lesli-footer.scss";
+@import "../stylesheets/partials/lesli-footer.scss";
 </style>
