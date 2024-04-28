@@ -113,6 +113,14 @@ header div.VPNavBarAppearance {
 }
 
 
+// Better doc subtitle separation
+.vp-doc h2 {
+    margin-bottom: 2rem;
+    border-top: none; //1px solid var(--vp-c-divider);
+    padding-top: 0px; //24px;
+}
+
+
 // do not decorate links
 .vp-doc a {
     text-decoration: none;
@@ -122,6 +130,7 @@ header div.VPNavBarAppearance {
 // increase doc the separation
 .vp-doc hr {
     margin: 2rem auto 4rem;
+    border-top: 1px solid var(--vp-c-divider);
 }
 
 
