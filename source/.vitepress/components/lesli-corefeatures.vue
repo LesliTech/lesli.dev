@@ -36,7 +36,7 @@ import corefeatures from "../data/en/component_corefeatures.json"
 
 </script>
 <template>
-    <section class="lesli-component-core-features hero is-fullheight ">
+    <section class="lesli-component-core-features hero is-fullheight">
         <div class="hero-body">
             <div class="container">
                 <div class="component-header">

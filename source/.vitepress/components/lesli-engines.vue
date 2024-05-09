@@ -61,23 +61,27 @@ const props = defineProps({
 })
 </script>
 <template>
-    <section class="lesli-component-engines has-background-white">
-        <div v-if="title" class="component-header">
-            <h2>{{ collections.title }}</h2>
-            <p class="description">{{ collections.text }}</p>
-        </div>
-        <div class="columns">
-            <template v-for="collection in collections.collection">
-                <template v-for="engine in collection.engines">
-                    <div class="column" v-if="logos[engine.name.toLowerCase()]">
-                        <a :href="'/engines/' + engine.name.toLowerCase() + '/'">
-                            <component :is="logos[engine.name.toLowerCase()]"></component>
-                            <h3>{{ engine.name }}</h3>
-                            <p>{{ engine.text }}</p>
-                        </a>
-                    </div>
-                </template>
-            </template>
+    <section class="lesli-component-engines has-background-white hero">
+        <div class="hero-body">
+            <div class="container">
+                <div v-if="title" class="component-header">
+                    <h2>{{ collections.title }}</h2>
+                    <p class="description">{{ collections.text }}</p>
+                </div>
+                <div class="columns">
+                    <template v-for="collection in collections.collection">
+                        <template v-for="engine in collection.engines">
+                            <div class="column" v-if="logos[engine.name.toLowerCase()]">
+                                <a :href="'/engines/' + engine.name.toLowerCase() + '/'">
+                                    <component :is="logos[engine.name.toLowerCase()]"></component>
+                                    <h3>{{ engine.name }}</h3>
+                                    <p>{{ engine.text }}</p>
+                                </a>
+                            </div>
+                        </template>
+                    </template>
+                </div>
+            </div>
         </div>
     </section>
 </template>

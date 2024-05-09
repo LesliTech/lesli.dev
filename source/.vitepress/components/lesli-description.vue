@@ -36,21 +36,25 @@ import data from "../data/en/component_description.json"
 
 </script>
 <template>
-    <section class="lesli-component-description has-background-white">
-        <div class="component-header">
-            <p v-html="data.description"></p>
-        </div>
-        <div class="columns is-flex-wrap-wrap">
-            <div class="column" v-for="component in data.components">
-                <div>
-                    <i :class="component.icon"></i>
-                    <h3>{{ component.name }}</h3>
-                    <p>{{ component.text }}</p>
-                    <ul>
-                        <li v-for="item in component.items">
-                            {{ item }}
-                        </li>
-                    </ul>
+    <section class="lesli-component-description hero is-medium has-background-white">
+        <div class="hero-body">
+            <div class="container">
+                <div class="component-header">
+                    <p v-html="data.description"></p>
+                </div>
+            </div>
+            <div class="columns is-flex-wrap-wrap">
+                <div class="column" v-for="component in data.components">
+                    <div>
+                        <i :class="component.icon"></i>
+                        <h3>{{ component.name }}</h3>
+                        <p>{{ component.text }}</p>
+                        <ul>
+                            <li v-for="item in component.items">
+                                {{ item }}
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

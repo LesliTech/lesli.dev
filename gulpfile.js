@@ -39,6 +39,7 @@ const replace = require("gulp-replace");
 
 // · 
 gulp.task("default", gulp.series(taskCopyDocs, taskCopyImages, taskReplace))
+gulp.task("images", gulp.series(taskCopyImages))
 
 
 // · 

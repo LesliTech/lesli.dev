@@ -37,13 +37,6 @@ Building a better future, one line of code at a time.
 
 // · 
 section.lesli-component-description {
-    padding: 10rem 0 6rem;
-
-    .component-header {
-        p {
-            max-width: 800px;
-        }
-    }
 
     .columns {
         @include lesli-css-flex-columns(360px);
