@@ -1,5 +1,5 @@
 <script setup>
-import Browser from "../.vitepress/components/lesli-browser.vue"
+import Browser from "../../../.vitepress/components/lesli-browser.vue"
 </script>
 
 # Install Lesli core

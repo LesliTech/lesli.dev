@@ -1,10 +1,23 @@
 ---
 layout: home
 pageClass: lesli-page
+title: Lesli Core Documentation
 ---
 <script setup>
 
 const links = [{
+    href: "/engines/lesli/about/",
+    icon: "ri-heart-line",
+    text: "About"
+}, {
+    href: "/engines/lesli/getting-started/",
+    icon: "ri-send-plane-line",
+    text: "Getting started"
+}, {
+    href: "/engines/lesli/contributing/",
+    icon: "ri-git-pull-request-line",
+    text: "Contributing"
+}, {
     href: "/engines/lesli/database/",
     icon: "ri-database-line",
     text: "Database"
@@ -20,10 +33,10 @@ const links = [{
     href: "/engines/lesli/theming/",
     icon: "ri-palette-line",
     text: "Theming"
-}, {
-    href: "/engines/lesli/security/",
-    icon: "ri-shield-line",
-    text: "Security"
+// }, {
+//     href: "/engines/lesli/security/",
+//     icon: "ri-shield-line",
+//     text: "Security"
 }, {
     href: "/engines/lesli/generators/",
     icon: "ri-code-line",
@@ -32,10 +45,10 @@ const links = [{
     href: "/engines/lesli/testing/",
     icon: "ri-bug-line",
     text: "Testing"
-}, {
-    href: "/engines/lesli/engines/",
-    icon: "ri-shapes-line",
-    text: "Engines"
+// }, {
+//     href: "/engines/lesli/engines/",
+//     icon: "ri-shapes-line",
+//     text: "Engines"
 }, {
     href: "/engines/lesli/deployment/",
     icon: "ri-flashlight-line",

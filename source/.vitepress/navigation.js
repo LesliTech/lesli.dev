@@ -35,25 +35,19 @@ Building a better future, one line of code at a time.
 import fs from "fs"
 import path from "path"
 
+import { 
+    navigationLesliAbout, 
+    navigationLesliStart, 
+    navigationLesliDatabase 
+} from "./navigationLesli"
 
-// · 
-function getNavigation(folder, name) { 
 
+function getNavigation(folder, name) {
     const folderPath = path.resolve("source", folder)
 
     const pages = fs.readdirSync(folderPath)
     .filter(file => path.extname(file) === '.md')
     .filter(file => file.toLowerCase() !== 'index.md')
-    .filter(file => {
-        return ![
-            "about.md",
-            "installation.md", 
-            "translations.md", 
-            "dashboards.md", 
-            "database.md", 
-            "tasks.md"
-        ].includes(file)
-    })
     .map(file => file.replace(".md", ""))
     .map(file => {
         return {
@@ -62,22 +56,6 @@ function getNavigation(folder, name) {
         }
     })
 
-    if (folder.startsWith("engines/") && !folder.startsWith("engines/lesli")) {
-        return [{
-                text: name,
-                items: [
-                    { text: "About",        link: `/${folder}/about` },
-                    { text: "Installation", link: `/${folder}/installation` },
-                    { text: "Dashboards",   link: `/${folder}/dashboards` },
-                    { text: "Database",     link: `/${folder}/database` },
-                    { text: "Tasks",        link: `/${folder}/tasks` }
-                ]
-        }, {
-            text: "",
-            items: pages
-        }]
-    }
-
     return [{
         text: name,
         items: pages
@@ -85,29 +63,53 @@ function getNavigation(folder, name) {
 }
 
 
-// · 
-const navigationCore = [
-    ...getNavigation("about", "About"),
-    ...getNavigation("start", "Getting started"),
-    ...getNavigation("contrib", "Contributing")
-]
+// · d
+function getNavigationEngine(folder, name) { 
+
+    var navigation = getNavigation(folder, name).map(folder => {
+        folder.items = folder.items.filter(link => {
+            return ![
+                "About",
+                "Installation", 
+                "Translations", 
+                "Dashboards", 
+                "Database", 
+                "Tasks"
+            ].includes(link.text)
+        })
+        return folder
+    })
+
+    return [{
+        text: name,
+        items: [
+            { text: "About",        link: `/${folder}/about` },
+            { text: "Installation", link: `/${folder}/installation` },
+            { text: "Dashboards",   link: `/${folder}/dashboards` },
+            { text: "Database",     link: `/${folder}/database` },
+            { text: "Tasks",        link: `/${folder}/tasks` }
+        ]
+    }, {
+        text: "",
+        items: navigation[0].items
+    }]
+}
+
 
 // · 
 export default {
-    "/about/": navigationCore,
-    "/start/": navigationCore,
-    "/contrib/": navigationCore,
     "/engines/security/": getNavigation("engines/security", "Engine Security"),
     "/engines/shield/": getNavigation("engines/shield", "Engine Shield"),
     "/engines/admin/": getNavigation("engines/admin", "Engine Admin"),
-    "/engines/babel/": getNavigation("engines/babel", "Engine Babel"),
+    "/engines/babel/": getNavigationEngine("engines/babel", "Engine Babel"),
     "/engines/lesli/": [
-        ...getNavigation("engines/lesli/database", "Database"),
+        navigationLesliAbout,
+        navigationLesliStart,
+        ...getNavigation("engines/lesli/contributing", "Contributing"),
+        navigationLesliDatabase,
         ...getNavigation("engines/lesli/ruby-on-rails", "Ruby on Rails"),
-        ...getNavigation("engines/lesli/frontend", "Frontend"),
         ...getNavigation("engines/lesli/theming", "Theming"),
-        ...getNavigation("engines/lesli/testing", "Testing"),
-        ...getNavigation("engines/lesli/security", "Security")
+        ...getNavigation("engines/lesli/testing", "Testing")
     ],
     
     "/vue/": [

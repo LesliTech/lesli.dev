@@ -33,15 +33,15 @@ Building a better future, one line of code at a time.
 
 // · 
 const links = [{
-    href: "/about/",
+    href: "/engines/lesli/about/",
     icon: "ri-heart-line",
     text: "About"
 }, {
-    href: "/start/",
+    href: "/engines/lesli/getting-started/",
     icon: "ri-send-plane-line",
     text: "Getting started"
 }, {
-    href: "/contrib/",
+    href: "/engines/lesli/contributing/",
     icon: "ri-git-pull-request-line",
     text: "Contributing"
 }, {

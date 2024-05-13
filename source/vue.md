@@ -1,6 +1,7 @@
 ---
 layout: home
 pageClass: lesli-page
+title: Lesli Vue Documentation
 ---
 <script setup>
 const links = [{
