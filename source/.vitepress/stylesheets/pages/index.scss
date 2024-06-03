@@ -31,6 +31,8 @@ Building a better future, one line of code at a time.
 */
 
 
+@import "node_modules/lesli-css/source/mixins/breakpoint";
+
 // · 
 @keyframes rotateBackground {
     to {
@@ -111,5 +113,24 @@ Building a better future, one line of code at a time.
         line-height: 1.1;
         font-size: 2rem;
         font-weight: 200;
+    }
+}
+
+
+@include lesli-css-breakpoint-only-mobile {
+
+    // · 
+    .lesli-home {
+
+        .lesli-home-header {
+            h1 {
+                font-size: 2.4rem;
+                text-align: center;
+            }
+
+            p {
+                display: none;
+            }
+        }
     }
 }

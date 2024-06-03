@@ -36,7 +36,7 @@ Building a better future, one line of code at a time.
 
 // · 
 footer.lesli-footer {
-    background-color: lesli-css-color(solid, white);
+    background-color: white;
 
     .footer-logo {
         display: inline-block;
@@ -52,7 +52,7 @@ footer.lesli-footer {
     }
 
     nav a.level-item {
-        background-color: lesli-css-color(solid, white);
+        background-color: white;
     }
 
     .navigation-footer {
@@ -75,7 +75,7 @@ footer.lesli-footer {
             svg {
                 width: 1.8rem;
                 height: 1.8rem;
-                fill: darken(lesli-css-color(palette, primary), 5);
+                fill: darken(lesli-css-color(lesli, primary), 5);
             }
         }
     }
