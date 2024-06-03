@@ -46,12 +46,10 @@ export const navigationLesliAbout = {
 export const navigationLesliStart = {
     text: "Getting started",
     items: [
-        { text: "Installation", link: "/engines/lesli/start/installation" },
-        { text: "Development",  link: "/engines/lesli/start/development" },
-        { text: "Credentials",  link: "/engines/lesli/start/credentials" },
-        { text: "Configuration",link: "/engines/lesli/start/configuration" },
-        { text: "Directory Structure", link: "/engines/lesli/start/directory-structure" },
-        { text: "Frontend",     link: "/engines/lesli/start/frontend" }
+        { text: "Installation", link: "/engines/lesli/getting-started/installation" },
+        { text: "Development",  link: "/engines/lesli/getting-started/development" },
+        { text: "Credentials",  link: "/engines/lesli/getting-started/credentials" },
+        { text: "Configuration",link: "/engines/lesli/getting-started/configuration" }
     ]
 }
 

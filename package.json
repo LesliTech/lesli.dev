@@ -6,7 +6,8 @@
     "dependencies": {},
     "devDependencies": {
         
-        "lesli-css": "1.6.2",
+        
+        "lesli-css": "/Users/ldonis/code/Lesli/lesli-css/lesli-css-1.6.2.tgz",
         
         "sass": "1.75.0",
         "bulma": "0.9.4",
