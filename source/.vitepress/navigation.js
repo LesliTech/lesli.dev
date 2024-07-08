@@ -105,16 +105,16 @@ export default {
     "/engines/lesli/": [
         navigationLesliAbout,
         navigationLesliStart,
-        ...getNavigation("engines/lesli/contributing", "Contributing"),
         navigationLesliDatabase,
         ...getNavigation("engines/lesli/ruby-on-rails", "Ruby on Rails"),
         ...getNavigation("engines/lesli/theming", "Theming"),
-        ...getNavigation("engines/lesli/testing", "Testing")
+        ...getNavigation("engines/lesli/testing", "Testing"),
+        ...getNavigation("engines/lesli/contributing", "Contributing")
     ],
     
     "/vue/": [
         ...getNavigation("vue/elements", "Elements"),
         ...getNavigation("vue/components", "Components"),
-        ...getNavigation("vue/composables", "Composables"),
+        ...getNavigation("vue/composables", "Composables")
     ]
 }

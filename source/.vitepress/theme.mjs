@@ -66,7 +66,7 @@ export default {
 
     socialLinks: [
         { icon: "github", link: "https://github.com/LesliTech/Lesli" },
-        { icon: "twitter", link: "https://twitter.com/LesliTech" },
+        { icon: "twitter", link: "https://twitter.com/lgdonis" },
     ]
 }
 

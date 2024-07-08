@@ -37,7 +37,7 @@ export const navigationLesliAbout = {
     items: [
         { text: "Lesli",    link: "/engines/lesli/about/" },
         { text: "Ecosystem",link: "/engines/lesli/about/ecosystem" },
-        { text: "Demo",     link: "/engines/lesli/about/" }
+        { text: "Demo",     link: "/engines/lesli/about/demo" }
     ]
 }
 

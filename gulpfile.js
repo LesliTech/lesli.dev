@@ -113,7 +113,8 @@ function taskCopyImages() {
 // · 
 function taskReplace() {
 
-    return gulp.src("source/engines/*/*.md")
+
+    return gulp.src("source/engines/**/*.md")
 
     // replace logo path for lesli index.md file
     .pipe(replace(
@@ -133,6 +134,15 @@ function taskReplace() {
         const engine = this.file.relative.split("/")[0]
         return 'src="/images/engines/'+engine+"/";
     }))
+
+    // replace images inside docs files (like screenshots)
+    .pipe(replace(
+        'src="../images/', function handleReplace() {
+        const engine = this.file.relative.split("/")[0]
+        return 'src="/images/engines/'+engine+"/";
+    }))
+
+    
 
     /*
 

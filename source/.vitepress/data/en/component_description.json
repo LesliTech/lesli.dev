@@ -8,7 +8,7 @@
         "items": [
             "Relational design", 
             "Versionable database",
-            "Easy to scale",
+            "Easy to extend",
             "Maintenable"
         ]
     },{
@@ -19,7 +19,7 @@
             "Fully extendable",
             "Modular architecture",
             "Roles & privileges ready",
-            "Activity tracking systems"
+            "Built-in activity & tracking"
         ]
     },{
         "icon": "ri-window-line",
