@@ -31,14 +31,15 @@ Building a better future, one line of code at a time.
 */
 
 
+
 // · 
-$primary: #0d52bf;
+$primary: #0D52Bf;
 $hint-of-red: #f8f5f5;
 
 
 // · 
 @import "lesli-css";
-@import "./settings/bulma";
+@import "lesli-css/bulma";
 @import "./settings/mdicons"; // required by lesli-vue
 @import "./partials/page-boxes.scss";
 @import "./partials/page-header.scss";
@@ -65,6 +66,7 @@ $hint-of-red: #f8f5f5;
 html, body {
     font-weight: 100;
     font-family: "OpenSans" !important;
+    color: lesli-css-color(silver, 900);
 }
 
 
@@ -101,7 +103,7 @@ h1, h2, h3 {
 // home should use 100% of the available width
 .is-home{
     .vp-doc.container {
-        max-width: 100%;
+        max-width: 100% !important;
         padding: 0;
     }    
 }
@@ -115,7 +117,9 @@ header div.VPNavBarAppearance {
 
 //
 .vp-doc h1,
-.vp-doc h2 {
+.vp-doc h2, 
+.vp-doc h3, 
+.vp-doc h4 {
     color: lesli-css-color(black, 300);
 }
 

@@ -32,16 +32,16 @@ Building a better future, one line of code at a time.
 
 
 // · 
-@import "../component.scss";
+@import "../component";
 
 
 // · 
 section.lesli-component-description {
 
     .columns {
-        @include lesli-css-flex-columns(360px);
-        max-width: 1200px;
         margin: 0 auto;
+        max-width: 1200px;
+        @include lesli-css-flex-columns(360px);
     }
 
     .column {

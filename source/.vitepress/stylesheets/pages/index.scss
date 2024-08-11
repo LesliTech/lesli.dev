@@ -31,7 +31,9 @@ Building a better future, one line of code at a time.
 */
 
 
-@import "node_modules/lesli-css/source/mixins/breakpoint";
+// · 
+@import "node_modules/lesli-css";
+
 
 // · 
 @keyframes rotateBackground {
@@ -115,7 +117,6 @@ Building a better future, one line of code at a time.
         font-weight: 200;
     }
 }
-
 
 @include lesli-css-breakpoint-only-mobile {
 

@@ -58,7 +58,7 @@ const links = [{
 import componentLesliFooter from "./.vitepress/components/lesli-footer.vue"
 </script>
 
-<header class="lesli-page-header container">
+<header class="lesli-page-header bulma-container">
     <div class="hero is-medium">
         <div class="hero-body">
             <img alt="Lesli Framework logo" src="/images/brand/lesli.svg" />
@@ -68,7 +68,7 @@ import componentLesliFooter from "./.vitepress/components/lesli-footer.vue"
     </div>
 </header>
 <section class="container lesli-page-content-boxes">
-    <div class="columns">
+    <div class="columns is-multiline is-centered">
         <div class="column" v-for="link in links">
             <a :href="link.href">
                 <i :class="[link.icon]"></i>
