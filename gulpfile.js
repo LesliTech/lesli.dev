@@ -101,7 +101,7 @@ function taskCopyImages() {
     return gulp.src([
         "../LesliBuilder/engines/*/docs/images/*",
         "../LesliBuilder/engines/*/app/assets/images/*/*.svg",
-    ])
+    ], { encoding: false })
     .pipe(rename((file) => {
         var engineNameDoc = getEngineName(file)
         file.dirname = `source/public/images/engines/${engineNameDoc}`;

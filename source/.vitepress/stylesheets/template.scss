@@ -156,3 +156,12 @@ li {
     list-style: none;
     margin: 0;
 }
+
+
+// fix an issue that prevents the top header use the 100% width
+@media (min-width: 1440px) {
+    .VPNavBar.has-sidebar .content {
+        padding-right: 32px !important;
+        padding-left: var(--vp-sidebar-width) !important;
+    }
+}
