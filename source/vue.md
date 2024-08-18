@@ -22,8 +22,8 @@ const links = [{
 <header class="lesli-page-header container">
     <div class="hero is-medium">
         <div class="hero-body">
-            <img class="Lesli CSS logo" src="/images/brand/lesli-css.svg" />
-            <h1>LesliCSS</h1>
+            <img class="Lesli Vue logo" src="/images/brand/lesli-css.svg" />
+            <h1>LesliVue</h1>
             <p>Utilities for websites and web applications</p>
         </div>
     </div>

@@ -145,6 +145,12 @@ header div.VPNavBarAppearance {
 }
 
 
+// subtitle hash "# subtitle"
+.vp-doc h2 .header-anchor {
+    top: 0px;
+}
+
+
 // center mermaid diagrams
 .mermaid svg {
     margin: 0 auto;
