@@ -1,0 +1,1 @@
+import{c as e,o as t}from"./chunks/framework.C2QCpDA7.js";const r=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"vue/composables/index.md","filePath":"vue/composables/index.md","lastUpdated":1723943107000}'),a={name:"vue/composables/index.md"},d=Object.assign(a,{setup(s){return(o,c)=>(t(),e("div"))}});export{r as __pageData,d as default};

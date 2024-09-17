@@ -1,0 +1,29 @@
+import{_ as s,c as a,o as n,a5 as e}from"./chunks/framework.C2QCpDA7.js";const u=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"engines/calendar/database.md","filePath":"engines/calendar/database.md","lastUpdated":1713240814000}'),p={name:"engines/calendar/database.md"},l=e(`<h3 id="_03-01-leslicalendar" tabindex="-1">03.01. LesliCalendar <a class="header-anchor" href="#_03-01-leslicalendar" aria-label="Permalink to &quot;03.01. LesliCalendar&quot;">​</a></h3><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>    00.01. driver/account </span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    01.01. driver/catalog</span></span>
+<span class="line"><span>    01.02. driver/catalog/event_types</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    02.01. driver/workflows</span></span>
+<span class="line"><span>    02.02. driver/workflow/statuses</span></span>
+<span class="line"><span>    02.03. driver/workflow/associations</span></span>
+<span class="line"><span>    02.04. driver/workflow/actions</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    05.01. help/dashboards</span></span>
+<span class="line"><span>    05.02 help/dashboard/components</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    10.01. driver/calendars</span></span>
+<span class="line"><span>    10.03. driver/calendar/actions </span></span>
+<span class="line"><span>    10.04. driver/calendar/activities </span></span>
+<span class="line"><span>    10.05. driver/calendar/discussions </span></span>
+<span class="line"><span>    10.06. driver/calendar/files</span></span>
+<span class="line"><span>    10.07. driver/calendar/subscribers</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    11.01. driver/events</span></span>
+<span class="line"><span>    11.03. driver/event/actions </span></span>
+<span class="line"><span>    11.04. driver/event/activities </span></span>
+<span class="line"><span>    11.05. driver/event/discussions </span></span>
+<span class="line"><span>    11.06. driver/event/files </span></span>
+<span class="line"><span>    11.07. driver/event/subscribers</span></span>
+<span class="line"><span>    11.10. driver/event/attendants</span></span>
+<span class="line"><span>    11.11. driver/event/guests</span></span>
+<span class="line"><span>    11.12. driver/event/proposals</span></span></code></pre></div>`,2),i=[l];function r(c,t,d,o,v,_){return n(),a("div",null,i)}const b=s(p,[["render",r]]);export{u as __pageData,b as default};
