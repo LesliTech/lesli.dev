@@ -42,6 +42,7 @@ import {
 } from "./navigationLesli"
 
 
+// Create a link for every md file found
 function getNavigation(folder, name) {
     const folderPath = path.resolve("source", folder)
 
@@ -63,7 +64,8 @@ function getNavigation(folder, name) {
 }
 
 
-// · d
+// Create a link for every md file found with a special order for 
+// prioritary documentation files 
 function getNavigationEngine(folder, name) { 
 
     var navigation = getNavigation(folder, name).map(folder => {
@@ -98,10 +100,15 @@ function getNavigationEngine(folder, name) {
 
 // · 
 export default {
-    "/engines/security/": getNavigation("engines/security", "Engine Security"),
-    "/engines/shield/": getNavigation("engines/shield", "Engine Shield"),
-    "/engines/admin/": getNavigation("engines/admin", "Engine Admin"),
+    "/engines/bell/": getNavigationEngine("engines/bell", "Engine Bell"),
+    "/engines/audit/": getNavigationEngine("engines/audit", "Engine Audit"),
+    "/engines/admin/": getNavigationEngine("engines/admin", "Engine Admin"),
     "/engines/babel/": getNavigationEngine("engines/babel", "Engine Babel"),
+    "/engines/shield/": getNavigationEngine("engines/shield", "Engine Shield"),
+    "/engines/support/": getNavigationEngine("engines/support", "Engine Support"),
+    "/engines/security/": getNavigationEngine("engines/security", "Engine Security"),
+    "/engines/calendar/": getNavigationEngine("engines/calendar", "Engine Calendar"),
+
     "/engines/lesli/": [
         navigationLesliAbout,
         navigationLesliStart,
