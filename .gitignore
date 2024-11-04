@@ -2,8 +2,5 @@
 .cache
 .DS_Store
 .sass-cache
-.idea
-Gemfile.lock
-node_modules/
-source/.vitepress/cache/
 build/
+node_modules/

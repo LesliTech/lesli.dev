@@ -1,0 +1,27 @@
+
+<% has_logo = logo %>
+
+<nav class="lesli-partial-navigation container">
+    <ul>
+        <% if has_logo %>
+            <li class="lesli-partial-navigation-logo">
+                <a href="/">
+                    <%= image_tag "brand/lesli.svg", alt: "Lesli logo" %>
+                </a>
+            </li>
+        <% end %>
+    </ul>
+    <ul>
+        <li>
+            <a href="/lesli/">Lesli</a>
+        </li>
+        <li>
+            <a href="/engines/">Engines</a>
+        </li>
+        <%#
+        <li>
+            <a href="">Vue</a>
+        </li>
+        %>
+    </ul>
+</nav>

@@ -1,0 +1,14 @@
+<header>
+    <%= partial("partials/lesli-navigation", :locals => { :logo => true }) %>
+    <div class="container">
+        <%= image_tag "brand/lesli.svg", alt: "Lesli logo", class: "lesli-logo" %>
+        <h1>The Open Source Ruby on Rails <span class="lesli-title-colored">SaaS Development Framework.</span></h1>
+        <p>Lesli provides all the necessary tools to build your SaaS, empowering you and your team to focus on business and what makes your software special. </p>
+    </div>
+    <%= partial("components/lesli-links") %>
+</header>
+
+<%= partial("components/lesli-description") %>
+<%= partial("components/lesli-corefeatures") %>
+<%= partial("components/lesli-engines") %>
+<%= partial("components/lesli-development") %>

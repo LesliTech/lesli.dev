@@ -1,0 +1,27 @@
+
+
+
+
+<% corefeatures = data.send(I18n.locale.to_sym).component_corefeatures %>
+
+<section class="lesli-component-corefeatures">
+    <div class="container">
+        <div class="component-header">
+            <h2><%= corefeatures[:title] %></h2>
+            <p><%= corefeatures[:text] %></p>
+        </div>
+        <div class="columns ">
+            <% corefeatures[:content].each do |feature| %>
+                <div class="column">
+                    <div class="feature">
+                        <h3>
+                            <i class="<%= feature[:icon] %>"></i>
+                            <%= feature[:name] %>
+                        </h3>
+                        <p><%= feature[:text] %></p>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</section>

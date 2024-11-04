@@ -1,0 +1,77 @@
+
+
+@import "base";
+@import "partials/lesli-navigation";
+@import "components/lesli-header";
+@import "components/page-boxes";
+@import "components/lesli-description";
+@import "components/lesli-corefeatures";
+@import "components/lesli-engines";
+@import "components/lesli-development";
+@import "partials/lesli-footer";
+@import "partials/lesli-links";
+
+// · 
+@keyframes rotateBackground {
+    to {
+        background-position: 115px 115px, 170px 170px;
+    }
+}
+
+header {
+    display: flex;
+    min-height: 600px;
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-between;
+    background-size: 115px 115px;
+    background-color: #ffffff;
+    background-position: 0 0,55px 55px;
+    background-image:  
+        radial-gradient(#0d52bf 2px, transparent 2px), 
+        radial-gradient(#0d52bf 2px, #ffffff 2px);
+        animation: rotateBackground 10s linear infinite;
+
+    .container {
+        align-content: center;
+    }
+
+    img.lesli-logo {
+        padding: 1rem;
+        margin: 0 auto 1rem;
+        width: 100%;
+        max-width: 250px;
+    }
+
+    h1 {
+        font-size: 4rem;
+        max-width: 960px;
+        font-weight: 900;
+        line-height: 1.1;
+        margin: 0px auto 2rem;
+        letter-spacing: -1.5px;
+        background-color: #ffffff;
+        color: lesli-css-color(black, 300);
+    }
+
+    h2 {
+        font-size: 3rem;
+        font-weight: 400;
+        margin-bottom: 1rem;
+        color: lesli-css-color(black, 100);
+    }
+
+    p {
+        text-align: center;
+        font-size: 2.4rem;
+        font-weight: 100;
+        line-height: 1.2;
+        background-color: #ffffff;
+    }
+}
+
+
+.lesli-component-links .columns {
+    max-width: 1100px;
+    padding-bottom: 2rem;
+}

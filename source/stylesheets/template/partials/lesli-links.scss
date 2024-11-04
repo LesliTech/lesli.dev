@@ -1,0 +1,12 @@
+section.lesli-partial-links {
+    background-color: lesli-css-color(lesli, primary);
+    text-align: center;
+    padding: 2rem 0;
+    display: block;
+    width: 100%;
+    span, a {
+        font-size: 1.6rem;
+        color: white;
+        padding: 0 1rem;
+    }
+}

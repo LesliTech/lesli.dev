@@ -1,0 +1,49 @@
+
+@import "../component";
+
+// · 
+section.lesli-component-engines {
+    padding: 8rem 0 10rem;
+    background-color: $hint-of-red;
+
+    .columns {
+        display: flex;
+        flex-wrap: wrap;
+        max-width:1200px;
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    .column {
+        padding: 1rem;
+        flex-basis: 300px;
+        margin: 0 auto;
+    }
+
+    a {
+        height: 100%;
+        display: block;
+        padding: 35px 20px 40px;
+        text-align: center;
+        border: 1px solid lesli-css-color(silver, 300);
+        border-radius: 5px 5px 5px 5px;
+        box-shadow: 0px 2px 18px 0px rgba(78,133,200,0.1);
+        background-color: #ffffff;
+
+        svg {
+            height: 50px;
+            margin: 0 auto .8rem;
+            fill: darken(lesli-css-color(blue, 900), 10);
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 0 auto .2rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+        }       
+    }
+}

@@ -1,0 +1,140 @@
+
+
+@import "base";
+@import "partials/lesli-navigation";
+@import "partials/lesli-aside";
+@import "partials/lesli-footer";
+@import "tools/highlight";
+
+nav.lesli-partial-navigation {
+    margin: 0;
+    max-width: 900px;
+    border-bottom: 1px solid lesli-css-color(silver, 300);
+}
+
+footer.lesli-footer {
+    margin: 0;
+    max-width: 900px;
+    margin-left: 5rem;
+}
+
+main {
+    margin-left: 450px;
+
+    section.lesli-documentation {
+        width: 100%;
+        max-width: 900px;
+        padding: 2rem 5rem;
+
+        h2, h3 {
+            margin-top: 2rem;
+        }
+
+        p {
+            line-height: 1.5;
+            text-align: justify;
+            margin-bottom: 1rem;
+        }
+    }
+
+    .columns {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    
+    .column {
+        flex: 1;
+        padding: .6rem;
+    }
+    
+    blockquote {
+        font-family: 'Georgia', serif;
+        font-style: italic;
+        color: #555;
+        padding: 1em 20px;
+        margin: 20px 0;
+        border-left: 5px solid #ccc;
+        background-color: #f9f9f9;
+    
+        p {
+            display: inline;
+            line-height: 1.6 !important;
+        }
+    }
+    
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 16px;
+    
+        tr:first-child {
+            th, td { 
+                border-top: 1px solid #ddd; 
+            }
+        }
+    
+        th, td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+    
+        th {
+            background-color: #f4f4f4;
+            color: #333;
+            font-weight: bold;
+        }
+            
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+            
+        caption {
+            font-size: 18px;
+            margin: 10px 0;
+            font-weight: bold;
+            color: #333;
+        }
+    }
+    
+    @include lesli-css-color-print("color", "lesli-css-color");
+    @include lesli-css-color-print("background-color", "lesli-background");
+    
+}
+
+
+section.lesli-parche-working {
+    @include lesli-css-flex-center('vertical');
+    text-align: center;
+    min-height: 60vh;
+
+    img {
+        margin: 0 auto;
+        width:150px;
+    }
+
+    p {
+        font-size: 2rem;
+        margin-bottom: 1.6rem;
+        color: lesli-css-color(slate);
+    }
+
+    a {
+        color: lesli-css-color(lesli, primary);
+        border: 1px solid lesli-css-color(lesli, primary);
+        transition: all linear .3s;
+        border-radius: 1.1rem;
+        font-weight: bold;
+        font-size: .9rem;
+        padding: .4rem 1.2rem;
+        text-decoration: none;
+
+        &:hover {
+            color: white;
+            background-color: lesli-css-color(lesli, primary);
+        }
+    }
+}

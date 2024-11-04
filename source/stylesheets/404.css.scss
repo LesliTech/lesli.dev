@@ -1,0 +1,35 @@
+@import "template/website";
+
+section.lesli-404 {
+    @include lesli-css-flex-center('vertical');
+    text-align: center;
+    min-height: 80vh;
+
+    img {
+        width:150px;
+        margin: 0 auto 2rem;
+    }
+
+    h3 {
+        font-size: 5rem;
+        margin-bottom: 2rem;
+        color: lesli-css-color(slate);
+    }
+
+    p {
+        font-size: 1.8rem;
+        margin-bottom: 1.6rem;
+        color: lesli-css-color(slate, 700);
+    }
+
+    a {
+        color: var(--vp-c-brand-2);
+        border-color: var(--vp-c-brand-2);
+        border: 1px solid var(--vp-c-brand-1);
+        transition: border-color 0.25s, color 0.25s;
+        border-radius: 16px;
+        font-weight: 500;
+        font-size: 14px;
+        padding: 6px 16px;
+    }
+}

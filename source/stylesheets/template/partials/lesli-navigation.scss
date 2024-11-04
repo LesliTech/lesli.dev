@@ -1,0 +1,34 @@
+@import "../component";
+
+nav.lesli-partial-navigation {
+    display: flex;
+    flex-grow: 0;
+    justify-content: space-between;
+    height: $navigation-height;
+
+    ul {
+        padding: 0;
+        display: flex;
+    }
+
+    .lesli-partial-navigation-logo {
+        a {
+            padding: 1rem 0;
+            display: block;
+        }
+        img {
+            height: 30px;
+            width: 100%;
+        }
+    }
+
+    a {
+        height: 100%;
+        display: flex;
+        padding: 0 1rem;
+        align-items: center;
+        font-size: 1rem;
+        font-weight: bold;
+        color: lesli-css-color(black);
+    }
+}

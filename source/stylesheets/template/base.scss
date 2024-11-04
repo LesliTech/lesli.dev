@@ -1,0 +1,82 @@
+
+@import "../../../node_modules/lesli-css";
+
+@import "../../../node_modules/normalize.css/normalize";
+
+@import "tools/variables";
+
+@import "tools/remixicons";
+
+@include lesli-css-normalize;
+
+@include lesli-css-fonts-standard("Domine", "Roboto");
+
+
+// · Font family for the body 
+@font-face {
+    font-family: "Roboto";
+    src: url("/fonts/Roboto/Roboto-Thin.ttf") format("truetype");
+    font-display: swap;
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("/fonts/Roboto/Roboto-Light.ttf") format("truetype");
+    font-display: swap;
+    font-weight: 200;
+}
+
+
+// · Font family for titles 
+@font-face {
+    font-family: "Domine";
+    src: url("/fonts/Domine/Domine-VariableFont_wght.ttf") format("truetype");
+    font-display: swap;
+}
+
+
+// · 
+body, html {
+    color: darken(lesli-css-color(silver, 700), 2);
+    font-weight: 200;
+    box-sizing: border-box;
+    line-height: 24px !important;
+}
+
+
+
+// · 
+.lesli-title-colored {
+    background: -webkit-linear-gradient(315deg, #0D52Bf 25%, #001F66 );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.container {
+    @include lesli-css-container;
+}
+
+.has-text-centered {
+    text-align: center;
+}
+
+.px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.py-6 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+} 
+
+.br-2 {
+    border-radius: 6px;
+}
+
+.has-text-white {
+    color: white;
+}
+

@@ -1,0 +1,24 @@
+
+<%
+engine = current_page.path.split("/")[1]
+navigation= get_navigation(engine)
+%>
+
+<aside class="lesli-partial-aside">
+    <figure class="lesli-partial-aside-logo">
+        <a href="/">
+            <%= image_tag("brand/lesli.svg", alt: "Lesli logo") %>
+        </a>
+    </figure>
+    <nav>
+        <% navigation.each do |docs| %>
+            <ul>
+                <li><h3><%= docs[:name] %></h3></li>
+                <% docs[:items].each do |item| %>
+                    <li><a href="<%= item[:url] %>"><%= item[:name] %></a></li>
+                <% end %>
+            </ul>
+        <% end %>
+    </nav>
+    <pre><code><%= get_files(File.join("source", "engines", "lesli", "ruby-on-rails", "*")) %></code></pre>
+</aside>

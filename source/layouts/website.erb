@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+        <meta content="#0d52bf" name="theme-color">
+        <title><%= current_page.data.title || "Lesli" %> · Ruby on Rails SaaS Development Framework</title>
+        <%= stylesheet_link_tag(lesli_current_page(current_page)) %>
+        <link rel="icon" href="/favicon.png">
+    </head>
+    <body>
+        <%= yield %>
+        <%= javascript_include_tag "site" %>
+        <%= partial("partials/lesli-links") %>
+        <%= partial("partials/lesli-footer") %>
+        <%= partial("partials/lesli-icons") %>
+    </body>
+</html>

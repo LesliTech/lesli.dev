@@ -1,0 +1,26 @@
+
+<% development = data.send(I18n.locale.to_sym).component_development %>
+
+<section class="lesli-component-development">
+    <div class="container">
+        <div class="component-header">
+            <h2><%= development[:title] %></h2>
+            <p><%= development[:text] %></p>
+        </div>
+        <div class="hero-body">
+            <div class="columns">
+                <% development[:content].each do |highlight| %>
+                    <div class="column">
+                        <div class="feature has-background-white">
+                            <figure>
+                                <i class="<%= highlight[:icon] %>"></i>
+                            </figure>
+                            <h3><%= highlight[:name] %></h3>
+                            <p><%= highlight[:text] %></p>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</section>

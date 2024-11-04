@@ -1,0 +1,85 @@
+
+@import "../component";
+
+// · 
+section.lesli-component-corefeatures {
+    padding: 8rem 0 6rem;
+
+    .columns {
+        display: flex;
+        margin: 0 auto;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        justify-content: center;
+    }
+
+    .column {
+        margin-top: 0rem;
+        flex-basis: 400px;
+        max-width: 400px;
+    }
+
+    .feature {
+        height: 100%;
+        padding: 30px 20px;
+        border: 1px solid lesli-css-color(silver, 300);
+        box-shadow: 0px 2px 18px 0px rgba(78,133,200,0.1);
+        background-color: white;
+        
+        i {
+            font-size: 2rem;
+            margin-right: .6rem;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        p {
+            font-size: 1.1rem;
+        }
+
+    }
+
+    $collections: 
+    "administration", 
+    "intelligence", 
+    "productivity", 
+    "integration", 
+    "analytics",
+    "finance", 
+    "sales", 
+    "it",
+    "administration", 
+    "intelligence", 
+    "productivity", 
+    "integration", 
+    "analytics";
+
+    $index: 0;
+
+    @each $collection in $collections {
+
+        $index: $index + 1;
+
+        $i: index($collections, $collection);
+
+        $color: lesli-css-color(collection, $collection);
+
+        .column:nth-child(#{$index}) .feature i {
+            color: $color;
+        }
+
+    }
+
+}
+
+
+@include lesli-css-breakpoint-only-mobile() {
+    section.lesli-component-core-features {
+
+    }
+}

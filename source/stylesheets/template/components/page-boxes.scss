@@ -1,0 +1,245 @@
+/*
+
+Lesli
+
+Copyright (c) 2023, Lesli Technologies, S. A.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see http://www.gnu.org/licenses/.
+
+Lesli · Ruby on Rails SaaS Development Framework.
+
+Made with ♥ by https://www.lesli.tech
+Building a better future, one line of code at a time.
+
+@contact  hello@lesli.tech
+@website  https://www.lesli.tech
+@license  GPLv3 http://www.gnu.org/licenses/gpl-3.0.en.html
+
+// · ~·~     ~·~     ~·~     ~·~     ~·~     ~·~     ~·~     ~·~     ~·~
+// · 
+*/
+
+@import "../component";
+
+// · 
+.lesli-component-boxes {
+
+    .columns {
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+
+        .column {
+            flex-grow: 1;
+            flex-shrink: 1;
+            flex-basis: 0;
+            padding: .8rem;
+
+            a {
+                min-width: 200px;
+                height: 100%;
+                display: block;
+                padding: 1.8rem 0 2.3rem;
+                font-size: 1.2rem;
+                text-align: center;
+                border-radius: 6px;
+                text-decoration: none;
+                border: 1px solid silver;
+                background-color: white;
+                
+                svg,
+                [class^="ri-"] {
+                    display: block;
+                    margin: 0 auto;
+                    font-size: 4.4rem;
+                    line-height: 1.2;
+                }
+            
+                svg {
+                    height: 50px;
+                    fill: darken(lesli-css-color(blue, 900), 10);
+                    margin: 0 auto .8rem;
+                }
+
+                .icon-inline {
+                    font-size: 1.65rem;
+                }
+        
+                h3 {
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                    color: darken(lesli-css-color(blue, 900), 0);
+                }
+            }
+
+            $collections: 
+            "administration", 
+            "intelligence", 
+            "productivity", 
+            "integration", 
+            "analytics",
+            "finance", 
+            "sales", 
+            "it",
+            "administration", 
+            "intelligence", 
+            "productivity", 
+            "integration", 
+            "analytics",
+            "finance", 
+            "sales", 
+            "it",
+            "administration", 
+            "intelligence", 
+            "productivity", 
+            "integration", 
+            "analytics",
+            "finance", 
+            "sales", 
+            "it";
+        
+            $index: 0;
+        
+            @each $collection in $collections {
+        
+                $index: $index + 1;
+        
+                $i: index($collections, $collection);
+        
+                $color: lesli-css-color(collection, $collection);
+        
+                &:nth-child(#{$index}) a i { 
+                    color: $color;
+                }
+            }
+        }
+    }
+
+    .columns2 {
+        @include lesli-css-columns;
+        max-width:1200px;
+        margin: 0 auto;
+
+        .column {
+            padding: .4rem;
+
+            a { 
+                height: 100%;
+                display: block;
+                padding: 1.8rem 0 2.3rem;
+                font-size: 1.2rem;
+                text-align: center;
+                border-radius: 6px;
+                text-decoration: none;
+                border: 1px solid silver;
+                min-width: 250px;
+                
+                svg,
+                [class^="ri-"] {
+                    display: block;
+                    margin: 0 auto;
+                    font-size: 4.4rem;
+                    line-height: 1.2;
+                }
+            
+                svg {
+                    height: 50px;
+                    fill: darken(lesli-css-color(blue, 900), 10);
+                    margin: 0 auto .8rem;
+                }
+
+                .icon-inline {
+                    font-size: 1.65rem;
+                }
+        
+                h3 {
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                    color: darken(lesli-css-color(blue, 900), 0);
+                }
+            }
+
+            $collections: 
+            "administration", 
+            "intelligence", 
+            "productivity", 
+            "integration", 
+            "analytics",
+            "finance", 
+            "sales", 
+            "it",
+            "administration", 
+            "intelligence", 
+            "productivity", 
+            "integration", 
+            "analytics",
+            "finance", 
+            "sales", 
+            "it",
+            "administration", 
+            "intelligence", 
+            "productivity", 
+            "integration", 
+            "analytics",
+            "finance", 
+            "sales", 
+            "it";
+        
+            $index: 0;
+        
+            @each $collection in $collections {
+        
+                $index: $index + 1;
+        
+                $i: index($collections, $collection);
+        
+                $color: lesli-css-color(collection, $collection);
+        
+                &:nth-child(#{$index}) a i { 
+                    color: $color;
+                }
+            }
+        }
+    }
+}
+
+
+// · 
+@include lesli-css-breakpoint-mobile() {
+
+    .lesli-page-content-boxes {
+
+        .columns {
+            margin: 0;
+
+            .column {
+                padding: 1rem 0;
+    
+                a { 
+                    padding: 0;
+                    display: flex;
+                    font-size: 1.2rem;
+                    align-items: center;
+                    border: 0;
+                    border-bottom: 1px solid silver;
+
+                    [class^="ri-"] {
+                        margin: 0 1rem 0 2.4rem;
+                        font-size: 2rem;
+                    }
+                }
+            }
+        }
+    }
+}
