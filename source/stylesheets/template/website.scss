@@ -75,3 +75,39 @@ header {
     max-width: 1100px;
     padding-bottom: 2rem;
 }
+
+
+@include lesli-css-breakpoint-mobile() {
+    header {
+
+        img.lesli-logo {
+            max-width: 190px;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+        }
+
+        p {
+            font-weight: 400;
+            font-size: 1.4rem;
+        }
+    }
+
+    .lesli-component-links.lesli-component-boxes2 .columns .column {
+        padding: 0;
+        a {
+            display: flex;
+            align-items: center;
+            padding: 0;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-radius: 0;
+            [class^="ri-"] {
+                font-size: 1.8rem;
+                margin: .8rem !important;
+            }
+        }
+    }
+}

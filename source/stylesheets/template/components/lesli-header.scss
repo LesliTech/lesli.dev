@@ -4,6 +4,7 @@
     margin-bottom: 4rem;
 
     h2 {
+        line-height: 1;
         margin: 0 auto 1rem;
         font-size: 2.6rem;
         color: lesli-css-color(black, 100);
@@ -14,4 +15,13 @@
         line-height: 1.1;
         color: lesli-css-color(black, 100);
     }
+}
+
+
+@include lesli-css-breakpoint-only-mobile() {
+    .component-header {
+        p {
+            font-size: 1.4rem;
+        }
+    }   
 }
