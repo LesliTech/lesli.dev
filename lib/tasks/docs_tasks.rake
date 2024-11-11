@@ -9,7 +9,7 @@ namespace :docs do
     desc "build"
     task :build do
         #documentation
-        #documentation_empty
+        documentation_empty
         #images
     end
 end
@@ -99,7 +99,7 @@ def documentation
 end
 
 def documentation_empty
-    Dir.glob("source/engines/*/*.md") do |file|
+    Dir.glob("source/engines/*/*.md.erb") do |file|
         pp file
         pp File.size(file)
         if File.size(file) < 100
