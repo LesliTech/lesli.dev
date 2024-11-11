@@ -22,3 +22,9 @@ As a good practice we keep a branch with the source code for every major and min
 Every repository should contain dedicated branches for every released version, for example: cloud_babel v1.0.0 belongs to the branch version-1.0.0; The goal of this approach is to continue supporting older versions of our software. providing an easy way to access to the source code of the different implementations of The Lesli Platform core, engines and builders.
 
 This branch must be created manually just before a Git tag is created for #major or #minor version.
+<section class="lesli-documentation-footer">
+    <p><a><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><b>Last Update: </b>2024/11/11 04:20</p>
+</section>
+<!-- This code was automatically generated -->
+<!-- to update this docs please run rake docs:build -->

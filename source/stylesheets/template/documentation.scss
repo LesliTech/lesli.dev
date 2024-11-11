@@ -21,6 +21,32 @@ header.lesli-documentation-header {
     }
 }
 
+section.lesli-documentation-footer {
+    display: flex;
+    padding: 1rem;
+    margin: 2rem auto;
+    border-top: 1px solid lesli-css-color(slate, 300);
+    border-bottom: 1px solid lesli-css-color(slate, 300);
+
+    a {
+        display: flex;
+        color: lesli-css-color(blue, 700);
+    }
+
+    p {
+        margin: 0 !important;
+
+        &:first-child,
+        &:last-child {
+            flex: 1;
+        }
+
+        &:last-child {
+            text-align: right;
+        }
+    }
+}
+
 footer.lesli-footer {
     margin: 0;
     max-width: 900px;

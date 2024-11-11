@@ -67,3 +67,9 @@ Lesli provide the same color palette as CSS variables:
 
 ## Bulma customization 
 You can customize bulma changing the value of the variables, see: [https://bulma.io/documentation/customize/variables/](https://bulma.io/documentation/customize/variables/)
+<section class="lesli-documentation-footer">
+    <p><a><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><b>Last Update: </b>2024/11/11 04:20</p>
+</section>
+<!-- This code was automatically generated -->
+<!-- to update this docs please run rake docs:build -->

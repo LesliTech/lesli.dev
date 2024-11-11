@@ -79,3 +79,9 @@ Github is a web-based Git repository hosting service that is used to store the c
 
 ### Install engines
 To install engines you need to clone the repository inside the engines folder. 
+<section class="lesli-documentation-footer">
+    <p><a><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><b>Last Update: </b>2024/11/11 04:20</p>
+</section>
+<!-- This code was automatically generated -->
+<!-- to update this docs please run rake docs:build -->

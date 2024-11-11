@@ -23,3 +23,9 @@ Our titles feature the elegant 'Domine' font, adding a touch of sophistication a
 At our platform, we prioritize clarity and readability in every interaction. That's why we've chosen Open Sans as our primary font family. Open Sans offers a perfect balance of elegance and simplicity, ensuring that our content is easy to read and visually appealing. Its clean lines and versatile styles make it an excellent choice for both headings and body text, creating a consistent and pleasant reading experience for our users. With Open Sans, we aim to provide you with a seamless and visually pleasing interface across all our digital content.
 
 <Docs />
+<section class="lesli-documentation-footer">
+    <p><a><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><b>Last Update: </b>2024/11/11 04:20</p>
+</section>
+<!-- This code was automatically generated -->
+<!-- to update this docs please run rake docs:build -->
