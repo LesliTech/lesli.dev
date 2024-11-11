@@ -71,9 +71,9 @@ def documentation
         Dir.glob(source_path) do |file_to_copy|
 
             file_to_paste = get_file_to_paste(file_to_copy)
-            file_to_paste = file_to_paste.gsub(".md", ".html.md.erb")
+            file_to_paste = file_to_paste.gsub(".md", ".html.md")
             
-            if file_to_paste.end_with?("readme.html.md.erb")
+            if file_to_paste.end_with?("readme.html.md")
                 file_to_paste = file_to_paste.gsub("readme.html.md.erb", "index.html.md.erb")
             end  
 
@@ -87,7 +87,7 @@ def documentation
 end
 
 def documentation_empty
-    Dir.glob("source/engines/*/*.md.erb") do |file|
+    Dir.glob("source/engines/*/*.md") do |file|
         if File.size(file) < 100
             File.write(file, <<~TEXT.gsub("\n", " ")
             <section class="lesli-parche-working">
