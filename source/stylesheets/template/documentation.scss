@@ -12,6 +12,15 @@ nav.lesli-partial-navigation {
     border-bottom: 1px solid lesli-css-color(silver, 300);
 }
 
+header.lesli-documentation-header {
+    text-align: center;
+
+    h1 {
+        line-height: 1.1;
+        margin: 0 auto;
+    }
+}
+
 footer.lesli-footer {
     margin: 0;
     max-width: 900px;

@@ -77,11 +77,12 @@ def documentation
             file_to_paste = get_file_to_paste(file_to_copy)
             file_to_paste = file_to_paste.gsub(".md", ".html.md")
             
+            FileUtils.mkdir_p(File.dirname(file_to_paste)) unless File.exist?(File.dirname(file_to_paste))
+
             if file_to_paste.end_with?("readme.html.md")
                 file_to_paste = file_to_paste.gsub("readme.html.md", "index.html.md.erb")
+                FileUtils.cp(file_to_copy, file_to_paste.gsub("index.html.md.erb","about.html.md.erb"))
             end  
-
-            FileUtils.mkdir_p(File.dirname(file_to_paste)) unless File.exist?(File.dirname(file_to_paste))
 
             # Copy file to the destination directory, preserving its name
             FileUtils.cp(file_to_copy, file_to_paste)
