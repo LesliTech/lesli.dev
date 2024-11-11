@@ -5,6 +5,10 @@ require "fileutils"
 namespace :docs do
     desc "build"
     task :build do
+
+        FileUtils.rm_rf("source/engines")
+        FileUtils.rm_rf("source/images/engines")
+
         documentation
         documentation_empty
         documentation_replaces
@@ -97,6 +101,7 @@ def documentation_empty
             </section>
             TEXT
             )
+            #File.rename(file, file.gsub(".md", ".md.erb"))
             puts "Empty #{file}"
         end
     end 
