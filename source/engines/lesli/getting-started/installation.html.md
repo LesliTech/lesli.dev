@@ -127,12 +127,14 @@ The seeders comes with default users with different roles and privileges, to see
 __username:__ hello@lesli.tech <br/>
 __password:__ Tardis2023$ 
 
-::: info
-It is possible to add development users, roles, privileges and more; we will explore this options later in the documentation.
-:::
+
+> It is possible to add development users, roles, privileges and more; we will explore this options later in the documentation.
+
+
+
 <section class="lesli-documentation-footer">
     <p><a><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2024/11/11 04:20</p>
+    <p><b>Last Update: </b>2024/11/11 04:31</p>
 </section>
 <!-- This code was automatically generated -->
 <!-- to update this docs please run rake docs:build -->

@@ -52,7 +52,7 @@ The commit type [type] can take one of these value:
 - **BREAKING CHANGE:** a breaking API change
 <section class="lesli-documentation-footer">
     <p><a><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2024/11/11 04:20</p>
+    <p><b>Last Update: </b>2024/11/11 04:31</p>
 </section>
 <!-- This code was automatically generated -->
 <!-- to update this docs please run rake docs:build -->

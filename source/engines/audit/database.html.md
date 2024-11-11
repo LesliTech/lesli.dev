@@ -1,6 +1,6 @@
 
 <p align="center">
-    <img width="70" alt="Lesli logo" src="../app/assets/images/lesli_audit/audit-logo.svg" />
+    <img width="70" alt="Lesli logo" src="/images/engines/audit/audit-logo.svg" />
 </p>
 
 <h3 align="center">Lesli Audit database</h3>
@@ -51,7 +51,7 @@ erDiagram
 </fieldset>
 <section class="lesli-documentation-footer">
     <p><a><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2024/11/11 04:20</p>
+    <p><b>Last Update: </b>2024/11/11 04:31</p>
 </section>
 <!-- This code was automatically generated -->
 <!-- to update this docs please run rake docs:build -->

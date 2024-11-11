@@ -88,51 +88,58 @@ def documentation
             # Copy file to the destination directory, preserving its name
             FileUtils.cp(file_to_copy, file_to_paste)
             puts "Copied #{file_to_paste}"
+
+            documentation_footer(file_to_paste, File.mtime(file_to_copy))
         end
     end
 end
 
 def documentation_empty
-    Dir.glob("source/engines/*/*.md") do |file|
-        if File.size(file) < 100
-            File.write(file, <<~TEXT.gsub("\n", " ")
-            <section class="lesli-parche-working">
-                <%= image_tag "cats/dev.png", alt: "cat docs" %>
-                <p>Work in progress...</p>
-                <a href="/">Take me home</a>
-            </section>
-            TEXT
-            )
-            File.rename(file, file.gsub(".md", ".md.erb"))
-            puts "Empty #{file}"
-        end
+    [
+        "source/engines/*/*.html.md*",
+        "source/engines/*/*/*.html.md*"
+    ].each do |folder|
+        Dir.glob(folder) do |file|
+            if File.size(file) < 100
+                File.write(file, <<~TEXT.gsub("\n", " ")
+                <section class="lesli-parche-working">
+                    <%= image_tag "cats/dev.png", alt: "cat docs" %>
+                    <p>Work in progress...</p>
+                    <a href="/">Take me home</a>
+                </section>
+                TEXT
+                )
+                File.rename(file, file.gsub(".md", ".md.erb"))
+                puts "Empty #{file}"
+            end
+        end 
     end 
-end 
+end
 
 def documentation_replaces
-    Dir.glob("source/engines/*/*.md.erb") do |file|
-
-        content = File.read(file)
-
-        content.gsub!('src="../app/assets/images/lesli/', 'src="/images/engines/lesli/')
-        content.gsub!('src="../app/assets/images/lesli_', 'src="/images/engines/')
-
-        File.write(file, content)
-
-        puts "Replaced #{file}"
-    end 
-end 
-
-
-
-def documentation_footer
     [
         "source/engines/*/*.html.md*",
         "source/engines/*/*/*.html.md*"
     ].each do |folder|
         Dir.glob(folder) do |file|
 
-            file_mtime = File.mtime(file)
+            content = File.read(file)
+
+            content.gsub!('src="../app/assets/images/lesli/', 'src="/images/engines/lesli/')
+            content.gsub!('src="../app/assets/images/lesli_', 'src="/images/engines/')
+
+            File.write(file, content)
+
+            puts "Replaced #{file}"
+        end 
+    end
+end 
+
+
+
+def documentation_footer file, mtime
+
+            file_mtime = mtime
 
             file_mtime_utc = file_mtime.utc.strftime("%Y/%m/%d %H:%M")
 
@@ -151,6 +158,6 @@ def documentation_footer
             end
 
             puts "Footer #{file}"
-        end 
+
     end
 end 
