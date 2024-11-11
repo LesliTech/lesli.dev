@@ -159,5 +159,4 @@ def documentation_footer file, mtime
 
             puts "Footer #{file}"
 
-    end
 end 
