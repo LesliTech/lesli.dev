@@ -26,8 +26,14 @@ main {
         max-width: 900px;
         padding: 2rem 5rem;
 
+        h1{
+            font-weight: bold;
+            color: lesli-css-color(slate, 700);
+        }
+
         h2, h3 {
             margin-top: 2rem;
+            color: lesli-css-color(slate);
         }
 
         p {

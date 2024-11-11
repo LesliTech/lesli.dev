@@ -34,6 +34,11 @@ aside.lesli-partial-aside {
             font-size: 1rem;
             margin: 0 2.6rem .4rem;
             color: lesli-css-color(slate, 500);
+
+            a {
+                all: unset;
+                box-sizing: border-box;
+            }
         }
 
         a {
@@ -42,6 +47,10 @@ aside.lesli-partial-aside {
             padding: .5rem 2.6rem .5rem 0;
             text-transform: capitalize;
             font-size: .95rem;
+
+            &:hover {
+                cursor: pointer;
+            }
         }
     }
 }

@@ -5,7 +5,7 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
         <title><%= current_page.data.title || documentation_title(current_page) %> · Ruby on Rails SaaS Development Framework</title>
-        <%= stylesheet_link_tag(lesli_current_section(current_page)) %>
+        <%= stylesheet_link_tag(lesli_stylesheet_for(current_page)) %>
         <link rel="icon" href="/favicon.png">
     </head>
     <body>

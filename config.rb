@@ -7,11 +7,12 @@ end
 
 
 # Layouts
-page '/', layout: "website"
-page '/engines/*', layout: "documentation"
-page '/*.json', layout: false
-page '/*.xml', layout: false
-page '/*.txt', layout: false
+page "/", layout: "website"
+page "/engines/*", layout: "documentation"
+page "/vue/*", layout: "documentation"
+page "/*.json", layout: false
+page "/*.xml", layout: false
+page "/*.txt", layout: false
 
 page "/404.html", :directory_index => false
 

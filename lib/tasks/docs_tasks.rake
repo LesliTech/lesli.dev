@@ -11,6 +11,35 @@ namespace :docs do
     desc "build"
     task :build do
         documentation
+        images
+    end
+end
+
+def images
+    source_paths = [
+        "../LesliBuilder/engines/*/docs/images/*",
+        "../LesliBuilder/engines/*/app/assets/images/*/*.svg"
+    ]
+
+    destination_base = "source/public/images/engines"
+
+    # Define a helper method to get the engine name from the path
+    def get_engine_name(file)
+        file.match(%r{engines/([^/]+)/})[1]
+    end
+
+    source_paths.each do |pattern|
+        Dir.glob(pattern).each do |file_path|
+            engine_name = get_engine_name(file_path)
+            destination_dir = File.join(destination_base, engine_name)
+
+            # Create destination directory if it doesn't exist
+            FileUtils.mkdir_p(destination_dir)
+
+            # Copy file to the destination directory, preserving its name
+            FileUtils.cp(file_path, destination_dir)
+            puts "Copied #{file_path} to #{destination_dir}"
+        end
     end
 end
 

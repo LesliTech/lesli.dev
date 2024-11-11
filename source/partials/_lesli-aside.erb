@@ -1,7 +1,11 @@
 
 <%
-engine = current_page.path.split("/")[1]
-navigation= get_navigation(engine)
+section = current_page.path.split("/").first
+project = current_page.path.split("/").second
+navigation = []
+
+navigation = get_navigation_for_engine(project) if section == "engines"
+navigation = get_navigation_for_vue(project) #if section == "vue"
 %>
 
 <aside class="lesli-partial-aside">
@@ -13,12 +17,19 @@ navigation= get_navigation(engine)
     <nav>
         <% navigation.each do |docs| %>
             <ul>
-                <li><h3><%= docs[:name] %></h3></li>
+                <li>
+                    <h3>
+                        <% if docs[:url].blank? %>
+                            <%= docs[:name] %>
+                        <% else %>
+                            <a href="<%= docs[:url] %>"><%= docs[:name] %></a>
+                        <% end %>
+                    </h3>
+                </li>
                 <% docs[:items].each do |item| %>
                     <li><a href="<%= item[:url] %>"><%= item[:name] %></a></li>
                 <% end %>
             </ul>
         <% end %>
     </nav>
-    <pre><code><%= get_files(File.join("source", "engines", "lesli", "ruby-on-rails", "*")) %></code></pre>
 </aside>
