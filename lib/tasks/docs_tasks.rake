@@ -78,7 +78,7 @@ def documentation
             file_to_paste = file_to_paste.gsub(".md", ".html.md")
             
             if file_to_paste.end_with?("readme.html.md")
-                file_to_paste = file_to_paste.gsub("readme.html.md.erb", "index.html.md.erb")
+                file_to_paste = file_to_paste.gsub("readme.html.md", "index.html.md.erb")
             end  
 
             FileUtils.mkdir_p(File.dirname(file_to_paste)) unless File.exist?(File.dirname(file_to_paste))
@@ -101,7 +101,7 @@ def documentation_empty
             </section>
             TEXT
             )
-            #File.rename(file, file.gsub(".md", ".md.erb"))
+            File.rename(file, file.gsub(".md", ".md.erb"))
             puts "Empty #{file}"
         end
     end 
