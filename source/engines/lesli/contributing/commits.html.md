@@ -51,7 +51,7 @@ The commit type [type] can take one of these value:
 - **release**: New version release process
 - **BREAKING CHANGE:** a breaking API change
 <section class="lesli-documentation-footer">
-    <p><a><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/contributing/commits.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
     <p><b>Last Update: </b>2024/09/29 22:45</p>
 </section>
 <!-- This code was automatically generated -->

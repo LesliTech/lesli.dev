@@ -1,6 +1,10 @@
 pre, code {
     font-size: 1rem;
     overflow-x: auto;
+    font-family: source-code-pro,ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;
+    font-size: .8rem;
+    font-weight: 500;
+    line-height: 1.9;
 }
 
 pre {

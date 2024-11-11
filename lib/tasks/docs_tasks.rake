@@ -88,7 +88,7 @@ def documentation
             FileUtils.cp(file_to_copy, file_to_paste)
             puts "Copied #{file_to_paste}"
 
-            documentation_footer(file_to_paste, File.mtime(file_to_copy))
+            documentation_footer(file_to_copy, file_to_paste)
         end
     end
 end
@@ -136,26 +136,32 @@ end
 
 
 
-def documentation_footer file, mtime
+def documentation_footer file_to_copy, file_to_paste
 
-    file_mtime = mtime
+    file_mtime = File.mtime(file_to_copy)
 
     file_mtime_utc = file_mtime.utc.strftime("%Y/%m/%d %H:%M")
 
+    file_link = file_to_copy
+        .gsub("../LesliBuilder/engines/", "https://github.com/LesliTech/")
+        .gsub("/docs/", "/tree/master/docs/")
+
+    pp file_link
+
     footer= <<~TEXT
         <section class="lesli-documentation-footer">
-            <p><a><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-            <p><b>Last Update: </b>#{ file_mtime_utc }</p>
+            <p><a target="blank" href="#{file_link}"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+            <p><b>Last Update: </b>#{file_mtime_utc}</p>
         </section>
         <!-- This code was automatically generated -->
         <!-- to update this docs please run rake docs:build -->
     TEXT
 
     # Append the new content to the file
-    File.open(file, 'a') do |f|
+    File.open(file_to_paste, 'a') do |f|
         f.puts(footer)
     end
 
-    puts "Footer #{file}"
+    puts "Footer #{file_to_paste}"
 
 end 

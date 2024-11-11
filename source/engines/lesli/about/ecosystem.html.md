@@ -220,7 +220,7 @@ Currently we have planned the development of 45 modules, 11 modules are already 
 > You can create your own modules, we'll cover that part later in this documentation.
 
 <section class="lesli-documentation-footer">
-    <p><a><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/about/ecosystem.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
     <p><b>Last Update: </b>2024/11/11 04:16</p>
 </section>
 <!-- This code was automatically generated -->

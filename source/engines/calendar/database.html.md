@@ -31,7 +31,7 @@
     11.12. driver/event/proposals
 ```
 <section class="lesli-documentation-footer">
-    <p><a><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><a target="blank" href="https://github.com/LesliTech/LesliCalendar/tree/master/docs/database.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
     <p><b>Last Update: </b>2024/09/29 22:46</p>
 </section>
 <!-- This code was automatically generated -->
