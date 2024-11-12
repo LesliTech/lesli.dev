@@ -6,13 +6,13 @@ namespace :docs do
     desc "build"
     task :build do
 
-        FileUtils.rm_rf("source/engines")
-        FileUtils.rm_rf("source/images/engines")
+        #FileUtils.rm_rf("source/engines")
+        #FileUtils.rm_rf("source/images/engines")
 
-        documentation
-        documentation_empty
+        #documentation
+        #documentation_empty
         documentation_replaces
-        images
+        #images
     end
 end
 
@@ -81,7 +81,6 @@ def documentation
 
             if file_to_paste.end_with?("readme.html.md")
                 file_to_paste = file_to_paste.gsub("readme.html.md", "index.html.md.erb")
-                FileUtils.cp(file_to_copy, file_to_paste.gsub("index.html.md.erb","about.html.md.erb"))
             end  
 
             # Copy file to the destination directory, preserving its name
@@ -122,14 +121,19 @@ def documentation_replaces
     ].each do |folder|
         Dir.glob(folder) do |file|
 
+            engine = file.gsub("source/engines/", "").split("/").first
+            pp "---   ---   ---"
+
             content = File.read(file)
 
             content.gsub!('src="../app/assets/images/lesli/', 'src="/images/engines/lesli/')
             content.gsub!('src="../app/assets/images/lesli_', 'src="/images/engines/')
 
+            content.gsub!('src="../images/', "src=\"/images/engines/#{engine}/")
+
             File.write(file, content)
 
-            puts "Replaced #{file}"
+            #puts "Replaced #{file}"
         end 
     end
 end 
@@ -149,12 +153,15 @@ def documentation_footer file_to_copy, file_to_paste
     pp file_link
 
     footer= <<~TEXT
+
         <section class="lesli-documentation-footer">
             <p><a target="blank" href="#{file_link}"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
             <p><b>Last Update: </b>#{file_mtime_utc}</p>
         </section>
+
         <!-- This code was automatically generated -->
         <!-- to update this docs please run rake docs:build -->
+
     TEXT
 
     # Append the new content to the file

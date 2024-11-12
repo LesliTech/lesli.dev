@@ -84,9 +84,12 @@ Once the requirement is completed developers must check a few steps before send 
 When everything is ready developer can send a pull request using the Github web interface or the Git cli.
 Github automatically checks for conflicts between branches, if there are no conflicts user can create the pull request and assign team members to review and authorize to merge the branch with master.
 If github detects any merge conflict developer must work with a team member to fix conflics and complete the merge process.
+
 <section class="lesli-documentation-footer">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/contributing/pull-requests.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
     <p><b>Last Update: </b>2024/09/29 22:45</p>
 </section>
+
 <!-- This code was automatically generated -->
 <!-- to update this docs please run rake docs:build -->
+

@@ -103,7 +103,7 @@ module LesliHelpers
         return [{
             name: "Engine #{engine}",
             items: [
-                { name: "About",        url: "/engines/#{engine}/about/" },
+                { name: "About",        url: "/engines/#{engine}/" },
                 { name: "Installation", url: "/engines/#{engine}/installation/" },
                 { name: "Translations", url: "/engines/#{engine}/translations/" },
                 { name: "Dashboards",   url: "/engines/#{engine}/dashboards/" },
