@@ -46,7 +46,7 @@ erDiagram
 
 Using this database structure we can create a view to manage the collection of controllers/actions that belongs to a descriptor:
 
-<img src="./images/descriptors-index.excalidraw.png">
+<img src="/images/engines/security/descriptors-index.excalidraw.png">
 
 <section class="lesli-documentation-footer">
     <p><a target="blank" href="https://github.com/LesliTech/LesliSecurity/tree/master/docs/descriptors.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>

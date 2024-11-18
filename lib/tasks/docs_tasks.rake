@@ -6,13 +6,13 @@ namespace :docs do
     desc "build"
     task :build do
 
-        #FileUtils.rm_rf("source/engines")
-        #FileUtils.rm_rf("source/images/engines")
+        FileUtils.rm_rf("source/engines")
+        FileUtils.rm_rf("source/images/engines")
 
-        #documentation
-        #documentation_empty
+        documentation
+        documentation_empty
         documentation_replaces
-        #images
+        images
     end
 end
 
@@ -122,7 +122,6 @@ def documentation_replaces
         Dir.glob(folder) do |file|
 
             engine = file.gsub("source/engines/", "").split("/").first
-            pp "---   ---   ---"
 
             content = File.read(file)
 
@@ -130,10 +129,11 @@ def documentation_replaces
             content.gsub!('src="../app/assets/images/lesli_', 'src="/images/engines/')
 
             content.gsub!('src="../images/', "src=\"/images/engines/#{engine}/")
+            content.gsub!('src="./images/', "src=\"/images/engines/#{engine}/")
 
             File.write(file, content)
 
-            #puts "Replaced #{file}"
+            puts "Replaced #{file}"
         end 
     end
 end 

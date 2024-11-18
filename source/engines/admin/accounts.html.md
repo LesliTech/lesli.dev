@@ -6,7 +6,7 @@
 
 
 <lesli-browser url="admin">
-    <img alt="LesliAdmin screenshot" src="./images/screenshot.png" />
+    <img alt="LesliAdmin screenshot" src="/images/engines/admin/screenshot.png" />
 </lesli-browser>
 
 <section class="lesli-documentation-footer">
