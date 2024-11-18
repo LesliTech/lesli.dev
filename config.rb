@@ -39,6 +39,15 @@ configure :build do
 end
 
 
+# · deploy settings 
+activate :deploy do |deploy|
+    system "rm -rf ./build"
+    deploy.build_before = true
+    deploy.deploy_method = :git
+    deploy.branch = "production"
+end
+
+
 # · 
 set :markdown, tables: true, autolink: true, gh_blockcode: true, fenced_code_blocks: true, with_toc_data: false
 set :markdown_engine, :redcarpet
