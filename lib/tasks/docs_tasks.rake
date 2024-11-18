@@ -79,15 +79,15 @@ def documentation
             
             FileUtils.mkdir_p(File.dirname(file_to_paste)) unless File.exist?(File.dirname(file_to_paste))
 
-            if file_to_paste.end_with?("readme.html.md")
-                file_to_paste = file_to_paste.gsub("readme.html.md", "index.html.md.erb")
+            if file_to_paste.end_with?("lesli.dev.html.md")
+                file_to_paste = file_to_paste.gsub("lesli.dev.html.md", "index.html.md.erb")
             end  
 
             # Copy file to the destination directory, preserving its name
             FileUtils.cp(file_to_copy, file_to_paste)
             puts "Copied #{file_to_paste}"
 
-            documentation_footer(file_to_copy, file_to_paste)
+            documentation_footer(file_to_copy, file_to_paste) unless file_to_paste.end_with?("index.html.md.erb")
         end
     end
 end
@@ -149,8 +149,6 @@ def documentation_footer file_to_copy, file_to_paste
     file_link = file_to_copy
         .gsub("../LesliBuilder/engines/", "https://github.com/LesliTech/")
         .gsub("/docs/", "/tree/master/docs/")
-
-    pp file_link
 
     footer= <<~TEXT
 

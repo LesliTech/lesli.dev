@@ -103,12 +103,12 @@ module LesliHelpers
         return [{
             name: "Engine #{engine}",
             items: [
-                { name: "About",        url: "/engines/#{engine}/" },
-                { name: "Installation", url: "/engines/#{engine}/installation/" },
-                { name: "Translations", url: "/engines/#{engine}/translations/" },
-                { name: "Dashboards",   url: "/engines/#{engine}/dashboards/" },
-                { name: "Database",     url: "/engines/#{engine}/database/" },
-                { name: "Tasks",        url: "/engines/#{engine}/tasks/" }
+                { name: "About",        url: "/engines/#{engine}" },
+                { name: "Installation", url: "/engines/#{engine}/installation" },
+                { name: "Translations", url: "/engines/#{engine}/translations" },
+                { name: "Dashboards",   url: "/engines/#{engine}/dashboards" },
+                { name: "Database",     url: "/engines/#{engine}/database" },
+                { name: "Tasks",        url: "/engines/#{engine}/tasks" }
             ]
         }, {
             name: "",
@@ -130,7 +130,7 @@ module LesliHelpers
         [{
             name: "About",
             items: [
-                { name: "Lesli",    url: "/engines/lesli/about/" },
+                { name: "Lesli",    url: "/engines/lesli/about/lesli" },
                 { name: "Ecosystem",url: "/engines/lesli/about/ecosystem" },
                 { name: "Demo",     url: "/engines/lesli/about/demo" }
             ]
