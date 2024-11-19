@@ -1,3 +1,5 @@
+@import "../component";
+
 section.lesli-partial-links {
     background-color: lesli-css-color(lesli, primary);
     text-align: center;
@@ -9,4 +11,14 @@ section.lesli-partial-links {
         color: white;
         padding: 0 1rem;
     }
+}
+
+
+@include lesli-css-breakpoint-mobile() {
+    section.lesli-partial-links {
+        a {
+            display: block;
+            font-size: 1.4rem;
+        }
+    }   
 }
