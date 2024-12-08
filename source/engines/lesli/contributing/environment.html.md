@@ -83,7 +83,7 @@ To install engines you need to clone the repository inside the engines folder.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/contributing/environment.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2024/11/11 04:49</p>
+    <p><b>Last Update: </b>2024/11/11</p>
 </section>
 
 <!-- This code was automatically generated -->

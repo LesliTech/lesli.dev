@@ -117,7 +117,7 @@ def documentation_footer file_to_copy, file_to_paste
 
     file_mtime = File.mtime(file_to_copy)
 
-    file_mtime_utc = file_mtime.utc.strftime("%Y/%m/%d %H:%M")
+    file_mtime_utc = file_mtime.utc.strftime("%Y/%m/%d")
 
     file_link = file_to_copy
         .gsub("../LesliBuilder/engines/", "https://github.com/LesliTech/")

@@ -26,7 +26,7 @@ In the context of SaaS development, the framework leverages Ruby on Rails to cre
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/about/lesli.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2024/11/12 03:41</p>
+    <p><b>Last Update: </b>2024/11/12</p>
 </section>
 
 <!-- This code was automatically generated -->

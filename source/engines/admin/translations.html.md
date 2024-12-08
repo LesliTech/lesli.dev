@@ -6,7 +6,7 @@
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliAdmin/tree/master/docs/translations.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2024/11/19 04:31</p>
+    <p><b>Last Update: </b>2024/11/19</p>
 </section>
 
 <!-- This code was automatically generated -->

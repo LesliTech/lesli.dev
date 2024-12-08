@@ -6,7 +6,7 @@ New content to replace the entire file<section class="lesli-parche-working">
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliSecurity/tree/master/docs/configuration.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2024/11/03 02:44</p>
+    <p><b>Last Update: </b>2024/11/03</p>
 </section>
 
 <!-- This code was automatically generated -->

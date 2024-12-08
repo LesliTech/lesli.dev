@@ -56,7 +56,7 @@ Lesli is officially released and will be supported as of version 5.1
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2024/09/29 22:45</p>
+    <p><b>Last Update: </b>2024/09/29</p>
 </section>
 
 <!-- This code was automatically generated -->
