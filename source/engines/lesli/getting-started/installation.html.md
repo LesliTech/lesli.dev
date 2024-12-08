@@ -118,9 +118,9 @@ rails server
 
 Using your favorite web browser navigate to <a href="http://127.0.0.1:3000" targer="_blank">http://127.0.0.1:3000/login</a>, Lesli mounted devise at root level, so you already have an authentication engine working.
 
-< browser url="login">
+<lesli-browser url="login">
     <img src="/images/engines/security/screenshot-login.png">
-</ browser>
+</browser>
 
 The seeders comes with default users with different roles and privileges, to see Lesli in action use the owner user:
 
@@ -135,7 +135,7 @@ __password:__ Tardis2023$
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/getting-started/installation.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2024/11/11 04:28</p>
+    <p><b>Last Update: </b>2024/12/08 03:00</p>
 </section>
 
 <!-- This code was automatically generated -->
