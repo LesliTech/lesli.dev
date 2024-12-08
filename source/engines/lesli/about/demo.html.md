@@ -30,7 +30,7 @@ __password:__ Tardis2023$
 > The Lesli demo Docker image includes all the Lesli modules pre-installed and a collection of sample data.
 
 
-<section class="lesli-documentation-footer">
+<section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/about/demo.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
     <p><b>Last Update: </b>2024/11/02 05:42</p>
 </section>

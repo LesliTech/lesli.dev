@@ -133,7 +133,7 @@ __password:__ Tardis2023$
 
 
 
-<section class="lesli-documentation-footer">
+<section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/getting-started/installation.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
     <p><b>Last Update: </b>2024/11/11 04:28</p>
 </section>

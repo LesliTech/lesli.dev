@@ -9,7 +9,7 @@
     <img alt="LesliAdmin screenshot" src="/images/engines/admin/screenshot.png" />
 </lesli-browser>
 
-<section class="lesli-documentation-footer">
+<section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliAdmin/tree/master/docs/accounts.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
     <p><b>Last Update: </b>2024/09/29 23:21</p>
 </section>

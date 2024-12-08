@@ -1,182 +1,198 @@
+/*
+Lesli
+
+Copyright (c) 2024, Lesli Technologies, S. A.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see http://www.gnu.org/licenses/.
+
+Lesli · Ruby on Rails SaaS Development Framework.
+
+Made with ♥ by LesliTech
+Building a better future, one line of code at a time.
+
+@contact  hello@lesli.tech
+@website  https://www.lesli.tech
+@license  GPLv3 http://www.gnu.org/licenses/gpl-3.0.en.html
+
+// · ~·~     ~·~     ~·~     ~·~     ~·~     ~·~     ~·~     ~·~     ~·~
+// · 
+*/
 
 
+// · 
 @import "base";
 @import "partials/lesli-navigation";
 @import "partials/lesli-aside";
 @import "partials/lesli-footer";
 @import "tools/highlight";
 
+
+
+// · Override global navigation
 nav.lesli-partial-navigation {
-    margin: 0;
-    max-width: 900px;
     border-bottom: 1px solid lesli-css-color(silver, 300);
-}
-
-header.lesli-documentation-header {
-    text-align: center;
-
-    h1 {
-        line-height: 1.1;
-        margin: 0 auto;
+    ul:last-child {
+        width: 100%;
+        max-width: 850px;
+        justify-content: end;
     }
 }
 
-section.lesli-documentation-footer {
-    display: flex;
-    padding: 1rem;
-    margin: 2rem auto;
-    border-top: 1px solid lesli-css-color(slate, 300);
-    border-bottom: 1px solid lesli-css-color(slate, 300);
 
-    a {
-        display: flex;
-        color: lesli-css-color(blue, 700);
-    }
-
-    p {
-        margin: 0 !important;
-
-        &:first-child,
-        &:last-child {
-            flex: 1;
-        }
-
-        &:last-child {
-            text-align: right;
-        }
-    }
-}
-
-footer.lesli-footer {
-    margin: 0;
-    max-width: 900px;
-    margin-left: 5rem;
-}
-
+// · Main documentation layout
 main {
-    margin-left: 450px;
+    margin-left: var(--aside-width);
 
+    // · Main documentation container
     section.lesli-documentation {
         width: 100%;
         max-width: 900px;
-        padding: 2rem 5rem;
+        padding: var(--lesli-documentation-padding);
 
+        // · Markdown main title
         h1{
             font-weight: bold;
             color: lesli-css-color(slate, 700);
             color: lesli-css-color(blue, 700);
         }
 
+        // · Markdown subtitles
         h2, h3 {
-            margin-top: 2rem;
+            margin-top: 2.4rem;
             color: lesli-css-color(slate);
         }
 
+        // · Markdown content text 
         p {
             line-height: 1.5;
             text-align: justify;
             margin-bottom: 1rem;
+            font-size: 1.05rem;
+            color: lesli-css-color(black);
         }
-    }
 
-    .columns {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-    
-    .column {
-        flex: 1;
-        padding: .6rem;
-    }
-    
-    blockquote {
-        font-family: 'Georgia', serif;
-        font-style: italic;
-        color: #555;
-        padding: 1em 20px;
-        margin: 20px 0;
-        border-left: 5px solid #ccc;
-        background-color: #f9f9f9;
-    
-        p {
-            display: inline;
-            line-height: 1.6 !important;
-        }
-    }
-    
-    
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 20px 0;
-        font-size: 16px;
-    
-        tr:first-child {
-            th, td { 
-                border-top: 1px solid #ddd; 
+        // · Markdown quotes as comments 
+        blockquote {
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            color: #555;
+            padding: 1em 20px;
+            margin: 20px 0;
+            border-left: 5px solid #ccc;
+            background-color: #f9f9f9;
+        
+            p {
+                color: lesli-css-color(black, 100);
+                display: inline;
+                line-height: 1.6 !important;
             }
         }
-    
-        th, td {
-            padding: 12px 15px;
-            border-bottom: 1px solid #ddd;
-            text-align: left;
+
+
+        // · Markdown last update info & edit link
+        section.lesli-markdown-info {
+            display: flex;
+            padding: 1rem;
+            margin: 2rem auto;
+            border-top: 1px solid lesli-css-color(slate, 300);
+            border-bottom: 1px solid lesli-css-color(slate, 300);
+        
+            a {
+                display: flex;
+                color: lesli-css-color(blue, 700);
+            }
+        
+            p {
+                margin: 0 !important;
+        
+                &:first-child,
+                &:last-child {
+                    flex: 1;
+                }
+        
+                &:last-child {
+                    text-align: right;
+                }
+            }
         }
-    
-        th {
-            background-color: #f4f4f4;
-            color: #333;
-            font-weight: bold;
+
+
+        // · Markdown customer header
+        header.lesli-markdown-header {
+            text-align: center;
+            img {
+                margin-bottom: .8rem;
+            }
+            h1 {
+                line-height: 1.2;
+                margin: 0 auto 1rem;
+            }
         }
-            
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-            
-        caption {
-            font-size: 18px;
-            margin: 10px 0;
-            font-weight: bold;
-            color: #333;
+
+
+        // · Placeholder for work in progress message
+        section.lesli-parche-working {
+            @include lesli-css-flex-center('vertical');
+            text-align: center;
+            min-height: 60vh;
+        
+            img {
+                margin: 0 auto;
+                width:150px;
+            }
+        
+            p {
+                font-size: 2rem;
+                margin-bottom: 1.6rem;
+                color: lesli-css-color(slate);
+            }
+        
+            a {
+                color: lesli-css-color(lesli, primary);
+                border: 1px solid lesli-css-color(lesli, primary);
+                transition: all linear .3s;
+                border-radius: 1.1rem;
+                font-weight: bold;
+                font-size: .9rem;
+                padding: .4rem 1.2rem;
+                text-decoration: none;
+        
+                &:hover {
+                    color: white;
+                    background-color: lesli-css-color(lesli, primary);
+                }
+            }
         }
     }
-    
-    @include lesli-css-color-print("color", "lesli-css-color");
-    @include lesli-css-color-print("background-color", "lesli-background");
-    
 }
 
 
-section.lesli-parche-working {
-    @include lesli-css-flex-center('vertical');
-    text-align: center;
-    min-height: 60vh;
 
-    img {
-        margin: 0 auto;
-        width:150px;
-    }
 
-    p {
-        font-size: 2rem;
-        margin-bottom: 1.6rem;
-        color: lesli-css-color(slate);
-    }
-
-    a {
-        color: lesli-css-color(lesli, primary);
-        border: 1px solid lesli-css-color(lesli, primary);
-        transition: all linear .3s;
-        border-radius: 1.1rem;
-        font-weight: bold;
-        font-size: .9rem;
-        padding: .4rem 1.2rem;
-        text-decoration: none;
-
-        &:hover {
-            color: white;
-            background-color: lesli-css-color(lesli, primary);
+@include lesli-css-breakpoint-tablet {
+    nav.lesli-partial-navigation {
+        ul:first-child {
+            display: none;
         }
     }
 }
+
+@include lesli-css-breakpoint-mobile {
+    nav.lesli-partial-navigation {
+        ul:first-child {
+            display: flex;
+        }
+    }
+}
+

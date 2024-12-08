@@ -9,10 +9,9 @@ namespace :docs do
         FileUtils.rm_rf("source/engines")
         FileUtils.rm_rf("source/images/engines")
 
-        documentation
-        documentation_empty
-        documentation_replaces
         images
+        documentation
+        documentation_replaces
     end
 end
 
@@ -21,7 +20,6 @@ def get_engine_name(file)
     return file if file == "lesli" 
     return file.sub("lesli", "")
 end
-
 
 def images
 
@@ -87,32 +85,64 @@ def documentation
             FileUtils.cp(file_to_copy, file_to_paste)
             puts "Copied #{file_to_paste}"
 
+            # Add a placeholder to indicate doc as work in progress
+            documentation_empty(file_to_paste) if File.size(file_to_paste) < 100
+
+            # Add links and info about the doc, only if file is not index, 
+            # index include other files that already has markdown info and links
             documentation_footer(file_to_copy, file_to_paste) unless file_to_paste.end_with?("index.html.md.erb")
         end
     end
 end
 
-def documentation_empty
-    [
-        "source/engines/*/*.html.md*",
-        "source/engines/*/*/*.html.md*"
-    ].each do |folder|
-        Dir.glob(folder) do |file|
-            if File.size(file) < 100
-                File.write(file, <<~TEXT.gsub("\n", " ")
-                <section class="lesli-parche-working">
-                    <%= image_tag "cats/dev.png", alt: "cat docs" %>
-                    <p>Work in progress...</p>
-                    <a href="/">Take me home</a>
-                </section>
-                TEXT
-                )
-                File.rename(file, file.gsub(".md", ".md.erb"))
-                puts "Empty #{file}"
-            end
-        end 
-    end 
+def documentation_empty file_to_paste
+
+    footer= <<~TEXT
+        <section class="lesli-parche-working">
+            <img alt="cat docs" src="/images/cats/dev.png" />
+            <p>Work in progress...</p>
+            <a href="/">Take me home</a>
+        </section>
+    TEXT
+
+    # Append the new content to the file
+    File.open(file_to_paste, 'a') do |f|
+        f.puts(footer)
+    end
+
+    puts "Empty #{file_to_paste}"
 end
+
+def documentation_footer file_to_copy, file_to_paste
+
+    file_mtime = File.mtime(file_to_copy)
+
+    file_mtime_utc = file_mtime.utc.strftime("%Y/%m/%d %H:%M")
+
+    file_link = file_to_copy
+        .gsub("../LesliBuilder/engines/", "https://github.com/LesliTech/")
+        .gsub("/docs/", "/tree/master/docs/")
+
+    footer= <<~TEXT
+
+        <section class="lesli-markdown-info">
+            <p><a target="blank" href="#{file_link}"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+            <p><b>Last Update: </b>#{file_mtime_utc}</p>
+        </section>
+
+        <!-- This code was automatically generated -->
+        <!-- to update this docs please run rake docs:build -->
+
+    TEXT
+
+    # Append the new content to the file
+    File.open(file_to_paste, 'a') do |f|
+        f.puts(footer)
+    end
+
+    puts "Footer #{file_to_paste}"
+
+end 
 
 def documentation_replaces
     [
@@ -136,37 +166,4 @@ def documentation_replaces
             puts "Replaced #{file}"
         end 
     end
-end 
-
-
-
-def documentation_footer file_to_copy, file_to_paste
-
-    file_mtime = File.mtime(file_to_copy)
-
-    file_mtime_utc = file_mtime.utc.strftime("%Y/%m/%d %H:%M")
-
-    file_link = file_to_copy
-        .gsub("../LesliBuilder/engines/", "https://github.com/LesliTech/")
-        .gsub("/docs/", "/tree/master/docs/")
-
-    footer= <<~TEXT
-
-        <section class="lesli-documentation-footer">
-            <p><a target="blank" href="#{file_link}"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-            <p><b>Last Update: </b>#{file_mtime_utc}</p>
-        </section>
-
-        <!-- This code was automatically generated -->
-        <!-- to update this docs please run rake docs:build -->
-
-    TEXT
-
-    # Append the new content to the file
-    File.open(file_to_paste, 'a') do |f|
-        f.puts(footer)
-    end
-
-    puts "Footer #{file_to_paste}"
-
 end 

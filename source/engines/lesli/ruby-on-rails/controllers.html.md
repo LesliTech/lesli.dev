@@ -1,5 +1,10 @@
+<section class="lesli-parche-working">
+    <img alt="cat docs" src="/images/cats/dev.png" />
+    <p>Work in progress...</p>
+    <a href="/">Take me home</a>
+</section>
 
-<section class="lesli-documentation-footer">
+<section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/ruby-on-rails/controllers.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
     <p><b>Last Update: </b>2024/11/03 03:27</p>
 </section>

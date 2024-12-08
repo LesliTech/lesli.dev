@@ -1,3 +1,33 @@
 $primary: #0D52Bf;
 $hint-of-red: #f8f5f5;
 $navigation-height: 70px;
+
+:root {
+    --aside-width: 450px;
+}
+
+@include lesli-css-breakpoint-mobile() {
+    :root {
+        --aside-width: 0px;
+        --lesli-documentation-padding: 2rem 2rem;
+    }
+}
+
+@include lesli-css-breakpoint-tablet() {
+    :root {
+        --aside-width: 200px;
+        --lesli-documentation-padding: 2rem 5rem;
+    }
+}
+
+@include lesli-css-breakpoint-desktop() {
+    :root {
+        --aside-width: 350px;
+    }
+}
+
+@include lesli-css-breakpoint-widescreen() {
+    :root {
+        --aside-width: 450px;
+    }
+}

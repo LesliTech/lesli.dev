@@ -24,7 +24,7 @@ By utilizing Ruby on Rails as the underlying framework, the SaaS development fra
 ## SaaS Framework
 In the context of SaaS development, the framework leverages Ruby on Rails to create scalable and customizable software solutions that can be accessed by users over the internet. SaaS refers to a software delivery model where applications are centrally hosted and provided as a service to customers. This eliminates the need for users to install and maintain software locally, as they can access the application through a web browser.
 
-<section class="lesli-documentation-footer">
+<section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/about/lesli.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
     <p><b>Last Update: </b>2024/11/12 03:41</p>
 </section>

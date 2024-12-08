@@ -1,18 +1,18 @@
-@import "template/website";
+@import "../../lib/scss/website.scss";
 
 section.lesli-404 {
     @include lesli-css-flex-center('vertical');
     text-align: center;
-    min-height: 80vh;
+    min-height: calc(100vh - 160px);
 
     img {
         width:150px;
-        margin: 0 auto 2rem;
+        margin: 0 auto 0rem;
     }
 
     h3 {
+        margin: 1.6rem 0 1.2rem;
         font-size: 5rem;
-        margin-bottom: 2rem;
         color: lesli-css-color(slate);
     }
 
@@ -23,13 +23,13 @@ section.lesli-404 {
     }
 
     a {
-        color: var(--vp-c-brand-2);
-        border-color: var(--vp-c-brand-2);
-        border: 1px solid var(--vp-c-brand-1);
-        transition: border-color 0.25s, color 0.25s;
-        border-radius: 16px;
-        font-weight: 500;
-        font-size: 14px;
-        padding: 6px 16px;
+        color: lesli-css-color(lesli, primary);
+        border: 1px solid lesli-css-color(lesli, primary);
+        transition: all linear .3s;
+        border-radius: 1.1rem;
+        font-weight: bold;
+        font-size: .9rem;
+        padding: .4rem 1.2rem;
+        text-decoration: none;
     }
 }

@@ -32,4 +32,15 @@ nav.lesli-partial-navigation {
         font-weight: bold;
         color: lesli-css-color(black);
     }
+
+    li.lesli-partial-aside-open {
+        display: none;
+    }
+}
+
+
+@include lesli-css-breakpoint-mobile() {
+    nav.lesli-partial-navigation li.lesli-partial-aside-open {
+        display: block;
+    }
 }

@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 end
 ```
 
-<section class="lesli-documentation-footer">
+<section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliBell/tree/master/docs/installation.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
     <p><b>Last Update: </b>2024/09/29 22:53</p>
 </section>

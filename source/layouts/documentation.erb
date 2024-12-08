@@ -11,11 +11,11 @@
     <body>
         <%= partial("partials/lesli-aside") %>
         <main>
-            <%= partial("partials/lesli-navigation", :locals => { :logo => false }) %>
+            <%= partial("partials/lesli-navigation", :locals => { :logo => true }) %>
             <section class="lesli-documentation">
                 <%= yield %>
+                <%= partial("partials/lesli-footer") %> 
             </section>
-            <%= partial("partials/lesli-footer") %>
         </main>
         <%= partial("partials/lesli-icons") %>
         <%= partial("partials/lesli-analytics") %>
