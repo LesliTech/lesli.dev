@@ -48,10 +48,12 @@ body, html {
 
 // · 
 .lesli-title-colored {
+    line-height: 0.85;
     background: -webkit-linear-gradient(315deg, #0D52Bf 25%, #001F66 );
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    
 }
 
 .container {
