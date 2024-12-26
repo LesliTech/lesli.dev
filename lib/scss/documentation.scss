@@ -83,6 +83,13 @@ main {
             color: lesli-css-color(black);
         }
 
+        p, li {
+            //font-family: "Inter", "Roboto", "Arial", sans-serif; /* Modern and legible fonts */
+            font-size: 16px; /* Base font size */
+            line-height: 1.6; /* Comfortable line spacing */
+            color: #333; /* Neutral text color for good contrast */
+        }
+
         // · Markdown quotes as comments 
         blockquote {
             font-family: 'Georgia', serif;
@@ -175,6 +182,9 @@ main {
                 }
             }
         }
+
+        @include lesli-css-color-print("background-color", "lesli-background");
+
     }
 }
 
@@ -196,4 +206,3 @@ main {
         }
     }
 }
-

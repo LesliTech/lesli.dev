@@ -4,9 +4,9 @@
     "components": [{
         "icon": "ri-database-line",
         "name": "Database",
-        "text": "Scalable, extensible and easy to use PostgreSQL database",
+        "text": "Scalable, extensible and easy to use relational database",
         "items": [
-            "Relational design", 
+            "Postgres & SQLite", 
             "Versionable database",
             "Easy to extend",
             "Maintenable"
@@ -17,8 +17,9 @@
         "text": "Built-on top of Ruby and Ruby on Rails",
         "items": [
             "Fully extendable",
+            "Plug & play engines",
             "Modular architecture",
-            "Roles & privileges ready",
+            "Roles/privileges ready",
             "Built-in activity & tracking"
         ]
     },{

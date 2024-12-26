@@ -1,11 +1,20 @@
-# Using Docker to run Lesli
+# Explore Lesli in Action
 
-<br />
+## Online Demo
+
+Experience the full capabilities of the Lesli Platform with our live demo:  
+<u>[https://demo.lesli.dev](https://demo.lesli.dev)</u>
+
+> **Note:** This is a public demo instance. Please keep in mind:  
+> - LesliTech is not responsible for any data stored in this demo.  
+> - The demo environment is reset every 24 hours to maintain performance and integrity.  
+
+
+## Using Docker to run Lesli
 
 Clone the LesliDemo repository from Github
 
 ```shell
-# Inside your Rails root folder
 git clone https://github.com/LesliTech/lesli-docker-demo.git 
 ```
 
@@ -32,7 +41,7 @@ __password:__ Tardis2023$
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/about/demo.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2024/11/02</p>
+    <p><b>Last Update: </b>2024/12/26</p>
 </section>
 
 <!-- This code was automatically generated -->

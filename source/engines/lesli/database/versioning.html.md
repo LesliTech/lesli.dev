@@ -147,6 +147,7 @@ end
 > Note that the migration code is the same as the original migration that creates the table, with the small difference that this new migration increase the version number.
 
 So now of migration structure should look like:
+
 ```
 rails_engine/
     db/
@@ -159,7 +160,7 @@ rails_engine/
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/database/versioning.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2024/09/29</p>
+    <p><b>Last Update: </b>2024/12/26</p>
 </section>
 
 <!-- This code was automatically generated -->

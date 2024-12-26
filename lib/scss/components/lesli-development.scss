@@ -12,18 +12,13 @@ section.lesli-component-development {
         radial-gradient(lesli-css-color(silver) 2px, #ffffff 2px);
 
     .columns {
-        display: flex;
-        margin: 0 auto;
-        flex-wrap: wrap;
-        max-width: 1200px;
-        justify-content: center;
+        max-width: 1236px;
     }
 
     .column {
         margin-top: 0rem;
         flex-basis: 400px;
         max-width: 400px;
-        padding: 1rem;
     }
 
     .feature {

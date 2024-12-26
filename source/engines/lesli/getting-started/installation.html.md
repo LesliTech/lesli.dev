@@ -11,6 +11,7 @@ rails new LesliApp
 ```
 
 Navigate to the LesliApp folder
+
 ```shell
 cd LesliApp
 ```
@@ -21,12 +22,12 @@ Add Lesli gem to your Rails app
 bundle add lesli
 ```
 
-Add some Lesli modules to your Rails app
+
+Additional for this example we are going to install some other engines, so you can see the Lesli Platform working
 
 ```shell
-bundle add lesli_shield     # Authentication & Authorization
-bundle add lesli_security   # Role & Privilege management
-bundle add lesli_calendar   # Nice calendar to play with
+bundle add lesli_shield
+bundle add lesli_dashboard
 ```
 
 <br/>
@@ -34,9 +35,13 @@ bundle add lesli_calendar   # Nice calendar to play with
 ### Database 
 
 Open the database configuration file
-`LesliApp/config/database.yml`
+
+```
+LesliApp/config/database.yml
+```
 
 Add PostgreSQL as the main database (Currently Lesli is compatible only with PostgreSQL and SQLite)
+
 ```yml
 default: &default
   adapter: postgresql
@@ -101,7 +106,8 @@ Open the Rails routes file at: `LesliApp/config/routes.rb` and include the Lesli
 
 ```ruby
 Rails.application.routes.draw do
-    mount Lesli::Engine => "/lesli"
+    # mount lesli platform
+    Lesli::Routing.mount
 end
 ```
 
@@ -135,7 +141,7 @@ __password:__ Tardis2023$
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/getting-started/installation.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2024/12/08</p>
+    <p><b>Last Update: </b>2024/12/26</p>
 </section>
 
 <!-- This code was automatically generated -->

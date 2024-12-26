@@ -5,16 +5,8 @@
 section.lesli-component-corefeatures {
     padding: 8rem 0 6rem;
 
-    .columns {
-        display: flex;
-        margin: 0 auto;
-        flex-wrap: wrap;
-        max-width: 1200px;
-        justify-content: center;
-    }
-
     .column {
-        margin-top: 0rem;
+        margin-bottom: 1.6rem;
         flex-basis: 400px;
         max-width: 400px;
     }

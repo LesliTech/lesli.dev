@@ -69,12 +69,14 @@ module LesliHelpers
     end 
 
     def get_files_from folder 
-        Dir.glob(folder).sort.map do |files|
+        Dir.glob(folder)
+        .reject{ |file| File.basename(file) == "index.html.md.erb" }
+        .sort.map do |files|
             {
                 :name => File.basename(files).sub(".html.md", "").sub(".erb",""),
                 :url => files.sub("source", "").sub(".html.md", "").sub(".erb","")
             }
-        end 
+        end
     end
 
     def get_navigation_for_vue folder
