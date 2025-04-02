@@ -1,5 +1,5 @@
-# Lesli Modular Ecosystem
-Lesli core is meant to work with modules (Standard RoR engines) to extend the Lesli features and create custom software as required.
+# Lesli Ecosystem
+Lesli is meant to work with modules (Standard RoR engines) to extend the Lesli features and create custom software as required.
 
 There are several engines created and ready for production developed by the Lesli team, most of them are open source.
 
@@ -103,7 +103,7 @@ Currently we have planned the development of 45 modules, 11 modules are already 
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/about/ecosystem.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2024/12/26</p>
+    <p><b>Last Update: </b>2025/04/02</p>
 </section>
 
 <!-- This code was automatically generated -->
