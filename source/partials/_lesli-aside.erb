@@ -4,6 +4,11 @@ section = current_page.path.split("/").first
 project = current_page.path.split("/").second
 navigation = []
 
+if section == "start.html"
+    section = "engines"
+    project = "lesli"
+end
+
 navigation = get_navigation_for_engine(project) if section == "engines"
 navigation = get_navigation_for_vue(project) if section == "vue"
 %>
