@@ -77,7 +77,7 @@
         "desc": "Deep insights that help you drive your business's growth with well-timed decisions.",
         "engines": [{
             "name": "Audit",
-            "text": "System log analytics",
+            "text": "Activities & analytics",
             "desc": "Description about the module should be here",
             "feat": ["Track every action that occurs on the system"]
         }]
@@ -102,12 +102,12 @@
         "desc": "Protect your data with an advanced administration panel and detailed access configuration for your users, guests or third-party apps.",
         "engines": [{
             "name": "Shield",
-            "text": "Authentication & Authorization module",
+            "text": "Authentication Management",
             "desc": "Description about the module should be here",
             "feat": ["Manage your users", "Define permissions for the roles on the system"]
         }, {
             "name": "Security",
-            "text": "Users, Privileges & Access Management",
+            "text": "Authorization Management",
             "desc": "Description about the module should be here",
             "feat": ["Manage your users", "Define permissions for the roles on the system"]
         }]

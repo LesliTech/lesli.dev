@@ -61,11 +61,31 @@ main {
         max-width: 900px;
         padding: var(--lesli-documentation-padding);
 
+        .documentation-header {
+            text-align: center;
+            img {
+                width: 110px;
+            }
+            h1 {
+                margin: 1rem 0 2rem;
+                line-height: 1;
+            }
+        }
+
+        .documentation-statics {
+            text-align: center;
+            padding-top: 10px;
+            border-top: 1px solid lesli-css-color(silver, 700);
+            border-bottom: 1px solid lesli-css-color(silver, 700);
+            padding-bottom: 4px;
+        }
+
         // · Markdown main title
         h1{
             font-weight: bold;
             color: lesli-css-color(slate, 700);
             color: lesli-css-color(blue, 700);
+            color: lesli-css-color(blue, 900);
         }
 
         // · Markdown subtitles

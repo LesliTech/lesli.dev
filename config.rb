@@ -8,6 +8,7 @@ end
 
 # Layouts
 page "/", layout: "website"
+page "/notes/*", layout: "notes"
 page "/engines/*", layout: "documentation"
 page "/vue/*", layout: "documentation"
 page "/*.json", layout: false

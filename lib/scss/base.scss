@@ -56,46 +56,6 @@ body, html {
     
 }
 
-.container {
-    padding: 1rem;
-    @include lesli-css-container;
-}
-
-.has-text-centered {
-    text-align: center;
-}
-
-.px-4 {
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
-
-.px-5 {
-    padding-left: 2rem;
-    padding-right: 2rem;
-}
-
-.py-6 {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-} 
-
-.br-2 {
-    border-radius: 6px;
-}
-
-.has-text-white {
-    color: white;
-}
-
-.has-text-black {
-    color: lesli-css-color(black);
-}
-
-.columns {
-    @include lesli-css-flex-columns($gap:6px)
-}
-
 /* Base Table Style */
 table {
     width: 100%;
@@ -143,6 +103,31 @@ table tbody tr:hover {
     }
 }
 
+.container {
+    padding: 1rem;
+    @include lesli-css-container;
+}
+
+.columns {
+    @include lesli-css-flex-columns($gap:6px)
+}
+
+.has-text-centered {
+    text-align: center !important;
+}
+
+.br-2 {
+    border-radius: 6px;
+}
+
+.has-text-white {
+    color: white;
+}
+
+.has-text-black {
+    color: lesli-css-color(black);
+}
+
 .pt-4 {
     padding-top: 1.5rem; /* 24px */
 }
@@ -155,11 +140,31 @@ table tbody tr:hover {
     padding-bottom: 2rem; /* 32px */
 }
 
+.px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.px-5 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.py-6 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+} 
+
 .mb-2 {
     margin-bottom: 0.5rem; /* 8px */
-  }
+}
+
 .mb-4 {
     margin-bottom: 1.5rem; /* 24px */
+}
+
+.m-auto {
+    margin: auto;
 }
 
 .has-background-grey-lighter {
@@ -168,4 +173,13 @@ table tbody tr:hover {
 
 .has-background-grey-darker {
     background-color: #363636; /* Dark grey */
+}
+
+.display-block {
+    display: block;
+}
+
+.is-full {
+    flex: none !important;
+    width: 100%;
 }

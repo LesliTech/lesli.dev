@@ -38,6 +38,7 @@ module LesliHelpers
     end
 
     def lesli_stylesheet_for(current_page)
+        return "notes" if current_page.path.start_with?("notes")
         return "documentation" if current_page.path.start_with?("vue")
         return "documentation" if current_page.path =~ %r{^engines/.+}
         return "documentation" if current_page.path.start_with?("documentation")

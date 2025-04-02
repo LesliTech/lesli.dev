@@ -1,0 +1,23 @@
+
+@import "../../lib/scss/website.scss";
+
+
+header {
+    display: flex;
+    min-height: 400px;
+    background: darken(lesli-css-color(silver, 100), 2);
+
+    h1 {
+        background-color: transparent;
+    }
+}
+
+
+section.container {
+    padding: 4rem 0;
+    max-width: 950px;
+    text-align: justify;
+    line-height: 200%;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}

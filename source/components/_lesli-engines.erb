@@ -1,7 +1,7 @@
 
 
 
-<% engines = ["admin", "calendar", "bell", "audit", "support", "shield", "security", "babel"] %>
+<% engines = ["admin", "calendar", "bell", "audit", "support", "shield", "babel"] %>
 
 <% collections = data.send(I18n.locale.to_sym).component_collections %>
 
@@ -16,6 +16,13 @@
             </div>
         <% end %>
         <div class="columns">
+            <div class="column is-full2">
+                <a href="/engines/lesli/about/">
+                    <%= lesli_svg("engine-lesli") %>
+                    <h3>Lesli</h3>
+                    <p>Development Framework.</p>
+                </a>
+            </div>
             <% collections[:collection].each do |collection| %>
                 <% collection[:engines].each do |engine| %>
                     <% if engines.include?(engine[:name].downcase) %>
