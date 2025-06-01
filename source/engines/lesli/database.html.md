@@ -17,7 +17,7 @@
     00.00.11.01. lesli_accounts (reference only)
     00.00.11.02. lesli_account_details
     00.00.11.03. lesli_account_settings
-    00.00.11.04. lesli_account_journals
+    00.00.11.04. lesli_account_activities
     00.00.11.05. lesli_account_locations
     00.00.11.06. lesli_account_currencies
 
@@ -28,11 +28,12 @@
     00.00.13.01. lesli_user (reference only)
     00.00.13.02. lesli_user_roles
     00.00.13.03. lesli_user_sessions
+    00.00.13.03. lesli_user_activities
 ```
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/database.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2025/03/23</p>
+    <p><b>Last Update: </b>2025/04/22</p>
 </section>
 
 <!-- This code was automatically generated -->
