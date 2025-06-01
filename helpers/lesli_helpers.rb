@@ -40,7 +40,6 @@ module LesliHelpers
     def lesli_stylesheet_for(current_page)
         return "notes" if current_page.path.start_with?("notes")
         return "documentation" if current_page.path =~ %r{^engines/.+}
-        return "documentation" if current_page.path.start_with?("lesli")
         return "documentation" if current_page.path.start_with?("documentation")
         return lesli_current_page(current_page)
     end      
@@ -134,8 +133,9 @@ module LesliHelpers
             name: "About",
             items: [
                 { name: "Lesli",    url: "/engines/lesli/about/lesli" },
-                { name: "Ecosystem",url: "/engines/lesli/about/ecosystem" },
-                { name: "Demo",     url: "/engines/lesli/about/demo" }
+                { name: "Brand",     url: "/engines/lesli/about/brand" },
+                { name: "Demo",     url: "/engines/lesli/about/demo" },
+                { name: "Ecosystem",url: "/engines/lesli/about/ecosystem" }
             ]
         }, {
             name: "Getting started",

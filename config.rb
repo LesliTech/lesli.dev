@@ -10,7 +10,6 @@ end
 page "/", layout: "website"
 page "/notes/*", layout: "notes"
 page "/engines/*", layout: "documentation"
-page "/lesli/*", layout: "documentation"
 page "/*.json", layout: false
 page "/*.xml", layout: false
 page "/*.txt", layout: false
