@@ -9,6 +9,11 @@ if section == "start.html"
     project = "lesli"
 end
 
+if section == "lesli"
+    section = "engines"
+    project = "lesli"
+end
+
 navigation = get_navigation_for_engine(project) if section == "engines"
 navigation = get_navigation_for_vue(project) if section == "vue"
 %>

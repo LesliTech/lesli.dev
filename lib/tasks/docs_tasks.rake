@@ -12,6 +12,7 @@ namespace :docs do
         images
         documentation
         documentation_replaces
+        documentation_moves
     end
 end
 
@@ -167,3 +168,7 @@ def documentation_replaces
         end 
     end
 end 
+
+def documentation_moves
+    FileUtils.mv( "source/engines/lesli", "source/lesli")
+end

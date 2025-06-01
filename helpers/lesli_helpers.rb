@@ -39,8 +39,8 @@ module LesliHelpers
 
     def lesli_stylesheet_for(current_page)
         return "notes" if current_page.path.start_with?("notes")
-        return "documentation" if current_page.path.start_with?("vue")
         return "documentation" if current_page.path =~ %r{^engines/.+}
+        return "documentation" if current_page.path.start_with?("lesli")
         return "documentation" if current_page.path.start_with?("documentation")
         return lesli_current_page(current_page)
     end      
@@ -153,16 +153,16 @@ module LesliHelpers
             ]
         }, {
             name: "Ruby on Rails",
-            items: get_files_from(File.join("source", "engines", "lesli", "ruby-on-rails", "*"))
+            items: get_files_from(File.join("source", "lesli", "ruby-on-rails", "*"))
         }, {
             name: "Theming",
-            items: get_files_from(File.join("source", "engines", "lesli", "theming", "*"))
+            items: get_files_from(File.join("source", "lesli", "theming", "*"))
         }, {
             name: "Testing",
-            items: get_files_from(File.join("source", "engines", "lesli", "testing", "*"))
+            items: get_files_from(File.join("source", "lesli", "testing", "*"))
         }, {
             name: "Contributing",
-            items: get_files_from(File.join("source", "engines", "lesli", "contributing", "*"))
+            items: get_files_from(File.join("source", "lesli", "contributing", "*"))
         }]
     end
 end
