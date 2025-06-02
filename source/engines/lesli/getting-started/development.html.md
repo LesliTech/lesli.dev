@@ -13,6 +13,9 @@ Main Rails app/
  ├── config/  
  ├── db/  
  ├── engines/ -> Lesli goes here!   
+ │   ├── Lesli
+ │   ├── LesliEngines
+ │   └── LesliEngines
  ├── lib/  
  ├── log/  
  ├── public/  
@@ -36,23 +39,23 @@ gem "lesli", path: "engines/Lesli"
 
 Install the gems needed by Lesli to work
 
-```shell
+```bash
 bundle install
 ```
 
-Lesli include a Rake task to start the database:
+Lesli include a Rake task to initialize the database for demo and development purposes, 
+this task is going migrate, build privileges (if LesliSecurity is installed), 
+translations (if LesliBabel is installed), seed the database with demo users 
+and demo data for every installed engine and at the end print a pretty message 
+with the status of the application.
 
-```shell
-# Lesli include a Rake task to initialize the database for demo and development purposes, 
-# this task is going migrate, build privileges (if LesliSecurity is installed), 
-# translations (if LesliBabel is installed), seed the database with demo users 
-# and demo data for every installed engine and at the end print a pretty message 
-# with the status of the application.
+```bash
 rake lesli:db:dev
+```
 
-# or
+You can restart your database to start with a new fresh database
 
-# you can restart your database to start with a new fresh database
+```bash
 rake lesli:db:restart
 ```
 
@@ -85,7 +88,7 @@ __password:__ Tardis2024$
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/getting-started/development.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2025/04/02</p>
+    <p><b>Last Update: </b>2025/06/01</p>
 </section>
 
 <!-- This code was automatically generated -->

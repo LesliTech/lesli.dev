@@ -153,16 +153,16 @@ module LesliHelpers
             ]
         }, {
             name: "Ruby on Rails",
-            items: get_files_from(File.join("source", "lesli", "ruby-on-rails", "*"))
+            items: get_files_from(File.join("source", "engines", "lesli", "ruby-on-rails", "*"))
         }, {
             name: "Theming",
-            items: get_files_from(File.join("source", "lesli", "theming", "*"))
+            items: get_files_from(File.join("source", "engines", "lesli", "theming", "*"))
         }, {
             name: "Testing",
-            items: get_files_from(File.join("source", "lesli", "testing", "*"))
+            items: get_files_from(File.join("source", "engines", "lesli", "testing", "*"))
         }, {
             name: "Contributing",
-            items: get_files_from(File.join("source", "lesli", "contributing", "*"))
+            items: get_files_from(File.join("source", "engines", "lesli", "contributing", "*"))
         }]
     end
 end
