@@ -24,7 +24,7 @@ Every repository should contain dedicated branches for every released version, f
 This branch must be created manually just before a Git tag is created for #major or #minor version.
 
 <section class="lesli-markdown-info">
-    <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/contributing/git-flow.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/contributing/github.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
     <p><b>Last Update: </b>2024/09/29</p>
 </section>
 
