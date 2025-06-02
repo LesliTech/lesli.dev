@@ -102,7 +102,7 @@ Lesli::Courier.new(:lesli_test, []).from(:ticket_service).call(:non_existent_met
 > Note: In the event of an error, Lesli::Courier will always return false instead of raising an exception.
 
 <section class="lesli-markdown-info">
-    <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/ruby-on-rails/courier.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/backend/courier.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
     <p><b>Last Update: </b>2024/12/26</p>
 </section>
 

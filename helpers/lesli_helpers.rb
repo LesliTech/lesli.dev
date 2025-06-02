@@ -152,14 +152,23 @@ module LesliHelpers
                 { name: "Versioning", url: "/engines/lesli/database/versioning" },
             ]
         }, {
-            name: "Ruby on Rails",
-            items: get_files_from(File.join("source", "engines", "lesli", "ruby-on-rails", "*"))
+            name: "Backend",
+            items: get_files_from(File.join("source", "engines", "lesli", "backend", "*"))
+        }, {
+            name: "Frontend",
+            items: get_files_from(File.join("source", "engines", "lesli", "frontend", "*"))
         }, {
             name: "Theming",
             items: get_files_from(File.join("source", "engines", "lesli", "theming", "*"))
         }, {
             name: "Testing",
             items: get_files_from(File.join("source", "engines", "lesli", "testing", "*"))
+        }, {
+            name: "Security",
+            items: get_files_from(File.join("source", "engines", "lesli", "security", "*"))
+        }, {
+            name: "Deployment",
+            items: get_files_from(File.join("source", "engines", "lesli", "deployment", "*"))
         }, {
             name: "Contributing",
             items: get_files_from(File.join("source", "engines", "lesli", "contributing", "*"))

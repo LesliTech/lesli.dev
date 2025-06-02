@@ -85,7 +85,7 @@ end
 > You can edit this at runtime, the initializer file is needed only to setup Lesli for the very first time.
 
 <section class="lesli-markdown-info">
-    <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/ruby-on-rails/initializer.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/backend/initializer.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
     <p><b>Last Update: </b>2024/09/29</p>
 </section>
 

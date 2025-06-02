@@ -5,7 +5,7 @@
 </section>
 
 <section class="lesli-markdown-info">
-    <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/ruby-on-rails/controllers.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/backend/controllers.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
     <p><b>Last Update: </b>2024/11/03</p>
 </section>
 
