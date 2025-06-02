@@ -14,7 +14,8 @@ section.lesli-component-description {
 
     .column {
 
-        div {
+        a {
+            display: block;
             border-radius: 6px;
             border: 2px solid #000;
             padding: 2rem;
