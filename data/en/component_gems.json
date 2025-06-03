@@ -1,0 +1,10 @@
+{
+    "title": "We have a gem for what you need.",
+    "text": "Lesli provides carefully designed and developed modules ready for integration, extension, or immediate use in your daily work.",
+    "gems": [{
+            "name": "LesliView",
+            "text": "Web Elements & Components",
+            "desc": "Description about the module should be here",
+            "feat": ["Easy access to employee information", "Keep track of your vacation", "Requests and grants extraordinary exit permits"]
+    }]
+}

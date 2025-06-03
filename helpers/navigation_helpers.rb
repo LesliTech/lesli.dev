@@ -57,7 +57,7 @@ module NavigationHelpers
         .reject{ |file| File.basename(file) == "index.html.md.erb" }
         .sort.map do |files|
             {
-                :name => File.basename(files).sub(".html.md", "").sub(".erb",""),
+                :name => File.basename(files).sub(".html.md", "").sub(".erb","").sub("-"," "),
                 :url => files.sub("source", "").sub(".html.md", "").sub(".erb","")
             }
         end
@@ -66,56 +66,38 @@ module NavigationHelpers
         return files
     end
 
-    def get_navigation_for_vue folder
+    def get_navigation_for section, project 
+        title = "Engine #{project}" if section == "engines"
+        title = "Gem #{project}" if section == "gems"
 
-        composables = get_files_from(File.join("source", "vue", "composables", "*.md"))
-        components = get_files_from(File.join("source", "vue", "components", "*.md"))
-        elements = get_files_from(File.join("source", "vue", "elements", "*.md"))
+        standard_files = [
+            "about", 
+            "installation", 
+            "translations", 
+            "dashboards", 
+            "database", 
+            "tasks"
+        ]
 
-        [{
-            name: "Composables",
-            url: "vue/composables",
-            items: folder == "composables" ? composables : []
-        }, {
-            name: "Components",
-            url: "vue/components",
-            items: folder == "components" ? components : []
-        }, {
-            name: "Elements",
-            url: "vue/elements",
-            items: folder == "elements" ? elements : []
-        }]
-    end
-
-    def get_navigation_for_engine engine 
-        return get_navigation_for_engine_lesli if engine == "lesli"
+        return get_navigation_for_lesli if project == "lesli"
         return [{
-            name: "Engine #{engine}",
-            items: [
-                { name: "About",        url: "/engines/#{engine}" },
-                { name: "Installation", url: "/engines/#{engine}/installation" },
-                { name: "Translations", url: "/engines/#{engine}/translations" },
-                { name: "Dashboards",   url: "/engines/#{engine}/dashboards" },
-                { name: "Database",     url: "/engines/#{engine}/database" },
-                { name: "Tasks",        url: "/engines/#{engine}/tasks" }
-            ]
+            name: title,
+            items: get_files_from(
+                File.join("source", section, project, "*"),
+                order: standard_files
+            ).reject do |item|
+                !standard_files.include?(item[:name])
+            end
         }, {
             name: "",
-            items: get_files_from("source/engines/#{engine}/*.md").reject do |item|
-                [
-                    "about", 
-                    "installation", 
-                    "translations", 
-                    "dashboards", 
-                    "database", 
-                    "tasks"
-                ].include?(item[:name])
+            items: get_files_from(File.join("source", section, project, "*")).reject do |item|
+                standard_files.include?(item[:name])
           end
            
         }]
     end 
 
-    def get_navigation_for_engine_lesli 
+    def get_navigation_for_lesli 
         [{
             name: "About",
             items: get_files_from(

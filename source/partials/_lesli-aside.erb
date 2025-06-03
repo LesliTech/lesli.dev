@@ -14,8 +14,7 @@ if section == "lesli"
     project = "lesli"
 end
 
-navigation = get_navigation_for_engine(project) if section == "engines"
-navigation = get_navigation_for_vue(project) if section == "vue"
+navigation = get_navigation_for(section, project) 
 %>
 
 <aside id="lesli-partial-aside" class="lesli-partial-aside">

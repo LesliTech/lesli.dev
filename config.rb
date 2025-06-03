@@ -8,8 +8,9 @@ end
 
 # Layouts
 page "/", layout: "website"
-page "/notes/*", layout: "notes"
+page "/gems/*", layout: "documentation"
 page "/engines/*", layout: "documentation"
+page "/notes/*", layout: "notes"
 page "/*.json", layout: false
 page "/*.xml", layout: false
 page "/*.txt", layout: false

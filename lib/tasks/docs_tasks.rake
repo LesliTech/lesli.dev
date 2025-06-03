@@ -39,6 +39,7 @@ def images
     end 
 
     [
+        "../LesliBuilder/gems/*/docs/images/*",
         "../LesliBuilder/engines/*/docs/images/*",
         "../LesliBuilder/engines/*/app/assets/images/*/*.svg"
     ].each do |source_folder|
@@ -146,25 +147,27 @@ def documentation_footer file_to_copy, file_to_paste
 end 
 
 def documentation_replaces
-    [
-        "source/engines/*/*.html.md*",
-        "source/engines/*/*/*.html.md*"
-    ].each do |folder|
-        Dir.glob(folder) do |file|
+    ["engines"].each do |section|
+        [
+            "source/#{section}/*/*.html.md*",
+            "source/#{section}/*/*/*.html.md*"
+        ].each do |folder|
+            Dir.glob(folder) do |file|
 
-            engine = file.gsub("source/engines/", "").split("/").first
+                project = file.gsub("source/#{section}/", "").split("/").first
 
-            content = File.read(file)
+                content = File.read(file)
 
-            content.gsub!('src="../app/assets/images/lesli/', 'src="/images/engines/lesli/')
-            content.gsub!('src="../app/assets/images/lesli_', 'src="/images/engines/')
+                content.gsub!('src="../app/assets/images/lesli/', 'src="/images/engines/lesli/')
+                content.gsub!('src="../app/assets/images/lesli_', 'src="/images/engines/')
 
-            content.gsub!('src="../images/', "src=\"/images/engines/#{engine}/")
-            content.gsub!('src="./images/', "src=\"/images/engines/#{engine}/")
+                content.gsub!('src="../images/', "src=\"/images/#{section}/#{project}/")
+                content.gsub!('src="./images/', "src=\"/images/#{section}/#{project}/")
 
-            File.write(file, content)
+                File.write(file, content)
 
-            puts "Replaced #{file}"
-        end 
+                puts "Replaced #{file}"
+            end 
+        end
     end
 end 

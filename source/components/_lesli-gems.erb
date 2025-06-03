@@ -1,0 +1,26 @@
+
+<% gems = data.send(I18n.locale.to_sym).component_gems %>
+
+<% has_header = defined?(header) ? header : true %>
+
+<section class="lesli-component-gems">
+    <div class="container">
+        <% if has_header %>
+            <div class="component-header">
+                <h2><%= gems[:title] %></h2>
+                <p><%= gems[:text] %></p>
+            </div>
+        <% end %>
+        <div class="columns">
+            <% gems[:gems].each do |gema| %>
+                <div class="column">
+                    <a href="/gems/<%= gema[:name].downcase.sub('lesli','') %>/">
+                        <%= lesli_svg("gem-#{gema[:name].downcase.sub('lesli','')}") %>
+                        <h3><%= gema[:name] %></h3>
+                        <p><%= gema[:text] %></p>
+                    </a>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</section>
