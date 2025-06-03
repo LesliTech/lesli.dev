@@ -6,6 +6,9 @@ namespace :docs do
     desc "build"
     task :build do
 
+        FileUtils.rm_rf("source/gems")
+        FileUtils.rm_rf("source/images/gems")
+
         FileUtils.rm_rf("source/engines")
         FileUtils.rm_rf("source/images/engines")
 
@@ -23,10 +26,10 @@ end
 
 def images
 
-    def get_file_to_paste file
+    def get_file_to_paste section, file
         engine_name = get_engine_name(file)
         engine_path = file
-        engine_path = engine_path.gsub("../LesliBuilder/engines", "")
+        engine_path = engine_path.gsub("../LesliBuilder/#{section}", "")
         engine_path = engine_path.gsub("/docs", "")
         engine_path = engine_path.gsub("/images", "")
         engine_path = engine_path.gsub("Lesli", "") if engine_name != "lesli"
@@ -35,17 +38,31 @@ def images
         engine_path = engine_path.gsub("app/assets/", "")
         engine_path = engine_path.gsub("lesli_#{engine_name}/", "")
 
-        File.join("source", "images", "engines", engine_path.downcase)
+        File.join("source", "images", section, engine_path.downcase)
     end 
 
     [
-        "../LesliBuilder/gems/*/docs/images/*",
         "../LesliBuilder/engines/*/docs/images/*",
         "../LesliBuilder/engines/*/app/assets/images/*/*.svg"
     ].each do |source_folder|
         Dir.glob(source_folder).each do |file_to_copy|
 
-            file_to_paste = get_file_to_paste(file_to_copy)
+            file_to_paste = get_file_to_paste("engines", file_to_copy)
+
+            FileUtils.mkdir_p(File.dirname(file_to_paste)) unless File.exist?(File.dirname(file_to_paste))
+
+            # Copy file to the destination directory, preserving its name
+            FileUtils.cp(file_to_copy, file_to_paste)
+            puts "Image #{file_to_paste}"
+        end
+    end
+
+    [
+        "../LesliBuilder/gems/*/docs/images/*"
+    ].each do |source_folder|
+        Dir.glob(source_folder).each do |file_to_copy|
+
+            file_to_paste = get_file_to_paste("gems", file_to_copy)
 
             FileUtils.mkdir_p(File.dirname(file_to_paste)) unless File.exist?(File.dirname(file_to_paste))
 
@@ -147,7 +164,7 @@ def documentation_footer file_to_copy, file_to_paste
 end 
 
 def documentation_replaces
-    ["engines"].each do |section|
+    ["engines", "gems"].each do |section|
         [
             "source/#{section}/*/*.html.md*",
             "source/#{section}/*/*/*.html.md*"
@@ -158,11 +175,13 @@ def documentation_replaces
 
                 content = File.read(file)
 
-                content.gsub!('src="../app/assets/images/lesli/', 'src="/images/engines/lesli/')
-                content.gsub!('src="../app/assets/images/lesli_', 'src="/images/engines/')
+                content.gsub!('src="../app/assets/images/lesli/', "src=\"/images/#{section}/lesli/")
+                content.gsub!('src="../app/assets/images/lesli_', "src=\"/images/#{section}/")
 
                 content.gsub!('src="../images/', "src=\"/images/#{section}/#{project}/")
                 content.gsub!('src="./images/', "src=\"/images/#{section}/#{project}/")
+
+                content.gsub!('src="./docs/images/', "src=\"/images/#{section}/#{project}/")
 
                 File.write(file, content)
 
