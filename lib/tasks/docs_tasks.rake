@@ -68,7 +68,8 @@ def documentation
 
     source_paths = [
         "../LesliBuilder/engines/*/docs/*/*.md",
-        "../LesliBuilder/engines/*/docs/*.md"
+        "../LesliBuilder/engines/*/docs/*.md",
+        "../LesliBuilder/gems/*/docs/*.md"
     ].each do |source_path|
         Dir.glob(source_path) do |file_to_copy|
 
