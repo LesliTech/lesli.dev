@@ -112,6 +112,10 @@ table tbody tr:hover {
     @include lesli-css-flex-columns($gap:6px)
 }
 
+.has-text-weight-extrabold {
+    font-weight: 900;
+}
+
 .has-text-centered {
     text-align: center !important;
 }
@@ -170,6 +174,22 @@ table tbody tr:hover {
 
 .m-auto {
     margin: auto;
+}
+
+.has-background-info {
+    background-color: hsl(204, 86%, 53%);
+}
+
+.has-background-success {
+    background-color: hsl(141, 71%, 48%);
+}
+
+.has-background-warning {
+    background-color: hsl(48, 100%, 67%);
+}
+
+.has-background-danger {
+    background-color: hsl(348, 100%, 61%);
 }
 
 .has-background-grey-lighter {
