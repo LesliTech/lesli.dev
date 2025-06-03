@@ -32,6 +32,10 @@ Building a better future, one line of code at a time.
 
 module NavigationHelpers
 
+    def titleize(string)
+        string.split(" ").map {|word| word.capitalize}.join(" ")
+    end
+
     def sort_files_by(array, desired_order)
         # Create a hash mapping each name in the desired_order to its index
         # e.g., { "Versioning" => 0, "Environment" => 1 }
@@ -67,8 +71,6 @@ module NavigationHelpers
     end
 
     def get_navigation_for section, project 
-        title = "Engine #{project}" if section == "engines"
-        title = "Gem #{project}" if section == "gems"
 
         standard_files = [
             "about", 
@@ -81,7 +83,7 @@ module NavigationHelpers
 
         return get_navigation_for_lesli if project == "lesli"
         return [{
-            name: title,
+            name: titleize(project),
             items: get_files_from(
                 File.join("source", section, project, "*"),
                 order: standard_files
