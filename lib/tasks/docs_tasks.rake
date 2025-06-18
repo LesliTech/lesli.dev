@@ -33,7 +33,6 @@ Building a better future, one line of code at a time.
 require "fileutils"
 
 namespace :docs do
-    desc "build"
     task :build do
 
         # delete the generated docs & assets for gems
@@ -61,9 +60,12 @@ def images
     def get_file_to_paste section, file
         engine_name = get_engine_name(file)
         engine_path = file
+
+        # replace some source paths
         engine_path = engine_path.gsub("../LesliBuilder/#{section}", "")
         engine_path = engine_path.gsub("/docs", "")
         engine_path = engine_path.gsub("/images", "")
+        #engine_path = engine_path.gsub("/lesli-css", "/css") # used only with tools
         engine_path = engine_path.gsub("Lesli", "") if engine_name != "lesli"
 
         # fix path for images from rails assets folder
@@ -112,6 +114,7 @@ def documentation
         engine_path = file
         engine_path = engine_path.gsub("../LesliBuilder/", "")
         engine_path = engine_path.gsub("/docs", "")
+        engine_path = engine_path.gsub("/lesli-", "/")
         engine_path = engine_path.gsub("Lesli", "") if engine_name != "lesli"
         File.join("source", engine_path.downcase)
     end 

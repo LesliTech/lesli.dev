@@ -103,14 +103,14 @@
     <div class="br-2 has-text-centered py-4 has-text-white has-background-info">
         Information
     </div>
-    <div class="br-2 has-text-centered py-4 has-text-white has-background-success">
+    <div class="br-2 has-text-centered py-4 has-text-black has-background-success">
         Success
     </div>
     <div class="br-2 has-text-centered py-4 has-text-black has-background-warning">
         Warning
     </div>
     <div class="br-2 has-text-centered py-4 has-text-white has-background-danger">
-        Warning
+        Danger
     </div>
 </div>
 
@@ -386,7 +386,7 @@ We use Domine for headings and Roboto for body text.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/about/brand.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2025/06/03</p>
+    <p><b>Last Update: </b>2025/06/10</p>
 </section>
 
 <!-- This code was automatically generated -->

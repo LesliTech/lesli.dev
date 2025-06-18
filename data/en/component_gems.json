@@ -1,9 +1,24 @@
 {
-    "title": "We have a gem for what you need.",
-    "text": "Lesli provides carefully designed and developed modules ready for integration, extension, or immediate use in your daily work.",
+    "title":"Ruby gems, built with purpose.",
+    "text": "Lesli gems power the framework behind the scenes. Each gem is crafted to be reliable, secure, and composable.",
     "gems": [{
+            "name": "LesliSystem",
+            "text": "Core System Utilities",
+            "desc": "Description about the module should be here",
+            "feat": ["Easy access to employee information", "Keep track of your vacation", "Requests and grants extraordinary exit permits"]
+    }, {
             "name": "LesliView",
             "text": "Web Elements & Components",
+            "desc": "Description about the module should be here",
+            "feat": ["Easy access to employee information", "Keep track of your vacation", "Requests and grants extraordinary exit permits"]
+    }, {
+            "name": "LesliDate",
+            "text": "Standard Datetime Formatter.",
+            "desc": "Description about the module should be here",
+            "feat": ["Easy access to employee information", "Keep track of your vacation", "Requests and grants extraordinary exit permits"]
+    }, {
+            "name": "LesliAssets",
+            "text": "Shared Frontend Assets",
             "desc": "Description about the module should be here",
             "feat": ["Easy access to employee information", "Keep track of your vacation", "Requests and grants extraordinary exit permits"]
     }]
