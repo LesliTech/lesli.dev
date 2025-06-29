@@ -2,7 +2,7 @@
 
 Lesli
 
-Copyright (c) 2024, Lesli Technologies, S. A.
+Copyright (c) 2025, Lesli Technologies, S. A.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -122,7 +122,9 @@ def documentation
     source_paths = [
         "../LesliBuilder/engines/*/docs/*/*.md",
         "../LesliBuilder/engines/*/docs/*.md",
-        "../LesliBuilder/gems/*/docs/*.md"
+        "../LesliBuilder/engines/*/readme.md",
+        "../LesliBuilder/gems/*/docs/*.md",
+        "../LesliBuilder/gems/*/readme.md",
     ].each do |source_path|
         Dir.glob(source_path) do |file_to_copy|
 
@@ -133,6 +135,10 @@ def documentation
 
             if file_to_paste.end_with?("lesli.dev.html.md")
                 file_to_paste = file_to_paste.gsub("lesli.dev.html.md", "index.html.md.erb")
+            end  
+
+            if file_to_paste.end_with?("readme.html.md")
+                file_to_paste = file_to_paste.gsub("readme.html.md", "index.html.md.erb")
             end  
 
             # Copy file to the destination directory, preserving its name
@@ -217,6 +223,7 @@ def documentation_replaces
                 content.gsub!('src="./images/', "src=\"/images/#{section}/#{project}/")
 
                 content.gsub!('src="./docs/images/', "src=\"/images/#{section}/#{project}/")
+                content.gsub!('src="../docs/images/', "src=\"/images/#{section}/#{project}/")
 
                 File.write(file, content)
 
