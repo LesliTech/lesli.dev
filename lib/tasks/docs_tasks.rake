@@ -123,8 +123,10 @@ def documentation
         "../LesliBuilder/engines/*/docs/*/*.md",
         "../LesliBuilder/engines/*/docs/*.md",
         "../LesliBuilder/engines/*/readme.md",
-        "../LesliBuilder/gems/*/docs/*.md",
-        "../LesliBuilder/gems/*/readme.md",
+
+        "../LesliBuilder/gems/LesliView/readme.md",
+        "../LesliBuilder/gems/LesliView/docs/*/*.md",
+        "../LesliBuilder/gems/LesliView/docs/navigation"        
     ].each do |source_path|
         Dir.glob(source_path) do |file_to_copy|
 
@@ -138,7 +140,11 @@ def documentation
             end  
 
             if file_to_paste.end_with?("readme.html.md")
-                file_to_paste = file_to_paste.gsub("readme.html.md", "index.html.md.erb")
+                file_to_paste = file_to_paste.gsub("readme.html.md", "index.html.md")
+            end  
+
+            if file_to_paste.end_with?("navigation")
+                file_to_paste = file_to_paste.gsub("navigation", "_navigation.erb")
             end  
 
             # Copy file to the destination directory, preserving its name
@@ -194,6 +200,8 @@ def documentation_footer file_to_copy, file_to_paste
         <!-- to update this docs please run rake docs:build -->
 
     TEXT
+
+    return if file_to_paste.end_with?("_navigation.erb")
 
     # Append the new content to the file
     File.open(file_to_paste, 'a') do |f|

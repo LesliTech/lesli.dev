@@ -59,6 +59,7 @@ module NavigationHelpers
     def get_files_from folder, order:nil
         files = Dir.glob(folder)
         .reject{ |file| File.basename(file) == "index.html.md.erb" }
+        .reject{ |file| File.basename(file) == "index.html.md" }
         .sort.map do |files|
             {
                 :name => File.basename(files).sub(".html.md", "").sub(".erb","").sub("-"," "),
@@ -71,7 +72,6 @@ module NavigationHelpers
     end
 
     def get_navigation_for section, project 
-
         standard_files = [
             "about", 
             "installation", 
@@ -98,6 +98,24 @@ module NavigationHelpers
            
         }]
     end 
+
+    def safe_join(array, sep = "")
+        array.join(sep)
+    end
+
+    def navigation_for(namespace, project, folder)
+        files = get_files_from(File.join("source", namespace, project, folder, "*"))
+
+        links = files.map do |file|
+            content_tag(:li) do
+                content_tag(:a, file[:name], href: file[:url])
+            end
+        end
+
+        content_tag(:ul) do
+            content_tag(:li, content_tag(:h3, titleize(folder))) + safe_join(links).html_safe
+        end
+    end
 
     def get_navigation_for_lesli 
         [{
