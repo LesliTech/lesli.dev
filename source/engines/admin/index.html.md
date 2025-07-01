@@ -1,38 +1,48 @@
-
 <div align="center">
-    <img width="100" alt="LesliDate logo" src="/images/gems/date/date-logo.svg" />
-    <h3 align="center">Standard Datetime Formatter for The Lesli Framework.</h3>
+	<img width="90" alt="Lesli logo" src="./app/assets/images/lesli_admin/admin-logo.svg" />
+    <h3 align="center">Administration area for the Lesli Framework.</h3>
 </div>
 
-<br />
+<hr/>
+<div align="center">
+    <a target="blank" href="https://rubygems.org/gems/lesli_admin">
+        <img src="https://badge.fury.io/rb/lesli_admin.svg" alt="Gem Version" height="24">
+    </a>
+</div>
 <hr/>
 
-<p align="center" class="is-flex is-justify-content-center">
-    <a target="blank" href="https://rubygems.org/gems/lesli">
-        <img height="22" alt="Gem Version" src="https://badge.fury.io/rb/lesli.svg"/>
-    </a>
-    <a class="mx-2" href="https://codecov.io/github/LesliTech/Lesli"> 
-        <img height="22" src="https://codecov.io/github/LesliTech/Lesli/graph/badge.svg?token=2O12NENK5Y"/> 
-    </a>
-    <a href="https://codecov.io/github/LesliTech/LesliBabel"> 
-        <img height="22" src="https://sonarcloud.io/api/project_badges/measure?project=LesliTech_LesliBabel&metric=sqale_rating"/> 
-    </a>
-</p>
-
-<hr/>
 <br />
+
+<div align="center">
+    <img 
+        style="width:100%;max-width:800px;border-radius:6px;" 
+        alt="Lesli screenshot" src="/images/engines/admin/screenshot.png" />
+</div>
 
 ### Quick start
 
 ```shell
 # Add LesliAdmin engine gem
-bundle add lesli_date
+bundle add lesli_admin
 ```
+
+```shell
+# Setup & initialize the database
+rake lesli:db:setup
+```
+
+```ruby
+# Load LesliAdmin engine
+Rails.application.routes.draw do
+    mount LesliAdmin::Engine => "/admin"
+end
+```
+
 
 ### Documentation
 * [website](https://www.lesli.dev/)
 * [database](./docs/database.md)
-* [documentation](https://www.lesli.dev/gems/gems/)
+* [documentation](https://www.lesli.dev/engines/admin/)
 
 
 ### Get in touch with Lesli
@@ -44,7 +54,7 @@ bundle add lesli_date
 
 ### License
 -------
-Copyright (c) 2025, Lesli Technologies, S. A.
+Copyright (c) 2023, Lesli Technologies, S. A.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -66,4 +76,13 @@ along with this program. If not, see http://www.gnu.org/licenses/.
     <img width="200" alt="Lesli logo" src="https://cdn.lesli.tech/lesli/brand/app-logo.svg" />
     <h4 align="center">Ruby on Rails SaaS Development Framework.</h4>
 </p>
+
+
+<section class="lesli-markdown-info">
+    <p><a target="blank" href="https://github.com/LesliTech/LesliAdmin/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><b>Last Update: </b>2024/12/30</p>
+</section>
+
+<!-- This code was automatically generated -->
+<!-- to update this docs please run rake docs:build -->
 

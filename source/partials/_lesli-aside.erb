@@ -2,19 +2,6 @@
 <%
 section = current_page.path.split("/").first
 project = current_page.path.split("/").second
-navigation = []
-
-if section == "start.html"
-    section = "engines"
-    project = "lesli"
-end
-
-if section == "lesli"
-    section = "engines"
-    project = "lesli"
-end
-
-navigation = get_navigation_for(section, project) 
 %>
 
 <aside id="lesli-partial-aside" class="lesli-partial-aside">
@@ -24,21 +11,6 @@ navigation = get_navigation_for(section, project)
         </a>
     </figure>
     <nav>
-        <% navigation.each do |docs| %>
-            <ul>
-                <li>
-                    <h3>
-                        <% if docs[:url].blank? %>
-                            <%= docs[:name] %>
-                        <% else %>
-                            <a href="<%= docs[:url] %>"><%= docs[:name] %></a>
-                        <% end %>
-                    </h3>
-                </li>
-                <% docs[:items].each do |item| %>
-                    <li><a href="<%= item[:url] %>"><%= item[:name] %></a></li>
-                <% end %>
-            </ul>
-        <% end %>
+        <%= partial("#{section}/#{project}/navigation") %>
     </nav>
 </aside>

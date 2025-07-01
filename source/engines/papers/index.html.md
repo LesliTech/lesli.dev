@@ -77,3 +77,12 @@ along with this program. If not, see http://www.gnu.org/licenses/.
     <h4 align="center">Ruby on Rails SaaS Development Framework.</h4>
 </p>
 
+
+<section class="lesli-markdown-info">
+    <p><a target="blank" href="https://github.com/LesliTech/LesliPapers/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><b>Last Update: </b>2025/02/18</p>
+</section>
+
+<!-- This code was automatically generated -->
+<!-- to update this docs please run rake docs:build -->
+

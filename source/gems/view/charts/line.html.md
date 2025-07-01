@@ -49,8 +49,8 @@ The chart line is a wrapper of [Apexchart line](https://apexcharts.com/docs/char
 </lesli-chart-line>
 
 <section class="lesli-markdown-info">
-    <p><a target="blank" href="../LesliBuilder/gems/LesliView/tree/master/docs/chart-line.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2025/06/18</p>
+    <p><a target="blank" href="../LesliBuilder/gems/LesliView/tree/master/docs/charts/line.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><b>Last Update: </b>2025/06/29</p>
 </section>
 
 <!-- This code was automatically generated -->
