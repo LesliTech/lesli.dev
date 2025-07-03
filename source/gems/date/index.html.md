@@ -1,6 +1,6 @@
 <div align="center" class="documentation-header">
-    <img width="100" alt="LesliView logo" src="/images/gems/view/view-logo.svg" />
-    <h3 align="center">Web Elements & Components for The Lesli Framework.</h3>
+    <img width="100" alt="LesliDate logo" src="/images/gems/date/date-logo.svg" />
+    <h3 align="center">Standard Datetime Formatter for The Lesli Framework.</h3>
 </div>
 
 <br />
@@ -26,32 +26,13 @@
 
 ```shell
 # Add LesliAdmin engine gem
-bundle add lesli_view
-```
-
-
-### Usage 
-
-```erb
-# app/views/lesli_support/tickets/index.html.erb
-
-<%= render(LesliView::Layout::Container.new("support-tickets")) do %>
-
-    <%= render(LesliView::Components::Header.new("Tickets")) %>
-    <%= render(LesliView::Components::Toolbar.new()) %>
-
-    <%= render(LesliView::Elements::Table.new(
-        :columns => columns,
-        :records => @tickets.dig(:records),
-        link: -> (ticket) { ticket_path(ticket.id) }
-    )) %>
-<% end %>
+bundle add lesli_date
 ```
 
 
 ### Documentation
-- **Components:**
-    - [Header](https://www.lesli.dev/gems/view/component-header)
+- **Date:**
+    - [Parser](https://www.lesli.dev/gems/view/component-header)
 
 
 ### Lesli Documentation
@@ -92,8 +73,8 @@ along with this program. If not, see http://www.gnu.org/licenses/.
 </div>
 
 <section class="lesli-markdown-info">
-    <p><a target="blank" href="../LesliBuilder/gems/LesliView/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2025/07/01</p>
+    <p><a target="blank" href="../LesliBuilder/gems/LesliDate/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><b>Last Update: </b>2025/07/03</p>
 </section>
 
 <!-- This code was automatically generated -->

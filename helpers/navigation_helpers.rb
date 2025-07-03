@@ -33,7 +33,11 @@ Building a better future, one line of code at a time.
 module NavigationHelpers
 
     def titleize(string)
-        string.split(" ").map {|word| word.capitalize}.join(" ")
+        string.gsub("-", " ").split(" ").map(&:capitalize).join(" ")
+    end
+
+    def safe_join(array, sep = "")
+        array.join(sep)
     end
 
     def sort_files_by(array, desired_order)
@@ -71,40 +75,20 @@ module NavigationHelpers
         return files
     end
 
-    def get_navigation_for section, project 
-        standard_files = [
-            "about", 
-            "installation", 
-            "translations", 
-            "dashboards", 
-            "database", 
-            "tasks"
-        ]
+    def navigation_for(namespace, project, folder, order:nil)
 
-        return get_navigation_for_lesli if project == "lesli"
-        return [{
-            name: titleize(project),
-            items: get_files_from(
-                File.join("source", section, project, "*"),
-                order: standard_files
-            ).reject do |item|
-                !standard_files.include?(item[:name])
-            end
-        }, {
-            name: "",
-            items: get_files_from(File.join("source", section, project, "*")).reject do |item|
-                standard_files.include?(item[:name])
-          end
-           
-        }]
-    end 
+        if project != "lesli" and folder == "about"
+            order = [
+                "about", 
+                "installation", 
+                "translations", 
+                "dashboards", 
+                "database", 
+                "tasks"
+            ]
+        end
 
-    def safe_join(array, sep = "")
-        array.join(sep)
-    end
-
-    def navigation_for(namespace, project, folder)
-        files = get_files_from(File.join("source", namespace, project, folder, "*"))
+        files = get_files_from(File.join("source", namespace, project, folder, "*"),order:order)
 
         links = files.map do |file|
             content_tag(:li) do
@@ -115,51 +99,5 @@ module NavigationHelpers
         content_tag(:ul) do
             content_tag(:li, content_tag(:h3, titleize(folder))) + safe_join(links).html_safe
         end
-    end
-
-    def get_navigation_for_lesli 
-        [{
-            name: "About",
-            items: get_files_from(
-                File.join("source", "engines", "lesli", "about", "*"),
-                order: ["lesli"]
-            )
-        }, {
-            name: "Getting started",
-            items: get_files_from(
-                File.join("source", "engines", "lesli", "getting-started", "*"),
-                order: ["installation", "development"]
-            )
-        }, {
-            name: "Database",
-            items: get_files_from(
-                File.join("source", "engines", "lesli", "database", "*"),
-                order: ["structure", "versioning"]
-            )
-        }, {
-            name: "Backend",
-            items: get_files_from(File.join("source", "engines", "lesli", "backend", "*"))
-        # }, {
-        #     name: "Frontend",
-        #     items: get_files_from(File.join("source", "engines", "lesli", "frontend", "*"))
-        }, {
-            name: "Theming",
-            items: get_files_from(File.join("source", "engines", "lesli", "theming", "*"))
-        }, {
-            name: "Testing",
-            items: get_files_from(File.join("source", "engines", "lesli", "testing", "*"))
-        # }, {
-        #     name: "Security",
-        #     items: get_files_from(File.join("source", "engines", "lesli", "security", "*"))
-        # }, {
-        #     name: "Deployment",
-        #     items: get_files_from(File.join("source", "engines", "lesli", "deployment", "*"))
-        }, {
-            name: "Contributing",
-            items: get_files_from(
-                File.join("source", "engines", "lesli", "contributing", "*"),
-                order: ["environment"]
-            )
-        }]
     end
 end

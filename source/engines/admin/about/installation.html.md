@@ -18,7 +18,7 @@ end
 ```
 
 <section class="lesli-markdown-info">
-    <p><a target="blank" href="https://github.com/LesliTech/LesliAdmin/tree/master/docs/installation.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><a target="blank" href="https://github.com/LesliTech/LesliAdmin/tree/master/docs/about/installation.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
     <p><b>Last Update: </b>2024/09/29</p>
 </section>
 

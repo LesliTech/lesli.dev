@@ -120,13 +120,13 @@ def documentation
     end 
 
     source_paths = [
-        "../LesliBuilder/engines/*/docs/*/*.md",
-        "../LesliBuilder/engines/*/docs/*.md",
         "../LesliBuilder/engines/*/readme.md",
+        "../LesliBuilder/engines/*/docs/*/*.md",
+        "../LesliBuilder/engines/*/docs/navigation",
 
-        "../LesliBuilder/gems/LesliView/readme.md",
-        "../LesliBuilder/gems/LesliView/docs/*/*.md",
-        "../LesliBuilder/gems/LesliView/docs/navigation"        
+        "../LesliBuilder/gems/*/readme.md",
+        "../LesliBuilder/gems/*/docs/*/*.md",
+        "../LesliBuilder/gems/*/docs/navigation"        
     ].each do |source_path|
         Dir.glob(source_path) do |file_to_copy|
 
@@ -162,6 +162,8 @@ def documentation
 end
 
 def documentation_empty file_to_paste
+
+    return if file_to_paste.end_with?("navigation.erb")
 
     footer= <<~TEXT
         <section class="lesli-parche-working">
