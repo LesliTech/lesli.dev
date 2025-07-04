@@ -1,7 +1,7 @@
-
 <%
-section = current_page.path.split("/").first
-project = current_page.path.split("/").second
+    path_parts = current_page.path.split("/")
+    section = path_parts[0]
+    project = path_parts[1]
 %>
 
 <aside id="lesli-partial-aside" class="lesli-partial-aside">
@@ -11,6 +11,11 @@ project = current_page.path.split("/").second
         </a>
     </figure>
     <nav>
-        <%= partial("#{section}/#{project}/navigation") %>
+        <% if section && project %>
+            <% partial_path = File.join(root, "source", section, project, "_navigation.erb") %>
+            <% if File.exist?(partial_path) %>
+                <%= partial("#{section}/#{project}/navigation") %>
+            <% end %>
+        <% end %>
     </nav>
 </aside>
