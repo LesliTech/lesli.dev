@@ -1,16 +1,25 @@
-<div align="center">
-	<img width="90" alt="Lesli logo" src="./app/assets/images/lesli_admin/admin-logo.svg" />
+<div align="center" class="documentation-header">
+    <img width="100" alt="LesliAdmin logo" src="./app/assets/images/lesli_admin/admin-logo.svg" />
     <h3 align="center">Administration area for the Lesli Framework.</h3>
 </div>
 
-<hr/>
-<div align="center">
-    <a target="blank" href="https://rubygems.org/gems/lesli_admin">
-        <img src="https://badge.fury.io/rb/lesli_admin.svg" alt="Gem Version" height="24">
-    </a>
-</div>
+
+<br />
 <hr/>
 
+<div align="center" class="documentation-statics">
+    <a target="blank" href="https://rubygems.org/gems/lesli">
+        <img height="22" alt="Gem Version" src="https://badge.fury.io/rb/lesli.svg"/>
+    </a>
+    <a class="mx-2" href="https://codecov.io/github/LesliTech/Lesli"> 
+        <img height="22" src="https://codecov.io/github/LesliTech/Lesli/graph/badge.svg?token=2O12NENK5Y"/> 
+    </a>
+    <a href="https://codecov.io/github/LesliTech/LesliBabel"> 
+        <img height="22" src="https://sonarcloud.io/api/project_badges/measure?project=LesliTech_LesliBabel&metric=sqale_rating"/> 
+    </a>
+</div>
+
+<hr/>
 <br />
 
 <div align="center">
@@ -18,6 +27,7 @@
         style="width:100%;max-width:800px;border-radius:6px;" 
         alt="Lesli screenshot" src="/images/engines/admin/screenshot.png" />
 </div>
+
 
 ### Quick start
 
@@ -40,8 +50,11 @@ end
 
 
 ### Documentation
+- [Account](https://www.lesli.dev/engines/admin/account)
+
+
+### Lesli Documentation
 * [website](https://www.lesli.dev/)
-* [database](./docs/database.md)
 * [documentation](https://www.lesli.dev/engines/admin/)
 
 
@@ -54,7 +67,7 @@ end
 
 ### License
 -------
-Copyright (c) 2023, Lesli Technologies, S. A.
+Copyright (c) 2025, Lesli Technologies, S. A.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -72,15 +85,14 @@ along with this program. If not, see http://www.gnu.org/licenses/.
 <hr />
 <br />
 
-<p align="center">
+<div align="center" class="has-text-centered">
     <img width="200" alt="Lesli logo" src="https://cdn.lesli.tech/lesli/brand/app-logo.svg" />
-    <h4 align="center">Ruby on Rails SaaS Development Framework.</h4>
-</p>
-
+    <h4 align="center" class="mt-0">Ruby on Rails SaaS Development Framework.</h4>
+</div>
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliAdmin/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2024/12/30</p>
+    <p><b>Last Update: </b>2025/07/04</p>
 </section>
 
 <!-- This code was automatically generated -->

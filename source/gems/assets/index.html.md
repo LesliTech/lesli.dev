@@ -25,7 +25,7 @@
 ### Quick start
 
 ```shell
-# Add LesliAdmin engine gem
+# Add LesliAssets gem
 bundle add lesli_assets
 ```
 

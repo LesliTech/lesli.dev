@@ -55,6 +55,11 @@
             "text": "Team communication",
             "desc": "Description about the module should be here",
             "feat": ["Do not lose contact", "Maintain more active conversations", "Keep the conversation wherever you go"]
+        },{
+            "name": "Dashboard",
+            "text": "Dashboard Management",
+            "desc": "Description about the module should be here",
+            "feat": ["Do not lose contact", "Maintain more active conversations", "Keep the conversation wherever you go"]
         }]
     }, {
         "name": "Finance",

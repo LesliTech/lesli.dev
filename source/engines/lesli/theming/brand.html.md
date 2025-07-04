@@ -386,7 +386,7 @@ We use Domine for headings and Roboto for body text.
 <p style="font-weight:100;font-size:3rem;" class="has-text-centered">Lesli body font</p>
 
 <section class="lesli-markdown-info">
-    <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/about/brand.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/theming/brand.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
     <p><b>Last Update: </b>2025/07/01</p>
 </section>
 
