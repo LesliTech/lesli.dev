@@ -226,6 +226,9 @@ def documentation_replaces
 
                 content = File.read(file)
 
+                content.gsub!('src="./app/assets/images/lesli/', "src=\"/images/#{section}/lesli/")
+                content.gsub!('src="./app/assets/images/lesli_', "src=\"/images/#{section}/")
+
                 content.gsub!('src="../app/assets/images/lesli/', "src=\"/images/#{section}/lesli/")
                 content.gsub!('src="../app/assets/images/lesli_', "src=\"/images/#{section}/")
 

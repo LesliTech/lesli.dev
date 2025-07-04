@@ -1,7 +1,8 @@
 <div align="center" class="documentation-header">
-    <img width="100" alt="LesliDashboard logo" src="./app/assets/images/lesli_dashboard/dashboard-logo.svg" />
-    <h3 align="center">Dashboard Management Lesli Framework.</h3>
+    <img width="100" alt="LesliDashboard logo" src="/images/engines/dashboard/dashboard-logo.svg" />
+    <h3 align="center">Dashboard Manager for the Lesli Framework.</h3>
 </div>
+
 
 <br />
 <hr/>
@@ -21,20 +22,21 @@
 <hr/>
 <br />
 
+
 ### Quick start
 
 ```shell
-# Add LesliDashboard engine
+# Add LesliDashboard engine gem
 bundle add lesli_dashboard
 ```
 
 ```shell
-# Setup database
+# Setup & initialize the database
 rake lesli:db:setup
 ```
 
 ```ruby
-# Load LesliDashboard
+# Load LesliDashboard engine
 Rails.application.routes.draw do
     mount LesliDashboard::Engine => "/dashboard"
 end
@@ -42,9 +44,12 @@ end
 
 
 ### Documentation
-* [website](https://www.lesli.dev/dashboard/)
-* [database](./docs/database.md)
-* [documentation](https://www.lesli.dev/documentation/)
+
+
+
+### Lesli Documentation
+* [website](https://www.lesli.dev/)
+* [documentation](https://www.lesli.dev/engines/dashboard/)
 
 
 ### Get in touch with Lesli
@@ -81,7 +86,7 @@ along with this program. If not, see http://www.gnu.org/licenses/.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliDashboard/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2025/07/03</p>
+    <p><b>Last Update: </b>2025/07/04</p>
 </section>
 
 <!-- This code was automatically generated -->

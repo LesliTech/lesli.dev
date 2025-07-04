@@ -1,5 +1,5 @@
 <div align="center" class="documentation-header">
-    <img width="100" alt="LesliAdmin logo" src="./app/assets/images/lesli_admin/admin-logo.svg" />
+    <img width="100" alt="LesliAdmin logo" src="/images/engines/admin/admin-logo.svg" />
     <h3 align="center">Administration area for the Lesli Framework.</h3>
 </div>
 
@@ -21,12 +21,6 @@
 
 <hr/>
 <br />
-
-<div align="center">
-    <img 
-        style="width:100%;max-width:800px;border-radius:6px;" 
-        alt="Lesli screenshot" src="/images/engines/admin/screenshot.png" />
-</div>
 
 
 ### Quick start

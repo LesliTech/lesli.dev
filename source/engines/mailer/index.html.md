@@ -1,5 +1,5 @@
 <div align="center">
-	<img width="90" alt="Lesli logo" src="./app/assets/images/lesli_mailer/mailer-logo.svg" />
+	<img width="90" alt="Lesli logo" src="/images/engines/mailer/mailer-logo.svg" />
     <h3 align="center">Mails for the Lesli Framework.</h3>
 </div>
 

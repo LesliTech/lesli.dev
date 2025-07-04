@@ -1,5 +1,5 @@
 <div align="center">
-	<img width="90" alt="Lesli logo" src="./app/assets/images/lesli_papers/papers-logo.svg" />
+	<img width="90" alt="Lesli logo" src="/images/engines/papers/papers-logo.svg" />
     <h3 align="center">Smart Document Management for the Lesli Framework.</h3>
 </div>
 
