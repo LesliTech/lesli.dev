@@ -122,10 +122,12 @@ def documentation
     source_paths = [
         "../LesliBuilder/engines/*/readme.md",
         "../LesliBuilder/engines/*/docs/*/*.md",
+        "../LesliBuilder/engines/*/docs/*/index",
         "../LesliBuilder/engines/*/docs/navigation",
 
         "../LesliBuilder/gems/*/readme.md",
         "../LesliBuilder/gems/*/docs/*/*.md",
+        "../LesliBuilder/gems/*/docs/*/index",
         "../LesliBuilder/gems/*/docs/navigation"        
     ].each do |source_path|
         Dir.glob(source_path) do |file_to_copy|
@@ -145,6 +147,10 @@ def documentation
 
             if file_to_paste.end_with?("navigation")
                 file_to_paste = file_to_paste.gsub("navigation", "_navigation.erb")
+            end  
+
+            if file_to_paste.end_with?("index")
+                file_to_paste = file_to_paste.gsub("index", "index.html.md.erb")
             end  
 
             # Copy file to the destination directory, preserving its name

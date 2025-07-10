@@ -56,6 +56,10 @@ footer.lesli-footer {
         display: flex;
         padding: 0;
         align-items: center;
+
+        li {
+            list-style: none;
+        }
     }
 
     .lesli-footer-navigation-start {

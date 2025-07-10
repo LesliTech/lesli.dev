@@ -17,9 +17,11 @@ Rails.application.routes.draw do
 end
 ```
 
+<%= partial("installation") %>
+
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliSupport/tree/master/docs/about/installation.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2025/03/24</p>
+    <p><b>Last Update: </b>2025/07/09</p>
 </section>
 
 <!-- This code was automatically generated -->

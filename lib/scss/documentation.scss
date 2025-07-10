@@ -97,6 +97,12 @@ main {
             color: lesli-css-color(slate);
         }
 
+        // standard links
+        a { 
+            color: lesli-css-color(blue);
+            text-decoration:underline;
+        }
+
         // · Markdown content text 
         p {
             line-height: 1.5;
@@ -107,10 +113,9 @@ main {
         }
 
         p, li {
-            //font-family: "Inter", "Roboto", "Arial", sans-serif; /* Modern and legible fonts */
-            font-size: 16px; /* Base font size */
-            line-height: 1.6; /* Comfortable line spacing */
-            color: #333; /* Neutral text color for good contrast */
+            font-size: 16px;    /* Base font size */
+            line-height: 1.6;   /* Comfortable line spacing */
+            color: #333;      /* Neutral text color for good contrast */
             list-style:circle;
         }
 

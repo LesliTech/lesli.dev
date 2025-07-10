@@ -96,8 +96,17 @@ module NavigationHelpers
             end
         end
 
+        folder_link = "/#{[namespace, project, folder].join("/")}"
+        folder_link = "/#{[namespace, project].join("/")}" if folder === "about"
+
         content_tag(:ul) do
-            content_tag(:li, content_tag(:h3, titleize(folder))) + safe_join(links).html_safe
+            header = content_tag(:li) do
+                content_tag(:h3) do
+                    link_to(titleize(folder), folder_link)
+                end
+            end
+
+            safe_join([header, *links])
         end
     end
 end

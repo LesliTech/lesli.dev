@@ -1,5 +1,5 @@
 
-# 07.02 LesliSupport Database
+# 07.02 Lesli Support Database
 
 ```plaintext
 07.02.00.01. support/account  
@@ -27,7 +27,7 @@
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliSupport/tree/master/docs/about/database.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2025/07/03</p>
+    <p><b>Last Update: </b>2025/07/09</p>
 </section>
 
 <!-- This code was automatically generated -->
