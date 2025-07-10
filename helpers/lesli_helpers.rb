@@ -58,6 +58,7 @@ module LesliHelpers
     def documentation_title current_page 
         current_page.path
         .sub("engines/", "")
+        .sub("/index", "")
         .sub(".html", "") 
     end
 
