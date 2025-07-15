@@ -1,147 +1,146 @@
 
-# Install Lesli 
-Lesli is a Ruby on Rails gem designed to seamlessly integrate with your application. It ensures complete isolation of code, database, and assets, preventing any interference with your main Ruby on Rails application.
+# Installation
 
-### Rails application 
+Lesli is a Ruby on Rails gem designed to integrate seamlessly into your application. It keeps its code, database, and assets fully isolated, ensuring it won’t interfere with your main app. This isolation allows you to extend functionality without adding complexity or risking conflicts within your core codebase.
 
-Create a new Rails application
+
+### Install Lesli 
+
+Create a New Rails Application
 
 ```shell
 rails new LesliApp
 ```
 
-Navigate to the LesliApp folder
+Navigate to the app directory:
 
 ```shell
 cd LesliApp
 ```
 
-Add Lesli gem to your Rails app
+Add Lesli to Your Gemfile
 
 ```shell
 bundle add lesli
 ```
 
+<br/>
 
-Additional for this example we are going to install some other engines, so you can see the Lesli Platform working
+### Set Up Lesli
+
+After installing the gem, run the installation generator to configure the necessary files and routes:
 
 ```shell
-bundle add lesli_shield
-bundle add lesli_dashboard
+rails generate lesli:install
 ```
+
+This command will: 
+
+- Create the initializer file for Lesli.
+- Add the required route to your routes.rb.
 
 <br/>
 
-### Database 
+### Database Setup
 
-Open the database configuration file
+Lesli includes a Rake task to prepare the database for demo and development purposes. This task will: 
 
-```
-LesliApp/config/database.yml
-```
-
-Add PostgreSQL as the main database (Currently Lesli is compatible only with PostgreSQL and SQLite)
-
-```yml
-default: &default
-  adapter: postgresql
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout: 5000
-
-development:
-  <<: *default
-  database: "db_dev"
-  username: "db_user"
-  password: "db_pass"
-
-test:
-  <<: *default
-  database: "lesli-test"
-  username: "db_user"
-  password: "db_pass"
-```
-
-My recommendation is to use Rails Credentials or AWS Secret Manager
-
-```yml
-development:
-  <<: *default
-  database: <%= Rails.application.credentials.dig(:db, :database) %>
-  username: <%= Rails.application.credentials.dig(:db, :username) %>
-  password: <%= Rails.application.credentials.dig(:db, :password) %>
-
-test:
-  <<: *default
-  database: <%= Rails.application.credentials.dig(:db, :database) %>
-  username: <%= Rails.application.credentials.dig(:db, :username) %>
-  password: <%= Rails.application.credentials.dig(:db, :password) %>
-
-production:
-  <<: *default
-  port: <%= Rails.application.credentials.dig(:db, :port) %>
-  host: <%= Rails.application.credentials.dig(:db, :host) %>
-  database: <%= Rails.application.credentials.dig(:db, :database) %>
-  username: <%= Rails.application.credentials.dig(:db, :username) %>
-  password: <%= Rails.application.credentials.dig(:db, :password) %>
-```
-
-Create the database for Lesli
-
-```shell
-rails db:create
-```
-
-Lesli include a Rake task to initialize the database for demo and development purposes, this task is going migrate, build privileges (if LesliShield is installed), translations (if LesliBabel is installed), seed the database with demo users and demo data for every installed engine and at the end print a pretty message with the status of the application.
+- Run migrations.
+- Set up privileges (if LesliShield is installed).
+- Load translations (if LesliBabel is installed).
+- Seed the database with demo users and demo data for each installed engine.
+- Display a summary message with the application status.
 
 ```shell
 rake lesli:db:dev
 ```
 
-
 <br/>
 
-### Router 
+### Running Lesli
 
-Open the Rails routes file at: `LesliApp/config/routes.rb` and include the Lesli modules
-
-```ruby
-Rails.application.routes.draw do
-    # mount lesli platform
-    Lesli::Routing.mount
-end
-```
-
-
-<br/>
-
-### Run Lesli 
-
-Execute the Rails server
+Start the Rails server:
 
 ```shell
 rails server
 ```
 
-Using your favorite web browser navigate to <a href="http://127.0.0.1:3000" targer="_blank">http://127.0.0.1:3000/login</a>, Lesli mounted devise at root level, so you already have an authentication engine working.
+Using your favorite web browser navigate to <a href="http://127.0.0.1:3000" targer="_blank">http://127.0.0.1:3000/login</a>
 
-<lesli-browser url="login">
+<lesli-browser host="http://localhost:3000/" url="">
+    <img src="/images/engines/lesli/screenshot-installation.png">
+</lesli-browser>
+
+You must be able to see the Lesli welcome page
+
+
+<br/>
+
+### Adding More Engines to Lesli
+
+Lesli is designed to be extended through additional engines. These engines work as modular components to add features without affecting your core application.
+
+Below is an example of how to install some of the official Lesli engines.
+
+
+<br/>
+
+### Install the Engines
+
+Add the desired engines to your Gemfile:
+
+```ruby
+gem 'lesli_shield'
+gem 'lesli_dashboard'
+```
+
+Then run:
+
+```shell
+bundle install
+```
+
+
+<br/>
+
+### Update the Database
+
+Lesli includes a Rake task to load new engines: 
+
+```shell
+rake lesli:db:setup
+```
+
+This will: 
+
+- Apply migrations for each installed engine.
+- Seed demo data, including privileges (for LesliShield) and dashboard components (for LesliDashboard).
+
+> You can easily add development users, roles, privileges, and more. We'll cover these options later in the documentation.
+
+
+<br/>
+
+### Accessing the Engines
+
+#### LesliShield
+
+LesliShield provides user roles, privileges, and authentication tools. After installation, it integrates into your app’s authentication and permission layers automatically.
+LesliDashboard
+
+#### LesliDashboard 
+
+LesliDashboard provides a customizable dashboard for users to visualize key data, metrics, or tools from other engines.
+
+<lesli-browser host="http://localhost:3000/" url="login">
     <img src="/images/engines/shield/screenshot-login.png">
-</browser>
+</lesli-browser>
 
-The seeders comes with default users with different roles and privileges, to see Lesli in action use the owner user:
-
-__username:__ hello@lesli.tech <br/>
-__password:__ Lesli123$
-
-
-> It is possible to add development users, roles, privileges and more; we will explore this options later in the documentation.
-
-
-
+> Lesli mounts Devise at the root level, so you’ll have an authentication system working out of the box.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/getting-started/installation.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2025/04/02</p>
+    <p><b>Last Update: </b>2025/07/15</p>
 </section>
 
 <!-- This code was automatically generated -->

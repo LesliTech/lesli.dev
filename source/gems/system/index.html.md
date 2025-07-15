@@ -73,6 +73,18 @@ LesliSystem.engine("Lesli", "path")
 "/lesli"
 ```
 
+```ruby 
+module LesliBell
+    class DashboardsController < ApplicationController
+        def index
+            # Build a standard object based on a controller reference
+            builder = LesliSystem::Klass.new(self)
+            @dashboards = builder.model.dashboard.all
+        end
+    end
+end
+```
+
 ### Documentation
 * [website](https://www.lesli.dev/)
 * [database](./docs/database.md)
@@ -114,7 +126,7 @@ along with this program. If not, see http://www.gnu.org/licenses/.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="../LesliBuilder/gems/LesliSystem/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2025/06/29</p>
+    <p><b>Last Update: </b>2025/07/10</p>
 </section>
 
 <!-- This code was automatically generated -->

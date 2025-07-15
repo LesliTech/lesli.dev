@@ -212,6 +212,11 @@ main {
             }
         }
 
+        footer.lesli-footer a,
+        section.lesli-markdown-info p a {
+            text-decoration:none;
+        }
+
         @include lesli-css-color-print("background-color", "lesli-background");
 
     }

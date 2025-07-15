@@ -1,11 +1,13 @@
-<p align="center">
-    <img width="200" alt="Lesli logo" src="/images/engines/lesli/lesli-logo.svg" />
-    <h1 align="center">Ruby on Rails SaaS Development Framework.</h1>
-</p>
+<div align="center" class="documentation-header">
+    <img width="150" alt="Lesli logo" src="/images/engines/lesli/lesli-logo.svg" />
+    <h3 align="center">Ruby on Rails SaaS Development Framework.</h3>
+</div>
 
+
+<br />
 <hr/>
 
-<p align="center" class="is-flex is-justify-content-center">
+<div align="center" class="documentation-statics">
     <a target="blank" href="https://rubygems.org/gems/lesli">
         <img height="22" alt="Gem Version" src="https://badge.fury.io/rb/lesli.svg"/>
     </a>
@@ -15,7 +17,7 @@
     <a href="https://codecov.io/github/LesliTech/LesliBabel"> 
         <img height="22" src="https://sonarcloud.io/api/project_badges/measure?project=LesliTech_LesliBabel&metric=sqale_rating"/> 
     </a>
-</p>
+</div>
 
 <hr/>
 <br />
@@ -37,7 +39,7 @@ Lesli is completely open source and comes with features and tools that can save 
 
 <br />
 <hr />
-<p align="center">
+<p align="center" class="has-text-centered">
     Lesli is currently in alpha, but we're excited about the promising improvements coming soon!
 </p>
 <hr />
@@ -56,17 +58,8 @@ Lesli is officially released and will be supported as of version 5.1
 
 ### Demo
 
-* online demo (soon)
+* [online demo](https://demo.lesli.dev/)
 * [docker demo](https://github.com/LesliTech/lesli-docker-demo)
-
-<br />
-
-
-
-### Documentation
-* [Website](https://www.lesli.dev/)
-* [Database](./docs/database.md)
-* [Documentation](https://www.lesli.dev/docs.html)
 
 <br />
 
@@ -88,9 +81,9 @@ rake lesli:db:dev
 ```
 
 ```ruby
-# Load Lesli
+# mount lesli platform
 Rails.application.routes.draw do
-    mount Lesli::Engine => "/lesli"
+    Lesli::Routing.mount 
 end
 ```
 
@@ -132,15 +125,16 @@ RAILS_SERVE_STATIC_FILES=true rails s --environment=production
 <br />
 
 
+### Lesli Documentation
+* [website](https://www.lesli.dev/)
+* [documentation](https://www.lesli.dev/lesli/)
+
 
 ### Get in touch with Lesli
 
-* [Website: https://www.lesli.tech](https://www.lesli.tech)
+* [X: @LesliTech](https://x.com/LesliTech)
 * [Email: hello@lesli.tech](hello@lesli.tech)
-* [Twitter: @LesliTech](https://twitter.com/LesliTech)
-
-<br />
-
+* [Website: https://www.lesli.tech](https://www.lesli.tech)
 
 
 ### License
@@ -162,15 +156,19 @@ along with this program. If not, see http://www.gnu.org/licenses/.
 
 <hr />
 <br />
+<br />
 
-<p align="center">
+<div align="center" class="has-text-centered">
     <img width="200" alt="Lesli logo" src="https://cdn.lesli.tech/lesli/brand/app-logo.svg" />
-    <h4 align="center">Ruby on Rails SaaS Development Framework.</h4>
-</p>
+    <h4 align="center" class="mt-0">Ruby on Rails SaaS Development Framework.</h4>
+</div>
+
+<br />
+<br />
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2025/06/17</p>
+    <p><b>Last Update: </b>2025/07/14</p>
 </section>
 
 <!-- This code was automatically generated -->

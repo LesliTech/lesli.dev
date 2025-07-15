@@ -10,7 +10,7 @@ class LesliBrowserComponent extends HTMLElement {
             <style>
                 .lesli-component-browser {
                     border-radius: 10px;
-                    border: 1px solid lesli-css-color(silver, 300);
+                    border: 2px solid #e6ecef;
                     margin: 2rem auto 0;
                     width: 100%;
                     max-width: 900px;
@@ -83,7 +83,6 @@ class LesliBrowserComponent extends HTMLElement {
                 }
                 .lesli-component-browser .lesli-browser-toolbar .lesli-browser-settings .icon i {
                     font-size: 1rem;
-                    color: lesli-css-color(silver);
                 }
             </style>
             <div class="lesli-component-browser">
@@ -111,7 +110,7 @@ class LesliBrowserComponent extends HTMLElement {
                     </div>
                     <div class="lesli-browser-settings">
                         <span class="icon">
-                            <i class="ri-equalizer-fill"></i>
+                            <i class="ri-heart-line"></i>
                         </span>
                     </div>
                 </div>
@@ -122,8 +121,9 @@ class LesliBrowserComponent extends HTMLElement {
 
     connectedCallback() {
         const url = this.getAttribute('url') || '';
+        const host = this.getAttribute('host') || 'https://www.lesli.dev/';
         const el = this.shadowRoot.getElementById('lesli-browser-address-input');
-        el.innerText = "https://www.lesli.dev/".concat(url);
+        el.innerText = host.concat(url);
     }
 }
 
