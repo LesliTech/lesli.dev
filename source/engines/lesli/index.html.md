@@ -73,19 +73,18 @@ bundle add lesli
 ```
 
 ```shell
-# Setup database for production
-rake lesli:db:setup
-
+# Add Lesli to your app
+rails generate lesli:install
+```
+```shell
 # Setup database for development
 rake lesli:db:dev
 ```
-
-```ruby
-# mount lesli platform
-Rails.application.routes.draw do
-    Lesli::Routing.mount 
-end
+```shell
+# Start your app
+rails server
 ```
+
 
 <br />
 
@@ -107,7 +106,7 @@ bundle install
 ```
 ```shell
 # Generate Lesli initializer
-rails g lesli:install
+rails generate lesli:install
 ```
 ```shell
 # Hard reset Database for development:
@@ -168,7 +167,7 @@ along with this program. If not, see http://www.gnu.org/licenses/.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2025/07/14</p>
+    <p><b>Last Update: </b>2025/07/15</p>
 </section>
 
 <!-- This code was automatically generated -->
