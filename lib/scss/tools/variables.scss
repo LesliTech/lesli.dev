@@ -16,7 +16,7 @@ $navigation-height: 70px;
 @include lesli-css-breakpoint-tablet() {
     :root {
         --aside-width: 200px;
-        --lesli-documentation-padding: 2rem 5rem;
+        --lesli-documentation-padding: 10px 5rem 2rem;
     }
 }
 
