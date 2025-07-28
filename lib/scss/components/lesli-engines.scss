@@ -15,9 +15,10 @@ section.lesli-component-engines {
     }
 
     .column {
-        padding: 1rem;
-        flex-basis: 300px;
         margin: 0 auto;
+        padding: 1rem;
+        max-width: 300px;
+        flex-basis: 300px;
     }
 
     a {
@@ -29,7 +30,7 @@ section.lesli-component-engines {
         border-radius: 5px 5px 5px 5px;
         box-shadow: 0px 2px 18px 0px rgba(78,133,200,0.1);
         background-color: #ffffff;
-        transition: all linear .15s;
+        transition: all linear .1s;
 
         &:hover {
             box-shadow: 0px 5px 25px 0px rgba(78, 133, 200, 0.3);

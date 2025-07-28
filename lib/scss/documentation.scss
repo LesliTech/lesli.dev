@@ -119,6 +119,15 @@ main {
             list-style:circle;
         }
 
+        p > code {
+            padding: 2px 4px;
+            font-family: monospace;
+            background-color: #f0f0f0;
+            border-radius: 3px;
+            white-space: nowrap;
+            color: #c7254e;
+        }
+
         // · Markdown quotes as comments 
         blockquote {
             font-family: 'Georgia', serif;

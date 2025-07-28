@@ -2,8 +2,7 @@
 
 Installing Lesli for development is very similar to the [standard installation process](https://www.lesli.dev/engines/lesli/getting-started/installation/) used for production.
 
-However, instead of using the published gem, you'll clone the development repository and load the Lesli core directly from the source code. This approach is ideal for contributing to Lesli, debugging core features, or customizing the framework for your own use.
-
+However, instead of using the published gem, you'll clone the development repository and load the Lesli core directly from the source code. This approach is ideal for work with the latest features, contributing to Lesli, debugging core features, or customizing the framework for your own use.
 
 
 ### Install the Lesli Core
@@ -12,6 +11,7 @@ To get started with Lesli, clone the source code into your main Rails applicatio
 Lesli and its engines must be placed inside an `engines/` directory at the root of your Rails app.
 
 > **Important:** This structure is required for Lesli to detect and load its components correctly during development and runtime.
+
 
 #### Recommended Directory Structure
 

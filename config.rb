@@ -15,7 +15,13 @@ page "/*.json", layout: false
 page "/*.xml", layout: false
 page "/*.txt", layout: false
 
+
+# · auxiliar pages
 page "/404.html", :directory_index => false
+
+
+# · redirections
+redirect "start.html", to: "/engines/lesli/getting-started/"
 
 
 # · localization
