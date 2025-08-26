@@ -38,10 +38,9 @@
 
 // · 
 body, html {
-    color: darken(lesli-css-color(silver, 700), 2);
+    color: darken(lesli-css-color(silver, 700), 4);
     font-weight: 200;
     box-sizing: border-box;
-    line-height: 24px !important;
 }
 
 
@@ -54,6 +53,30 @@ body, html {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     
+}
+
+.button-primary,
+.button-primary-ghost,
+.button-primary-outlined {
+    border-radius: 6px;
+    padding: .8rem 1.2rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.button-primary {
+    border: none;
+    color: lesli-css-color(silver, 100) !important;
+    background-color: lesli-css-color(lesli, primary);
+}
+
+.button-primary-ghost {
+    background-color: lighten(lesli-css-color(lesli, primary), 52);
+    color: darken(lesli-css-color(lesli, primary),10) !important;
+}
+
+.button-primary-outlined {
+    box-shadow: inset 0 0 0 2px lesli-css-color(lesli, primary);
 }
 
 /* Base Table Style */
@@ -168,12 +191,20 @@ table tbody tr:hover {
     margin-top: 0;
 }
 
+.mr-1 {
+    margin-right: 0.25rem;
+}
+
 .mb-2 {
     margin-bottom: 0.5rem; /* 8px */
 }
 
 .mb-4 {
     margin-bottom: 1.5rem; /* 24px */
+}
+
+.ml-1 {
+    margin: 0.25rem;
 }
 
 .m-auto {

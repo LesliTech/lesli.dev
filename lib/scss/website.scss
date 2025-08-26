@@ -1,5 +1,5 @@
 
-
+// · 
 @import "base";
 @import "partials/lesli-navigation";
 @import "components/lesli-header";
@@ -12,13 +12,8 @@
 @import "partials/lesli-footer";
 @import "partials/lesli-links";
 
-// · 
-@keyframes rotateBackground {
-    to {
-        background-position: 115px 115px, 170px 170px;
-    }
-}
 
+// · 
 header {
     display: flex;
     min-height: 600px;
@@ -31,7 +26,6 @@ header {
     background-image:  
         radial-gradient(#0d52bf 1px, transparent 2px), 
         radial-gradient(#0d52bf 1px, #ffffff 2px);
-        animation: rotateBackground 10s linear infinite;
 
     .container {
         align-content: center;
@@ -39,7 +33,7 @@ header {
 
     img.lesli-logo {
         padding: 1rem;
-        margin: 0 auto 1rem;
+        margin: 0 auto;
         width: 100%;
         max-width: 250px;
     }
@@ -73,7 +67,7 @@ header {
     p {
         text-align: center;
         font-size: 2.4rem;
-        font-weight: 100;
+        font-weight: 400;
         line-height: 1.2;
         background-color: #ffffff;
     }
@@ -82,7 +76,7 @@ header {
 
 .lesli-component-links .columns {
     max-width: 1100px;
-    padding-bottom: 2rem;
+    margin: 6rem auto;
 }
 
 

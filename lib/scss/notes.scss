@@ -1,0 +1,25 @@
+// · 
+@import "base";
+@import "partials/lesli-navigation";
+@import "partials/lesli-footer";
+@import "partials/lesli-links";
+@import "tools/highlight";
+
+
+header .title {
+    display: flex;
+    min-height: 300px;
+    justify-content: center;
+    align-items: center;
+    h1 {
+        text-align: center;
+    }
+} 
+
+section.notes-container {
+    text-align: center;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    //min-height: 600px;
+}

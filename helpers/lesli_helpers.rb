@@ -41,7 +41,6 @@ module LesliHelpers
         return "notes" if current_page.path.start_with?("notes")
         return "documentation" if current_page.path =~ %r{^gems/.+}
         return "documentation" if current_page.path =~ %r{^engines/.+}
-        return "documentation" if current_page.path.start_with?("documentation")
         return lesli_current_page(current_page)
     end      
 

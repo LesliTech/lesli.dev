@@ -14,6 +14,7 @@
             </div>
         <% end %>
         <div class="columns">
+            <!--
             <div class="column is-full2">
                 <a href="/engines/lesli/about/">
                     <%= lesli_svg("engine-lesli") %>
@@ -21,6 +22,7 @@
                     <p>Development Framework.</p>
                 </a>
             </div>
+            -->
             <% collections[:collection].each do |collection| %>
                 <% collection[:engines].each do |engine| %>
                     <% if engines.include?(engine[:name].downcase) %>

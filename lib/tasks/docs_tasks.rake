@@ -32,21 +32,19 @@ Building a better future, one line of code at a time.
 
 require "fileutils"
 
-namespace :docs do
-    task :build do
+task :docs do
 
-        # delete the generated docs & assets for gems
-        FileUtils.rm_rf("source/gems")
-        FileUtils.rm_rf("source/images/gems")
+    # delete the generated docs & assets for gems
+    FileUtils.rm_rf("source/gems")
+    FileUtils.rm_rf("source/images/gems")
 
-        # delete the generated docs & assets for engines
-        FileUtils.rm_rf("source/engines")
-        FileUtils.rm_rf("source/images/engines")
+    # delete the generated docs & assets for engines
+    FileUtils.rm_rf("source/engines")
+    FileUtils.rm_rf("source/images/engines")
 
-        images
-        documentation
-        documentation_replaces
-    end
+    images
+    documentation
+    documentation_replaces
 end
 
 def get_engine_name(file)
@@ -231,6 +229,9 @@ def documentation_replaces
                 project = file.gsub("source/#{section}/", "").split("/").first
 
                 content = File.read(file)
+
+                # Lesli core needs special paths
+                content.gsub!('src="./app/assets/images/lesli/lesli-logo', "src=\"/images/engines/lesli/lesli/lesli-logo")
 
                 content.gsub!('src="./app/assets/images/lesli/', "src=\"/images/#{section}/lesli/")
                 content.gsub!('src="./app/assets/images/lesli_', "src=\"/images/#{section}/")

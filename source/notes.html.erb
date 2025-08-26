@@ -1,0 +1,23 @@
+---
+title: The Lesli Notes
+---
+
+<section class="notes-container">
+    <ul>
+        <% 
+            sitemap
+            .resources.select { |p| p.path.start_with?("notes/") }
+            #.sort_by { |note| note.data.date } 
+            .reverse # newest first
+            .each do |note| %>
+            <% next if note.ext != ".html" %>
+            <% next if note.url.start_with?("/index") %>
+            <li>
+                <a href="<%= note.url %>">
+                    <h3><%= note.data.title %></h3>
+                    <%= note.data.description %>
+                </a>
+            </li>
+        <% end %>
+    </ul>
+</section>
