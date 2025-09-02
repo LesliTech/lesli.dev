@@ -17,6 +17,10 @@ page "/*.xml", layout: false
 page "/*.txt", layout: false
 
 
+ignore "/notes/*"
+ignore "/notes.html"
+
+
 # · auxiliar pages
 page "/404.html", :directory_index => false
 
