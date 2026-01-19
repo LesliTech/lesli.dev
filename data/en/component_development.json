@@ -1,6 +1,7 @@
 {
     "title": "By developers for developers",
     "text": "Lesli is built and maintained according to high-quality software development standards.",
+    "foot": "Focus on features, not infrastructure and deliver value continuously.",
     "content": [{
         "icon": "ri-code-line",
         "name": "Code Generation",

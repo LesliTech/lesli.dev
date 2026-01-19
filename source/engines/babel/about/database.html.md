@@ -9,16 +9,9 @@
     12.04. string/activities
 ```
 
-
-```mermaid
-erDiagram
-    lesli_babel_modules ||--o{ lesli_babel_buckets : has
-    lesli_babel_buckets ||--o{ lesli_babel_strings : has
-```
-
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliBabel/tree/master/docs/about/database.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2024/09/29</p>
+    <p><b>Last Update: </b>2026/01/17</p>
 </section>
 
 <!-- This code was automatically generated -->

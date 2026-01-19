@@ -1,6 +1,7 @@
 {
-    "title": "We have a module for what you need.",
-    "text": "Lesli provides carefully designed and developed modules ready for integration, extension, or immediate use in your daily work.",
+    "title": "A growing ecosystem of production-ready modules.",
+    "text": "Plug features into your SaaS instead of building them from scratch.",
+    "foot": "From core infrastructure to business features — Lesli grows with your product.",
     "collection": [{
         "name": "Administration",
         "code": "administration",

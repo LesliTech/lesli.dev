@@ -7,14 +7,17 @@
 <hr/>
 
 <div align="center" class="documentation-statics">
-    <a target="blank" href="https://rubygems.org/gems/lesli">
-        <img height="22" alt="Gem Version" src="https://badge.fury.io/rb/lesli.svg"/>
+    <a target="blank" href="https://github.com/LesliTech/LesliView/actions">
+        <img alt="Tests passing" src="https://img.shields.io/badge/Tests-passing-green?style=for-the-badge&logo=github">
     </a>
-    <a class="mx-2" href="https://codecov.io/github/LesliTech/Lesli"> 
-        <img height="22" src="https://codecov.io/github/LesliTech/Lesli/graph/badge.svg?token=2O12NENK5Y"/> 
+    <a target="blank" href="https://rubygems.org/gems/lesli_view">
+        <img alt="Gem Version" src="https://img.shields.io/gem/v/lesli_view?style=for-the-badge&logo=ruby">
     </a>
-    <a href="https://codecov.io/github/LesliTech/LesliBabel"> 
-        <img height="22" src="https://sonarcloud.io/api/project_badges/measure?project=LesliTech_LesliBabel&metric=sqale_rating"/> 
+    <a target="blank" href="https://codecov.io/github/LesliTech/LesliView"> 
+        <img alt="Codecov" src="https://img.shields.io/codecov/c/github/LesliTech/LesliView?style=for-the-badge&logo=codecov">
+    </a>
+    <a target="blank" href="https://sonarcloud.io/project/overview?id=LesliTech_LesliView"> 
+        <img alt="Sonar Quality Gate" src="https://img.shields.io/sonar/quality_gate/LesliTech_LesliView?server=https%3A%2F%2Fsonarcloud.io&style=for-the-badge&logo=sonarqubecloud&label=Quality">
     </a>
 </div>
 
@@ -93,7 +96,7 @@ along with this program. If not, see http://www.gnu.org/licenses/.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="../LesliBuilder/gems/LesliView/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2025/07/01</p>
+    <p><b>Last Update: </b>2026/01/04</p>
 </section>
 
 <!-- This code was automatically generated -->

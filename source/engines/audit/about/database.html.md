@@ -5,54 +5,26 @@
 
 <h3 align="center">Lesli Audit database</h3>
 
-### 08.03. Audit
+### 05.01. Audit
 ```plaintext
 00.01. audit/account
-
 05.01. audit/dashboards 
-05.02. audit/dasboard/components 
 
-10.00. audit/account_requests
-11.00. audit/user_requests
+10.01. audit/account_logs       # Audit
+10.02. audit/account_devices    # Insights
+10.03. audit/account_requests   # Analytics
+
+
+11.01. audit/user_logs          # Audit
+11.02. audit/user_journal       # Tracking
+11.03. audit/user_requests      # Analytics
+
+12.01. audit/role_versions
 ```
-
-
-<fieldset>
-
-```mermaid
-erDiagram
-    audit_accounts {
-        bigint   id
-        integer  status
-        datetime deleted_at
-        datetime timestamps 
-    }
-
-    audit_account_requests {
-        string    request_controller
-        string    request_action
-        string    request_method
-        integer   request_count
-        date      created_at
-    }
-
-    audit_user_requests {
-        integer   request_count
-        date      created_at
-        datetime  updated_at
-    }
-
-    audit_accounts ||--|| lesli_accounts : ""
-    audit_account_requests }|--|| audit_accounts : ""
-    audit_user_requests }|--|| audit_accounts : ""
-    audit_user_requests ||--|| lesli_users : ""
-
-```
-</fieldset>
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliAudit/tree/master/docs/about/database.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2024/09/29</p>
+    <p><b>Last Update: </b>2026/01/17</p>
 </section>
 
 <!-- This code was automatically generated -->

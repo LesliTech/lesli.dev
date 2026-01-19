@@ -9,23 +9,7 @@
 
 @include lesli-css-normalize;
 
-@include lesli-css-fonts-standard("Domine", "Roboto");
-
-
-// · Font family for the body 
-@font-face {
-    font-family: "Roboto";
-    src: url("/fonts/Roboto/Roboto-Thin.ttf") format("truetype");
-    font-display: swap;
-    font-weight: 100;
-}
-
-@font-face {
-    font-family: "Roboto";
-    src: url("/fonts/Roboto/Roboto-Light.ttf") format("truetype");
-    font-display: swap;
-    font-weight: 200;
-}
+@include lesli-css-fonts-standard("Domine", "SourceSans3");
 
 
 // · Font family for titles 
@@ -35,12 +19,20 @@
     font-display: swap;
 }
 
+// · Font family for the body 
+@font-face {
+    font-family: "SourceSans3";
+    src: url("/fonts/SourceSans3/SourceSans3-VariableFont_wght.ttf") format("truetype");
+    font-display: swap;
+    
+}
+
 
 // · 
 body, html {
     color: darken(lesli-css-color(silver, 700), 4);
-    font-weight: 200;
     box-sizing: border-box;
+    font-weight: 400;
 }
 
 
@@ -139,6 +131,7 @@ table tbody tr:hover {
 }
 
 .columns {
+    margin: 0 auto;
     @include lesli-css-flex-columns($gap:6px)
 }
 

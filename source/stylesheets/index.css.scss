@@ -5,6 +5,19 @@ header {
 
     .brand {
         margin: 6rem auto 5rem;
+
+        h1 {
+            max-width: 900px;
+        }
+
+        p {
+            font-weight: 300;
+        }
+
+        .keys {
+            font-size: 1.4rem;
+            font-weight: 400;
+        }
     }
 
     .buttons {

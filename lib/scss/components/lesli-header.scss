@@ -14,11 +14,23 @@
 
     p {
         font-size: 2rem;
+        font-weight: 300;
         line-height: 1.1;
         color: lesli-css-color(black, 100);
     }
 }
 
+.component-footer {
+    text-align: center;
+    margin: 6rem 0 2rem;
+
+    p {
+        font-size: 2rem;
+        font-weight: 300;
+        line-height: 1.1;
+        color: lesli-css-color(black, 100);
+    }
+}
 
 @include lesli-css-breakpoint-only-mobile() {
     .component-header {

@@ -10,7 +10,7 @@
             <h2><%= corefeatures[:title] %></h2>
             <p><%= corefeatures[:text] %></p>
         </div>
-        <div class="columns ">
+        <div class="columns">
             <% corefeatures[:content].each do |feature| %>
                 <div class="column">
                     <div class="feature">
@@ -22,6 +22,10 @@
                     </div>
                 </div>
             <% end %>
+        </div>
+        <div class="component-footer">
+            <p>These are the features most SaaS teams spend months building,</p>
+            <p>with Lesli they are ready on day one.</p>
         </div>
     </div>
 </section>

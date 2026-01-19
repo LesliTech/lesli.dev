@@ -25,7 +25,7 @@
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="../LesliBuilder/gems/LesliView/tree/master/docs/components/tabs.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2025/06/29</p>
+    <p><b>Last Update: </b>2026/01/04</p>
 </section>
 
 <!-- This code was automatically generated -->

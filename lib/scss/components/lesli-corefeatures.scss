@@ -5,6 +5,13 @@
 section.lesli-component-corefeatures {
     padding: 8rem 0 6rem;
 
+    .columns {
+        max-width: 1024px;
+        background-color: $hint-of-red;
+        padding: 2rem;
+        border-radius: 2rem;
+    }
+
     .column {
         margin-bottom: 1.6rem;
         flex-basis: 400px;
@@ -13,10 +20,7 @@ section.lesli-component-corefeatures {
 
     .feature {
         height: 100%;
-        padding: 30px 20px;
-        border: 1px solid lesli-css-color(silver, 300);
-        box-shadow: 0px 2px 18px 0px rgba(78,133,200,0.1);
-        background-color: white;
+        padding: 10px 20px 30px;
         
         i {
             font-size: 2rem;
@@ -28,9 +32,11 @@ section.lesli-component-corefeatures {
             font-weight: 600;
             display: flex;
             align-items: center;
+            margin-bottom: 10px;
         }
 
         p {
+            font-weight: 400;
             font-size: 1.1rem;
         }
 
