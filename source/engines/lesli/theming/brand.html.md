@@ -378,16 +378,16 @@
 
 ## Fonts
 
-We use Domine for headings and Roboto for body text.
+We use Domine for headings and Source Sans 3 for body text.
 
 <br />
 
 <h3 style="font-weight:100;font-size:4rem;" class="has-text-centered">Lesli Title Font</h3>
-<p style="font-weight:100;font-size:3rem;" class="has-text-centered">Lesli body font</p>
+<p style="font-weight:400;font-size:3rem;" class="has-text-centered">Lesli body font</p>
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/theming/brand.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2025/07/01</p>
+    <p><b>Last Update: </b>2026/01/19</p>
 </section>
 
 <!-- This code was automatically generated -->
