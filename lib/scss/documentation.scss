@@ -88,12 +88,12 @@ main {
         // · Markdown subtitles
         h2, h3 {
             margin-top: 2.4rem;
-            color: lesli-css-color(slate);
+            color: lesli-css-color(slate, 700);
         }
 
         h4 {
             font-size: 1.2rem;
-            color: lesli-css-color(slate);
+            color: lesli-css-color(slate, 700);
         }
 
         // standard links
@@ -104,17 +104,14 @@ main {
 
         // · Markdown content text 
         p {
-            line-height: 1.5;
             text-align: justify;
             margin-bottom: 1rem;
-            color: lesli-css-color(black);
         }
 
         p, li {
             font-size: 19px;    /* Base font size */
             line-height: 1.6;   /* Comfortable line spacing */
-            color: #333;      /* Neutral text color for good contrast */
-            color: lesli-css-color(black, 100);
+            color: darken(lesli-css-color(black, 100),1);
             list-style:circle;
         }
 

@@ -6,9 +6,11 @@ layout: website
 <header>
     <%= partial("partials/lesli-navigation", :locals => { :logo => true }) %>
     <div class="container">
-        <%= image_tag "brand/lesli.svg", alt: "Lesli logo", class: "lesli-logo" %>
-        <h2><span class="lesli-title-colored">We have a module for what you need.</span></h2>
-        <p>Lesli provides carefully designed and developed modules ready for integration, extension, or immediate use in your daily work.</p>
+        <div class="component-header">
+            <%= image_tag "brand/lesli.svg", alt: "Lesli logo", class: "lesli-logo" %>
+            <h2><span class="lesli-title-colored">We have a module for what you need.</span></h2>
+            <p>Lesli provides carefully designed and developed modules ready for integration, extension, or immediate use in your daily work.</p>
+        </div>
     </div>
 </header>
 <%= partial("components/lesli-engines", :locals => { :header => false }) %>

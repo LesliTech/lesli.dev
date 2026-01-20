@@ -21,11 +21,11 @@ links = [{
     icon: "ri-database-line",
     text: "Database"
 }, {
-    href: "/engines/lesli/ruby-on-rails/",
+    href: "/engines/lesli/backend/",
     icon: "ri-server-line",
-    text: "Ruby on Rails"
+    text: "Backend"
 }, {
-    href: "/engines/lesli/theming/",
+    href: "/engines/lesli/frontend/",
     icon: "ri-window-line",
     text: "Frontend"
 }, {
@@ -58,20 +58,24 @@ links = [{
 <header>
     <%= partial("partials/lesli-navigation", :locals => { :logo => true }) %>
     <div class="container">
-        <%= image_tag "brand/lesli.svg", alt: "Lesli logo", class: "lesli-logo" %>
-        <h1>Core <span class="lesli-title-colored">Documentation</span></h1>
-        <p>Lesli is a SaaS development framework designed to build highly scalable, secure and customizable software products.</p>
-    </div>
-    <div class="container lesli-component-boxes">
-        <div class="columns">
-            <% links.each do |link| %>
-                <div class="column">
-                    <a href="<%= link[:href] %>">
-                        <i class="<%= link[:icon] %>"></i>
-                        <%= link[:text] %>
-                    </a>
-                </div>
-            <% end %>
+        <div class="component-header">
+            <%= image_tag "brand/lesli.svg", alt: "Lesli logo", class: "lesli-logo" %>
+            <h1>Core <span class="lesli-title-colored">Documentation</span></h1>
+            <p>Lesli is a SaaS development framework designed to build highly scalable, secure and customizable software products.</p>
+        </div>
+</header>
+<section class="container mb-4">
+    <div class="lesli-component-boxes">
+            <div class="columns">
+                <% links.each do |link| %>
+                    <div class="column">
+                        <a href="<%= link[:href] %>">
+                            <i class="<%= link[:icon] %>"></i>
+                            <%= link[:text] %>
+                        </a>
+                    </div>
+                <% end %>
+            </div>
         </div>
     </div>
-</header>
+</section>
