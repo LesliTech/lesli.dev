@@ -29,12 +29,22 @@
 
 
 // · 
-body, html {
-    color: darken(lesli-css-color(silver, 700), 4);
-    box-sizing: border-box;
-    font-weight: 400;
+html {
+    font-size: 16px;
+    line-height: 1.6;
+    font-kerning: normal;
+    font-feature-settings: "kern", "liga", "clig", "calt";
+    text-rendering: optimizeLegibility;
 }
 
+// · 
+body {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.65;
+    letter-spacing: 0.01em;
+    color: lesli-css-color(black, 100);
+}
 
 
 // · 

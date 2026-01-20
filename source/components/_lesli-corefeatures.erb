@@ -14,11 +14,13 @@
             <% corefeatures[:content].each do |feature| %>
                 <div class="column">
                     <div class="feature">
-                        <h3>
-                            <i class="<%= feature[:icon] %>"></i>
-                            <%= feature[:name] %>
-                        </h3>
-                        <p><%= feature[:text] %></p>
+                        <i class="<%= feature[:icon] %>"></i>
+                        <div>
+                            <h3>
+                                <%= feature[:name] %>
+                            </h3>
+                            <p><%= feature[:text] %></p>
+                        </div>
                     </div>
                 </div>
             <% end %>
