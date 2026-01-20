@@ -34,8 +34,16 @@
 
 @include lesli-css-breakpoint-only-mobile() {
     .component-header {
+        h2 {
+            font-size: 1.8rem;
+        }
         p {
             font-size: 1.4rem;
         }
-    }   
+    }
+    .component-footer {
+        p {
+            font-size: 1.4rem;
+        }
+    }
 }
