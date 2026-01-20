@@ -12,21 +12,19 @@ section.lesli-component-development {
         radial-gradient(lesli-css-color(silver) 2px, #ffffff 2px);
 
     .columns {
-        max-width: 1236px;
         justify-content: center;
     }
 
     .column {
-        margin-top: 0rem;
         flex-basis: 400px;
         max-width: 400px;
     }
 
     .feature {
         height: 100%;
-        padding: 30px;
+        padding: 1rem 0 2rem 2rem;
         background-color: white;
-        border-radius: 5px 5px 5px 5px;
+        border-radius: 5px;
         border: 1px solid lesli-css-color(silver, 300);
         box-shadow: 0px 2px 18px 0px rgba(lesli-css-color(blue, 300),0.1);
         
@@ -36,7 +34,7 @@ section.lesli-component-development {
         }
 
         h3 {
-            font-size: 1.2rem;
+            margin: 0;
             font-weight: 600;
         }
 

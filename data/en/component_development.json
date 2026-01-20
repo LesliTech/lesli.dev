@@ -17,7 +17,7 @@
     },{
         "icon": "ri-code-box-line",
         "name": "Complete Test Coverage",
-        "text": "We implement a comprehensive suite of automated unit and integration tests to ensure your software is bug-free."
+        "text": "Automated unit and integration tests keep your software reliable."
     },{
         "icon": "ri-refresh-line",
         "name": "Software up to date",
