@@ -33,11 +33,11 @@ Building a better future, one line of code at a time.
 source "https://rubygems.org"
 
 # core
-gem "middleman", "~> 4.5"
-gem "middleman-syntax", "~> 3.3"
-gem "middleman-livereload", "3.4.7"
+gem "middleman", "~> 4.6"
+gem "middleman-syntax", "~> 3.6"
+gem "middleman-livereload", "~> 3.5"
 gem "middleman-autoprefixer", "~> 3.0"
-gem "middleman-minify-html", "3.4.1"
+gem "middleman-minify-html", "~> 3.4"
 gem "middleman-deploy", "2.0.0.pre.alpha"
 
 
@@ -46,8 +46,10 @@ gem "redcarpet"
 
 
 # tools
-gem "rake", "13.2.1"
+gem "rake", "~> 13.3"
 
+
+gem "sass-embedded"
 
 gem "terser", "~> 1.1"
 gem "tzinfo-data", platforms: [:mswin, :mingw, :jruby, :x64_mingw]

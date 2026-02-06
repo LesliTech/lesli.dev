@@ -2,8 +2,8 @@
     <%= partial("partials/lesli-navigation", :locals => { :logo => true }) %>
     <div class="container brand">
         <%= image_tag "brand/lesli.svg", alt: "Lesli logo", class: "lesli-logo" %>
-        <h1>Build SaaS products in days <span class="lesli-title-colored"> not months.</span></h1>
-        <p>Lesli gives you modular Rails engines and production-ready tools to design, build, and scale modern SaaS applications — faster.</p>
+        <h1>The Open-Source SaaS Development <span class="lesli-title-colored">Framework for Ruby on Rails</span></h1>
+        <p>Lesli provides modular Rails engines and production-ready tools to design, build, and scale modern SaaS applications.</p>
         <br><br>
         <div class="buttons">
             <a class="mr-1 button-primary" href="/start">
@@ -11,26 +11,15 @@
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path></svg>
             </a>
             <a class="ml-1 button-primary-ghost" href="https://demo.lesli.dev/" target="_blank">
-                Explore the Demo
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4 16H20V5H4V16ZM13 18V20H17V22H7V20H11V18H2.9918C2.44405 18 2 17.5511 2 16.9925V4.00748C2 3.45107 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44892 22 4.00748V16.9925C22 17.5489 21.5447 18 21.0082 18H13Z"></path></svg>
+                Explore the Demo
             </a>
         </div>
-        <p class="keys">Open Source &nbsp; • &nbsp; 9+ Production Modules &nbsp; • &nbsp; Rails Engine Based</p>
-    </div>
-
-    <div class="container">
-        <lesli-browser host="https://demo.lesli.dev/" url="apps">
-            <img src="/images/engines/lesli/screenshot-apps.png" alt="not found">
-        </lesli-browser>
-    </div>
-
-    <div class="container footnote">
     </div>
 </header>
 
-<%#= partial("components/lesli-links") %>
 <%= partial("components/lesli-description") %>
 <%= partial("components/lesli-corefeatures") %>
 <%= partial("components/lesli-engines") %>
-<%#= partial("components/lesli-gems") %>
+<%= partial("components/lesli-demo") %>
 <%= partial("components/lesli-development") %>

@@ -9,8 +9,7 @@ class LesliBrowserComponent extends HTMLElement {
         shadow.innerHTML = `
             <style>
                 .lesli-component-browser {
-                    border-radius: 10px;
-                    border: 2px solid #e6ecef;
+                    border-radius: 10px 10px 0px 0px;
                     margin: 2rem auto 0;
                     width: 100%;
                     max-width: 900px;
@@ -19,9 +18,9 @@ class LesliBrowserComponent extends HTMLElement {
                     border-radius: 0 0 9px 9px;
                 }
                 .lesli-component-browser .lesli-browser-toolbar {
-                    border-radius: 9px 9px 0 0;
+                    border-radius: 7px 7px 0 0;
                     display: flex;
-                    padding: 0.6rem;
+                    padding: 0.65rem 0 0.6rem;
                     align-items: center;
                     justify-content: space-around;
                     background-color: #e6ecef;
@@ -37,8 +36,8 @@ class LesliBrowserComponent extends HTMLElement {
                     margin-left: 0.6rem;
                 }
                 .lesli-component-browser .lesli-browser-toolbar .lesli-browser-controls span {
-                    width: 18px;
-                    height: 18px;
+                    width: 16px;
+                    height: 16px;
                     border-radius: 50%;
                     display: inline-block;
                 }
@@ -54,13 +53,12 @@ class LesliBrowserComponent extends HTMLElement {
                 }
                 .lesli-component-browser .lesli-browser-toolbar .lesli-browser-address {
                     flex-grow: 1;
-                    font-size: 15px;
+                    font-size: 14px;
                     margin-left: 1rem;
-                    border-radius: 3px;
+                    border-radius: 6px;
                     letter-spacing: 2px;
-                    padding: 4px 6px;
+                    padding: 2px 8px;
                     background-color: white;
-                    
                 }
                 .lesli-component-browser .lesli-browser-toolbar .lesli-browser-address p {
                     font-family: Arial, Helvetica, sans-serif;
@@ -68,12 +66,13 @@ class LesliBrowserComponent extends HTMLElement {
                     margin: 0;
                 }
                 .lesli-component-browser .lesli-browser-toolbar .lesli-browser-settings {
+                    display: flex;
                     margin-left: 1rem;
                     margin-right: 0.6rem;
                 }
                 .lesli-component-browser .lesli-browser-toolbar .lesli-browser-settings svg {
-                    width: 30px;
-                    height: 30px;
+                    width: 25px;
+                    height: 25px;
                 }
                 @media screen and (max-width: 375px) {
                     .lesli-component-browser .lesli-browser-toolbar .lesli-browser-address {

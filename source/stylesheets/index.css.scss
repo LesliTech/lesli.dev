@@ -1,18 +1,43 @@
 
-@import "../../lib/scss/website.scss";
+@import "../../lib/scss/website";
+@import "../../lib/scss/components/lesli-description";
+@import "../../lib/scss/components/lesli-corefeatures";
+@import "../../lib/scss/components/lesli-engines";
+@import "../../lib/scss/components/lesli-demo";
+@import "../../lib/scss/components/lesli-development";
+
+.buttons {
+    margin: 3rem auto;
+    text-align: center;
+    a.button-primary svg {
+        margin-left: 8px;
+    }
+    a.button-primary-ghost svg {
+        margin-right: 8px;
+    }
+    a.button-primary,
+    a.button-primary-ghost {
+        padding: 1.1rem;
+    }
+}
 
 header {
+    height: 100vh;
+    min-height: 800px;
+    padding-bottom: 50px;
 
     .brand {
         margin: 6rem auto 5rem;
 
         h1 {
-            max-width: 900px;
+            max-width: 1105px;
         }
 
         p {
             font-weight: 300;
             color: #1f2937; // dark neutral 
+            max-width: 922px;
+            margin: 0 auto;
         }
 
         .keys {
@@ -22,13 +47,7 @@ header {
         }
     }
 
-    .buttons {
-        margin: 3rem auto;
-        a.button-primary,
-        a.button-primary-ghost {
-            padding: 1.1rem;
-        }
-    }
+    
 
     .footnote {
         margin: 6rem auto;
@@ -47,3 +66,4 @@ header {
         }
     }
 }
+
