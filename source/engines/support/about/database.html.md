@@ -23,11 +23,12 @@
 07.02.11.05. support/ticket/subscribers 
 07.02.11.06. support/ticket/attachments 
 07.02.11.07. support/ticket/versions
+07.02.11.10. support/ticket/assignments
 ```
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliSupport/tree/master/docs/about/database.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2025/07/09</p>
+    <p><b>Last Update: </b>2026/02/04</p>
 </section>
 
 <!-- This code was automatically generated -->

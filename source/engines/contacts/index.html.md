@@ -1,6 +1,6 @@
 <div align="center" class="documentation-header">
-    <img width="100" alt="LesliShield logo" src="/images/engines/shield/shield-logo.svg" />
-    <h3 align="center">Users & Security Management for the Lesli Framework.</h3>
+    <img width="100" alt="LesliContacts logo" src="/images/engines/contacts/contacts-logo.svg" />
+    <h3 align="center">Customer Relationship Management for the Lesli Framework.</h3>
 </div>
 
 
@@ -26,8 +26,8 @@
 ### Quick start
 
 ```shell
-# Add LesliShield engine gem
-bundle add lesli_shield
+# Add LesliContacts engine gem
+bundle add lesli_contacts
 ```
 
 ```shell
@@ -36,20 +36,20 @@ rake lesli:db:setup
 ```
 
 ```ruby
-# Load LesliShield engine
+# Load LesliContacts engine
 Rails.application.routes.draw do
-    mount LesliShield::Engine => "/shield"
+    mount LesliContacts::Engine => "/contacts"
 end
 ```
 
 
 ### Documentation
-
+- [Account](https://www.lesli.dev/engines/contacts/)
 
 
 ### Lesli Documentation
 * [website](https://www.lesli.dev/)
-* [documentation](https://www.lesli.dev/engines/shield/)
+* [documentation](https://www.lesli.dev/engines/contacts/)
 
 
 ### Get in touch with Lesli
@@ -61,7 +61,7 @@ end
 
 ### License
 -------
-Copyright (c) 2025, Lesli Technologies, S. A.
+Copyright (c) 2026, Lesli Technologies, S. A.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -85,8 +85,8 @@ along with this program. If not, see http://www.gnu.org/licenses/.
 </div>
 
 <section class="lesli-markdown-info">
-    <p><a target="blank" href="https://github.com/LesliTech/LesliShield/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/01/31</p>
+    <p><a target="blank" href="https://github.com/LesliTech/LesliContacts/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><b>Last Update: </b>2026/02/01</p>
 </section>
 
 <!-- This code was automatically generated -->

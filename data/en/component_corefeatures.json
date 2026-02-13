@@ -39,8 +39,16 @@
         "name": "Public Link Sharing",
         "text": "Share files and folders with outside contacts, protected by passwords and expiry dates."
     }, {
-        "icon": "",
-        "name": "",
+        "icon": "ri-history-line",
+        "name": "Activities",
+        "text": ""
+    }, {
+        "icon": "ri-attachment-line",
+        "name": "Attachments",
+        "text": ""
+    }, {
+        "icon": "ri-history-line",
+        "name": "Versions",
         "text": ""
     }]
 }

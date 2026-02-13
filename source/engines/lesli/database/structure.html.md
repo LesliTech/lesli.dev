@@ -7,30 +7,22 @@ The database structure of Lesli and all the engines must be documented and maint
 
 Here is an example of a database.md file for Lesli core and LesliSupport engine (code **07.02**) (this is just an example, for more details about database standards you should check the **DATABASE VERSIONING** section):
 
-Lesli core database 
+### Lesli core database 
 
 ```plaintext
 00.00.00.01 lesli/account
 00.00.00.02 lesli/users
 00.00.00.03 lesli/roles
-00.00.00.05 lesli/system_controllers
-00.00.00.06 lesli/system_controller/actions
-
-00.00.00.10 lesli/user/roles
-00.00.00.11 lesli/user/sessions
-00.00.00.12 lesli/role/actions
-00.00.00.13 lesli/role/privileges
+00.00.00.04 lesli/resources
 ```
 
-LesliSupport database
+### LesliSupport database
 
 ```plaintext
 07.02.00.01. support/account  
 
 // Tablas de servicio
-07.02.00.10. support/settings 
 07.02.00.20. support/catalogs 
-07.02.00.21. support/catalog/items
 
 // Tablas dedicadas de funcionalidad compartida
 07.02.00.50. support/workflows
@@ -53,7 +45,7 @@ LesliSupport database
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/database/structure.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/01/18</p>
+    <p><b>Last Update: </b>2026/02/10</p>
 </section>
 
 <!-- This code was automatically generated -->
