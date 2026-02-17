@@ -1,26 +1,26 @@
 {
-    "title": "By developers for developers",
-    "text": "Lesli is built and maintained according to high-quality software development standards.",
-    "foot": "Focus on features, not infrastructure and deliver value continuously.",
+    "title": "By developers, for developers",
+    "text": "Lesli is designed and maintained using high-quality engineering standards and modern development practices.",
+    "foot": "Focus on building features, not infrastructure, and deliver value continuously.",
     "content": [{
         "icon": "ri-code-line",
         "name": "Code Generation",
-        "text": "Rails scaffolds with vitamins."
-    },{
+        "text": "Speed up development with enhanced Rails generators and built-in best practices."
+    }, {
         "icon": "ri-screenshot-fill",
         "name": "UI Templates",
-        "text": "Just copy and paste the examples to quickly build a beautiful app."
-    },{
+        "text": "Build interfaces faster using ready-to-use components and layout templates."
+    }, {
         "icon": "ri-smartphone-line",
         "name": "Responsive Design",
-        "text": "Our interfaces work perfectly on all devices."
-    },{
+        "text": "Create interfaces that work seamlessly across desktop, tablet, and mobile devices."
+    }, {
         "icon": "ri-code-box-line",
         "name": "Complete Test Coverage",
-        "text": "Automated unit and integration tests keep your software reliable."
-    },{
+        "text": "Automated unit and integration tests help keep your software stable and reliable."
+    }, {
         "icon": "ri-refresh-line",
-        "name": "Software up to date",
-        "text": "We work with the latest versions of the tools."
+        "name": "Modern Stack",
+        "text": "Built on up-to-date tools and frameworks to ensure long-term stability and performance."
     }]
 }
