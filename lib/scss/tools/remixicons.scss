@@ -10,7 +10,7 @@
 */
 @font-face {
     font-family: "remixicon";
-    src: url('/fonts/Remixicon/remixicon.ttf') format('truetype'); 
+    src: url('/fonts/Remixicon/remixicon.ttf?t=1729600608771') format('truetype'); 
     font-display: swap;
 }
 
@@ -2690,7 +2690,7 @@
 // .ri-puzzle-2-fill:before { content: "\f44f"; }
 // .ri-puzzle-2-line:before { content: "\f450"; }
 // .ri-puzzle-fill:before { content: "\f451"; }
-// .ri-puzzle-line:before { content: "\f452"; }
+.ri-puzzle-line:before { content: "\f452"; }
 // .ri-ram-2-fill:before { content: "\f453"; }
 // .ri-ram-2-line:before { content: "\f454"; }
 // .ri-ram-fill:before { content: "\f455"; }

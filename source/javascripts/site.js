@@ -3,14 +3,14 @@ class LesliBrowserComponent extends HTMLElement {
         super();
 
         // Attach a shadow DOM for encapsulation
-        const shadow = this.attachShadow({ mode: 'open' });
+        const shadow = this.attachShadow({ mode: "open" });
 
         // Define the HTML content with a slot for inner content
         shadow.innerHTML = `
             <style>
                 .lesli-component-browser {
                     border-radius: 10px 10px 0px 0px;
-                    margin: 2rem auto 0;
+                    margin: 0rem auto 0;
                     width: 100%;
                     max-width: 900px;
                 }
@@ -25,7 +25,7 @@ class LesliBrowserComponent extends HTMLElement {
                     justify-content: space-around;
                     background-color: #e6ecef;
                 }
-                .lesli-component-browser .lesli-browser-toolbar .lesli-browser-arrows .icon, 
+                .lesli-component-browser .lesli-browser-toolbar .lesli-browser-arrows .icon,
                 .lesli-component-browser .lesli-browser-toolbar .lesli-browser-settings .icon {
                     height: 1.8rem;
                     width: 1.8rem;
@@ -112,12 +112,14 @@ class LesliBrowserComponent extends HTMLElement {
     }
 
     connectedCallback() {
-        const url = this.getAttribute('url') || '';
-        const host = this.getAttribute('host') || 'https://www.lesli.dev/';
-        const el = this.shadowRoot.getElementById('lesli-browser-address-input');
+        const url = this.getAttribute("url") || "";
+        const host = this.getAttribute("host") || "https://www.lesli.dev/";
+        const el = this.shadowRoot.getElementById(
+            "lesli-browser-address-input",
+        );
         el.innerText = host.concat(url);
     }
 }
 
 // Define the custom element
-customElements.define('lesli-browser', LesliBrowserComponent);
+customElements.define("lesli-browser", LesliBrowserComponent);

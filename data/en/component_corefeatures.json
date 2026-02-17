@@ -3,52 +3,52 @@
     "text": "Focus on your product, not infrastructure.",
     "foot": "These are the features most SaaS teams spend months building, with Lesli they are ready on day one.",
     "content": [{
+        "icon": "ri-puzzle-line",
+        "name": "Modular Architecture",
+        "text": "Extend the platform with plug-and-play modules to build exactly the system you need."
+    }, {
         "icon": "ri-passport-line",
-        "name": "Multi-Factor Authentication",
-        "text": "Add two or more factors for login, such as passwords, one-time codes or magic links."
+        "name": "Flexible Authentication Methods",
+        "text": "Allow users to sign in using passwords, one-time codes, or magic links."
     }, {
         "icon": "ri-shield-keyhole-line",
         "name": "Detailed User Privileges",
-        "text": "Add two or more factors for login, such as passwords, one-time codes or magic links."
+        "text": "Control exactly what each user can see and do with fine-grained permissions."
     }, {
         "icon": "ri-file-paper-line",
         "name": "System Auditing",
-        "text": "Log actions of users and admins for compliance and security."
-    }, {
-        "icon": "ri-terminal-box-line",
-        "name": "Commands",
-        "text": "A better way to interact with Lesli via chatbot, voice assistant or typing commands."
-    }, {
-        "icon": "ri-search-line",
-        "name": "Full-text Search",
-        "text": "Enable users to find their data quickly and easy through global or local search."
-    }, {
-        "icon": "ri-file-shield-2-line",
-        "name": "Secure Views",
-        "text": "Let users safely distribute confidential documents with maximum control."
-    }, {  
-        "icon": "ri-palette-line",
-        "name": "Theming",
-        "text": "Make users feel at home by theming the web app, desktop client and mobile apps."
-    }, {
-        "icon": "ri-global-line",
-        "name": "Multilanguage",
-        "text": "Supports multiple languages, enabling users to customize, add translations, and translate custom modules."
-    }, {
-        "icon": "ri-link",
-        "name": "Public Link Sharing",
-        "text": "Share files and folders with outside contacts, protected by passwords and expiry dates."
+        "text": "Track important user and system actions for security, compliance, and transparency."
     }, {
         "icon": "ri-history-line",
         "name": "Activities",
-        "text": ""
-    }, {
-        "icon": "ri-attachment-line",
-        "name": "Attachments",
-        "text": ""
+        "text": "See a clear timeline of user actions and system events."
     }, {
         "icon": "ri-history-line",
         "name": "Versions",
-        "text": ""
+        "text": "Track changes and restore previous versions of important data."
+    }, {
+        "icon": "ri-attachment-line",
+        "name": "Attachments",
+        "text": "Upload and manage files directly within any resource across the platform."
+    }, {
+        "icon": "ri-search-line",
+        "name": "Full-text Search",
+        "text": "Find data instantly using powerful global and contextual search."
+    }, {
+        "icon": "ri-global-line",
+        "name": "Multilanguage",
+        "text": "Support multiple languages and translate both the core system and custom modules."
+    }, {
+        "icon": "ri-palette-line",
+        "name": "Theming",
+        "text": "Customize the look and feel of the platform across web, desktop, and mobile."
+    }, {
+        "icon": "ri-link",
+        "name": "Public Link Sharing",
+        "text": "Share content with external users using secure links, passwords, and expiry dates."
+    }, {
+        "icon": "ri-terminal-box-line",
+        "name": "Command Interface",
+        "text": "Interact with the system through commands, chat, or voice for faster workflows."
     }]
 }
