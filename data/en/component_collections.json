@@ -26,6 +26,11 @@
             "text": "Proposal and quotation management",
             "desc": "Description about the module should be here",
             "feat": ["Easy creation of quotations for your clients", "History of the customer's quotations"]
+        }, {
+            "name": "Contacts",
+            "text": "Customer Relationship Management",
+            "desc": "",
+            "feat": []
         }]
     }, {
         "name": "Productivity",

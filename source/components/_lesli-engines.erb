@@ -1,7 +1,24 @@
 
-<% engines = ["dashboard", "admin", "bell", "calendar", "support", "shield", "audit", "babel"] %>
+<% available_engines = ["dashboard", "admin", "bell", "contacts", "calendar", "support", "shield", "audit", "babel"] %>
 
 <% collections = data.send(I18n.locale.to_sym).component_collections %>
+
+<%
+# 1. Obtener todos los engines disponibles
+all_engines = collections[:collection]
+  .flat_map { |collection| collection[:engines] }
+
+# 2. Filtrar solo los permitidos
+filtered_engines = all_engines.select do |engine|
+  available_engines.include?(engine[:name].downcase)
+end
+
+# 3. Ordenarlos según available_engines
+engines = filtered_engines.sort_by do |engine|
+  available_engines.index(engine[:name].downcase)
+end
+%>
+
 
 <% has_header = defined?(header) ? header : true %>
 
@@ -14,27 +31,14 @@
             </div>
         <% end %>
         <div class="columns">
-            <!--
-            <div class="column is-full2">
-                <a href="/engines/lesli/about/">
-                    <%= lesli_svg("engine-lesli") %>
-                    <h3>Lesli</h3>
-                    <p>Development Framework.</p>
-                </a>
-            </div>
-            -->
-            <% collections[:collection].each do |collection| %>
-                <% collection[:engines].each do |engine| %>
-                    <% if engines.include?(engine[:name].downcase) %>
-                        <div class="column">
-                            <a href="/engines/<%= engine[:name].downcase %>/">
-                                <%= lesli_svg("engine-#{engine[:name].downcase}") %>
-                                <h3><%= engine[:name] %></h3>
-                                <p><%= engine[:text] %></p>
-                            </a>
-                        </div>
-                    <% end %>
-                <% end %>
+            <% engines.each do |engine| %>
+                <div class="column">
+                    <a href="/engines/<%= engine[:name].downcase %>/">
+                        <%= lesli_svg("engine-#{engine[:name].downcase}") %>
+                        <h3><%= engine[:name] %></h3>
+                        <p><%= engine[:text] %></p>
+                    </a>
+                </div>
             <% end %>
         </div>
         <div class="component-footer">
