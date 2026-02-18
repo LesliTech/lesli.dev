@@ -61,51 +61,44 @@ Lesli is officially released and will be supported as of version 5.1
 ### Quick start
 
 ```shell
-# Add Lesli engine
-bundle add lesli
+# Use the Rails template
+rails new LesliDemo -m lesli_demo.rb --skip-bundle
 ```
 
+### Manual installation
+
 ```shell
+# Add Lesli engine
+bundle add lesli
+
 # Add Lesli to your app
 rails generate lesli:install
-```
-```shell
+
 # Setup database for development
-rake lesli:db:dev
-```
-```shell
+rake lesli:db:reset
+
 # Start your app
 rails server
 ```
-
-
-<br />
-
-
 
 ### Development 
 
 ```shell
 # clone the lesli repo inside your engine folder: RailsApp/engines
 git clone https://github.com/LesliTech/Lesli.git
-```
-```ruby
+
 # Load Lesli as a Gem
 gem "lesli", path: "engines/Lesli"
-```
-```shell
+
 # Install the necessary Gems to run Lesli
 bundle install
-```
-```shell
+
 # Generate Lesli initializer
 rails generate lesli:install
-```
-```shell
+
 # Hard reset Database for development:
 rake lesli:db:reset 
-```
-```shell
+
 # Run default Rails server
 rails s 
 rails s --binding=0.0.0.0
@@ -137,7 +130,7 @@ RAILS_SERVE_STATIC_FILES=true rails s --environment=production
 
 ### License
 -------
-Copyright (c) 2025, Lesli Technologies, S. A.
+Copyright (c) 2026, Lesli Technologies, S. A.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -166,7 +159,7 @@ along with this program. If not, see http://www.gnu.org/licenses/.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2025/08/20</p>
+    <p><b>Last Update: </b>2026/02/17</p>
 </section>
 
 <!-- This code was automatically generated -->

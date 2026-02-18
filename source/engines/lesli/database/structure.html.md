@@ -10,7 +10,7 @@ Here is an example of a database.md file for Lesli core and LesliSupport engine 
 ### Lesli core database 
 
 ```plaintext
-00.00.00.01 lesli/account
+00.00.00.01 lesli/accounts
 00.00.00.02 lesli/users
 00.00.00.03 lesli/roles
 00.00.00.04 lesli/resources
@@ -35,17 +35,17 @@ Here is an example of a database.md file for Lesli core and LesliSupport engine 
 
 // Tablas de funcionalidad especifica
 07.02.11.01. support/tickets
-07.02.11.02. support/ticket/actions 
-07.02.11.03. support/ticket/activities 
-07.02.11.04. support/ticket/discussions 
-07.02.11.05. support/ticket/subscribers 
-07.02.11.06. support/ticket/attachments 
-07.02.11.07. support/ticket/versions
+07.02.11.02. support/ticket/activities 
+07.02.11.03. support/ticket/discussions 
+07.02.11.04. support/ticket/attachments 
+07.02.11.05. support/ticket/subscribers
+07.02.11.06. support/ticket/versions
+07.02.11.07. support/ticket/actions 
 ```
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/database/structure.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/02/10</p>
+    <p><b>Last Update: </b>2026/02/11</p>
 </section>
 
 <!-- This code was automatically generated -->
