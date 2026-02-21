@@ -1,22 +1,22 @@
-<div align="center" class="documentation-header">
+<div align="center">
     <img width="150" alt="Lesli logo" src="/images/engines/lesli/lesli/lesli-logo.svg" />
-    <h3 align="center">Ruby on Rails SaaS Development Framework.</h3>
+    <h3 align="center">The Open-Source SaaS Development Framework for Ruby on Rails.</h3>
 </div>
 
 <br />
 <hr/>
 
-<div align="center" class="documentation-statics">
-    <a target="blank" href="https://github.com/LesliTech/Lesli/actions">
+<div align="center">
+    <a target="_blank" href="https://github.com/LesliTech/Lesli/actions">
         <img alt="Tests passing" src="https://img.shields.io/badge/Tests-passing-green?style=for-the-badge&logo=github">
     </a>
-    <a target="blank" href="https://rubygems.org/gems/lesli">
+    <a target="_blank" href="https://rubygems.org/gems/lesli">
         <img alt="Gem Version" src="https://img.shields.io/gem/v/lesli?style=for-the-badge&logo=ruby">
     </a>
-    <a target="blank" href="https://codecov.io/github/LesliTech/Lesli"> 
+    <a target="_blank" href="https://codecov.io/github/LesliTech/Lesli">
         <img alt="Codecov" src="https://img.shields.io/codecov/c/github/LesliTech/Lesli?style=for-the-badge&logo=codecov">
     </a>
-    <a target="blank" href="https://sonarcloud.io/project/overview?id=LesliTech_Lesli"> 
+    <a target="_blank" href="https://sonarcloud.io/project/overview?id=LesliTech_Lesli">
         <img alt="Sonar Quality Gate" src="https://img.shields.io/sonar/quality_gate/LesliTech_Lesli?server=https%3A%2F%2Fsonarcloud.io&style=for-the-badge&logo=sonarqubecloud&label=Quality">
     </a>
 </div>
@@ -25,59 +25,59 @@
 <br />
 
 <div align="center">
-    <img 
-        style="width:100%;max-width:800px;border-radius:6px;" 
+    <img
+        style="width:100%;max-width:800px;border-radius:6px;"
         alt="Lesli screenshot" src="/images/engines/lesli/screenshot.png" />
 </div>
 
+---
 
-### Introduction 
+## Introduction
 
-Lesli is a SaaS development framework designed to build highly scalable, secure and customizable software products.
+Lesli is an open-source SaaS development framework built to create scalable, secure, and modular software products.
 
-Built-on top of Ruby on Rails, Postgres, Hotwire, Bulma, SASS and many more awesome open-source libraries, packages, gems and tools.
+Built on top of **Ruby on Rails, PostgreSQL, Hotwire, and modern frontend tooling**, Lesli provides the infrastructure, architecture, and reusable components needed to build production-ready SaaS platforms faster.
 
-Lesli is completely open source and comes with features and tools that can save you years of development effort, additionally, our pre-built modules can seamlessly extend Lesli's functionality, allowing you to build your own SaaS in a matter of minutes.
+Lesli is not a starter kit, admin panel, or boilerplate.
 
-<br />
-<hr />
-<p align="center" class="has-text-centered">
-    Lesli is currently in alpha, but we're excited about the promising improvements coming soon!
-</p>
-<hr />
-<br />
-<br />
+It is a **modular foundation** that allows you to build applications using independent engines, shared infrastructure, and proven SaaS patterns.
 
-Lesli is officially released and will be supported as of version 5.1
+With Lesli, you focus on features — not infrastructure.
 
-<br />
+---
 
-> Lesli goes beyond being just a starter-kit, template, admin panel or dashboard. Lesli is a Ruby on Rails gem that you can use to build modules (a.k.a. engines) and standard Rails applications leveraging its robust set of built-in features, generators, components, and industry standards. With Lesli, you have the flexibility to extend existing functionalities or develop fully customized software tailored to your specific needs.
+## Why Lesli?
 
+- Modular architecture powered by standard Rails engines  
+- Flexible authentication, detailed privileges, and access control  
+- System auditing with activities and version tracking  
+- Attachments that can be added to any resource  
+- Full-text search across modules and records  
+- Multi-language support for both core and custom modules  
+- Designed for long-term SaaS scalability and maintainability  
 
-<br />
+---
 
+## Quick Start
 
-### Quick start
-
-```shell
-# Use the Rails template
+```bash
+# Create a new app using the Lesli template
 rails new LesliDemo -m lesli_demo.rb --skip-bundle
 ```
 
 ### Manual installation
 
 ```shell
-# Add Lesli engine
+# Add Lesli
 bundle add lesli
 
-# Add Lesli to your app
+# Install Lesli
 rails generate lesli:install
 
-# Setup database for development
+# Setup database
 rake lesli:db:reset
 
-# Start your app
+# Start server
 rails server
 ```
 
@@ -107,8 +107,7 @@ rails s --environment=development
 RAILS_SERVE_STATIC_FILES=true rails s --environment=production 
 ```
 
-<br />
-
+---
 
 ### Demo
 
@@ -116,12 +115,12 @@ RAILS_SERVE_STATIC_FILES=true rails s --environment=production
 * [docker demo](https://github.com/LesliTech/lesli-docker-demo)
 
 
-### Lesli Documentation
+### Documentation
 * [website](https://www.lesli.dev/)
 * [documentation](https://www.lesli.dev/lesli/)
 
 
-### Get in touch with Lesli
+### Connect with Lesli
 
 * [X: @LesliTech](https://x.com/LesliTech)
 * [Email: hello@lesli.tech](hello@lesli.tech)
@@ -151,7 +150,9 @@ along with this program. If not, see http://www.gnu.org/licenses/.
 
 <div align="center" class="has-text-centered">
     <img width="200" alt="Lesli logo" src="https://cdn.lesli.tech/lesli/brand/app-logo.svg" />
-    <h4 align="center" class="mt-0">Ruby on Rails SaaS Development Framework.</h4>
+    <h3 align="center" class="mt-0">
+        The Open-Source SaaS Development Framework for Ruby on Rails.
+    </h3>
 </div>
 
 <br />
@@ -159,7 +160,7 @@ along with this program. If not, see http://www.gnu.org/licenses/.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/02/17</p>
+    <p><b>Last Update: </b>2026/02/21</p>
 </section>
 
 <!-- This code was automatically generated -->
