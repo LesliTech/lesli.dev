@@ -1,0 +1,47 @@
+
+@use "../component" as c;
+
+.component-header {
+    text-align: center;
+    margin-bottom: 4rem;
+
+    h2 {
+        line-height: 1;
+        font-size: 2.6rem;
+        margin: 0 auto 1rem;
+        color: darken(c.lesli-color(black, 100),4);
+    }
+
+    p {
+        font-size: 2rem;
+        line-height: 1.1;
+        color: darken(c.lesli-color(black, 100),4);
+    }
+}
+
+.component-footer {
+    text-align: center;
+    margin: 6rem 0 2rem;
+
+    p {
+        font-size: 2rem;
+        line-height: 1.1;
+        color: c.lesli-color(black, 100);
+    }
+}
+
+@include c.lesli-breakpoint-only-mobile() {
+    .component-header {
+        h2 {
+            font-size: 1.8rem;
+        }
+        p {
+            font-size: 1.4rem;
+        }
+    }
+    .component-footer {
+        p {
+            font-size: 1.4rem;
+        }
+    }
+}

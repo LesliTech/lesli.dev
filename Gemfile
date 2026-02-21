@@ -48,8 +48,8 @@ gem "redcarpet"
 # tools
 gem "rake", "~> 13.3"
 
-
-gem "sass-embedded"
+gem 'sassc', github: 'sass/sassc-ruby', ref: 'refs/pull/233/head'
+gem 'sassc-embedded'
 
 gem "terser", "~> 1.1"
 gem "tzinfo-data", platforms: [:mswin, :mingw, :jruby, :x64_mingw]

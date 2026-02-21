@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/sass/sassc-ruby.git
+  revision: 244d3dcc8b985e25bab066b296f0f202e43e41ad
+  ref: refs/pull/233/head
+  specs:
+    sassc (2.4.0)
+      ffi (~> 1.9)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -147,8 +155,8 @@ GEM
     rouge (3.30.0)
     sass-embedded (1.97.3-x86_64-darwin)
       google-protobuf (~> 4.31)
-    sassc (2.4.0)
-      ffi (~> 1.9)
+    sassc-embedded (1.80.8)
+      sass-embedded (~> 1.80)
     securerandom (0.4.1)
     servolux (0.13.0)
     temple (0.10.4)
@@ -181,7 +189,8 @@ DEPENDENCIES
   net-ftp (= 0.2.0)
   rake (~> 13.3)
   redcarpet
-  sass-embedded
+  sassc!
+  sassc-embedded
   terser (~> 1.1)
   tzinfo-data
   wdm (~> 0.1)

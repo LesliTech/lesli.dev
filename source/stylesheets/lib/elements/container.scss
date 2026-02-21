@@ -1,0 +1,5 @@
+@use "../../../../node_modules/lesli-css" as lesli;
+.container {
+    padding: 1rem;
+    @include lesli.lesli-container;
+}

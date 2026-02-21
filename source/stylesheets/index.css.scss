@@ -1,11 +1,18 @@
 
-@import "../../lib/scss/website";
-@import "../../lib/scss/components/lesli-description";
-@import "../../lib/scss/components/lesli-corefeatures";
-@import "../../lib/scss/components/lesli-engines";
-@import "../../lib/scss/components/lesli-demo";
-@import "../../lib/scss/components/lesli-development";
+// · 
+@use "lib/website";
+@use "lib/component" as c;
 
+
+// · 
+@use "lib/components/lesli-description";
+@use "lib/components/lesli-corefeatures";
+@use "lib/components/lesli-engines";
+@use "lib/components/lesli-demo";
+@use "lib/components/lesli-development";
+
+
+// · 
 .buttons {
     margin: 3rem auto;
     text-align: center;
@@ -21,6 +28,8 @@
     }
 }
 
+
+// · 
 header {
     height: 100vh;
     min-height: 800px;
@@ -35,7 +44,7 @@ header {
 
         p {
             font-weight: 300;
-            color: #1f2937; // dark neutral 
+            color: #1f2937; // dark neutral
             max-width: 922px;
             margin: 0 auto;
         }
@@ -43,11 +52,9 @@ header {
         .keys {
             font-size: 1.4rem;
             font-weight: 400;
-            color: lesli-css-color(black, 100);
+            color: c.lesli-color(black, 100);
         }
     }
-
-    
 
     .footnote {
         margin: 6rem auto;
@@ -55,7 +62,8 @@ header {
 }
 
 
-@include lesli-css-breakpoint-mobile() {
+// · 
+@include c.lesli-breakpoint-mobile() {
     header {
         p {
             display: none;
@@ -66,4 +74,3 @@ header {
         }
     }
 }
-

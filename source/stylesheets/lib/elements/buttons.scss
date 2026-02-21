@@ -1,4 +1,4 @@
-@use "../../../node_modules/lesli-css" as lesli;
+@use "../../../../node_modules/lesli-css" as lesli;
 
 .button-primary,
 .button-primary-ghost,
@@ -6,7 +6,7 @@
     border-radius: 6px;
     padding: 0.8rem 1.2rem;
     text-align: center;
-    font-weight: 600;
+    font-weight: 800;
 
     svg {
         max-width: 20px;

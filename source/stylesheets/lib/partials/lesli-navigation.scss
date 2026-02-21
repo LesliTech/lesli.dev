@@ -1,0 +1,50 @@
+
+// · 
+@use "../component" as c;
+
+
+// · 
+nav.lesli-partial-navigation {
+    display: flex;
+    flex-grow: 0;
+    padding: 1rem 1rem;
+    justify-content: space-between;
+    height: c.$navigation-height;
+
+    ul {
+        padding: 0;
+        display: flex;
+    }
+
+    .lesli-partial-navigation-logo {
+        a {
+            padding: 1rem 0;
+            display: block;
+        }
+        img {
+            height: 30px;
+            width: 100%;
+        }
+    }
+
+    a {
+        height: 100%;
+        display: flex;
+        padding: 0 1rem;
+        align-items: center;
+        font-size: 1.2rem;
+        font-weight: 400;
+        color: c.lesli-color(black, 700);
+    }
+
+    li.lesli-partial-aside-open {
+        display: none;
+    }
+}
+
+
+@include c.lesli-breakpoint-mobile() {
+    nav.lesli-partial-navigation li.lesli-partial-aside-open {
+        display: block;
+    }
+}

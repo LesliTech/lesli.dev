@@ -1,55 +1,56 @@
-/*
-@use "../../node_modules/lesli-css" as lesli;
+// · 
+@use "../../../node_modules/lesli-css" as lesli;
 
-@forward "tools/variables";
-@forward "tools/remixicons";
-@forward "elements/buttons";
+
+// · 
+@use "tools/variables";
+@use "tools/remixicons";
+@use "elements/buttons";
+@use "elements/colors";
+@use "elements/columns";
+@use "elements/container";
+@use "elements/spacing";
+@use "elements/tables";
+
 
 // · Font family for titles
 @font-face {
-    font-family: "domine";
+    font-family: "Domine";
     src: url("/fonts/domine/domine-variable-font-wght.ttf") format("truetype");
     font-display: swap;
 }
 
+
 // · Font family for the body
 @font-face {
     font-family: "SourceSans3";
-    src: url("/fonts/source-sans3/source-sans3-variable-font-wght.ttf")
-        format("truetype");
+    src: url("/fonts/source-sans3/source-sans3-variable-font-wght.ttf") format("truetype");
     font-display: swap;
+    font-weight: 200 900;
 }
 
+
+// · 
 @include lesli.lesli-normalize;
 @include lesli.lesli-fonts-standard("Domine", "SourceSans3");
 
 
-
-
-
-
-@import "elements/colors";
-@import "elements/columns";
-@import "elements/container";
-@import "elements/spacing";
-@import "elements/tables";
-
 // ·
 html {
     font-size: 16px;
-    line-height: 1.6;
     font-kerning: normal;
     font-feature-settings: "kern", "liga", "clig", "calt";
     text-rendering: optimizeLegibility;
 }
 
+
 // ·
 body {
-    font-weight: 400;
     font-size: 1rem;
+    font-weight: 300;
     line-height: 1.65;
     letter-spacing: 0.01em;
-    color: darken(lesli-css-color(black, 100),2);
+    color: darken(lesli.lesli-color(black, 100),2);
 }
 
 
@@ -63,12 +64,15 @@ body {
 
 }
 
+
+// · 
 .display-block {
     display: block;
 }
 
+
+// · 
 .is-full {
     flex: none !important;
     width: 100%;
 }
-*/
