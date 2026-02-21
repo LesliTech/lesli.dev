@@ -11,7 +11,7 @@
     <body>
         <%= partial("partials/lesli-aside") %>
         <main>
-            <%= partial("partials/lesli-navigation", :locals => { :logo => true }) %>
+            <%= partial("partials/lesli-navigation", :locals => { :logo => false }) %>
             <section class="lesli-documentation">
                 <%= yield %>
                 <%= partial("partials/lesli-footer") %>

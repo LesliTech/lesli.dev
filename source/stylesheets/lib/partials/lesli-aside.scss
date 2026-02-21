@@ -1,5 +1,5 @@
 
-@import "../component";
+@use "../component" as c;
 
 aside.lesli-partial-aside {
     position: fixed;
@@ -15,10 +15,10 @@ aside.lesli-partial-aside {
         justify-content: end;
         align-items: center;
         margin: 0;
-        height: $navigation-height;
-        border-bottom: 1px solid lesli-css-color(silver, 300);
+        height: c.$navigation-height;
+        border-bottom: 1px solid c.lesli-color(silver, 300);
         img {
-            height: calc(#{$navigation-height} - 40px);
+            height: calc(#{c.$navigation-height} - 40px);
             margin-right: 2.6rem;
         }
     }
@@ -35,36 +35,38 @@ aside.lesli-partial-aside {
         h3 {
             font-size: 1rem;
             margin: 0 2.6rem .4rem;
-            color: lesli-css-color(slate, 700);
+            color: c.lesli-color(slate, 700);
 
             a {
                 all: unset;
                 box-sizing: border-box;
                 text-transform: uppercase;
+                color: c.lesli-color(slate, 700);
                 font-size: .9rem;
-                font-weight: 600;
+                font-weight: 700;
             }
         }
 
         a {
             display: block;
-            color: lesli-css-color(black, 100);
+            color: c.lesli-color(slate, 500);
             padding: .2rem 2.6rem .2rem 0;
             text-transform: capitalize;
             font-size: .95rem;
             font-size: 1.1rem;
+            font-weight: 400;
             transition: all linear .2s;
 
             &:hover {
                 cursor: pointer;
-                color: lesli-css-color(blue, 900);
+                color: c.lesli-color(blue, 900);
             }
         }
     }
 }
 
 
-@include lesli-css-breakpoint-mobile {
+@include c.lesli-breakpoint-mobile {
     aside.lesli-partial-aside {
         display: none;
 

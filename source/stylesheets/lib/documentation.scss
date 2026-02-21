@@ -1,7 +1,7 @@
 /*
 Lesli
 
-Copyright (c) 2024, Lesli Technologies, S. A.
+Copyright (c) 2026, Lesli Technologies, S. A.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -31,17 +31,21 @@ Building a better future, one line of code at a time.
 
 
 // · 
-@import "base";
-@import "components/lesli-browser";
-@import "partials/lesli-navigation";
-@import "partials/lesli-aside";
-@import "partials/lesli-footer";
-@import "tools/highlight";
+@use "base";
+@use "component" as c;
+
+
+// · 
+@use "components/lesli-browser";
+@use "partials/lesli-navigation";
+@use "partials/lesli-aside";
+@use "partials/lesli-footer";
+@use "tools/highlight";
 
 
 // · Override global navigation
 nav.lesli-partial-navigation {
-    border-bottom: 1px solid lesli-css-color(silver, 300);
+    border-bottom: 1px solid c.lesli-color(silver, 300);
     ul:last-child {
         width: 100%;
         max-width: 850px;
@@ -80,38 +84,40 @@ main {
         // · Markdown main title
         h1{
             font-weight: bold;
-            color: lesli-css-color(slate, 700);
-            color: lesli-css-color(blue, 700);
-            color: lesli-css-color(blue, 900);
+            color: c.lesli-color(slate, 700);
+            color: c.lesli-color(blue, 700);
+            color: c.lesli-color(blue, 900);
         }
 
         // · Markdown subtitles
         h2, h3 {
             margin-top: 2.4rem;
-            color: lesli-css-color(slate, 700);
+            color: c.lesli-color(slate, 700);
         }
 
         h4 {
             font-size: 1.2rem;
-            color: lesli-css-color(slate, 700);
+            color: c.lesli-color(slate, 700);
         }
 
         // standard links
         a { 
-            color: lesli-css-color(blue);
+            color: c.lesli-color(blue);
             text-decoration:underline;
         }
 
         // · Markdown content text 
         p {
+            font-weight: 400;
             text-align: justify;
             margin-bottom: 1rem;
         }
 
         p, li {
-            font-size: 19px;    /* Base font size */
-            line-height: 1.6;   /* Comfortable line spacing */
-            color: darken(lesli-css-color(black, 100),1);
+            font-size: 19px;    // Base font size 
+            line-height: 1.6;   // Comfortable line spacing 
+            color: c.lesli-color(silver, 900);
+            color: c.lesli-color(black, 100);
             list-style:circle;
         }
 
@@ -139,7 +145,7 @@ main {
             background-color: #f9f9f9;
         
             p {
-                color: lesli-css-color(black, 100);
+                color: c.lesli-color(black, 100);
                 display: inline;
                 line-height: 1.6 !important;
             }
@@ -155,12 +161,12 @@ main {
             display: flex;
             padding: 1rem;
             margin: 4rem auto 2rem;
-            border-top: 1px solid lesli-css-color(slate, 300);
-            border-bottom: 1px solid lesli-css-color(slate, 300);
+            border-top: 1px solid c.lesli-color(slate, 300);
+            border-bottom: 1px solid c.lesli-color(slate, 300);
         
             a {
                 display: flex;
-                color: lesli-css-color(blue, 700);
+                color: c.lesli-color(blue, 700);
             }
         
             p {
@@ -193,7 +199,7 @@ main {
 
         // · Placeholder for work in progress message
         section.lesli-parche-working {
-            @include lesli-css-flex-center('vertical');
+            @include c.lesli-flex-center('vertical');
             text-align: center;
             min-height: 60vh;
         
@@ -205,12 +211,12 @@ main {
             p {
                 font-size: 2rem;
                 margin-bottom: 1.6rem;
-                color: lesli-css-color(slate);
+                color: c.lesli-color(slate);
             }
         
             a {
-                color: lesli-css-color(lesli, primary);
-                border: 1px solid lesli-css-color(lesli, primary);
+                color: c.lesli-color(lesli, primary);
+                border: 1px solid c.lesli-color(lesli, primary);
                 transition: all linear .3s;
                 border-radius: 1.1rem;
                 font-weight: bold;
@@ -220,7 +226,7 @@ main {
         
                 &:hover {
                     color: white;
-                    background-color: lesli-css-color(lesli, primary);
+                    background-color: c.lesli-color(lesli, primary);
                 }
             }
         }
@@ -230,14 +236,14 @@ main {
             text-decoration:none;
         }
 
-        @include lesli-css-color-print("background-color", "lesli-background");
+        @include c.lesli-color-print("background-color", "lesli-background");
 
     }
 }
 
 
 
-
+/*
 @include lesli-css-breakpoint-tablet {
     nav.lesli-partial-navigation {
         ul:first-child {
@@ -253,3 +259,4 @@ main {
         }
     }
 }
+*/
