@@ -1,7 +1,10 @@
 
-@import "../../lib/scss/website.scss";
-@import "../../lib/scss/components/lesli-engines";
+// · 
+@use "lib/website";
+@use "lib/components/lesli-engines";
 
+
+// · 
 .container.lesli-component-boxes {
     margin: 4rem auto;
 }
