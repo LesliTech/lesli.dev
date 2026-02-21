@@ -22,8 +22,8 @@
 }
 
 .button-primary-ghost {
-    background-color: lighten(lesli.lesli-color(lesli, primary), 52);
-    color: darken(lesli.lesli-color(lesli, primary), 10) !important;
+    background-color: lesli.lesli-color-lighten(lesli.lesli-color(lesli, primary), 52);
+    color: lesli.lesli-color-darken(lesli.lesli-color(lesli, primary), 10) !important;
 }
 
 .button-primary-outlined {

@@ -41,7 +41,7 @@ section.lesli-component-gems {
         svg {
             height: 50px;
             margin: 0 auto .8rem;
-            fill: darken(c.lesli-color(blue, 900), 10);
+            fill: c.lesli-color-darken(c.lesli-color(blue, 900), 10);
         }
 
         h3 {

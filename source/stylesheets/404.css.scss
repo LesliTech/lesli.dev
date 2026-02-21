@@ -1,7 +1,8 @@
-@import "../../lib/scss/website.scss";
+@use "lib/component" as c;
+@use "lib/website";
 
 section.lesli-404 {
-    @include lesli-css-flex-center('vertical');
+    @include c.lesli-flex-center('vertical');
     text-align: center;
     min-height: calc(100vh - 160px);
 
@@ -13,18 +14,18 @@ section.lesli-404 {
     h3 {
         margin: 1.6rem 0 1.2rem;
         font-size: 5rem;
-        color: lesli-css-color(slate);
+        color: c.lesli-color(slate);
     }
 
     p {
         font-size: 1.8rem;
         margin-bottom: 1.6rem;
-        color: lesli-css-color(slate, 700);
+        color: c.lesli-color(slate, 700);
     }
 
     a {
-        color: lesli-css-color(lesli, primary);
-        border: 1px solid lesli-css-color(lesli, primary);
+        color: c.lesli-color(lesli, primary);
+        border: 1px solid c.lesli-color(lesli, primary);
         transition: all linear .3s;
         border-radius: 1.1rem;
         font-weight: bold;

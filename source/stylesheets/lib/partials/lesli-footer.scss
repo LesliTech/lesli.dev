@@ -78,7 +78,7 @@ footer.lesli-footer {
         svg {
             width: 1.8rem;
             height: 1.8rem;
-            fill: darken(c.lesli-color(lesli, primary), 5);
+            fill: c.lesli-color-darken(c.lesli-color(lesli, primary), 5);
         }
     }
 
@@ -115,7 +115,7 @@ footer.lesli-footer {
             svg {
                 width: 1.8rem;
                 height: 1.8rem;
-                fill: darken(lesli-css-color(lesli, primary), 5);
+                fill: c.lesli-color-darken(lesli-css-color(lesli, primary), 5);
             }
         }
     }

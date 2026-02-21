@@ -1,4 +1,5 @@
 
+@use "sass:list" as list;
 @use "../component" as c;
 
 // · 
@@ -63,7 +64,7 @@ section.lesli-component-corefeatures {
 
         $index: $index + 1;
 
-        $i: index($collections, $collection);
+        $i: list.index($collections, $collection);
 
         $color: c.lesli-color(collection, $collection);
 

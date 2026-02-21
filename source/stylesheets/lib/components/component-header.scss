@@ -9,13 +9,13 @@
         line-height: 1;
         font-size: 2.6rem;
         margin: 0 auto 1rem;
-        color: darken(c.lesli-color(black, 100),4);
+        color: c.lesli-color-darken(c.lesli-color(black, 100),4);
     }
 
     p {
         font-size: 2rem;
         line-height: 1.1;
-        color: darken(c.lesli-color(black, 100),4);
+        color: c.lesli-color-darken(c.lesli-color(black, 100),4);
     }
 }
 
