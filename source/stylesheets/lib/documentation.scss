@@ -106,32 +106,39 @@ main {
             text-decoration:underline;
         }
 
-        // · Markdown content text 
+        // paragraphs
         p {
-            font-weight: 400;
-            text-align: justify;
             margin-bottom: 1rem;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.75;
+            color: #364153;
         }
 
-        p, li {
-            font-size: 19px;    // Base font size 
-            line-height: 1.6;   // Comfortable line spacing 
-            color: c.lesli-color(silver, 900);
-            color: c.lesli-color(black, 100);
-            list-style:circle;
+        li {
+            font-size: 1.0625rem;
+            font-weight: 400;
+            line-height: 1.7;
+            color: #364153;
+            margin-bottom: 0.35rem;
+        }
+
+        ul,
+        ol {
+            margin: 0 0 1.25rem 1.25rem;
+            padding: 0;
+        }
+
+        strong {
+            font-weight: 400;
+            color: #1f2937;
         }
 
         p > code {
-            padding: 2px 4px;
-            font-family: monospace;
-            background-color: #f0f0f0;
-            border-radius: 3px;
-            white-space: nowrap;
-            color: #c7254e;
-        }
-
-        ul {
-            margin-bottom: 1rem;
+            font-family: "JetBrains Mono", "Fira Code", monospace;
+            padding: 0.15rem 0.35rem;
+            border-radius: 0.35rem;
+            background: #f3f4f6;
         }
 
         // · Markdown quotes as comments 
@@ -150,11 +157,6 @@ main {
                 line-height: 1.6 !important;
             }
         }
-
-        strong {
-            font-weight: 500;
-        }
-
 
         // · Markdown last update info & edit link
         section.lesli-markdown-info {
@@ -237,26 +239,5 @@ main {
         }
 
         @include c.lesli-color-print("background-color", "lesli-background");
-
     }
 }
-
-
-
-/*
-@include lesli-css-breakpoint-tablet {
-    nav.lesli-partial-navigation {
-        ul:first-child {
-            display: none;
-        }
-    }
-}
-
-@include lesli-css-breakpoint-mobile {
-    nav.lesli-partial-navigation {
-        ul:first-child {
-            display: flex;
-        }
-    }
-}
-*/

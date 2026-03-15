@@ -1,17 +1,9 @@
 <div align="center" class="documentation-header">
-    <img width="100" alt="LesliDate logo" src="/images/gems/date/date-logo.svg" />
-    <h3 align="center">Standard Datetime Formatter for The Lesli Framework.</h3>
+    <img width="100" alt="LesliTesting logo" src="/images/gems/testing/testing-logo.svg" />
+    <h3 align="center">Shared testing and coverage configuration for the Lesli Platform.</h3>
 </div>
 
 <br />
-<hr/>
-
-<div align="center" class="documentation-statics">
-    <a target="blank" href="https://rubygems.org/gems/lesli_view">
-        <img alt="Gem Version" src="https://img.shields.io/gem/v/lesli_view?style=for-the-badge&logo=ruby">
-    </a>
-</div>
-
 <hr/>
 <br />
 
@@ -20,7 +12,7 @@
 
 ```shell
 # Add LesliAdmin engine gem
-bundle add lesli_date
+bundle add lesli_testing
 ```
 
 
@@ -69,7 +61,7 @@ along with this program. If not, see http://www.gnu.org/licenses/.
 <br />
 
 <section class="lesli-markdown-info">
-    <p><a target="blank" href="../LesliBuilder/gems/LesliDate/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><a target="blank" href="../LesliBuilder/gems/LesliTesting/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
     <p><b>Last Update: </b>2026/02/28</p>
 </section>
 

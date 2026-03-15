@@ -20,5 +20,31 @@
         <%= partial("partials/lesli-icon-engines") %>
         <%= partial("partials/lesli-analytics") %>
         <%= javascript_include_tag "site" %>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                document.querySelectorAll("pre").forEach((pre) => {
+                    const codeBlock = pre.querySelector("code");
+                    if (!codeBlock) return;
+
+                    pre.style.cursor = "pointer";
+                    pre.title = "Click to copy";
+
+                    pre.addEventListener("click", async () => {
+                        try {
+                            await navigator.clipboard.writeText(codeBlock.textContent);
+                            pre.title = "Copied!";
+                            setTimeout(() => {
+                                pre.title = "Click to copy";
+                            }, 1200);
+                        } catch (error) {
+                            pre.title = "Copy failed";
+                            setTimeout(() => {
+                                pre.title = "Click to copy";
+                            }, 1200);
+                        }
+                    });
+                });
+            });
+        </script>
     </body>
 </html>
