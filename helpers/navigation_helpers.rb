@@ -64,18 +64,36 @@ module NavigationHelpers
         files = Dir.glob(folder)
         .reject{ |file| File.basename(file) == "index.html.md.erb" }
         .reject{ |file| File.basename(file) == "index.html.md" }
-        .sort.map do |files|
-            {
-                :name => File.basename(files).sub(".html.md", "").sub(".erb","").sub("-"," "),
-                :url => files.sub("source", "").sub(".html.md", "").sub(".erb","")
-            }
+        .sort.map do |file|
+            get_url_from_file(file)
         end
-
         return sort_files_by(files, order) if order
         return files
     end
 
+    def get_url_from_file file
+        {
+            :name => File.basename(file).sub(".html.md", "").sub(".erb","").sub("-"," "),
+            :url => file.sub("source", "").sub(".html.md", "").sub(".erb","")
+        }
+    end
+
+    def navigation_for_files files
+        links = files.map do |file|
+            file = get_url_from_file(file)
+            content_tag(:li) do
+                content_tag(:a, file[:name], href: file[:url])
+            end
+        end
+        content_tag(:ul) do
+           safe_join(links)
+        end
+    end
+
     def navigation_for(namespace, project, folder, order:nil)
+        navigation_for_folder(namespace, project, folder, order:nil)
+    end
+    def navigation_for_folder(namespace, project, folder, order:nil)
 
         if project != "lesli" and folder == "about"
             order = [

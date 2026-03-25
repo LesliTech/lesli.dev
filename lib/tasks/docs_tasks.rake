@@ -45,6 +45,11 @@ task :docs do
     images
     documentation
     documentation_replaces
+
+    FileUtils.cp(
+        '../lesli-docker-demo/templates/lesli_demo_template.rb', 
+        'source/rails/template-dev.rb'
+    )
 end
 
 def get_engine_name(file)
@@ -126,7 +131,8 @@ def documentation
         "../LesliBuilder/gems/*/readme.md",
         "../LesliBuilder/gems/*/docs/*/*.md",
         "../LesliBuilder/gems/*/docs/*/index",
-        "../LesliBuilder/gems/*/docs/navigation"        
+        "../LesliBuilder/gems/*/docs/navigation",
+        "../LesliBuilder/gems/*/docs/*.md",
     ].each do |source_path|
         Dir.glob(source_path) do |file_to_copy|
 
