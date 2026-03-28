@@ -34,7 +34,7 @@ Building a better future, one line of code at a time.
 
 # Usage:
 #   rails new LesliDemo -m lesli_demo_template.rb --skip-bundle
-#   rails new LesliDemo -m https://lesli.dev/rails/template-dev.rb
+#   rails new LesliDemo -m https://www.lesli.dev/rails/template-dev.rb
 
 
 
