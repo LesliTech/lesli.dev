@@ -10,15 +10,11 @@ end
 page "/", layout: "website"
 page "/gems/*", layout: "documentation"
 page "/engines/*", layout: "documentation"
-page "/notes.html", layout: "notes"
+page "/notes.html", layout: "documentation"
 page "/notes/*", layout: "documentation"
 page "/*.json", layout: false
 page "/*.xml", layout: false
 page "/*.txt", layout: false
-
-
-ignore "/notes/history*"
-ignore "/notes.html"
 
 
 # · auxiliar pages

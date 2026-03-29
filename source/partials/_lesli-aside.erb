@@ -17,5 +17,9 @@
                 <%= partial("#{section}/#{project}/navigation") %>
             <% end %>
         <% end %>
+
+        <% if section == 'notes' %>
+            <%= partial("notes/navigation") %>
+        <% end %>
     </nav>
 </aside>
