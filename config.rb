@@ -1,9 +1,8 @@
 # Activate and configure extensions
 # https://middlemanapp.com/advanced/configuration/#configuring-extensions
 
-activate :autoprefixer do |prefix|
-  prefix.browsers = "last 10 versions"
-end
+set :site_url, "https://www.lesli.dev"
+set :trailing_slash, false
 
 
 # Layouts
@@ -27,6 +26,11 @@ redirect "start.html", to: "/engines/lesli/getting-started/"
 
 # · localization
 activate :i18n, :mount_at_root => :en
+
+
+activate :autoprefixer do |prefix|
+  prefix.browsers = "last 10 versions"
+end
 
 
 # · Activate and configure extensions
