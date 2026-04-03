@@ -1,13 +1,7 @@
 <!doctype html>
-<html>
+<html lang="en">
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
-        <meta content="#0d52bf" name="theme-color">
-        <title><%= current_page.data.title || "Lesli" %> · Ruby on Rails SaaS Development Framework</title>
-        <%= stylesheet_link_tag(lesli_stylesheet_for(current_page)) %>
-        <link rel="icon" href="/favicon.png">
+        <%= partial("partials/lesli-head") %>
     </head>
     <body>
         <%= yield %>

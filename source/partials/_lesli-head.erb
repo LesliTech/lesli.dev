@@ -1,0 +1,26 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0d52bf">
+
+<title><%= current_page.data.title || documentation_title(current_page) || "Lesli" %></title>
+<meta name="description" content="<%= current_page.data.description || 'Lesli is an open-source Ruby on Rails framework for building scalable SaaS applications.' %>">
+
+<link rel="canonical" href="<%= "#{config.site_url.to_s.chomp('/')}#{current_page.url}" %>">
+<link rel="icon" href="/favicon.png">
+
+<% if current_page.data.noindex %>
+    <meta name="robots" content="noindex, nofollow">
+<% end %>
+
+<meta property="og:title" content="<%= current_page.data.title || current_page.data.title || 'Lesli' %>">
+<meta property="og:description" content="<%= current_page.data.description || 'Lesli is an open-source Ruby on Rails framework for building scalable SaaS applications.' %>">
+<meta property="og:type" content="<%= current_page.url == '/' ? 'website' : 'article' %>">
+<meta property="og:url" content="<%= "#{config.site_url.to_s.chomp('/')}#{current_page.url}" %>">
+<meta property="og:image" content="<%= current_page.data.image || "#{config.site_url}/images/og/default.png" %>">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="<%= current_page.data.title || current_page.data.title || 'Lesli' %>">
+<meta name="twitter:description" content="<%= current_page.data.description || 'Lesli is an open-source Ruby on Rails framework for building scalable SaaS applications.' %>">
+<meta name="twitter:image" content="<%= current_page.data.image || "#{config.site_url}/images/og/default.png" %>">
+
+<%= stylesheet_link_tag(lesli_stylesheet_for(current_page)) %>
