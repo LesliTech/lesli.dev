@@ -1,0 +1,222 @@
+<%
+    # Read the canonical base URL of the website from Middleman config
+    # Example result: "https://www.lesli.dev"
+    site_url = config.site_url.to_s.chomp("/")
+
+    # Get the current page URL from Middleman
+    # Example values:
+    #   "/"
+    #   "/docs/"
+    #   "/engines/lesli-shield/"
+    page_url = current_page.url.to_s
+
+    # Duplicate the URL string so we can normalize it safely
+    page_path = page_url.dup
+
+    # If for some reason the page path is empty, treat it as homepage
+    page_path = "/" if page_path.empty?
+
+    # Remove trailing "index.html" if the generator exposes internal file names
+    # Example:
+    #   "/docs/index.html" => "/docs/"
+    page_path = page_path.gsub(/index\.html$/, "")
+
+    # Ensure the path always starts with "/"
+    # Example:
+    #   "docs/" => "/docs/"
+    page_path = "/#{page_path}" unless page_path.start_with?("/")
+
+    # Convert ".html" endings into clean directory-style URLs
+    # Example:
+    #   "/about.html" => "/about/"
+    page_path = page_path.gsub(/\.html$/, "/")
+
+    # Collapse repeated slashes into a single slash
+    # Example:
+    #   "//docs///intro/" => "/docs/intro/"
+    page_path = page_path.gsub(%r{/+}, "/")
+
+    # Safety fallback in case normalization somehow leaves an empty string
+    page_path = "/" if page_path.empty?
+
+    # Detect whether the current page is the homepage
+    # We use this later to decide whether to add SoftwareApplication schema
+    is_home = page_path == "/"
+
+    # Helper lambda to convert a URL segment into a human-friendly label
+    # Example:
+    #   "lesli-shield" => "Lesli Shield"
+    #   "getting_started" => "Getting Started"
+    humanize_segment = lambda do |segment|
+        # Return an empty string if the segment is nil or empty
+        next "" if segment.nil? || segment.empty?
+
+        # Replace dashes/underscores with spaces, split into words,
+        # capitalize each word, and join them back together
+        segment
+            .to_s
+            .gsub(/[-_]/, " ")
+            .split
+            .map(&:capitalize)
+            .join(" ")
+    end
+
+    # Split the normalized path into individual URL parts
+    # Example:
+    #   "/engines/lesli-shield/" => ["engines", "lesli-shield"]
+    segments = page_path.split("/").reject(&:empty?)
+
+    # Prepare an array that will hold breadcrumb items
+    breadcrumbs = []
+
+    # Add the homepage breadcrumb as the first item
+    breadcrumbs << { name: "Home", item: "#{site_url}/" }
+
+    # If the page is inside nested sections, build breadcrumb items from the URL
+    unless segments.empty?
+        # Accumulator used to reconstruct each intermediate URL path
+        # Example while iterating:
+        #   "/engines"
+        #   "/engines/lesli-shield"
+        acc = ""
+
+        # Build one breadcrumb item per segment
+        segments.each do |segment|
+            # Append the current segment to the accumulated path
+            acc += "/#{segment}"
+
+            # Add the breadcrumb item using a friendly name and full absolute URL
+            breadcrumbs << {
+                # Use custom names for important sections, otherwise humanize the segment
+                name: case segment
+                    when "docs"    then "Documentation"
+                    when "notes"   then "Notes"
+                    when "engines" then "Engines"
+                    else humanize_segment.call(segment)
+                end,
+
+                # Convert the breadcrumb path into an absolute canonical URL
+                item: "#{site_url}#{acc}/"
+            }
+        end
+    end
+
+    # Prepare the list of structured data objects to include in the JSON-LD graph
+    json_ld_graph = []
+
+    # Add Organization schema describing the project/company behind the website
+    json_ld_graph << {
+        "@type": "Organization",
+
+        # Unique identifier for this organization node inside the schema graph
+        "@id": "#{site_url}#organization",
+
+        # Public name of the organization/project
+        "name": "Lesli",
+
+        # Main website URL for the organization
+        "url": "#{site_url}/",
+
+        # Logo URL
+        # Right now this points to favicon.png; later you could replace it with a full logo
+        "logo": "#{site_url}/favicon.png"
+    }
+
+    # Add WebSite schema describing the website as a whole
+    json_ld_graph << {
+        "@type": "WebSite",
+
+        # Unique identifier for this website node inside the schema graph
+        "@id": "#{site_url}#website",
+
+        # Canonical root URL of the site
+        "url": "#{site_url}/",
+
+        # Name of the website
+        "name": "Lesli",
+
+        # Short description of the website/project
+        "description": "Open-source Ruby on Rails framework for building scalable SaaS applications.",
+
+        # Link the website entity to the organization entity defined above
+        "publisher": {
+            "@id": "#{site_url}#organization"
+        }
+    }
+
+    # Only on the homepage, add SoftwareApplication schema
+    # This helps search engines understand that Lesli is a software product/framework
+    if is_home
+        json_ld_graph << {
+            "@type": "SoftwareApplication",
+
+            # Unique identifier for this software node inside the schema graph
+            "@id": "#{site_url}#software",
+
+            # Name of the software
+            "name": "Lesli",
+
+            # Canonical homepage URL of the software
+            "url": "#{site_url}/",
+
+            # High-level category of the software
+            "applicationCategory": "DeveloperApplication",
+
+            # Operating system / platform
+            # "Web" is a reasonable generic value for a public web-presented framework/product
+            "operatingSystem": "Web",
+
+            # Short software description
+            "description": "Lesli is an open-source Ruby on Rails framework for building scalable SaaS applications.",
+
+            # Link the software creator to the organization node
+            "creator": {
+                "@id": "#{site_url}#organization"
+            },
+
+            # Offer information
+            # Using price 0 indicates that the framework is available without purchase
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            }
+        }
+    end
+
+    # Only add breadcrumbs if the page is not the homepage alone
+    # If breadcrumbs has only "Home", then there is nothing useful to render
+    if breadcrumbs.length > 1
+        json_ld_graph << {
+            "@type": "BreadcrumbList",
+
+            # Create one ListItem per breadcrumb entry
+            "itemListElement": breadcrumbs.each_with_index.map do |crumb, index|
+                {
+                    # Each breadcrumb entry is a ListItem
+                    "@type": "ListItem",
+
+                    # Position must start at 1 and reflect the order in the path
+                    "position": index + 1,
+
+                    # Visible breadcrumb name
+                    "name": crumb[:name],
+
+                    # Canonical absolute URL of the breadcrumb target
+                    "item": crumb[:item]
+                }
+            end
+        }
+    end
+%>
+
+<script type="application/ld+json">
+<%= JSON.pretty_generate({
+    # Define the Schema.org context for all entities in the graph
+    "@context": "https://schema.org",
+
+    # Output the full graph containing Organization, WebSite,
+    # optional SoftwareApplication, and optional BreadcrumbList
+    "@graph": json_ld_graph
+}) %>
+</script>

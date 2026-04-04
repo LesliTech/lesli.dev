@@ -2,6 +2,8 @@
 # https://middlemanapp.com/advanced/configuration/#configuring-extensions
 
 set :site_url, "https://www.lesli.dev"
+set :site_title, "Lesli Framework"
+set :site_description, "Lesli is an open-source Ruby on Rails framework for building scalable SaaS applications."
 set :trailing_slash, false
 
 

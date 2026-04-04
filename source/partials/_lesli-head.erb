@@ -1,26 +1,32 @@
+<%
+site_url = config.site_url.to_s.chomp('/')
+site_title = auto_title(current_page)
+site_description = auto_description(current_page)
+%>
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0d52bf">
 
-<title><%= current_page.data.title || documentation_title(current_page) || "Lesli" %></title>
-<meta name="description" content="<%= current_page.data.description || 'Lesli is an open-source Ruby on Rails framework for building scalable SaaS applications.' %>">
+<title><%= site_title %></title>
+<meta name="description" content="<%= site_description %>">
 
-<link rel="canonical" href="<%= "#{config.site_url.to_s.chomp('/')}#{current_page.url}" %>">
+<link rel="canonical" href="<%= "#{site_url}#{current_page.url}" %>">
 <link rel="icon" href="/favicon.png">
 
 <% if current_page.data.noindex %>
     <meta name="robots" content="noindex, nofollow">
 <% end %>
 
-<meta property="og:title" content="<%= current_page.data.title || current_page.data.title || 'Lesli' %>">
-<meta property="og:description" content="<%= current_page.data.description || 'Lesli is an open-source Ruby on Rails framework for building scalable SaaS applications.' %>">
+<meta property="og:title" content="<%= site_title %>">
+<meta property="og:description" content="<%= site_description %>">
 <meta property="og:type" content="<%= current_page.url == '/' ? 'website' : 'article' %>">
-<meta property="og:url" content="<%= "#{config.site_url.to_s.chomp('/')}#{current_page.url}" %>">
-<meta property="og:image" content="<%= current_page.data.image || "#{config.site_url}/images/og/default.png" %>">
+<meta property="og:url" content="<%= "#{site_url}#{current_page.url}" %>">
+<meta property="og:image" content="<%= current_page.data.image || image_path("/images/engines/lesli/screenshot.png") %>">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="<%= current_page.data.title || current_page.data.title || 'Lesli' %>">
-<meta name="twitter:description" content="<%= current_page.data.description || 'Lesli is an open-source Ruby on Rails framework for building scalable SaaS applications.' %>">
-<meta name="twitter:image" content="<%= current_page.data.image || "#{config.site_url}/images/og/default.png" %>">
+<meta name="twitter:title" content="<%= site_title %>">
+<meta name="twitter:description" content="<%= site_description %>">
+<meta name="twitter:image" content="<%= current_page.data.image || image_path("/images/engines/lesli/screenshot.png") %>">
 
 <%= stylesheet_link_tag(lesli_stylesheet_for(current_page)) %>
