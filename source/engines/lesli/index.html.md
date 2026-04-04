@@ -122,9 +122,9 @@ RAILS_SERVE_STATIC_FILES=true rails s --environment=production
 
 ### Connect with Lesli
 
-* [X: @LesliTech](https://x.com/LesliTech)
-* [Email: hello@lesli.tech](hello@lesli.tech)
-* [Website: https://www.lesli.tech](https://www.lesli.tech)
+* [@LesliTech](https://x.com/LesliTech)
+* [hello@lesli.tech](hello@lesli.tech)
+* [https://www.lesli.tech](https://www.lesli.tech)
 
 
 ### License
@@ -160,7 +160,7 @@ along with this program. If not, see http://www.gnu.org/licenses/.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/02/22</p>
+    <p><b>Last Update: </b>2026/03/29</p>
 </section>
 
 <!-- This code was automatically generated -->

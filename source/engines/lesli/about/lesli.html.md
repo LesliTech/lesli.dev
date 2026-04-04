@@ -45,7 +45,7 @@ This allows development teams to move faster, keep their codebases organized, an
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/about/lesli.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/03/15</p>
+    <p><b>Last Update: </b>2026/04/04</p>
 </section>
 
 <!-- This code was automatically generated -->

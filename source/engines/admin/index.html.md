@@ -33,16 +33,18 @@
 
 ### Installation
 
+**Add LesliAdmin engine gem**
 ```shell
-# Add LesliAdmin engine gem
 bundle add lesli_admin
+```
 
-# Setup & initialize the database
+**Setup & initialize the database**
+```shell
 rake lesli:db:setup
 ```
 
+**Load LesliAdmin engine**
 ```ruby
-# Load LesliAdmin engine
 Rails.application.routes.draw do
     mount LesliAdmin::Engine => "/admin"
 end
@@ -125,7 +127,7 @@ along with this program. If not, see http://www.gnu.org/licenses/.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliAdmin/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/02/21</p>
+    <p><b>Last Update: </b>2026/03/29</p>
 </section>
 
 <!-- This code was automatically generated -->

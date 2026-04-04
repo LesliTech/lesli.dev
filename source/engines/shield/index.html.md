@@ -1,6 +1,6 @@
 <div align="center">
     <img width="100" alt="LesliShield logo" src="/images/engines/shield/shield-logo.svg" />
-    <h3 align="center">Administration area for the Lesli Framework.</h3>
+    <h3 align="center">Users & Security Management for the Lesli Framework.</h3>
 </div>
 
 <br />
@@ -33,15 +33,16 @@
 
 ### Installation
 
-```shell
+```ruby
+
 # Add LesliShield engine gem
 bundle add lesli_shield
 
+
 # Setup & initialize the database
 rake lesli:db:setup
-```
 
-```ruby
+
 # Load LesliShield engine
 Rails.application.routes.draw do
     mount LesliShield::Engine => "/shield"
@@ -49,12 +50,12 @@ end
 ```
 
 <br />
-<hr/>
+<hr />
 <br />
 
 ### Development 
 
-```shell
+```ruby
 # clone the lesli repo inside your engine folder: RailsApp/engines
 git clone https://github.com/LesliTech/LesliShield.git
 
@@ -70,7 +71,7 @@ rake lesli:db:setup
 ```
 
 <br />
-<hr/>
+<hr />
 <br />
 
 ### Demo
@@ -86,9 +87,9 @@ rake lesli:db:setup
 
 ### Connect with Lesli
 
-* [X: @LesliTech](https://x.com/LesliTech)
-* [Email: hello@lesli.tech](hello@lesli.tech)
-* [Website: https://www.lesli.tech](https://www.lesli.tech)
+* [@LesliTech](https://x.com/LesliTech)
+* [hello@lesli.tech](hello@lesli.tech)
+* [https://www.lesli.tech](https://www.lesli.tech)
 
 
 ### License
@@ -108,7 +109,6 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see http://www.gnu.org/licenses/.
 
-<br />
 <hr />
 <br />
 <br />
@@ -125,7 +125,7 @@ along with this program. If not, see http://www.gnu.org/licenses/.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliShield/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/02/21</p>
+    <p><b>Last Update: </b>2026/03/29</p>
 </section>
 
 <!-- This code was automatically generated -->
