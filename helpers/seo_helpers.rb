@@ -78,7 +78,7 @@ module SeoHelpers
                 [
                     *tail_titles.reverse,
                     (manual_title.empty? ? humanize_segment.call(engine) : manual_title),
-                    "Engines",
+                    segments.first.capitalize,
                     site_title
                 ]
 
