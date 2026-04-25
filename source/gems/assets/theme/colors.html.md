@@ -2,6 +2,251 @@
 
 The Lesli identity is built around a primary blue inspired by Maya Blue, supported by neutral mineral tones, restrained semantic colors, and a set of collection colors that extend the system without breaking consistency.
 
+## Lesli brand colors
+
+<div class="columns">
+    <div class="br-2 py-6 has-text-centered lesli-background-lesli-light">
+        Lesli Light
+    </div>
+    <div class="br-2 py-6 has-text-centered lesli-background-lesli-primary has-text-white">
+        Lesli Primary
+    </div>
+    <div class="br-2 py-6 has-text-centered lesli-background-lesli-dark has-text-white">
+        Lesli Dark
+    </div>
+</div>
+
+<div class="columns">
+    <div class="br-2 py-4 has-text-centered lesli-background-primary-50">50</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-primary-100">100</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-primary-200">200</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-primary-300">300</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-primary-400">400</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-primary-500 has-text-white">500</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-primary-600 has-text-white">600</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-primary-700 has-text-white">700</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-primary-800 has-text-white">800</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-primary-900 has-text-white">900</div>
+</div>
+
+<hr />
+<br />
+
+## Collection colors
+<div class="columns is-multiline">
+    <div class="br-2 px-5 py-6 has-text-centered has-text-white lesli-background-collection-administration">
+        Administration
+    </div>
+    <div class="br-2 px-5 py-6 has-text-centered has-text-white lesli-background-collection-sales">
+        Sales
+    </div>
+    <div class="br-2 px-5 py-6 has-text-centered has-text-white lesli-background-collection-productivity">
+        Productivity
+    </div>
+    <div class="br-2 px-5 py-6 has-text-centered has-text-white lesli-background-collection-finance">
+        Finance
+    </div>
+    <div class="br-2 px-5 py-6 has-text-centered has-text-white lesli-background-collection-analytics">
+        Analytics
+    </div>
+    <div class="br-2 px-5 py-6 has-text-centered has-text-white lesli-background-collection-intelligence">
+        Intelligence
+    </div>
+    <div class="br-2 px-5 py-6 has-text-centered has-text-black lesli-background-collection-it">
+        IT
+    </div>
+    <div class="br-2 px-5 py-6 has-text-centered has-text-black lesli-background-collection-security">
+        Security
+    </div>
+    <div class="br-2 px-5 py-6 has-text-centered has-text-black lesli-background-collection-integration">
+        Integration
+    </div>
+</div>
+
+
+<hr />
+<br />
+
+## Notification colors
+<div class="columns">
+    <div class="br-2 py-4 has-text-centered has-text-white lesli-background-info">
+        Information
+    </div>
+    <div class="br-2 py-4 has-text-centered has-text-white lesli-background-success">
+        Success
+    </div>
+    <div class="br-2 py-4 has-text-centered has-text-white lesli-background-warning">
+        Warning
+    </div>
+    <div class="br-2 py-4 has-text-centered has-text-white lesli-background-danger">
+        Danger
+    </div>
+</div>
+
+
+<hr />
+<br />
+
+## Semantic colors
+
+<div class="columns">
+    <div class="br-2 py-4 has-text-centered lesli-background-neutral-50 px-4">Neutral</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-neutral-50">50</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-neutral-100">100</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-neutral-200">200</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-neutral-300">300</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-neutral-400">400</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-neutral-500 has-text-white">500</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-neutral-600 has-text-white">600</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-neutral-700 has-text-white">700</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-neutral-800 has-text-white">800</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-neutral-900 has-text-white">900</div>
+</div>
+
+<div class="columns">
+    <div class="br-2 py-4 has-text-centered lesli-background-info-50 px-4">Info</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-info-50">50</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-info-100">100</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-info-200">200</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-info-300">300</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-info-400">400</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-info-500 has-text-white">500</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-info-600 has-text-white">600</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-info-700 has-text-white">700</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-info-800 has-text-white">800</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-info-900 has-text-white">900</div>
+</div>
+
+<div class="columns">
+    <div class="br-2 py-4 has-text-centered lesli-background-success-50 px-4">Success</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-success-50">50</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-success-100">100</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-success-200">200</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-success-300">300</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-success-400">400</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-success-500 has-text-white">500</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-success-600 has-text-white">600</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-success-700 has-text-white">700</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-success-800 has-text-white">800</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-success-900 has-text-white">900</div>
+</div>
+
+<div class="columns">
+    <div class="br-2 py-4 has-text-centered lesli-background-warning-50 px-4">Warning</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-warning-50">50</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-warning-100">100</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-warning-200">200</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-warning-300">300</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-warning-400">400</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-warning-500 has-text-white">500</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-warning-600 has-text-white">600</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-warning-700 has-text-white">700</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-warning-800 has-text-white">800</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-warning-900 has-text-white">900</div>
+</div>
+
+<div class="columns">
+    <div class="br-2 py-4 has-text-centered lesli-background-danger-50 px-4">Danger</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-danger-50">50</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-danger-100">100</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-danger-200">200</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-danger-300">300</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-danger-400">400</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-danger-500 has-text-white">500</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-danger-600 has-text-white">600</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-danger-700 has-text-white">700</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-danger-800 has-text-white">800</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-danger-900 has-text-white">900</div>
+</div>
+
+<div class="columns">
+    <div class="br-2 py-4 has-text-centered lesli-background-black-50 px-4">Black</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-black-50">50</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-black-100">100</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-black-200">200</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-black-300">300</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-black-400">400</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-black-500 has-text-white">500</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-black-600 has-text-white">600</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-black-700 has-text-white">700</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-black-800 has-text-white">800</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-black-900 has-text-white">900</div>
+</div>
+
+
+## Collections
+
+<div class="columns">
+    <div class="br-2 py-4 has-text-centered lesli-background-maya-100">Maya</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-maya-100">100</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-maya-300">300</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-maya-500 has-text-white">500</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-maya-700 has-text-white">700</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-maya-900 has-text-white">900</div>
+</div>
+
+<div class="columns">
+    <div class="br-2 py-4 has-text-centered lesli-background-jade-100">Jade</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-jade-100">100</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-jade-300">300</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-jade-500 has-text-white">500</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-jade-700 has-text-white">700</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-jade-900 has-text-white">900</div>
+</div>
+
+<div class="columns">
+    <div class="br-2 py-4 has-text-centered lesli-background-agave-100">Agave</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-agave-100">100</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-agave-300">300</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-agave-500 has-text-white">500</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-agave-700 has-text-white">700</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-agave-900 has-text-white">900</div>
+</div>
+
+<div class="columns">
+    <div class="br-2 py-4 has-text-centered lesli-background-maize-100">Maize</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-maize-100">100</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-maize-300">300</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-maize-500 has-text-white">500</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-maize-700 has-text-white">700</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-maize-900 has-text-white">900</div>
+</div>
+
+<div class="columns">
+    <div class="br-2 py-4 has-text-centered lesli-background-clay-100">Clay</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-clay-100">100</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-clay-300">300</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-clay-500 has-text-white">500</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-clay-700 has-text-white">700</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-clay-900 has-text-white">900</div>
+</div>
+<div class="columns">
+    <div class="br-2 py-4 has-text-centered lesli-background-orchid-100">Orchid</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-orchid-100">100</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-orchid-300">300</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-orchid-500 has-text-white">500</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-orchid-700 has-text-white">700</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-orchid-900 has-text-white">900</div>
+</div>
+
+<div class="columns">
+    <div class="br-2 py-4 has-text-centered lesli-background-cenote-100">Cenote</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-cenote-100">100</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-cenote-300">300</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-cenote-500 has-text-white">500</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-cenote-700 has-text-white">700</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-cenote-900 has-text-white">900</div>
+</div>
+
+<div class="columns">
+    <div class="br-2 py-4 has-text-centered lesli-background-obsidian-100">Obsidian</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-obsidian-100">100</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-obsidian-300">300</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-obsidian-500 has-text-white">500</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-obsidian-700 has-text-white">700</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-obsidian-900 has-text-white">900</div>
+</div>
+
 ## Primary brand color
 
 <div class="columns">
@@ -455,9 +700,63 @@ Collections give color identity to product areas, modules, or content groups wit
 | Obsidian 700 | `#505B69` | `lesli-color(obsidian, 700)` | `--lesli-color-obsidian-700` |
 | Obsidian 900 | `#313942` | `lesli-color(obsidian, 900)` | `--lesli-color-obsidian-900` |
 
+
+## Color customization 
+Inside our initialization file, you'll find a dedicated section for customizing the color scheme. Simply edit the color values for various elements such as the primary color, sidebar, header, footer, background, and hover effects.
+
+See the example below
+
+```ruby 
+Lesli.configure do |config|
+
+    # Main color palette for Lesli
+    config.theme = {
+        color_primary: "#193d8d",
+        color_sidebar: "#ffffff",
+        color_header: "transparent",
+        color_footer: "transparent",
+        color_background: "#eef2f6",
+        color_sidebar_hover: "#dee7ec"
+    }
+end
+```
+
+<br>
+
+This is going to modify the corresponding SASS variables in the Lesli core:
+
+```
+$primary (bulma) -> color_primary 
+$lesli-color-primary -> color_primary 
+$lesli-header-color -> color_header 
+$lesli-footer-color -> color_footer 
+$lesli-sidebar-color -> color_sidebar 
+$lesli-sidebar-hover -> color_sidebar_hover 
+$lesli-color-background -> color_background 
+```
+
+Lesli provide the same color palette as CSS variables:
+
+```scss
+:root {
+    --lesli-color-primary: var(--lesli-theme-color-primary, #{$lesli-color-primary});    
+    --lesli-header-color: var(--lesli-theme-header-color, #{$lesli-header-color});
+    --lesli-navbar-color: var(--lesli-theme-header-color, #{$lesli-navbar-color});    
+    --lesli-footer-color: var(--lesli-theme-footer-color, #{$lesli-footer-color});
+    --lesli-sidebar-color: var(--lesli-theme-sidebar-color, #{$lesli-sidebar-color});
+    --lesli-logo-color: var(--lesli-theme-logo-color, #{$lesli-logo-color});
+    --lesli-font-color: var(--lesli-theme-font-color, #{$lesli-font-color});
+}
+```
+
+> You can modify the CSS variables at runtime, so your users can modify the theme.
+
+## Bulma customization 
+You can customize bulma changing the value of the variables, see: [https://bulma.io/documentation/customize/variables/](https://bulma.io/documentation/customize/variables/)
+
 <section class="lesli-markdown-info">
     <p><a target="blank" href="../LesliBuilder/gems/LesliAssets/tree/master/docs/theme/colors.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/04/19</p>
+    <p><b>Last Update: </b>2026/04/25</p>
 </section>
 
 <!-- This code was automatically generated -->
