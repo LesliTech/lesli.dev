@@ -2,28 +2,30 @@
 
 section.lesli-component-demo {
     padding: 6rem 0 6rem;
-    background-color: #196EAF;
+    background-color: c.lesli-color(lesli, primary);
     
     .component-header {
         h2 {
-            color: c.lesli-color(silver, 100);
+            color: c.lesli-color(neutral, 300);
         }
+
         p {
             display: flex;
             margin: 0 auto;
             max-width: 700px;
             justify-content: space-around;
-            color: c.lesli-color(silver, 100);
+            color: c.lesli-color(neutral, 300);
 
             a {
                 display: flex;
                 align-items: center;
                 font-size: 1.3rem;
             }
+
             svg {
                 width: 25px;
                 margin-right: 10px;
-                fill: c.lesli-color(silver, 100);;
+                fill: c.lesli-color(neutral, 300);
             }
         }
     }

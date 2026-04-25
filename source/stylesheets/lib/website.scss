@@ -25,8 +25,8 @@ header {
     background-color: #ffffff;
     background-position: 0 0,55px 55px;
     background-image:
-        radial-gradient(#0d52bf 1px, transparent 2px),
-        radial-gradient(#0d52bf 1px, #ffffff 2px);
+        radial-gradient(c.lesli-color(lesli, primary) 1px, transparent 2px),
+        radial-gradient(c.lesli-color(lesli, primary) 1px, #ffffff 2px);
 
     .container {
         align-content: center;
@@ -47,7 +47,7 @@ header {
         margin: 0px auto 2rem;
         letter-spacing: -1.5px;
         background-color: #ffffff;
-        color: c.lesli-color(black, 300);
+        color: c.lesli-color(black, 500);
     }
 
     h2 {

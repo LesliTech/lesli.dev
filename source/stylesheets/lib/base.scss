@@ -46,18 +46,18 @@ html {
 
 // ·
 body {
-    font-size: 1rem;
+    font-size: 1.01rem;
     font-weight: 300;
     line-height: 1.65;
     letter-spacing: 0.01em;
-    color: lesli.lesli-color-darken(lesli.lesli-color(black, 100),2);
+    color: lesli.lesli-color(black, 600);
 }
 
 
 // ·
 .lesli-title-colored {
     line-height: 0.85;
-    background: -webkit-linear-gradient(315deg, #0D52Bf 25%, #001F66 );
+    background: -webkit-linear-gradient(315deg, lesli.lesli-color(primary, 500) 25%, lesli.lesli-color(primary, 900));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

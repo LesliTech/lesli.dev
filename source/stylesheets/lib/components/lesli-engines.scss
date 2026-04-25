@@ -26,7 +26,7 @@ section.lesli-component-engines {
         display: block;
         padding: 30px 20px 30px;
         text-align: center;
-        border: 1px solid c.lesli-color(silver, 300);
+        border: 1px solid c.lesli-color(neutral,300);
         border-radius: 5px 5px 5px 5px;
         background-color: #ffffff;
         transition: all linear .1s;
@@ -42,6 +42,7 @@ section.lesli-component-engines {
             height: 60px;
             margin: 0 auto .4rem;
             fill: c.lesli-color-darken(c.lesli-color(blue, 900), 10);
+            fill: c.lesli-color(lesli, dark);
         }
 
         h3 {

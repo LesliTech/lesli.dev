@@ -1,6 +1,3 @@
-<%= navigation_for("gems", "assets", "Scripts") %>
-<%= navigation_for("gems", "assets", "Styles") %>
-<%= navigation_for("gems", "assets", "Views") %>
-<%= navigation_for("gems", "assets", "Fonts") %>
-<%= navigation_for("gems", "assets", "Icons") %>
-
+<%= navigation_for_folder("gems", "assets", "theme", order:['brand','colors','logos','fonts','icons']) %>
+<%= navigation_for_folder("gems", "assets", "views") %>
+<%= navigation_for_folder("gems", "assets", "emails", order:['welcome','confirmation','reset-password']) %>

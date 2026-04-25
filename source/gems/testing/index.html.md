@@ -10,11 +10,86 @@
 
 ### Quick start
 
+<br />
+
+
+**Install LesliTesting gem**
+
 ```shell
-# Add LesliAdmin engine gem
 bundle add lesli_testing
 ```
 
+<br />
+
+**Include LesliTesting in your test_helper.rb file**
+
+```ruby
+ENV["RAILS_ENV"] ||= "test"
+
+
+# Load LesliTesting tools
+require "lesli_testing"
+
+
+# Configure leslitesting tools for a rails engine
+LesliTesting.engine("LesliShield")
+
+
+# Configure lesli testing tools for a rails app
+LesliTesting.app("LesliBuilder")
+
+
+# # Configure leslitesting tools for a ruby gem
+LesliTesting.gem("LesliDate")
+```
+
+<br />
+
+**Run your tests D:**
+
+```shell
+rails test
+
+# or
+
+COVERAGE=true rails test
+
+# or run like github actions
+
+COVERAGE=true CI=true rails test
+```
+
+<br />
+
+**Result :D**
+
+<div align="center">
+    <img
+        style="width:100%;max-width:800px;border-radius:6px;"
+        alt="LesliTesting screenshot" src="/images/gems/testing/screenshot.png" />
+</div>
+
+<br />
+
+### Options
+
+The following options can be used to customize coverage behavior in `LesliTesting`.
+
+| Option                  | Type    | Default | Description                                |
+| ----------------------- | ------- | ------: | ------------------------------------------ |
+| `coverage_missing_len`  | Integer |    `25` | Minimum width for missing coverage output. |
+| `coverage_min_coverage` | Integer |    `40` | Minimum expected coverage percentage.      |
+
+**Example:**
+
+```ruby
+LesliTesting.configure(LesliShield, {
+    coverage_missing_len: 30,
+    coverage_min_coverage: 80
+})
+```
+
+<br />
 
 ### Documentation
 * [website](https://www.lesli.dev/)
@@ -27,6 +102,7 @@ bundle add lesli_testing
 * [Email: hello@lesli.tech](hello@lesli.tech)
 * [Website: https://www.lesli.tech](https://www.lesli.tech)
 
+<br />
 
 ### License
 -------
@@ -45,24 +121,22 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see http://www.gnu.org/licenses/.
 
-<br />
 <hr />
 <br />
 <br />
 
 <div align="center" class="has-text-centered">
-    <img width="200" alt="Lesli logo" src="https://cdn.lesli.tech/lesli/brand/app-logo.svg" />
-    <h3 align="center" class="mt-0">
+    <img width="80" alt="Lesli logo" src="https://cdn.lesli.tech/lesli/brand/app-icon.svg" />
+    <h4 align="center" class="mt-0">
         The Open-Source SaaS Development Framework for Ruby on Rails.
-    </h3>
+    </h4>
 </div>
 
-<br />
 <br />
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="../LesliBuilder/gems/LesliTesting/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/02/28</p>
+    <p><b>Last Update: </b>2026/04/19</p>
 </section>
 
 <!-- This code was automatically generated -->

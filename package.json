@@ -4,7 +4,7 @@
     "license": "GPLv3",
     "version": "0.1.0",
     "devDependencies": {
-        "lesli-css": "3.1.0",
+        "lesli-css": "file:../lesli-css",
         "remixicon": "4.9.1"
     }
 }

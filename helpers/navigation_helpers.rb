@@ -63,6 +63,7 @@ module NavigationHelpers
     def get_files_from folder, order:nil
         files = Dir.glob(folder)
         .reject{ |file| File.basename(file) == "index.html.md.erb" }
+        .reject{ |file| File.basename(file) == "index.html.erb" }
         .reject{ |file| File.basename(file) == "index.html.md" }
         .sort.map do |file|
             get_url_from_file(file)

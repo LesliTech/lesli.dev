@@ -23,7 +23,7 @@ page "/404.html", :directory_index => false
 
 
 # · redirections
-redirect "start.html", to: "/engines/lesli/getting-started/"
+redirect "start.html", to: "/engines/lesli/start/"
 redirect "about.html", to: "/engines/lesli/about/"
 redirect "blog.html", to: "/notes/"
 

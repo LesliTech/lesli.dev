@@ -141,10 +141,6 @@ def documentation
             
             FileUtils.mkdir_p(File.dirname(file_to_paste)) unless File.exist?(File.dirname(file_to_paste))
 
-            if file_to_paste.end_with?("lesli.dev.html.md")
-                file_to_paste = file_to_paste.gsub("lesli.dev.html.md", "index.html.md.erb")
-            end  
-
             if file_to_paste.end_with?("readme.html.md")
                 file_to_paste = file_to_paste.gsub("readme.html.md", "index.html.md")
             end  
@@ -154,7 +150,7 @@ def documentation
             end  
 
             if file_to_paste.end_with?("index")
-                file_to_paste = file_to_paste.gsub("index", "index.html.md.erb")
+                file_to_paste = file_to_paste.gsub("index", "index.html.erb")
             end  
 
             # Copy file to the destination directory, preserving its name

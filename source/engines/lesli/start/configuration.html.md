@@ -199,7 +199,7 @@ LESLI_SECURITY_ENABLE_DEBUG=false
 This is useful for deployment environments where configuration should not be stored directly in source code.
 
 <section class="lesli-markdown-info">
-    <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/getting-started/configuration.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/start/configuration.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
     <p><b>Last Update: </b>2026/03/15</p>
 </section>
 

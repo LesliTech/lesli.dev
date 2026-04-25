@@ -131,7 +131,7 @@ main {
         }
 
         strong {
-            font-weight: 400;
+            font-weight: 500;
             color: #1f2937;
         }
 
@@ -153,9 +153,16 @@ main {
             background-color: #f9f9f9;
         
             p {
-                color: c.lesli-color(black, 100);
+                color: c.lesli-color(black, 500);
                 display: inline;
                 line-height: 1.6 !important;
+            }
+        }
+
+        table {
+            margin-bottom: 1rem;
+            td {
+                font-size: 18px;
             }
         }
 

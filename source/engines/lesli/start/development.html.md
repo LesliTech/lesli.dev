@@ -95,7 +95,7 @@ The only difference between a standard installation and a development installati
 After that, the rest of the setup is the same.
 
 <section class="lesli-markdown-info">
-    <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/getting-started/development.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/start/development.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
     <p><b>Last Update: </b>2026/03/15</p>
 </section>
 

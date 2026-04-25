@@ -69,7 +69,7 @@ Lesli provide the same color palette as CSS variables:
 You can customize bulma changing the value of the variables, see: [https://bulma.io/documentation/customize/variables/](https://bulma.io/documentation/customize/variables/)
 
 <section class="lesli-markdown-info">
-    <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/theming/customization.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><a target="blank" href="../LesliBuilder/gems/LesliAssets/tree/master/docs/customization.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
     <p><b>Last Update: </b>2024/09/29</p>
 </section>
 
