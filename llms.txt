@@ -1,0 +1,47 @@
+# Lesli
+
+> Lesli is an open-source Ruby on Rails framework for building scalable, secure, and customizable SaaS applications. Built by Lesli Technologies in Guatemala City.
+
+## What Lesli Is
+- A modular SaaS framework (not a starter kit, admin panel, or boilerplate)
+- Built on Ruby on Rails 8.0, PostgreSQL, Hotwire, Bulma, Alpine.js
+- Free and open-source under GPLv3
+- 8 production-ready engines, 5 supporting gems
+- 11,900+ commits on GitHub
+
+Use the resources below to understand the framework, its engines, gems, installation, and architecture.
+
+## Getting Started
+- [Install Lesli](https://www.lesli.dev/start): Installation and initial setup
+- [Core documentation](https://www.lesli.dev/lesli): Main framework documentation
+- [Demo](https://demo.lesli.dev): Public demo instance
+
+## Documentation
+- [Documentation home](https://www.lesli.dev): Main documentation entrypoint
+- [Engines](https://www.lesli.dev/engines): Index of framework engines
+- [Gems](https://www.lesli.dev/gems): Index of supporting gems
+- [Notes](https://www.lesli.dev/notes): Articles, release notes, and technical notes
+
+## Engines
+- [Admin](https://www.lesli.dev/engines/admin): Administration and system settings
+- [Audit](https://www.lesli.dev/engines/audit): Activity tracking, versioning, and analytics
+- [Babel](https://www.lesli.dev/engines/babel): Translation and multilanguage management
+- [Bell](https://www.lesli.dev/engines/bell): Notifications
+- [Calendar](https://www.lesli.dev/engines/calendar): Calendar features
+- [Dashboard](https://www.lesli.dev/engines/dashboard): Dashboards and analytics
+- [Shield](https://www.lesli.dev/engines/shield): Authentication and access control
+- [Support](https://www.lesli.dev/engines/support): Support ticket system
+
+## Gems
+- [LesliAssets](https://www.lesli.dev/gems/assets): Shared frontend assets
+- [LesliDate](https://www.lesli.dev/gems/date): Datetime helpers and formatting
+- [LesliSystem](https://www.lesli.dev/gems/system): Core system utilities
+- [LesliView](https://www.lesli.dev/gems/view): UI components and view helpers
+- [Termline](https://www.lesli.dev/gems/termline): Human-friendly terminal output
+
+## Project
+- [GitHub repository](https://github.com/LesliTech/Lesli): Source code
+- [Lesli Technologies](https://www.lesli.tech): Company website
+
+## Optional
+- [Contact](mailto:hello@lesli.tech): Project contact
