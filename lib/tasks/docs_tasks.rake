@@ -190,6 +190,9 @@ end
 
 def documentation_footer file_to_copy, file_to_paste
 
+    return if file_to_paste.end_with?("_navigation.erb")
+    return if file_to_paste.end_with?("index.html.erb")
+
     file_mtime = File.mtime(file_to_copy)
 
     file_mtime_utc = file_mtime.utc.strftime("%Y/%m/%d")
@@ -209,9 +212,6 @@ def documentation_footer file_to_copy, file_to_paste
         <!-- to update this docs please run rake docs:build -->
 
     TEXT
-
-    return if file_to_paste.end_with?("_navigation.erb")
-    return if file_to_paste.end_with?("index.html.erb")
 
     # Append the new content to the file
     File.open(file_to_paste, 'a') do |f|
