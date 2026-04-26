@@ -35,13 +35,13 @@ aside.lesli-partial-aside {
         h3 {
             font-size: 1rem;
             margin: 0 2.6rem .4rem;
-            color: c.lesli-color(slate, 700);
+            color: c.lesli-color(neutral, 700);
 
             a {
                 all: unset;
                 box-sizing: border-box;
                 text-transform: uppercase;
-                color: c.lesli-color(slate, 700);
+                color: c.lesli-color(neutral, 700);
                 font-size: .9rem;
                 font-weight: 700;
             }
@@ -49,7 +49,7 @@ aside.lesli-partial-aside {
 
         a {
             display: block;
-            color: c.lesli-color(slate, 500);
+            color: c.lesli-color(neutral, 500);
             padding: .2rem 2.6rem .2rem 0;
             text-transform: capitalize;
             font-size: .95rem;
@@ -59,7 +59,7 @@ aside.lesli-partial-aside {
 
             &:hover {
                 cursor: pointer;
-                color: c.lesli-color(blue, 900);
+                color: c.lesli-color(primary, 900);
             }
         }
     }

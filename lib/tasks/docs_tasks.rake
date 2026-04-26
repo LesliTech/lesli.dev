@@ -130,6 +130,7 @@ def documentation
 
         "../LesliBuilder/gems/*/readme.md",
         "../LesliBuilder/gems/*/docs/*/*.md",
+        "../LesliBuilder/gems/*/docs/*/*.md.erb",
         "../LesliBuilder/gems/*/docs/*/index",
         "../LesliBuilder/gems/*/docs/navigation",
         "../LesliBuilder/gems/*/docs/*.md",
@@ -210,6 +211,7 @@ def documentation_footer file_to_copy, file_to_paste
     TEXT
 
     return if file_to_paste.end_with?("_navigation.erb")
+    return if file_to_paste.end_with?("index.html.erb")
 
     # Append the new content to the file
     File.open(file_to_paste, 'a') do |f|

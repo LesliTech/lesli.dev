@@ -57,7 +57,7 @@ body {
 // ·
 .lesli-title-colored {
     line-height: 0.85;
-    background: -webkit-linear-gradient(315deg, lesli.lesli-color(primary, 500) 25%, lesli.lesli-color(primary, 900));
+    background: -webkit-linear-gradient(315deg, lesli.lesli-color(primary, 400), lesli.lesli-color(primary, 900)) 60%;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

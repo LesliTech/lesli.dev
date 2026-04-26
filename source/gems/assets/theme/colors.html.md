@@ -1,6 +1,6 @@
 # Lesli colors
 
-The Lesli identity is built around a primary blue inspired by Maya Blue, supported by neutral mineral tones, restrained semantic colors, and a set of collection colors that extend the system without breaking consistency.
+The Lesli identity is built around a primary blue inspired by Ruby Blue, supported by neutral mineral tones, restrained semantic colors, and a set of collection colors that extend the system without breaking consistency.
 
 ## Lesli brand colors
 
@@ -21,7 +21,7 @@ The Lesli identity is built around a primary blue inspired by Maya Blue, support
     <div class="br-2 py-4 has-text-centered lesli-background-primary-100">100</div>
     <div class="br-2 py-4 has-text-centered lesli-background-primary-200">200</div>
     <div class="br-2 py-4 has-text-centered lesli-background-primary-300">300</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-primary-400">400</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-primary-400 has-text-white">400</div>
     <div class="br-2 py-4 has-text-centered lesli-background-primary-500 has-text-white">500</div>
     <div class="br-2 py-4 has-text-centered lesli-background-primary-600 has-text-white">600</div>
     <div class="br-2 py-4 has-text-centered lesli-background-primary-700 has-text-white">700</div>
@@ -33,34 +33,18 @@ The Lesli identity is built around a primary blue inspired by Maya Blue, support
 <br />
 
 ## Collection colors
-<div class="columns is-multiline">
-    <div class="br-2 px-5 py-6 has-text-centered has-text-white lesli-background-collection-administration">
-        Administration
-    </div>
-    <div class="br-2 px-5 py-6 has-text-centered has-text-white lesli-background-collection-sales">
-        Sales
-    </div>
-    <div class="br-2 px-5 py-6 has-text-centered has-text-white lesli-background-collection-productivity">
-        Productivity
-    </div>
-    <div class="br-2 px-5 py-6 has-text-centered has-text-white lesli-background-collection-finance">
-        Finance
-    </div>
-    <div class="br-2 px-5 py-6 has-text-centered has-text-white lesli-background-collection-analytics">
-        Analytics
-    </div>
-    <div class="br-2 px-5 py-6 has-text-centered has-text-white lesli-background-collection-intelligence">
-        Intelligence
-    </div>
-    <div class="br-2 px-5 py-6 has-text-centered has-text-black lesli-background-collection-it">
-        IT
-    </div>
-    <div class="br-2 px-5 py-6 has-text-centered has-text-black lesli-background-collection-security">
-        Security
-    </div>
-    <div class="br-2 px-5 py-6 has-text-centered has-text-black lesli-background-collection-integration">
-        Integration
-    </div>
+
+<div class="columns">
+    <div class="br-2 py-4 px-5 has-text-centered lesli-background-ruby-500 has-text-white">Ruby</div>
+    <div class="br-2 py-4 px-5 has-text-centered lesli-background-ember-500 has-text-white">Ember</div>
+    <div class="br-2 py-4 px-5 has-text-centered lesli-background-maize-500 has-text-white">Maize</div>
+    <div class="br-2 py-4 px-5 has-text-centered lesli-background-agave-500 has-text-white">Agave</div>
+    <div class="br-2 py-4 px-5 has-text-centered lesli-background-jade-500 has-text-white">Jade</div>
+    <div class="br-2 py-4 px-5 has-text-centered lesli-background-cenote-500 has-text-white">Cenote</div>
+    <div class="br-2 py-4 px-5 has-text-centered lesli-background-quetzal-500 has-text-white">Quetzal</div>
+    <div class="br-2 py-4 px-5 has-text-centered lesli-background-bugambilia-500 has-text-white">Bugambilia</div>
+    <div class="br-2 py-4 px-5 has-text-centered lesli-background-cacao-500 has-text-white">Cacao</div>
+    <div class="br-2 py-4 px-5 has-text-centered lesli-background-obsidian-500 has-text-white">Obsidian</div>
 </div>
 
 
@@ -109,7 +93,7 @@ The Lesli identity is built around a primary blue inspired by Maya Blue, support
     <div class="br-2 py-4 has-text-centered lesli-background-info-100">100</div>
     <div class="br-2 py-4 has-text-centered lesli-background-info-200">200</div>
     <div class="br-2 py-4 has-text-centered lesli-background-info-300">300</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-info-400">400</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-info-400 has-text-white">400</div>
     <div class="br-2 py-4 has-text-centered lesli-background-info-500 has-text-white">500</div>
     <div class="br-2 py-4 has-text-centered lesli-background-info-600 has-text-white">600</div>
     <div class="br-2 py-4 has-text-centered lesli-background-info-700 has-text-white">700</div>
@@ -123,7 +107,7 @@ The Lesli identity is built around a primary blue inspired by Maya Blue, support
     <div class="br-2 py-4 has-text-centered lesli-background-success-100">100</div>
     <div class="br-2 py-4 has-text-centered lesli-background-success-200">200</div>
     <div class="br-2 py-4 has-text-centered lesli-background-success-300">300</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-success-400">400</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-success-400 has-text-white">400</div>
     <div class="br-2 py-4 has-text-centered lesli-background-success-500 has-text-white">500</div>
     <div class="br-2 py-4 has-text-centered lesli-background-success-600 has-text-white">600</div>
     <div class="br-2 py-4 has-text-centered lesli-background-success-700 has-text-white">700</div>
@@ -137,7 +121,7 @@ The Lesli identity is built around a primary blue inspired by Maya Blue, support
     <div class="br-2 py-4 has-text-centered lesli-background-warning-100">100</div>
     <div class="br-2 py-4 has-text-centered lesli-background-warning-200">200</div>
     <div class="br-2 py-4 has-text-centered lesli-background-warning-300">300</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-warning-400">400</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-warning-400 has-text-white">400</div>
     <div class="br-2 py-4 has-text-centered lesli-background-warning-500 has-text-white">500</div>
     <div class="br-2 py-4 has-text-centered lesli-background-warning-600 has-text-white">600</div>
     <div class="br-2 py-4 has-text-centered lesli-background-warning-700 has-text-white">700</div>
@@ -151,7 +135,7 @@ The Lesli identity is built around a primary blue inspired by Maya Blue, support
     <div class="br-2 py-4 has-text-centered lesli-background-danger-100">100</div>
     <div class="br-2 py-4 has-text-centered lesli-background-danger-200">200</div>
     <div class="br-2 py-4 has-text-centered lesli-background-danger-300">300</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-danger-400">400</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-danger-400 has-text-white">400</div>
     <div class="br-2 py-4 has-text-centered lesli-background-danger-500 has-text-white">500</div>
     <div class="br-2 py-4 has-text-centered lesli-background-danger-600 has-text-white">600</div>
     <div class="br-2 py-4 has-text-centered lesli-background-danger-700 has-text-white">700</div>
@@ -165,7 +149,7 @@ The Lesli identity is built around a primary blue inspired by Maya Blue, support
     <div class="br-2 py-4 has-text-centered lesli-background-black-100">100</div>
     <div class="br-2 py-4 has-text-centered lesli-background-black-200">200</div>
     <div class="br-2 py-4 has-text-centered lesli-background-black-300">300</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-black-400">400</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-black-400 has-text-white">400</div>
     <div class="br-2 py-4 has-text-centered lesli-background-black-500 has-text-white">500</div>
     <div class="br-2 py-4 has-text-centered lesli-background-black-600 has-text-white">600</div>
     <div class="br-2 py-4 has-text-centered lesli-background-black-700 has-text-white">700</div>
@@ -177,30 +161,21 @@ The Lesli identity is built around a primary blue inspired by Maya Blue, support
 ## Collections
 
 <div class="columns">
-    <div class="br-2 py-4 has-text-centered lesli-background-maya-100">Maya</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-maya-100">100</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-maya-300">300</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-maya-500 has-text-white">500</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-maya-700 has-text-white">700</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-maya-900 has-text-white">900</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-ruby-100">Ruby</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-ruby-100">100</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-ruby-300">300</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-ruby-500 has-text-white">500</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-ruby-700 has-text-white">700</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-ruby-900 has-text-white">900</div>
 </div>
 
 <div class="columns">
-    <div class="br-2 py-4 has-text-centered lesli-background-jade-100">Jade</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-jade-100">100</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-jade-300">300</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-jade-500 has-text-white">500</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-jade-700 has-text-white">700</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-jade-900 has-text-white">900</div>
-</div>
-
-<div class="columns">
-    <div class="br-2 py-4 has-text-centered lesli-background-agave-100">Agave</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-agave-100">100</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-agave-300">300</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-agave-500 has-text-white">500</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-agave-700 has-text-white">700</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-agave-900 has-text-white">900</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-ember-100">Ember</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-ember-100">100</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-ember-300">300</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-ember-500 has-text-white">500</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-ember-700 has-text-white">700</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-ember-900 has-text-white">900</div>
 </div>
 
 <div class="columns">
@@ -213,20 +188,21 @@ The Lesli identity is built around a primary blue inspired by Maya Blue, support
 </div>
 
 <div class="columns">
-    <div class="br-2 py-4 has-text-centered lesli-background-clay-100">Clay</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-clay-100">100</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-clay-300">300</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-clay-500 has-text-white">500</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-clay-700 has-text-white">700</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-clay-900 has-text-white">900</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-agave-100">Agave</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-agave-100">100</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-agave-300">300</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-agave-500 has-text-white">500</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-agave-700 has-text-white">700</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-agave-900 has-text-white">900</div>
 </div>
+
 <div class="columns">
-    <div class="br-2 py-4 has-text-centered lesli-background-orchid-100">Orchid</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-orchid-100">100</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-orchid-300">300</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-orchid-500 has-text-white">500</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-orchid-700 has-text-white">700</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-orchid-900 has-text-white">900</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-jade-100">Ember</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-jade-100">100</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-jade-300">300</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-jade-500 has-text-white">500</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-jade-700 has-text-white">700</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-jade-900 has-text-white">900</div>
 </div>
 
 <div class="columns">
@@ -239,6 +215,33 @@ The Lesli identity is built around a primary blue inspired by Maya Blue, support
 </div>
 
 <div class="columns">
+    <div class="br-2 py-4 has-text-centered lesli-background-quetzal-100">Quetzal</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-quetzal-100">100</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-quetzal-300">300</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-quetzal-500 has-text-white">500</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-quetzal-700 has-text-white">700</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-quetzal-900 has-text-white">900</div>
+</div>
+
+<div class="columns">
+    <div class="br-2 py-4 has-text-centered lesli-background-bugambilia-100">Bugambilia</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-bugambilia-100">100</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-bugambilia-300">300</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-bugambilia-500 has-text-white">500</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-bugambilia-700 has-text-white">700</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-bugambilia-900 has-text-white">900</div>
+</div>
+
+<div class="columns">
+    <div class="br-2 py-4 has-text-centered lesli-background-cacao-100">Cacao</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-cacao-100">100</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-cacao-300">300</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-cacao-500 has-text-white">500</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-cacao-700 has-text-white">700</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-cacao-900 has-text-white">900</div>
+</div>
+
+<div class="columns">
     <div class="br-2 py-4 has-text-centered lesli-background-obsidian-100">Obsidian</div>
     <div class="br-2 py-4 has-text-centered lesli-background-obsidian-100">100</div>
     <div class="br-2 py-4 has-text-centered lesli-background-obsidian-300">300</div>
@@ -246,6 +249,7 @@ The Lesli identity is built around a primary blue inspired by Maya Blue, support
     <div class="br-2 py-4 has-text-centered lesli-background-obsidian-700 has-text-white">700</div>
     <div class="br-2 py-4 has-text-centered lesli-background-obsidian-900 has-text-white">900</div>
 </div>
+
 
 ## Primary brand color
 
@@ -285,31 +289,36 @@ This is the core visual color of Lesli. It should represent the platform globall
 | ----------- | --------- | ---------------------------- | --------------------------- |
 | Primary 50  | `#F2F7FB` | `lesli-color(primary, 50)`   | `--lesli-color-primary-50`  |
 | Primary 100 | `#E3EEF6` | `lesli-color(primary, 100)`  | `--lesli-color-primary-100` |
-| Primary 200 | `#C1D8E9` | `lesli-color(primary, 200)`  | `--lesli-color-primary-200` |
-| Primary 300 | `#9EC1DC` | `lesli-color(primary, 300)`  | `--lesli-color-primary-300` |
-| Primary 400 | `#6F9FC3` | `lesli-color(primary, 400)`  | `--lesli-color-primary-400` |
-| Primary 500 | `#4A80AE` | `lesli-color(primary, 500)`  | `--lesli-color-primary-500` |
-| Primary 600 | `#245F93` | `lesli-color(primary, 600)`  | `--lesli-color-primary-600` |
-| Primary 700 | `#1F527F` | `lesli-color(primary, 700)`  | `--lesli-color-primary-700` |
-| Primary 800 | `#19446A` | `lesli-color(primary, 800)`  | `--lesli-color-primary-800` |
+| Primary 200 | `#BDD5E8` | `lesli-color(primary, 200)`  | `--lesli-color-primary-200` |
+| Primary 300 | `#8DAEC9` | `lesli-color(primary, 300)`  | `--lesli-color-primary-300` |
+| Primary 400 | `#4F83AE` | `lesli-color(primary, 400)`  | `--lesli-color-primary-400` |
+| Primary 500 | `#245F93` | `lesli-color(primary, 500)`  | `--lesli-color-primary-500` |
+| Primary 600 | `#1F527F` | `lesli-color(primary, 600)`  | `--lesli-color-primary-600` |
+| Primary 700 | `#1A466C` | `lesli-color(primary, 700)`  | `--lesli-color-primary-700` |
+| Primary 800 | `#153A59` | `lesli-color(primary, 800)`  | `--lesli-color-primary-800` |
 | Primary 900 | `#123553` | `lesli-color(primary, 900)`  | `--lesli-color-primary-900` |
 
 ### Recommended use
 
-* **Primary 600**: primary buttons, links, active states, highlights
-* **Primary 700**: hover state
-* **Primary 800**: active/pressed state
 * **Primary 50–100**: soft informational backgrounds
 * **Primary 200–300**: borders, subtle surfaces, selected states
+* **Primary 500**: primary buttons, links, active states, highlights
+* **Primary 700**: hover state
+* **Primary 800**: active/pressed state
 * **Primary 900**: text on light blue backgrounds
 
 ### Accessibility guidance
 
-* Use white text on `Primary 600` and darker.
+* Use white text on `Primary 500` and darker.
 * Use dark text on `Primary 50` to `Primary 300`.
 * Avoid placing small body text on `Primary 400` or `Primary 500` unless contrast has been tested.
 
 ---
+
+# Semantic colors
+
+Semantic colors follow the same visual philosophy as the Lesli primary blue: restrained, mineral, and product-oriented.
+
 
 ## Neutral palette
 
@@ -333,12 +342,12 @@ The neutral system supports the interface and should feel lightly mineral and su
 | Neutral 50  | `#F8FAFC` | `lesli-color(neutral, 50)`  | `--lesli-color-neutral-50`  |
 | Neutral 100 | `#F1F4F8` | lesli-color(neutral, 100) | --lesli-color-neutral-100 |
 | Neutral 200 | `#E5EAF0` | lesli-color(neutral, 200) | --lesli-color-neutral-200 |
-| Neutral 300 | `#D5DDE6` | lesli-color(neutral, 300) | --lesli-color-neutral-300 |
-| Neutral 400 | `#B7C2CF` | lesli-color(neutral, 400) | --lesli-color-neutral-400 |
-| Neutral 500 | `#8F9BAA` | lesli-color(neutral, 500) | --lesli-color-neutral-500 |
-| Neutral 600 | `#667383` | lesli-color(neutral, 600) | --lesli-color-neutral-600 |
-| Neutral 700 | `#4B5663` | lesli-color(neutral, 700) | --lesli-color-neutral-700 |
-| Neutral 800 | `#34404C` | lesli-color(neutral, 800) | --lesli-color-neutral-800 |
+| Neutral 300 | `#C7D0DA` | lesli-color(neutral, 300) | --lesli-color-neutral-300 |
+| Neutral 400 | `#8F9BAA` | lesli-color(neutral, 400) | --lesli-color-neutral-400 |
+| Neutral 500 | `#667383` | lesli-color(neutral, 500) | --lesli-color-neutral-500 |
+| Neutral 600 | `#4B5663` | lesli-color(neutral, 600) | --lesli-color-neutral-600 |
+| Neutral 700 | `#34404C` | lesli-color(neutral, 700) | --lesli-color-neutral-700 |
+| Neutral 800 | `#28323D` | lesli-color(neutral, 800) | --lesli-color-neutral-800 |
 | Neutral 900 | `#1F2933` | lesli-color(neutral, 900) | --lesli-color-neutral-900 |
 
 ### Recommended use
@@ -359,10 +368,6 @@ The neutral system supports the interface and should feel lightly mineral and su
 
 ---
 
-
-# Semantic colors
-
-Semantic colors follow the same visual philosophy as the Lesli primary blue: restrained, mineral, and product-oriented.
 
 ## Info palette
 
@@ -387,13 +392,13 @@ The info palette communicates neutral guidance, system messages, and contextual 
 | -------- | --------- | ------------------------ | ------------------------ |
 | Info 50  | `#F2F7FB` | `lesli-color(info, 50)`  | `--lesli-color-info-50`  |
 | Info 100 | `#E3EEF6` | `lesli-color(info, 100)` | `--lesli-color-info-100` |
-| Info 200 | `#C1D8E9` | `lesli-color(info, 200)` | `--lesli-color-info-200` |
-| Info 300 | `#9EC1DC` | `lesli-color(info, 300)` | `--lesli-color-info-300` |
-| Info 400 | `#6F9FC3` | `lesli-color(info, 400)` | `--lesli-color-info-400` |
-| Info 500 | `#4A80AE` | `lesli-color(info, 500)` | `--lesli-color-info-500` |
-| Info 600 | `#245F93` | `lesli-color(info, 600)` | `--lesli-color-info-600` |
-| Info 700 | `#1F527F` | `lesli-color(info, 700)` | `--lesli-color-info-700` |
-| Info 800 | `#19446A` | `lesli-color(info, 800)` | `--lesli-color-info-800` |
+| Info 200 | `#BDD5E8` | `lesli-color(info, 200)` | `--lesli-color-info-200` |
+| Info 300 | `#8DAEC9` | `lesli-color(info, 300)` | `--lesli-color-info-300` |
+| Info 400 | `#4F83AE` | `lesli-color(info, 400)` | `--lesli-color-info-400` |
+| Info 500 | `#245F93` | `lesli-color(info, 500)` | `--lesli-color-info-500` |
+| Info 600 | `#1F527F` | `lesli-color(info, 600)` | `--lesli-color-info-600` |
+| Info 700 | `#1A466C` | `lesli-color(info, 700)` | `--lesli-color-info-700` |
+| Info 800 | `#153A59` | `lesli-color(info, 800)` | `--lesli-color-info-800` |
 | Info 900 | `#123553` | `lesli-color(info, 900)` | `--lesli-color-info-900` |
 
 **Usage guidelines**
@@ -431,11 +436,11 @@ Typical uses include success alerts, completed states, confirmation messages, ap
 | Success 100 | `#DDF2EA` | `lesli-color(success, 100)` | `--lesli-color-success-100` |
 | Success 200 | `#B8E2D2` | `lesli-color(success, 200)` | `--lesli-color-success-200` |
 | Success 300 | `#8DD0B8` | `lesli-color(success, 300)` | `--lesli-color-success-300` |
-| Success 400 | `#5FB995` | `lesli-color(success, 400)` | `--lesli-color-success-400` |
-| Success 500 | `#399C77` | `lesli-color(success, 500)` | `--lesli-color-success-500` |
-| Success 600 | `#267E60` | `lesli-color(success, 600)` | `--lesli-color-success-600` |
-| Success 700 | `#1F694F` | `lesli-color(success, 700)` | `--lesli-color-success-700` |
-| Success 800 | `#19543F` | `lesli-color(success, 800)` | `--lesli-color-success-800` |
+| Success 400 | `#399C77` | `lesli-color(success, 400)` | `--lesli-color-success-400` |
+| Success 500 | `#267E60` | `lesli-color(success, 500)` | `--lesli-color-success-500` |
+| Success 600 | `#1F694F` | `lesli-color(success, 600)` | `--lesli-color-success-600` |
+| Success 700 | `#19543F` | `lesli-color(success, 700)` | `--lesli-color-success-700` |
+| Success 800 | `#154836` | `lesli-color(success, 800)` | `--lesli-color-success-800` |
 | Success 900 | `#123F30` | `lesli-color(success, 900)` | `--lesli-color-success-900` |
 
 **Usage guidelines**
@@ -473,11 +478,11 @@ The warning palette highlights caution, pending issues, and states that need att
 | Warning 100 | `#FFF1D6` | `lesli-color(warning, 100)` | `--lesli-color-warning-100` |
 | Warning 200 | `#FDE2A8` | `lesli-color(warning, 200)` | `--lesli-color-warning-200` |
 | Warning 300 | `#F8CF74` | `lesli-color(warning, 300)` | `--lesli-color-warning-300` |
-| Warning 400 | `#E9B84A` | `lesli-color(warning, 400)` | `--lesli-color-warning-400` |
-| Warning 500 | `#D29A2E` | `lesli-color(warning, 500)` | `--lesli-color-warning-500` |
-| Warning 600 | `#B67D1F` | `lesli-color(warning, 600)` | `--lesli-color-warning-600` |
-| Warning 700 | `#95651B` | `lesli-color(warning, 700)` | `--lesli-color-warning-700` |
-| Warning 800 | `#775117` | `lesli-color(warning, 800)` | `--lesli-color-warning-800` |
+| Warning 400 | `#D29A2E` | `lesli-color(warning, 400)` | `--lesli-color-warning-400` |
+| Warning 500 | `#B67D1F` | `lesli-color(warning, 500)` | `--lesli-color-warning-500` |
+| Warning 600 | `#95651B` | `lesli-color(warning, 600)` | `--lesli-color-warning-600` |
+| Warning 700 | `#775117` | `lesli-color(warning, 700)` | `--lesli-color-warning-700` |
+| Warning 800 | `#684614` | `lesli-color(warning, 800)` | `--lesli-color-warning-800` |
 | Warning 900 | `#5B3D12` | `lesli-color(warning, 900)` | `--lesli-color-warning-900` |
 
 **Usage guidelines**
@@ -515,11 +520,11 @@ The danger palette is reserved for destructive actions, critical errors, and sta
 | Danger 100 | `#FFE3DE` | `lesli-color(danger, 100)` | `--lesli-color-danger-100` |
 | Danger 200 | `#F8C1B8` | `lesli-color(danger, 200)` | `--lesli-color-danger-200` |
 | Danger 300 | `#EE9A8E` | `lesli-color(danger, 300)` | `--lesli-color-danger-300` |
-| Danger 400 | `#DF6D5E` | `lesli-color(danger, 400)` | `--lesli-color-danger-400` |
-| Danger 500 | `#C94E3C` | `lesli-color(danger, 500)` | `--lesli-color-danger-500` |
-| Danger 600 | `#A93B2D` | `lesli-color(danger, 600)` | `--lesli-color-danger-600` |
-| Danger 700 | `#8B3126` | `lesli-color(danger, 700)` | `--lesli-color-danger-700` |
-| Danger 800 | `#6F281F` | `lesli-color(danger, 800)` | `--lesli-color-danger-800` |
+| Danger 400 | `#C94E3C` | `lesli-color(danger, 400)` | `--lesli-color-danger-400` |
+| Danger 500 | `#A93B2D` | `lesli-color(danger, 500)` | `--lesli-color-danger-500` |
+| Danger 600 | `#8B3126` | `lesli-color(danger, 600)` | `--lesli-color-danger-600` |
+| Danger 700 | `#6F281F` | `lesli-color(danger, 700)` | `--lesli-color-danger-700` |
+| Danger 800 | `#60231B` | `lesli-color(danger, 800)` | `--lesli-color-danger-800` |
 | Danger 900 | `#541E18` | `lesli-color(danger, 900)` | `--lesli-color-danger-900` |
 
 **Usage guidelines**
@@ -537,78 +542,48 @@ Use the danger palette for destructive actions, critical problems, failed operat
 
 Collections give color identity to product areas, modules, or content groups without replacing the global primary color.
 
-## Collections
-
-<div class="columns">
-    <div class="br-2 py-4 has-text-centered lesli-background-maya-500 has-text-white">Maya</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-jade-500 has-text-white">Jade</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-agave-500 has-text-white">Agave</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-maize-500 has-text-white">Maize</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-clay-500 has-text-white">Clay</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-orchid-500 has-text-white">Orchid</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-cenote-500 has-text-white">Cenote</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-obsidian-500 has-text-white">Obsidian</div>
-</div>
-
 ## Collection color usage rules
 
 * Do not use collection colors as the global product primary.
 * Use collections for module identity, category badges, section headers, charts, avatars, tabs, and accents.
-* Prefer `100` for background, `600` for accent, and `800` for text or strong iconography.
+* Prefer `100` for background, `500` for accent, and `700` for text or strong iconography.
 
-## Maya palette
+## Ruby palette
 
 <div class="columns">
-    <div class="br-2 py-4 has-text-centered lesli-background-maya-100">100</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-maya-300">300</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-maya-500 has-text-white">500</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-maya-700 has-text-white">700</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-maya-900 has-text-white">900</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-ruby-100">100</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-ruby-300">300</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-ruby-500 has-text-white">500</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-ruby-700 has-text-white">700</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-ruby-900 has-text-white">900</div>
 </div>
 
 | Token    | Hex       | Lesli                    | Variable                 |
 | -------- | --------- | ------------------------ | ------------------------ |
-| Maya 100 | `#E3EEF6` | `lesli-color(maya, 100)` | `--lesli-color-maya-100` |
-| Maya 300 | `#8DAEC9` | `lesli-color(maya, 300)` | `--lesli-color-maya-300` |
-| Maya 500 | `#245F93` | `lesli-color(maya, 500)` | `--lesli-color-maya-500` |
-| Maya 700 | `#1E507C` | `lesli-color(maya, 700)` | `--lesli-color-maya-700` |
-| Maya 900 | `#12324F` | `lesli-color(maya, 900)` | `--lesli-color-maya-900` |
+| Ruby 100 | `#F6E5E5` | `lesli-color(ruby, 100)` | `--lesli-color-ruby-100` |
+| Ruby 300 | `#D89C9C` | `lesli-color(ruby, 300)` | `--lesli-color-ruby-300` |
+| Ruby 500 | `#B23A3A` | `lesli-color(ruby, 500)` | `--lesli-color-ruby-500` |
+| Ruby 700 | `#8E2E2E` | `lesli-color(ruby, 700)` | `--lesli-color-ruby-700` |
+| Ruby 900 | `#5C1E1E` | `lesli-color(ruby, 900)` | `--lesli-color-ruby-900` |
 
-## Jade palette
+## Ember palette
 
 <div class="columns">
-    <div class="br-2 py-4 has-text-centered lesli-background-jade-100">100</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-jade-300">300</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-jade-500 has-text-white">500</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-jade-700 has-text-white">700</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-jade-900 has-text-white">900</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-ember-100">100</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-ember-300">300</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-ember-500 has-text-white">500</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-ember-700 has-text-white">700</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-ember-900 has-text-white">900</div>
 </div>
 
 | Token    | Hex       | Lesli                    | Variable                 |
 | -------- | --------- | ------------------------ | ------------------------ |
-| Jade 100 | `#E2F1EC` | `lesli-color(jade, 100)` | `--lesli-color-jade-100` |
-| Jade 300 | `#91BBB1` | `lesli-color(jade, 300)` | `--lesli-color-jade-300` |
-| Jade 500 | `#2D7A68` | `lesli-color(jade, 500)` | `--lesli-color-jade-500` |
-| Jade 700 | `#256656` | `lesli-color(jade, 700)` | `--lesli-color-jade-700` |
-| Jade 900 | `#143F33` | `lesli-color(jade, 900)` | `--lesli-color-jade-900` |
+| Ember 100 | `#E2F1EC` | `lesli-color(jade, 100)` | `--lesli-color-jade-100` |
+| Ember 300 | `#91BBB1` | `lesli-color(jade, 300)` | `--lesli-color-jade-300` |
+| Ember 500 | `#2D7A68` | `lesli-color(jade, 500)` | `--lesli-color-jade-500` |
+| Ember 700 | `#256656` | `lesli-color(jade, 700)` | `--lesli-color-jade-700` |
+| Ember 900 | `#143F33` | `lesli-color(jade, 900)` | `--lesli-color-jade-900` |
 
-## Agave palette
-
-<div class="columns">
-    <div class="br-2 py-4 has-text-centered lesli-background-agave-100">100</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-agave-300">300</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-agave-500 has-text-white">500</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-agave-700 has-text-white">700</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-agave-900 has-text-white">900</div>
-</div>
-
-| Token     | Hex       | Lesli                     | Variable                  |
-| --------- | --------- | ------------------------- | ------------------------- |
-| Agave 100 | `#ECF2E7` | `lesli-color(agave, 100)` | `--lesli-color-agave-100` |
-| Agave 300 | `#ACBDA2` | `lesli-color(agave, 300)` | `--lesli-color-agave-300` |
-| Agave 500 | `#5D7C4D` | `lesli-color(agave, 500)` | `--lesli-color-agave-500` |
-| Agave 700 | `#4F6942` | `lesli-color(agave, 700)` | `--lesli-color-agave-700` |
-| Agave 900 | `#34442C` | `lesli-color(agave, 900)` | `--lesli-color-agave-900` |
 
 ## Maize palette
 
@@ -628,41 +603,44 @@ Collections give color identity to product areas, modules, or content groups wit
 | Maize 700 | `#946E25` | `lesli-color(maize, 700)` | `--lesli-color-maize-700` |
 | Maize 900 | `#594016` | `lesli-color(maize, 900)` | `--lesli-color-maize-900` |
 
-## Clay palette
+
+## Agave palette
 
 <div class="columns">
-    <div class="br-2 py-4 has-text-centered lesli-background-clay-100">100</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-clay-300">300</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-clay-500 has-text-white">500</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-clay-700 has-text-white">700</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-clay-900 has-text-white">900</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-agave-100">100</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-agave-300">300</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-agave-500 has-text-white">500</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-agave-700 has-text-white">700</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-agave-900 has-text-white">900</div>
 </div>
 
-| Token    | Hex       | Lesli                    | Variable                 |
-| -------- | --------- | ------------------------ | ------------------------ |
-| Clay 100 | `#FAE9E4` | `lesli-color(clay, 100)` | `--lesli-color-clay-100` |
-| Clay 300 | `#D9A99E` | `lesli-color(clay, 300)` | `--lesli-color-clay-300` |
-| Clay 500 | `#B05A48` | `lesli-color(clay, 500)` | `--lesli-color-clay-500` |
-| Clay 700 | `#944C3C` | `lesli-color(clay, 700)` | `--lesli-color-clay-700` |
-| Clay 900 | `#5C2F25` | `lesli-color(clay, 900)` | `--lesli-color-clay-900` |
+| Token     | Hex       | Lesli                     | Variable                  |
+| --------- | --------- | ------------------------- | ------------------------- |
+| Agave 100 | `#ECF2E7` | `lesli-color(agave, 100)` | `--lesli-color-agave-100` |
+| Agave 300 | `#ACBDA2` | `lesli-color(agave, 300)` | `--lesli-color-agave-300` |
+| Agave 500 | `#5D7C4D` | `lesli-color(agave, 500)` | `--lesli-color-agave-500` |
+| Agave 700 | `#4F6942` | `lesli-color(agave, 700)` | `--lesli-color-agave-700` |
+| Agave 900 | `#34442C` | `lesli-color(agave, 900)` | `--lesli-color-agave-900` |
 
-## Orchid palette
+
+## Jade palette
 
 <div class="columns">
-    <div class="br-2 py-4 has-text-centered lesli-background-orchid-100">100</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-orchid-300">300</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-orchid-500 has-text-white">500</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-orchid-700 has-text-white">700</div>
-    <div class="br-2 py-4 has-text-centered lesli-background-orchid-900 has-text-white">900</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-jade-100">100</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-jade-300">300</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-jade-500 has-text-white">500</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-jade-700 has-text-white">700</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-jade-900 has-text-white">900</div>
 </div>
 
-| Token      | Hex       | Lesli                      | Variable                   |
-| ---------- | --------- | -------------------------- | -------------------------- |
-| Orchid 100 | `#EEEAF7` | `lesli-color(orchid, 100)` | `--lesli-color-orchid-100` |
-| Orchid 300 | `#B8ADD3` | `lesli-color(orchid, 300)` | `--lesli-color-orchid-300` |
-| Orchid 500 | `#7562A6` | `lesli-color(orchid, 500)` | `--lesli-color-orchid-500` |
-| Orchid 700 | `#63538E` | `lesli-color(orchid, 700)` | `--lesli-color-orchid-700` |
-| Orchid 900 | `#3F345D` | `lesli-color(orchid, 900)` | `--lesli-color-orchid-900` |
+| Token     | Hex       | Lesli                     | Variable                  |
+| --------- | --------- | ------------------------- | ------------------------- |
+| Jade 100 | `#E2F1EC` | `lesli-color(jade, 100)` | `--lesli-color-jade-100` |
+| Jade 300 | `#91BBB1` | `lesli-color(jade, 300)` | `--lesli-color-jade-300` |
+| Jade 500 | `#2D7A68` | `lesli-color(jade, 500)` | `--lesli-color-jade-500` |
+| Jade 700 | `#256656` | `lesli-color(jade, 700)` | `--lesli-color-jade-700` |
+| Jade 900 | `#143F33` | `lesli-color(jade, 900)` | `--lesli-color-jade-900` |
+
 
 ## Cenote palette
 
@@ -674,13 +652,68 @@ Collections give color identity to product areas, modules, or content groups wit
     <div class="br-2 py-4 has-text-centered lesli-background-cenote-900 has-text-white">900</div>
 </div>
 
+| Token    | Hex       | Lesli                    | Variable                 |
+| -------- | --------- | ------------------------ | ------------------------ |
+| Cenote 100 | `#E3F0F3` | `lesli-color(cenote, 100)` | `--lesli-color-cenote-100` |
+| Cenote 300 | `#8FB8C4` | `lesli-color(cenote, 300)` | `--lesli-color-cenote-300` |
+| Cenote 500 | `#1F6F8B` | `lesli-color(cenote, 500)` | `--lesli-color-cenote-500` |
+| Cenote 700 | `#195D74` | `lesli-color(cenote, 700)` | `--lesli-color-cenote-700` |
+| Cenote 900 | `#103B4A` | `lesli-color(cenote, 900)` | `--lesli-color-cenote-900` |
+
+## Quetzal palette
+
+<div class="columns">
+    <div class="br-2 py-4 has-text-centered lesli-background-quetzal-100">100</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-quetzal-300">300</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-quetzal-500 has-text-white">500</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-quetzal-700 has-text-white">700</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-quetzal-900 has-text-white">900</div>
+</div>
+
 | Token      | Hex       | Lesli                      | Variable                   |
 | ---------- | --------- | -------------------------- | -------------------------- |
-| Cenote 100 | `#E3F0F1` | `lesli-color(cenote, 100)` | `--lesli-color-cenote-100` |
-| Cenote 300 | `#92B6B8` | `lesli-color(cenote, 300)` | `--lesli-color-cenote-300` |
-| Cenote 500 | `#2E6F73` | `lesli-color(cenote, 500)` | `--lesli-color-cenote-500` |
-| Cenote 700 | `#265D61` | `lesli-color(cenote, 700)` | `--lesli-color-cenote-700` |
-| Cenote 900 | `#173A3D` | `lesli-color(cenote, 900)` | `--lesli-color-cenote-900` |
+| Quetzal 100 | `#E8EBF6` | `lesli-color(quetzal, 100)` | `--lesli-color-quetzal-100` |
+| Quetzal 300 | `#A1AED8` | `lesli-color(quetzal, 300)` | `--lesli-color-quetzal-300` |
+| Quetzal 500 | `#4B5FA8` | `lesli-color(quetzal, 500)` | `--lesli-color-quetzal-500` |
+| Quetzal 700 | `#3E4F8C` | `lesli-color(quetzal, 700)` | `--lesli-color-quetzal-700` |
+| Quetzal 900 | `#283259` | `lesli-color(quetzal, 900)` | `--lesli-color-quetzal-900` |
+
+## Bugambilia palette
+
+<div class="columns">
+    <div class="br-2 py-4 has-text-centered lesli-background-bugambilia-100">100</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-bugambilia-300">300</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-bugambilia-500 has-text-white">500</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-bugambilia-700 has-text-white">700</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-bugambilia-900 has-text-white">900</div>
+</div>
+
+| Token      | Hex       | Lesli                      | Variable                   |
+| ---------- | --------- | -------------------------- | -------------------------- |
+| Bugambilia 100 | `#F5E6EE` | `lesli-color(bugambilia, 100)` | `--lesli-color-bugambilia-100` |
+| Bugambilia 300 | `#D49AB5` | `lesli-color(bugambilia, 300)` | `--lesli-color-bugambilia-300` |
+| Bugambilia 500 | `#A83E6F` | `lesli-color(bugambilia, 500)` | `--lesli-color-bugambilia-500` |
+| Bugambilia 700 | `#8A345C` | `lesli-color(bugambilia, 700)` | `--lesli-color-bugambilia-700` |
+| Bugambilia 900 | `#58213B` | `lesli-color(bugambilia, 900)` | `--lesli-color-bugambilia-900` |
+
+## Cacao palette
+
+<div class="columns">
+    <div class="br-2 py-4 has-text-centered lesli-background-cacao-100">100</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-cacao-300">300</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-cacao-500 has-text-white">500</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-cacao-700 has-text-white">700</div>
+    <div class="br-2 py-4 has-text-centered lesli-background-cacao-900 has-text-white">900</div>
+</div>
+
+| Token        | Hex       | Lesli                        | Variable                     |
+| ------------ | --------- | ---------------------------- | ---------------------------- |
+| Cacao 100 | `#EFE8E3` | `lesli-color(cacao, 100)` | `--lesli-color-cacao-100` |
+| Cacao 300 | `#B9A394` | `lesli-color(cacao, 300)` | `--lesli-color-cacao-300` |
+| Cacao 500 | `#6B4A35` | `lesli-color(cacao, 500)` | `--lesli-color-cacao-500` |
+| Cacao 700 | `#593E2C` | `lesli-color(cacao, 700)` | `--lesli-color-cacao-700` |
+| Cacao 900 | `#38271C` | `lesli-color(cacao, 900)` | `--lesli-color-cacao-900` |
+
 
 ## Obsidian palette
 
