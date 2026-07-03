@@ -148,8 +148,8 @@ along with this program. If not, see http://www.gnu.org/licenses/.
 <br />
 <br />
 
-<div align="center" class="has-text-centered">
-    <img width="200" alt="Lesli logo" src="https://cdn.lesli.tech/lesli/brand/app-logo.svg" />
+<div align="center" class="has-text-centered">>
+    <img width="80" alt="Lesli logo" src="https://cdn.lesli.tech/lesli/brand/app-icon.svg" />
     <h3 align="center" class="mt-0">
         The Open-Source SaaS Development Framework for Ruby on Rails.
     </h3>
@@ -160,7 +160,7 @@ along with this program. If not, see http://www.gnu.org/licenses/.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/03/29</p>
+    <p><b>Last Update: </b>2026/04/26</p>
 </section>
 
 <!-- This code was automatically generated -->
