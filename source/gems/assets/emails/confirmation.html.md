@@ -1,12 +1,24 @@
-<section class="lesli-parche-working">
-    <img alt="cat docs" src="/images/cats/dev.png" />
-    <p>Work in progress...</p>
-    <a href="/">Take me home</a>
-</section>
+# Confirmation email
+
+The confirmation email asks a new user to verify their email address.
+
+Source: `source/mails/devise/confirmation_instructions.mjml`
+
+Generated view: `app/views/lesli_assets/emails/devise/confirmation_instructions.html.erb`
+
+## Required data
+
+| Value | Purpose |
+| --- | --- |
+| `@params[:url]` | Confirmation URL used by the primary action |
+
+The current message tells the user that the link remains valid for three hours. Keep that copy synchronized with the actual confirmation-token lifetime configured by the application.
+
+After editing the MJML source or a shared email fragment, run `make build.mails` and verify the generated result with a Rails mailer preview.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="../LesliBuilder/gems/LesliAssets/tree/master/docs/emails/confirmation.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/04/21</p>
+    <p><b>Last Update: </b>2026/09/14</p>
 </section>
 
 <!-- This code was automatically generated -->

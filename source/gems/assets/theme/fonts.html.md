@@ -1,49 +1,54 @@
 # Typography
 
-Lesli uses a serif + sans-serif pairing to balance product rigor with editorial character.
+Lesli uses Domine and Open Sans. Both variable fonts are packaged by LesliAssets and loaded by the framework stylesheet.
 
 ## Typefaces
 
-* **Headings:** Domine
-* **Body:** Source Sans 3
+| Role | Typeface | Use |
+| --- | --- | --- |
+| Headings | Domine | Page titles, section headings, and editorial emphasis |
+| Interface | Open Sans | Body text, navigation, labels, buttons, tables, and forms |
 
-## Brand role of each typeface
+Domine gives headings a recognizable editorial character. Open Sans keeps dense application interfaces readable and neutral.
 
-### Domine
+## Domine examples
 
-Use Domine for:
+The following specimens explicitly select Domine and set the variable `wght` axis so they are not affected by the documentation site's inherited typography.
 
-* Page titles
-* Section headings
-* Product marketing headings
-* Editorial emphasis
+<div class="br-2 p-5 mb-5 has-background-white">
+    <p style="font-family: 'Domine', serif !important; font-size: 2rem; line-height: 1.25; font-weight: 400; font-variation-settings: 'wght' 400;">Build useful software for real people.</p>
+    <p style="font-family: 'Domine', serif !important; font-size: 1.25rem; font-weight: 400; font-variation-settings: 'wght' 400;">Regular 400 — The quick brown fox jumps over the lazy dog.</p>
+    <p style="font-family: 'Domine', serif !important; font-size: 1.25rem; font-weight: 500; font-variation-settings: 'wght' 500;">Medium 500 — The quick brown fox jumps over the lazy dog.</p>
+    <p style="font-family: 'Domine', serif !important; font-size: 1.25rem; font-weight: 600; font-variation-settings: 'wght' 600;">Semibold 600 — The quick brown fox jumps over the lazy dog.</p>
+    <p style="font-family: 'Domine', serif !important; font-size: 1.25rem; font-weight: 700; font-variation-settings: 'wght' 700;">Bold 700 — The quick brown fox jumps over the lazy dog.</p>
+</div>
 
-Domine adds personality and authority to the brand.
+## Open Sans examples
 
-### Source Sans 3
+These specimens explicitly select Open Sans and force the same weight variations used throughout the product interface.
 
-Use Source Sans 3 for:
+<div class="br-2 p-5 mb-5 has-background-white">
+    <p style="font-family: 'OpenSans', sans-serif !important; font-size: 1rem; line-height: 1.6; font-weight: 400; font-variation-settings: 'wght' 400;">Regular 400 — Clear interface copy helps people complete their work.</p>
+    <p style="font-family: 'OpenSans', sans-serif !important; font-size: 1rem; line-height: 1.6; font-weight: 500; font-variation-settings: 'wght' 500;">Medium 500 — Clear interface copy helps people complete their work.</p>
+    <p style="font-family: 'OpenSans', sans-serif !important; font-size: 1rem; line-height: 1.6; font-weight: 600; font-variation-settings: 'wght' 600;">Semibold 600 — Clear interface copy helps people complete their work.</p>
+    <p style="font-family: 'OpenSans', sans-serif !important; font-size: 1rem; line-height: 1.6; font-weight: 700; font-variation-settings: 'wght' 700;">Bold 700 — Clear interface copy helps people complete their work.</p>
+    <p style="font-family: 'OpenSans', sans-serif !important; font-size: 1rem; line-height: 1.6; font-weight: 400; font-variation-settings: 'wght' 400;">ABCDEFGHIJKLMNOPQRSTUVWXYZ · abcdefghijklmnopqrstuvwxyz · 0123456789</p>
+</div>
 
-* Body text
-* Navigation
-* Labels
-* Buttons
-* Tables
-* Forms
-* Product UI
+## Framework behavior
 
-Source Sans 3 keeps the system clean, readable, and modern.
+The global Lesli styles apply Open Sans to the document body and Domine to heading elements. Components inherit the correct family without needing a utility class.
 
-## Typography guidance
+## Guidance
 
-* Use Domine sparingly inside product UI.
-* Use Source Sans 3 for most interface content.
-* Avoid decorative font pairings beyond these two families.
-* Favor readability and spacing over dense text layouts.
+- Use Domine sparingly inside dense product interfaces.
+- Use Open Sans for controls and long-form interface copy.
+- Avoid introducing decorative font families into framework components.
+- Preserve the browser's ability to synthesize appropriate variable-font weights.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="../LesliBuilder/gems/LesliAssets/tree/master/docs/theme/fonts.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/04/19</p>
+    <p><b>Last Update: </b>2026/09/14</p>
 </section>
 
 <!-- This code was automatically generated -->
