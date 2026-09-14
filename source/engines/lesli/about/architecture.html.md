@@ -84,8 +84,7 @@ Your Rails App
 | -------------- | -------------------------------------------- |
 | Backend        | Ruby on Rails                                |
 | Database       | PostgreSQL / SQLite                          |
-| Frontend       | Hotwire, Alpine.js, Bulma                    |
-| Styling        | Sass                                         |
+| Frontend       | Hotwire, Alpine.js, Tailwind                 |
 | Authentication | Devise-based integration through LesliShield |
 
 ---
@@ -120,7 +119,7 @@ It is designed for products that need to evolve — not just launch.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/about/architecture.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/03/15</p>
+    <p><b>Last Update: </b>2026/09/06</p>
 </section>
 
 <!-- This code was automatically generated -->

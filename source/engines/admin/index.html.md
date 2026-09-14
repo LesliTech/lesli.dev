@@ -1,14 +1,15 @@
 <div align="center">
-    <img width="100" alt="LesliAdmin logo" src="/images/engines/admin/admin-logo.svg" />
-    <h3 align="center">Administration area for the Lesli Framework.</h3>
+    <h1 align="center">
+        <img width="100" alt="LesliAdmin" src="/images/engines/admin/admin-logo.svg" />
+    </h1>
+    <h3 align="center">Account administration for the Lesli Framework.</h3>
 </div>
 
 <br />
-<hr/>
 
 <div align="center">
-    <a target="_blank" href="https://github.com/LesliTech/LesliAdmin/actions">
-        <img alt="Tests passing" src="https://img.shields.io/badge/Tests-passing-green?style=for-the-badge&logo=github">
+    <a target="_blank" href="https://github.com/LesliTech/LesliAdmin/actions/workflows/lesli-ci.yaml">
+        <img alt="LesliAdmin test status" src="https://img.shields.io/github/actions/workflow/status/LesliTech/LesliAdmin/lesli-ci.yaml?branch=master&style=for-the-badge&logo=github&label=tests">
     </a>
     <a target="_blank" href="https://rubygems.org/gems/lesli_admin">
         <img alt="Gem Version" src="https://img.shields.io/gem/v/lesli_admin?style=for-the-badge&logo=ruby">
@@ -16,85 +17,148 @@
     <a target="_blank" href="https://codecov.io/github/LesliTech/LesliAdmin">
         <img alt="Codecov" src="https://img.shields.io/codecov/c/github/LesliTech/LesliAdmin?style=for-the-badge&logo=codecov">
     </a>
+    <a target="_blank" href="https://sonarcloud.io/project/overview?id=LesliTech_LesliAdmin">
+        <img alt="Sonar Quality Gate" src="https://img.shields.io/sonar/quality_gate/LesliTech_LesliAdmin?server=https%3A%2F%2Fsonarcloud.io&style=for-the-badge&logo=sonarqubecloud&label=Quality">
+    </a>
 </div>
 
-<hr/>
 <br />
 
 <div align="center">
     <img
         style="width:100%;max-width:800px;border-radius:6px;"
-        alt="Lesli screenshot" src="/images/engines/admin/screenshot.png" />
+        alt="LesliAdmin account administration"
+        src="/images/engines/admin/screenshot.png" />
 </div>
 
-<br />
-<hr/>
+---
+
 <br />
 
-### Installation
+## Introduction
 
-**Add LesliAdmin engine gem**
+LesliAdmin is the official account administration engine for the [Lesli Framework](https://github.com/LesliTech/Lesli).
+
+It provides account owners and administrators with a central interface for managing organization settings and shared account data.
+
+<br />
+
+## Features
+
+- Account details and administrative settings
+- Locations and regional configuration
+- Currencies and account-level preferences
+- User profile administration
+- Integration with Lesli users, permissions, and navigation
+
+<br />
+
+## Try LesliAdmin
+
+- [Try the online demo](https://demo.lesli.dev/)
+- [Run the Docker demo](https://github.com/LesliTech/lesli-docker-demo)
+
+<br />
+
+## Quick Start
+
+### Requirements
+
+- A Rails application with [Lesli](https://rubygems.org/gems/lesli)
+- SQLite by default, or PostgreSQL when preferred by the host application
+
+### Install LesliAdmin
+
+Add the engine to the host Rails application and prepare its database:
+
 ```shell
 bundle add lesli_admin
+bin/rails db:prepare
 ```
 
-**Setup & initialize the database**
-```shell
-rake lesli:db:setup
-```
+### Mount the engine
 
-**Load LesliAdmin engine**
+Applications using Lesli's standard router mount LesliAdmin automatically at `/admin`:
+
 ```ruby
+# config/routes.rb
+Rails.application.routes.draw do
+    Lesli::Router.mount(self)
+end
+```
+
+If the application does not use the standard Lesli router, mount the engine directly:
+
+```ruby
+# config/routes.rb
 Rails.application.routes.draw do
     mount LesliAdmin::Engine => "/admin"
 end
 ```
 
-<br />
-<hr/>
-<br />
-
-### Development 
+Start Rails and visit [http://127.0.0.1:3000/admin](http://127.0.0.1:3000/admin):
 
 ```shell
-# clone the lesli repo inside your engine folder: RailsApp/engines
-git clone https://github.com/LesliTech/LesliAdmin.git
-
-# Load LesliAdmin as a Gem
-gem "lesli", path: "engines/LesliAdmin"
-
-# Install the necessary Gems to run LesliAdmin
-bundle install
-
-# Setup & initialize the database
-rake lesli:db:setup
-
+bin/rails server
 ```
 
 <br />
-<hr/>
+
+## Development
+
+Clone LesliAdmin into the host application's `engines` directory:
+
+```shell
+cd RailsApp
+mkdir -p engines
+git clone https://github.com/LesliTech/LesliAdmin.git engines/LesliAdmin
+```
+
+Reference the local engine from the host application's `Gemfile`:
+
+```ruby
+gem "lesli_admin", path: "engines/LesliAdmin"
+```
+
+Install dependencies, prepare the host database, and start Rails:
+
+```shell
+bundle install
+bin/rails db:prepare
+bin/rails server
+```
+
+### Tests
+
+From a complete Lesli development workspace, run the engine test suite from the LesliAdmin directory:
+
+```shell
+cd engines/LesliAdmin
+bin/rails test
+```
+
 <br />
 
-### Demo
+## Documentation
 
-* [online demo](https://demo.lesli.dev/)
-* [docker demo](https://github.com/LesliTech/lesli-docker-demo)
+- [Lesli website](https://www.lesli.dev/)
+- [Documentation](https://www.lesli.dev/engines/admin)
+- [Release notes](https://github.com/LesliTech/LesliAdmin/releases)
+- [Issue tracker](https://github.com/LesliTech/LesliAdmin/issues)
+- [Source code](https://github.com/LesliTech/LesliAdmin)
 
+<br />
 
-### Documentation
-* [website](https://www.lesli.dev/)
-* [documentation](https://www.lesli.dev/engines/admin)
+## Community
 
+- [X: @LesliTech](https://x.com/LesliTech)
+- [hello@lesli.tech](mailto:hello@lesli.tech)
+- [https://www.lesli.tech](https://www.lesli.tech)
 
-### Connect with Lesli
+<br />
 
-* [X: @LesliTech](https://x.com/LesliTech)
-* [Email: hello@lesli.tech](hello@lesli.tech)
-* [Website: https://www.lesli.tech](https://www.lesli.tech)
+## License
 
-
-### License
--------
 Copyright (c) 2026, Lesli Technologies, S. A.
 
 This program is free software: you can redistribute it and/or modify
@@ -108,26 +172,23 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with this program. If not, see http://www.gnu.org/licenses/.
+along with this program. If not, see [https://www.gnu.org/licenses/](https://www.gnu.org/licenses/).
+
+The complete license text is available in the [license file](./license).
+
+---
 
 <br />
-<hr />
-<br />
 <br />
 
-<div align="center" class="has-text-centered">
-    <img width="200" alt="Lesli logo" src="https://cdn.lesli.tech/lesli/brand/app-logo.svg" />
-    <h3 align="center" class="mt-0">
-        The Open-Source SaaS Development Framework for Ruby on Rails.
-    </h3>
+<div align="center">
+    <img width="80" alt="Lesli icon" src="https://cdn.lesli.tech/lesli/brand/app-icon.svg" />
+    <h3 align="center">The Open-Source SaaS Development Framework for Ruby on Rails.</h3>
 </div>
-
-<br />
-<br />
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliAdmin/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/03/29</p>
+    <p><b>Last Update: </b>2026/07/19</p>
 </section>
 
 <!-- This code was automatically generated -->

@@ -1,66 +1,157 @@
-<div align="center" class="documentation-header">
-    <img width="100" alt="LesliContacts logo" src="/images/engines/contacts/contacts-logo.svg" />
-    <h3 align="center">Customer Relationship Management for the Lesli Framework.</h3>
+<div align="center">
+    <h1 align="center">
+        <img width="100" alt="LesliContacts" src="/images/engines/contacts/contacts-logo.svg" />
+    </h1>
+    <h3 align="center">Contact management for the Lesli Framework.</h3>
 </div>
 
-
 <br />
-<hr/>
 
-<div align="center" class="documentation-statics">
-    <a target="blank" href="https://rubygems.org/gems/lesli">
-        <img height="22" alt="Gem Version" src="https://badge.fury.io/rb/lesli.svg"/>
+<div align="center">
+    <a target="_blank" href="https://github.com/LesliTech/LesliContacts/actions/workflows/ci.yml">
+        <img alt="LesliContacts test status" src="https://img.shields.io/github/actions/workflow/status/LesliTech/LesliContacts/ci.yml?branch=master&style=for-the-badge&logo=github&label=tests">
     </a>
-    <a class="mx-2" href="https://codecov.io/github/LesliTech/Lesli"> 
-        <img height="22" src="https://codecov.io/github/LesliTech/Lesli/graph/badge.svg?token=2O12NENK5Y"/> 
+    <a target="_blank" href="https://rubygems.org/gems/lesli_contacts">
+        <img alt="Gem Version" src="https://img.shields.io/gem/v/lesli_contacts?style=for-the-badge&logo=ruby">
     </a>
-    <a href="https://codecov.io/github/LesliTech/LesliBabel"> 
-        <img height="22" src="https://sonarcloud.io/api/project_badges/measure?project=LesliTech_LesliBabel&metric=sqale_rating"/> 
+    <a target="_blank" href="https://codecov.io/github/LesliTech/LesliContacts">
+        <img alt="Codecov" src="https://img.shields.io/codecov/c/github/LesliTech/LesliContacts?style=for-the-badge&logo=codecov">
+    </a>
+    <a target="_blank" href="https://sonarcloud.io/project/overview?id=LesliTech_LesliContacts">
+        <img alt="Sonar Quality Gate" src="https://img.shields.io/sonar/quality_gate/LesliTech_LesliContacts?server=https%3A%2F%2Fsonarcloud.io&style=for-the-badge&logo=sonarqubecloud&label=Quality">
     </a>
 </div>
 
-<hr/>
 <br />
 
+---
 
-### Quick start
+<br />
+
+## Introduction
+
+LesliContacts is the official contact-management engine for the [Lesli Framework](https://github.com/LesliTech/Lesli).
+
+It gives teams an account-scoped directory for maintaining customer, partner, and business contact information.
+
+<br />
+
+## Features
+
+- Account-scoped contact directory
+- Contact profiles with names and status
+- Email and phone information
+- Notes and supporting contact details
+- Soft deletion for safer record management
+
+<br />
+
+## Try LesliContacts
+
+- [Try the online demo](https://demo.lesli.dev/)
+- [Run the Docker demo](https://github.com/LesliTech/lesli-docker-demo)
+
+<br />
+
+## Quick Start
+
+### Requirements
+
+- A Rails application with [Lesli](https://rubygems.org/gems/lesli)
+- SQLite by default, or PostgreSQL when preferred by the host application
+
+### Install LesliContacts
+
+Add the engine to the host Rails application and prepare its database:
 
 ```shell
-# Add LesliContacts engine gem
 bundle add lesli_contacts
+bin/rails db:prepare
 ```
 
-```shell
-# Setup & initialize the database
-rake lesli:db:setup
-```
+### Mount the engine
+
+Applications using Lesli's standard router mount LesliContacts automatically at `/contacts`:
 
 ```ruby
-# Load LesliContacts engine
+# config/routes.rb
+Rails.application.routes.draw do
+    Lesli::Router.mount(self)
+end
+```
+
+If the application does not use the standard Lesli router, mount the engine directly:
+
+```ruby
+# config/routes.rb
 Rails.application.routes.draw do
     mount LesliContacts::Engine => "/contacts"
 end
 ```
 
+Start Rails and visit [http://127.0.0.1:3000/contacts](http://127.0.0.1:3000/contacts):
 
-### Documentation
-- [Account](https://www.lesli.dev/engines/contacts/)
+```shell
+bin/rails server
+```
 
+<br />
 
-### Lesli Documentation
-* [website](https://www.lesli.dev/)
-* [documentation](https://www.lesli.dev/engines/contacts/)
+## Development
 
+Clone LesliContacts into the host application's `engines` directory:
 
-### Get in touch with Lesli
+```shell
+cd RailsApp
+mkdir -p engines
+git clone https://github.com/LesliTech/LesliContacts.git engines/LesliContacts
+```
 
-* [Email: hello@lesli.tech](hello@lesli.tech)
-* [Website: https://www.lesli.tech](https://www.lesli.tech)
-* [Twitter: @LesliTech](https://twitter.com/LesliTech)
+Reference the local engine from the host application's `Gemfile`:
 
+```ruby
+gem "lesli_contacts", path: "engines/LesliContacts"
+```
 
-### License
--------
+Install dependencies, prepare the host database, and start Rails:
+
+```shell
+bundle install
+bin/rails db:prepare
+bin/rails server
+```
+
+### Tests
+
+From a complete Lesli development workspace, run the engine test suite from the LesliContacts directory:
+
+```shell
+cd engines/LesliContacts
+bin/rails test
+```
+
+<br />
+
+## Documentation
+
+- [Lesli website](https://www.lesli.dev/)
+- [Documentation](https://www.lesli.dev/engines/contacts)
+- [Release notes](https://github.com/LesliTech/LesliContacts/releases)
+- [Issue tracker](https://github.com/LesliTech/LesliContacts/issues)
+- [Source code](https://github.com/LesliTech/LesliContacts)
+
+<br />
+
+## Community
+
+- [X: @LesliTech](https://x.com/LesliTech)
+- [hello@lesli.tech](mailto:hello@lesli.tech)
+- [https://www.lesli.tech](https://www.lesli.tech)
+
+<br />
+
+## License
+
 Copyright (c) 2026, Lesli Technologies, S. A.
 
 This program is free software: you can redistribute it and/or modify
@@ -74,19 +165,21 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with this program. If not, see http://www.gnu.org/licenses/.
+along with this program. If not, see [https://www.gnu.org/licenses/](https://www.gnu.org/licenses/).
 
-<hr />
+---
+
+<br />
 <br />
 
-<div align="center" class="has-text-centered">
-    <img width="200" alt="Lesli logo" src="https://cdn.lesli.tech/lesli/brand/app-logo.svg" />
-    <h4 align="center" class="mt-0">Ruby on Rails SaaS Development Framework.</h4>
+<div align="center">
+    <img width="80" alt="Lesli icon" src="https://cdn.lesli.tech/lesli/brand/app-icon.svg" />
+    <h3 align="center">The Open-Source SaaS Development Framework for Ruby on Rails.</h3>
 </div>
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliContacts/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/02/01</p>
+    <p><b>Last Update: </b>2026/07/19</p>
 </section>
 
 <!-- This code was automatically generated -->
