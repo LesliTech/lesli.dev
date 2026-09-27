@@ -1,6 +1,6 @@
 <div align="center" class="documentation-header">
     <img width="100" alt="LesliActions logo" src="./actions-logo.svg" />
-    <h3 align="center">Github actions for the Lesli Framework.</h3>
+    <h3 align="center">GitHub actions for the Lesli Framework.</h3>
 </div>
 
 
@@ -26,7 +26,7 @@
 
 ### License
 -------
-Copyright (c) 2025, Lesli Technologies, S. A.
+Copyright (c) 2026, Lesli Technologies, S. A.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -51,7 +51,7 @@ along with this program. If not, see http://www.gnu.org/licenses/.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="../LesliBuilder/gems/LesliActions/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2025/08/20</p>
+    <p><b>Last Update: </b>2026/09/27</p>
 </section>
 
 <!-- This code was automatically generated -->
