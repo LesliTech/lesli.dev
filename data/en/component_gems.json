@@ -22,6 +22,11 @@
             "desc": "Description about the module should be here",
             "feat": ["Easy access to employee information", "Keep track of your vacation", "Requests and grants extraordinary exit permits"]
     }, {
+            "name": "LesliTesting",
+            "text": "Testing and coverage engine.",
+            "desc": "Description about the module should be here",
+            "feat": ["Easy access to employee information", "Keep track of your vacation", "Requests and grants extraordinary exit permits"]
+    }, {
             "name": "Termline",
             "text": "Human-friendly terminal logs",
             "desc": "Description about the module should be here",

@@ -47,67 +47,57 @@ It standardizes Minitest output, SimpleCov profiles, coverage reports, and fixtu
 
 ## Features
 
-- Profiles for Rails applications, engines, and Ruby gems
-- Human-friendly Minitest terminal reporting
+- Coverage profiles for Rails applications, Rails engines, and Ruby gems
+- A human-friendly Minitest reporter with per-test timing and failure details
 - SimpleCov HTML, console, and Cobertura reports
-- Configurable minimum coverage
-- Shared Lesli fixture loading
-- CI-aware test and coverage output
+- Configurable minimum coverage thresholds
+- Shared base classes for integration, model, and view tests
+- Automatic access to Lesli fixtures in Rails test cases
 
 <br />
 
-## Installation
+## Quick Start
 
-Add LesliTesting to the application:
+Add LesliTesting to the test group:
 
 ```shell
-bundle add lesli_testing
+bundle add lesli_testing --group test
 ```
 
-<br />
-
-## Usage
-
-### Configure the test suite
-
-Require LesliTesting near the beginning of `test/test_helper.rb`, then choose the matching project profile:
+Require the gem from `test/test_helper.rb` and select exactly one profile for the project:
 
 ```ruby
-ENV["RAILS_ENV"] ||= "test"
-
 require "lesli_testing"
 
-LesliTesting.app("LesliBuilder")
-# LesliTesting.engine("LesliShield")
-# LesliTesting.gem("LesliDate")
+LesliTesting.app("LesliBuilder")       # Rails application
+# LesliTesting.engine("LesliShield")  # Rails engine
+# LesliTesting.gem("LesliDate")       # Standalone Ruby gem
 ```
 
-### Coverage options
+Load LesliTesting before the code under test when coverage is enabled. Rails projects should load `rails/test_help` before configuration when they use the shared Rails test classes.
 
-Pass configuration to the selected profile:
-
-```ruby
-LesliTesting.engine(
-  "LesliShield",
-  coverage_missing_len: 30,
-  coverage_min_coverage: 80
-)
-```
-
-| Option | Type | Default | Description |
-| --- | --- | ---: | --- |
-| `coverage_missing_len` | Integer | `25` | Minimum width for missing-coverage output. |
-| `coverage_min_coverage` | Integer | `90` | Minimum expected coverage percentage. |
-
-### Run tests
+Run the suite normally or enable coverage with `COVERAGE`:
 
 ```shell
 bin/rails test
 COVERAGE=true bin/rails test
-COVERAGE=true CI=true bin/rails test
+
+bundle exec rake
+COVERAGE=true bundle exec rake
 ```
 
-Set `QUIET=true` to suppress the per-test lines printed by the custom reporter.
+Set `QUIET=true` to hide individual passing-test lines while retaining the summary and failure details.
+
+<br />
+
+## Guides
+
+- [Installation and configuration](./docs/installation.md)
+- [Testing Rails applications](./docs/applications.md)
+- [Testing Rails engines](./docs/engines.md)
+- [Testing Ruby gems](./docs/gems.md)
+- [Reporter, coverage, fixtures, and test helpers](./docs/tools.md)
+- [Recommended project and gem structure](./docs/structure.md)
 
 <br />
 
@@ -134,6 +124,14 @@ Run the default test task from the LesliTesting directory:
 ```shell
 bundle exec rake
 ```
+
+Run the reporter demonstration failures explicitly with `DEMO=true`:
+
+```shell
+DEMO=true bundle exec ruby -Itest test/demo_test.rb
+```
+
+The demo command is expected to fail and is intended for visually checking failure formatting.
 
 <br />
 
@@ -186,7 +184,7 @@ The complete license text is available in the [license file](./license).
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="../LesliBuilder/gems/LesliTesting/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/07/19</p>
+    <p><b>Last Update: </b>2026/09/27</p>
 </section>
 
 <!-- This code was automatically generated -->
