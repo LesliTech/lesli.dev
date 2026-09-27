@@ -46,7 +46,7 @@ Building a better future, one line of code at a time.
 // · Override global navigation
 nav.lesli-partial-navigation {
     border-bottom: 1px solid c.lesli-color(silver, 300);
-    ul:last-child {
+    .lesli-partial-navigation-links {
         width: 100%;
         max-width: 850px;
         justify-content: end;

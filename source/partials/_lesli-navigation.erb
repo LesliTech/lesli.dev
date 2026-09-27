@@ -1,30 +1,48 @@
 
 <% has_logo = logo %>
-<script>
-    function openAside() {
-        const el = document.getElementById("lesli-partial-aside")
-        el.classList.add("open");
-    }
-</script>
-<nav class="lesli-partial-navigation container">
+<% unless has_logo %>
+    <script>
+        function openAside(button) {
+            const el = document.getElementById("lesli-partial-aside");
+            if (!el) return;
+
+            el.classList.add("open");
+            button.setAttribute("aria-expanded", "true");
+        }
+    </script>
+<% end %>
+<nav class="lesli-partial-navigation container<%= " lesli-partial-navigation--website" if has_logo %>" aria-label="Primary navigation">
     <% if has_logo %>
-        <ul>
-            <li class="lesli-partial-navigation-logo">
-                <a href="/">
-                    <%= image_tag "brand/lesli.svg", alt: "Lesli logo" %>
-                </a>
-            </li>
-        </ul>
+        <a class="lesli-partial-navigation-logo" href="/" aria-label="Lesli home">
+            <%= image_tag "brand/lesli.svg", alt: "" %>
+        </a>
     <% end %>
-    <ul>
-        <li><a href="/lesli/">Lesli</a></li>
+    <ul class="lesli-partial-navigation-links">
+        <li><a href="/lesli/">Framework</a></li>
         <li><a href="/engines/">Engines</a></li>
         <li><a href="/gems/">Gems</a></li>
         <li><a href="/notes/">Notes</a></li>
-        <li class="lesli-partial-aside-open">
-            <a onclick="openAside()" href="#">
-                <span class="ri-menu-3-line"></span>
-            </a>
-        </li>
     </ul>
+
+    <% if has_logo %>
+        <a class="lesli-partial-navigation-github" href="https://github.com/LesliTech/Lesli" target="_blank" rel="noopener noreferrer" aria-label="Lesli on GitHub">
+            <span class="ri-github-fill" aria-hidden="true"></span>
+        </a>
+
+        <details class="lesli-partial-navigation-mobile">
+            <summary aria-label="Toggle navigation">
+                <span class="ri-menu-3-line" aria-hidden="true"></span>
+            </summary>
+            <ul>
+                <li><a href="/lesli/">Framework</a></li>
+                <li><a href="/engines/">Engines</a></li>
+                <li><a href="/gems/">Gems</a></li>
+                <li><a href="/notes/">Notes</a></li>
+            </ul>
+        </details>
+    <% else %>
+        <button class="lesli-partial-aside-open" type="button" aria-label="Open section navigation" aria-controls="lesli-partial-aside" aria-expanded="false" onclick="openAside(this)">
+            <span class="ri-menu-3-line" aria-hidden="true"></span>
+        </button>
+    <% end %>
 </nav>

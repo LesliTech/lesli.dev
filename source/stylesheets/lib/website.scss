@@ -16,6 +16,8 @@
 
 // ·
 header {
+    position: relative;
+    isolation: isolate;
     display: flex;
     min-height: 600px;
     text-align: center;
@@ -36,18 +38,19 @@ header {
         padding: 1rem;
         margin: 0 auto;
         width: 100%;
-        max-width: 250px;
+        max-width: clamp(190px, 20vw, 240px);
     }
 
     h1 {
-        font-size: 4rem;
+        font-size: clamp(2.75rem, 5vw, 4rem);
         max-width: 960px;
         font-weight: 900;
-        line-height: 1.1;
+        line-height: 1.08;
         margin: 0px auto 2rem;
-        letter-spacing: -1.5px;
+        letter-spacing: -.035em;
         background-color: #ffffff;
         color: c.lesli-color(neutral, 600);
+        text-wrap: balance;
     }
 
     h2 {
@@ -65,9 +68,10 @@ header {
 
     p {
         text-align: center;
-        font-size: 2.4rem;
-        line-height: 1.2;
+        font-size: clamp(1.1rem, 2vw, 1.35rem);
+        line-height: 1.65;
         background-color: #ffffff;
+        text-wrap: balance;
     }
 }
 
@@ -82,15 +86,15 @@ header {
     header {
 
         img.lesli-logo {
-            max-width: 190px;
+            max-width: 170px;
         }
 
         h1 {
-            font-size: 2.4rem;
+            font-size: clamp(2.35rem, 11vw, 3rem);
         }
 
         p {
-            font-size: 1.4rem;
+            font-size: 1.05rem;
         }
     }
 }
