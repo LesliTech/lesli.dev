@@ -34,7 +34,9 @@ end
             <% engines.each do |engine| %>
                 <div class="column">
                     <a href="/engines/<%= engine[:name].downcase %>/">
-                        <%= lesli_svg("engine-#{engine[:name].downcase}") %>
+                        <span class="engine-icon" aria-hidden="true">
+                            <%= lesli_svg("engine-#{engine[:name].downcase}") %>
+                        </span>
                         <h3><%= engine[:name] %></h3>
                         <p><%= engine[:text] %></p>
                     </a>
