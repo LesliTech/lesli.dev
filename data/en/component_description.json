@@ -5,29 +5,28 @@
     "components": [{
         "icon": "ri-database-line",
         "name": "Database",
-        "text": "Scalable, versioned, and production-ready data layer.",
+        "text": "A scalable, versioned data layer.",
         "items": [
-            "PostgreSQL & SQLite support", 
-            "Structured migrations & versioning",
-            "Easy to extend and maintain"
+            "PostgreSQL and SQLite",
+            "Structured migrations",
+            "Extensible by design"
         ]
     },{
         "icon": "ri-server-line",
         "name": "Backend",
-        "text": "Modular Rails engines built for growth.",
+        "text": "Modular Rails engines built to grow.",
         "items": [
-            "Plug & play architecture",
-            "Secure by default",
-            "Roles, permissions & auditing ready"
+            "Plug-and-play architecture",
+            "Authentication and authorization",
+            "Auditing built in"
         ]
     },{
         "icon": "ri-window-line",
         "name": "Frontend",
-        "text": "Multi-client architecture, one backend.",
+        "text": "One backend for every client.",
         "items": [
-            "Web application", 
-            "Desktop client",
-            "Mobile apps",
+            "Web and desktop apps",
+            "Mobile experiences",
             "REST API"
         ]
     }]
