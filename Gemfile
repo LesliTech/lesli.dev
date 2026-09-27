@@ -51,8 +51,8 @@ gem "rake", "~> 13.3"   # Task automation
 
 
 # sass compatibility
-gem 'sassc', github: 'sass/sassc-ruby', ref: 'refs/pull/233/head'
-gem 'sassc-embedded'    # Compatibility with the latest version of sass dart
+gem "sassc", github: "sass/sassc-ruby", ref: "refs/pull/233/head"
+gem "sassc-embedded"    # Compatibility with the latest version of sass dart
 
 
 gem "builder"           # supports .builder.xml for sitemap

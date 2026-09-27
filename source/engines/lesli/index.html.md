@@ -114,7 +114,7 @@ bin/rails lesli:status
 ```
 
 > [!WARNING]
-> `bin/rails lesli:db:rebuild` drops, recreates, migrates, and seeds the database. Use it only when you intentionally want to replace the current development data.
+> `bin/rails lesli:db:rebuild` drops the database, deletes `db/schema.rb`, prepares and seeds the database, configures Lesli accounts, and prints the system status. It is blocked in production; use it only when you intentionally want to replace the current development data.
 
 ### Start the server
 
@@ -171,6 +171,7 @@ For additional server configurations, use the standard Rails server options:
 ```shell
 bin/rails server --binding=0.0.0.0
 bin/rails server --environment=development
+RAILS_SERVE_STATIC_FILES=true rails s --environment=production 
 ```
 
 <br />
@@ -223,7 +224,7 @@ The complete license text is available in the [license file](./license).
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/07/19</p>
+    <p><b>Last Update: </b>2026/09/15</p>
 </section>
 
 <!-- This code was automatically generated -->
