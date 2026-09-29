@@ -4,11 +4,14 @@
     project = path_parts[1]
 %>
 
-<aside id="lesli-partial-aside" class="lesli-partial-aside">
+<aside id="lesli-partial-aside" class="lesli-partial-aside" aria-label="Section navigation">
     <figure class="lesli-partial-aside-logo">
         <a href="/">
             <%= image_tag("brand/lesli.svg", alt: "Lesli logo") %>
         </a>
+        <button class="lesli-partial-aside-close" type="button" aria-label="Close section navigation" onclick="closeAside()">
+            <span class="ri-close-line" aria-hidden="true"></span>
+        </button>
     </figure>
     <nav>
         <% if section && project %>

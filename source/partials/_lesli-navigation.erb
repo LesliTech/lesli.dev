@@ -2,6 +2,22 @@
 <% has_logo = logo %>
 <% active_section = defined?(active) ? active.to_s : nil %>
 <% navigation_links = [{ key: "framework", href: "/lesli/", text: "Framework" }, { key: "engines", href: "/engines/", text: "Engines" }, { key: "gems", href: "/gems/", text: "Gems" }, { key: "notes", href: "/notes/", text: "Notes" }] %>
+<%
+unless active_section
+    page_path = current_page.path
+    path_parts = page_path.split("/")
+
+    active_section = if page_path.start_with?("notes")
+        "notes"
+    elsif path_parts[0] == "gems"
+        "gems"
+    elsif path_parts[0] == "engines" && path_parts[1] == "lesli"
+        "framework"
+    elsif path_parts[0] == "engines"
+        "engines"
+    end
+end
+%>
 <% unless has_logo %>
     <script>
         function openAside(button) {
@@ -10,15 +26,31 @@
 
             el.classList.add("open");
             button.setAttribute("aria-expanded", "true");
+            el.querySelector(".lesli-partial-aside-close")?.focus();
+        }
+
+        function closeAside() {
+            const el = document.getElementById("lesli-partial-aside");
+            const button = document.querySelector(".lesli-partial-aside-open");
+            if (!el) return;
+
+            el.classList.remove("open");
+            button?.setAttribute("aria-expanded", "false");
+            button?.focus();
         }
     </script>
 <% end %>
-<nav class="lesli-partial-navigation container<%= " lesli-partial-navigation--website" if has_logo %>" aria-label="Primary navigation">
-    <% if has_logo %>
-        <a class="lesli-partial-navigation-logo" href="/" aria-label="Lesli home">
-            <%= image_tag "brand/lesli.svg", alt: "" %>
-        </a>
+<nav class="lesli-partial-navigation container lesli-partial-navigation--<%= has_logo ? "website" : "documentation" %>" aria-label="Primary navigation">
+    <% unless has_logo %>
+        <button class="lesli-partial-aside-open" type="button" aria-label="Open section navigation" aria-controls="lesli-partial-aside" aria-expanded="false" onclick="openAside(this)">
+            <span class="ri-list-unordered" aria-hidden="true"></span>
+        </button>
     <% end %>
+
+    <a class="lesli-partial-navigation-logo" href="/" aria-label="Lesli home">
+        <%= image_tag "brand/lesli.svg", alt: "" %>
+    </a>
+
     <ul class="lesli-partial-navigation-links">
         <% navigation_links.each do |item| %>
             <li>
@@ -31,22 +63,18 @@
         <a class="lesli-partial-navigation-github" href="https://github.com/LesliTech/Lesli" target="_blank" rel="noopener noreferrer" aria-label="Lesli on GitHub">
             <span class="ri-github-fill" aria-hidden="true"></span>
         </a>
-
-        <details class="lesli-partial-navigation-mobile">
-            <summary aria-label="Toggle navigation">
-                <span class="ri-menu-3-line" aria-hidden="true"></span>
-            </summary>
-            <ul>
-                <% navigation_links.each do |item| %>
-                    <li>
-                        <a href="<%= item[:href] %>"<%= ' aria-current="page"' if active_section == item[:key] %>><%= item[:text] %></a>
-                    </li>
-                <% end %>
-            </ul>
-        </details>
-    <% else %>
-        <button class="lesli-partial-aside-open" type="button" aria-label="Open section navigation" aria-controls="lesli-partial-aside" aria-expanded="false" onclick="openAside(this)">
-            <span class="ri-menu-3-line" aria-hidden="true"></span>
-        </button>
     <% end %>
+
+    <details class="lesli-partial-navigation-mobile">
+        <summary aria-label="Toggle site navigation">
+            <span class="ri-menu-3-line" aria-hidden="true"></span>
+        </summary>
+        <ul>
+            <% navigation_links.each do |item| %>
+                <li>
+                    <a href="<%= item[:href] %>"<%= ' aria-current="page"' if active_section == item[:key] %>><%= item[:text] %></a>
+                </li>
+            <% end %>
+        </ul>
+    </details>
 </nav>
