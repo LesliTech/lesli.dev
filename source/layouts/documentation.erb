@@ -9,8 +9,10 @@
         <main>
             <%= partial("partials/lesli-navigation", :locals => { :logo => false }) %>
             <section class="lesli-documentation">
-                <%= yield %>
-                <%= partial("partials/lesli-footer") %>
+                <div class="lesli-documentation-content">
+                    <%= yield %>
+                </div>
+                <%= partial("partials/lesli-footer", :locals => { :variant => "documentation" }) %>
             </section>
         </main>
         <%= partial("partials/lesli-icon-engines") %>

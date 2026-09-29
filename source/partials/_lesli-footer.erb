@@ -1,11 +1,13 @@
 
 <% footer = data.send(I18n.locale.to_sym).partial_footer %>
+<% footer_variant = defined?(variant) ? variant.to_s : "website" %>
+<% footer_logo = footer_variant == "documentation" ? "brand/lesli.svg" : "brand/lesli-white.svg" %>
 
-<footer class="lesli-footer">
+<footer class="lesli-footer lesli-footer--<%= footer_variant %>">
     <div class="container">
         <div class="footer-brand">
             <a href="/" class="footer-logo" aria-label="Lesli home">
-                <%= image_tag "brand/lesli-white.svg", alt: "" %>
+                <%= image_tag footer_logo, alt: "" %>
             </a>
             <p><%= footer[:tagline] %></p>
         </div>

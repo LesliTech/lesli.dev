@@ -61,9 +61,32 @@ main {
 
     // · Main documentation container
     section.lesli-documentation {
+        display: flex;
         width: 100%;
         max-width: 900px;
+        min-height: calc(100vh - #{c.$navigation-height});
+        flex-direction: column;
         padding: var(--lesli-documentation-padding);
+
+        // Keep rendered documentation in normal block flow. The outer container
+        // only uses flexbox to keep the documentation footer at the bottom.
+        .lesli-documentation-content {
+            width: 100%;
+            min-width: 0;
+        }
+
+        // Brand preview cards may share a row on narrow screens. Keep their
+        // fixed-size source artwork inside the card instead of widening the page.
+        .lesli-css-color-logos {
+            > div {
+                min-width: 0;
+            }
+
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+        }
 
         .documentation-header {
             text-align: center;
@@ -170,8 +193,11 @@ main {
         // · Markdown last update info & edit link
         section.lesli-markdown-info {
             display: flex;
+            width: 100%;
+            align-self: stretch;
             padding: 1rem;
             margin: 4rem auto 2rem;
+            box-sizing: border-box;
             border-top: 1px solid c.lesli-color(slate, 300);
             border-bottom: 1px solid c.lesli-color(slate, 300);
         
