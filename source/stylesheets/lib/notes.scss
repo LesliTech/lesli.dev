@@ -1,27 +1,74 @@
-// · 
-/*
-@import "base";
-@import "partials/lesli-navigation";
-@import "partials/lesli-footer";
-@import "partials/lesli-links";
-@import "tools/highlight";
+// · Notes index
+@use "component" as c;
 
 
-header .title {
-    display: flex;
-    min-height: 300px;
-    justify-content: center;
-    align-items: center;
-    h1 {
-        text-align: center;
+main section.lesli-documentation {
+    header.notes-header {
+        h1 {
+            margin-bottom: 0;
+        }
+
+        p {
+            margin-bottom: 0;
+            font-size: 1.125rem;
+        }
     }
-} 
 
-section.notes-container {
-    text-align: center;
-    display:flex;
-    flex-direction:column;
-    justify-content: center;
-    //min-height: 600px;
+    section.notes-container {
+        margin-top: 1.75rem;
+
+        ul {
+            margin: 0;
+            padding: 0;
+            border-top: 1px solid c.lesli-color(silver, 100);
+        }
+
+        li {
+            margin: 0;
+            list-style: none;
+            border-bottom: 1px solid c.lesli-color(silver, 100);
+        }
+
+        a {
+            display: block;
+            padding: 1.4rem 0 1.5rem;
+            color: inherit;
+            text-decoration: none;
+
+            &:hover h2,
+            &:focus-visible h2 {
+                color: c.lesli-color(blue, 700);
+            }
+
+            &:focus-visible {
+                outline: 2px solid c.lesli-color(blue, 500);
+                outline-offset: 4px;
+            }
+        }
+
+        time {
+            display: block;
+            margin-bottom: .3rem;
+            font-size: .875rem;
+            font-weight: 600;
+            line-height: 1.4;
+            letter-spacing: .035em;
+            color: c.lesli-color(silver, 500);
+        }
+
+        h2 {
+            margin: 0 0 .35rem;
+            font-size: 1.45rem;
+            line-height: 1.35;
+            color: c.lesli-color(slate, 700);
+            transition: color .2s ease;
+        }
+
+        p {
+            margin: 0;
+            font-size: 1.0625rem;
+            line-height: 1.6;
+            color: #364153;
+        }
+    }
 }
-*/

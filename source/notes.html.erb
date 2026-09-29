@@ -2,48 +2,25 @@
 title: "The Lesli Notes" 
 description: "The Lesli developer blog: tutorials, release notes, architecture, and framework updates." 
 ---
-<style>
-main section.lesli-documentation {
-    header {
-        h1 {
-            margin-bottom:0;
-        }
-        p {
-            font-size: 1.25rem;
-        }
-    }
-    .notes-container ul {
-        a {
-            font-size: 1.15rem;
-            text-decoration: none;
-            h3 {
-                margin-bottom: 0;
-            }
-        }
-        li {
-            list-style: none;
-        }
-    }
-}
-</style>
-<header>
+<header class="notes-header">
     <h1>Lesli Notes</h1>
     <p><%= current_page.data.description %></p>
 </header>
 <section class="notes-container">
+    <%
+        notes = sitemap.resources
+        .select { |resource| resource.path.start_with?("notes/") && resource.ext == ".html" }
+        .reject { |resource| resource.url.start_with?("/index") }
+        .sort_by { |resource| resource.data.date.to_s }
+        .reverse
+    %>
     <ul>
-        <% 
-            sitemap
-            .resources.select { |p| p.path.start_with?("notes/") }
-            #.sort_by { |note| note.data.date } 
-            .reverse # newest first
-            .each do |note| %>
-            <% next if note.ext != ".html" %>
-            <% next if note.url.start_with?("/index") %>
+        <% notes.each do |note| %>
             <li>
                 <a href="<%= note.url %>">
-                    <h3><%= note.data.title %></h3>
-                    <%= note.data.description %>
+                    <time datetime="<%= note.data.date %>"><%= note.data.date.strftime("%B %-d, %Y") %></time>
+                    <h2><%= note.data.title %></h2>
+                    <p><%= note.data.description %></p>
                 </a>
             </li>
         <% end %>

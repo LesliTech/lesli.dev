@@ -1,6 +1,14 @@
-<%=
-content_tag(:ul) do
-    content_tag(:li) {content_tag(:a, 'History', href: '/notes/history')}
-    content_tag(:li) {content_tag(:a, 'Lesli 5.1', href: '/notes/5.1')}
-end
+<%
+notes = sitemap.resources
+.select { |resource| resource.path.start_with?("notes/") && resource.ext == ".html" }
+.reject { |resource| resource.url.start_with?("/index") }
+.sort_by { |resource| resource.data.date.to_s }
+.reverse
 %>
+<ul>
+    <% notes.each do |note| %>
+        <li>
+            <a href="<%= note.url %>"><%= note.data.navigation_title || note.data.title %></a>
+        </li>
+    <% end %>
+</ul>

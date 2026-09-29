@@ -1,5 +1,6 @@
 ---
 title: The Lesli History
+navigation_title: History
 description: The Journey of Lesli since the first commit in 2014
 date: 2026-03-01
 ---
