@@ -1,0 +1,162 @@
+{
+    "framework": {
+        "key": "framework",
+        "eyebrow": "Lesli Framework",
+        "title": "Build with",
+        "highlight": "Lesli Framework.",
+        "text": "Explore the architecture, tools, and conventions behind scalable Lesli applications.",
+        "label": "Framework documentation",
+        "columns": 5,
+        "items": [{
+            "name": "About",
+            "summary": "Architecture, principles, and ecosystem.",
+            "href": "/engines/lesli/about/",
+            "icon": "ri-heart-line",
+            "tone": "administration"
+        }, {
+            "name": "Getting started",
+            "summary": "Install and configure your first application.",
+            "href": "/engines/lesli/start/",
+            "icon": "ri-send-plane-line",
+            "tone": "intelligence"
+        }, {
+            "name": "Contributing",
+            "summary": "Conventions for contributing changes.",
+            "href": "/engines/lesli/contributing/",
+            "icon": "ri-git-pull-request-line",
+            "tone": "productivity"
+        }, {
+            "name": "Database",
+            "summary": "Structure, migrations, and seeders.",
+            "href": "/engines/lesli/database/",
+            "icon": "ri-database-line",
+            "tone": "integration"
+        }, {
+            "name": "Backend",
+            "summary": "Models, controllers, services, and more.",
+            "href": "/engines/lesli/backend/",
+            "icon": "ri-server-line",
+            "tone": "analytics"
+        }, {
+            "name": "Frontend",
+            "summary": "Views, JavaScript, and application styling.",
+            "href": "/engines/lesli/frontend/",
+            "icon": "ri-window-line",
+            "tone": "finance"
+        }, {
+            "name": "Assets",
+            "summary": "Shared brand and frontend assets.",
+            "href": "/gems/assets/",
+            "icon": "ri-palette-line",
+            "tone": "sales"
+        }, {
+            "name": "Generators",
+            "summary": "Create consistent Lesli code faster.",
+            "href": "/engines/lesli/generators/",
+            "icon": "ri-code-line",
+            "tone": "it"
+        }, {
+            "name": "Testing",
+            "summary": "Helpers for applications, engines, and gems.",
+            "href": "/gems/testing/",
+            "icon": "ri-bug-line",
+            "tone": "administration"
+        }, {
+            "name": "Deployment",
+            "summary": "Prepare and deploy Lesli applications.",
+            "href": "/engines/lesli/deployment/",
+            "icon": "ri-flashlight-line",
+            "tone": "intelligence"
+        }]
+    },
+    "engines": {
+        "key": "engines",
+        "eyebrow": "Lesli Engines",
+        "title": "Production-ready modules",
+        "highlight": "for your SaaS.",
+        "text": "Add focused business capabilities without rebuilding the foundations every product needs.",
+        "label": "Available Lesli engines",
+        "columns": 4,
+        "items": [{
+            "name": "Dashboard",
+            "summary": "Flexible dashboards for application data.",
+            "href": "/engines/dashboard/",
+            "svg": "engine-dashboard"
+        }, {
+            "name": "Admin",
+            "summary": "A central administration area for Lesli.",
+            "href": "/engines/admin/",
+            "svg": "engine-admin"
+        }, {
+            "name": "Bell",
+            "summary": "Application and user notification workflows.",
+            "href": "/engines/bell/",
+            "svg": "engine-bell"
+        }, {
+            "name": "Calendar",
+            "summary": "Unified calendars and event management.",
+            "href": "/engines/calendar/",
+            "svg": "engine-calendar"
+        }, {
+            "name": "Support",
+            "summary": "Organized customer support and ticketing.",
+            "href": "/engines/support/",
+            "svg": "engine-support"
+        }, {
+            "name": "Shield",
+            "summary": "Authentication and user access management.",
+            "href": "/engines/shield/",
+            "svg": "engine-shield"
+        }, {
+            "name": "Audit",
+            "summary": "Activity history and application analytics.",
+            "href": "/engines/audit/",
+            "svg": "engine-audit"
+        }, {
+            "name": "Babel",
+            "summary": "Translation and localization management.",
+            "href": "/engines/babel/",
+            "svg": "engine-babel"
+        }]
+    },
+    "gems": {
+        "key": "gems",
+        "eyebrow": "Lesli Gems",
+        "title": "Focused Ruby tools,",
+        "highlight": "built with purpose.",
+        "text": "Reliable, composable packages that support Lesli applications and other Rails projects.",
+        "label": "Available Lesli gems",
+        "columns": 3,
+        "items": [{
+            "name": "LesliSystem",
+            "summary": "Core utilities shared across Lesli applications.",
+            "href": "/gems/system/",
+            "svg": "gem-system"
+        }, {
+            "name": "LesliView",
+            "summary": "Reusable web elements and view components.",
+            "href": "/gems/view/",
+            "svg": "gem-view"
+        }, {
+            "name": "LesliDate",
+            "summary": "Consistent date and time formatting.",
+            "href": "/gems/date/",
+            "svg": "gem-date"
+        }, {
+            "name": "LesliAssets",
+            "summary": "Shared frontend assets and brand resources.",
+            "href": "/gems/assets/",
+            "svg": "gem-assets"
+        }, {
+            "name": "LesliTesting",
+            "summary": "Testing helpers and coverage workflows.",
+            "href": "/gems/testing/",
+            "svg": "gem-testing"
+        }, {
+            "name": "Termline",
+            "summary": "Human-friendly structured terminal output.",
+            "href": "/gems/termline/",
+            "svg": "gem-termline"
+        }]
+    }
+}

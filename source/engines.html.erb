@@ -1,17 +1,13 @@
 ---
-title: "Lesli Engines -- 8 Production-Ready Rails Modules for SaaS"
-description: "Explore Lesli's 8 production-ready Rails engines: Dashboard, Admin, Auth, Calendar, Support, Notifications, Audit, and Translations. Plug into any Rails app."
+title: "Lesli Engines -- Production-Ready Rails Modules for SaaS"
+description: "Explore Lesli's production-ready Rails engines for dashboards, administration, notifications, calendars, support, authentication, auditing, and translations."
 layout: website
 ---
 
-<header>
-    <%= partial("partials/lesli-navigation", :locals => { :logo => true }) %>
-    <div class="container">
-        <div class="component-header">
-            <%= image_tag "brand/lesli.svg", alt: "Lesli logo", class: "lesli-logo" %>
-            <h2><span class="lesli-title-colored">We have a module for what you need.</span></h2>
-            <p>Lesli provides carefully designed and developed modules ready for integration, extension, or immediate use in your daily work.</p>
-        </div>
-    </div>
-</header>
-<%= partial("components/lesli-engines", :locals => { :header => false }) %>
+<% catalog = data.send(I18n.locale.to_sym).catalog_pages[:engines] %>
+
+<%= partial("components/catalog-hero", :locals => { :catalog => catalog }) %>
+
+<main>
+    <%= partial("components/catalog-grid", :locals => { :catalog => catalog }) %>
+</main>

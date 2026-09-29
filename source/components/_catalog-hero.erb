@@ -1,0 +1,8 @@
+<header class="catalog-hero catalog-hero--<%= catalog[:key] %>">
+    <%= partial("partials/lesli-navigation", :locals => { :logo => true, :active => catalog[:key] }) %>
+    <div class="catalog-hero-content container">
+        <p class="catalog-hero-eyebrow"><%= catalog[:eyebrow] %></p>
+        <h1><%= catalog[:title] %> <span class="lesli-title-colored"><%= catalog[:highlight] %></span></h1>
+        <p class="catalog-hero-summary"><%= catalog[:text] %></p>
+    </div>
+</header>

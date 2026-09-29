@@ -1,24 +1,6 @@
 
-<% available_engines = ["dashboard", "admin", "bell", "calendar", "support", "shield", "audit", "babel"] %>
-
 <% collections = data.send(I18n.locale.to_sym).component_collections %>
-
-<%
-# 1. Obtener todos los engines disponibles
-all_engines = collections[:collection]
-  .flat_map { |collection| collection[:engines] }
-
-# 2. Filtrar solo los permitidos
-filtered_engines = all_engines.select do |engine|
-  available_engines.include?(engine[:name].downcase)
-end
-
-# 3. Ordenarlos según available_engines
-engines = filtered_engines.sort_by do |engine|
-  available_engines.index(engine[:name].downcase)
-end
-%>
-
+<% engines = data.send(I18n.locale.to_sym).catalog_pages[:engines][:items] %>
 
 <% has_header = defined?(header) ? header : true %>
 
@@ -33,12 +15,12 @@ end
         <div class="columns">
             <% engines.each do |engine| %>
                 <div class="column">
-                    <a href="/engines/<%= engine[:name].downcase %>/">
+                    <a href="<%= engine[:href] %>">
                         <span class="engine-icon" aria-hidden="true">
-                            <%= lesli_svg("engine-#{engine[:name].downcase}") %>
+                            <%= lesli_svg(engine[:svg]) %>
                         </span>
                         <h3><%= engine[:name] %></h3>
-                        <p><%= engine[:text] %></p>
+                        <p><%= engine[:summary] %></p>
                     </a>
                 </div>
             <% end %>

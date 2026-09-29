@@ -1,5 +1,7 @@
 
 <% has_logo = logo %>
+<% active_section = defined?(active) ? active.to_s : nil %>
+<% navigation_links = [{ key: "framework", href: "/lesli/", text: "Framework" }, { key: "engines", href: "/engines/", text: "Engines" }, { key: "gems", href: "/gems/", text: "Gems" }, { key: "notes", href: "/notes/", text: "Notes" }] %>
 <% unless has_logo %>
     <script>
         function openAside(button) {
@@ -18,10 +20,11 @@
         </a>
     <% end %>
     <ul class="lesli-partial-navigation-links">
-        <li><a href="/lesli/">Framework</a></li>
-        <li><a href="/engines/">Engines</a></li>
-        <li><a href="/gems/">Gems</a></li>
-        <li><a href="/notes/">Notes</a></li>
+        <% navigation_links.each do |item| %>
+            <li>
+                <a href="<%= item[:href] %>"<%= ' aria-current="page"' if active_section == item[:key] %>><%= item[:text] %></a>
+            </li>
+        <% end %>
     </ul>
 
     <% if has_logo %>
@@ -34,10 +37,11 @@
                 <span class="ri-menu-3-line" aria-hidden="true"></span>
             </summary>
             <ul>
-                <li><a href="/lesli/">Framework</a></li>
-                <li><a href="/engines/">Engines</a></li>
-                <li><a href="/gems/">Gems</a></li>
-                <li><a href="/notes/">Notes</a></li>
+                <% navigation_links.each do |item| %>
+                    <li>
+                        <a href="<%= item[:href] %>"<%= ' aria-current="page"' if active_section == item[:key] %>><%= item[:text] %></a>
+                    </li>
+                <% end %>
             </ul>
         </details>
     <% else %>

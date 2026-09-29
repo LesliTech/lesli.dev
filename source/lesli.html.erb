@@ -1,81 +1,13 @@
 ---
-title: "Core Documentation"
+title: "Lesli Framework -- Architecture, Development, and Deployment"
+description: "Learn how to build with Lesli: architecture, installation, database, backend, frontend, generators, testing, and deployment."
 layout: website
 ---
 
-<%
-links = [{
-    href: "/engines/lesli/about/",
-    icon: "ri-heart-line",
-    text: "About"
-}, {
-    href: "/engines/lesli/getting-started/",
-    icon: "ri-send-plane-line",
-    text: "Getting started"
-}, {
-    href: "/engines/lesli/contributing/",
-    icon: "ri-git-pull-request-line",
-    text: "Contributing"
-}, {
-    href: "/engines/lesli/database/",
-    icon: "ri-database-line",
-    text: "Database"
-}, {
-    href: "/engines/lesli/backend/",
-    icon: "ri-server-line",
-    text: "Backend"
-}, {
-    href: "/engines/lesli/frontend/",
-    icon: "ri-window-line",
-    text: "Frontend"
-}, {
-    href: "/gems/assets/",
-    icon: "ri-palette-line",
-    text: "Assets"
-#}, {
-#href: "/engines/lesli/security/",
-#icon: "ri-shield-line",
-#text: "Security"
-}, {
-    href: "/engines/lesli/generators/",
-    icon: "ri-code-line",
-    text: "Generators"
-}, {
-    href: "/engines/lesli/testing/",
-    icon: "ri-bug-line",
-    text: "Testing"
-#}, {
-#href: "/engines/lesli/engines/",
-#icon: "ri-shapes-line",
-#text: "Engines"
-}, {
-    href: "/engines/lesli/deployment/",
-    icon: "ri-flashlight-line",
-    text: "Deployment"
-}]
-%>
+<% catalog = data.send(I18n.locale.to_sym).catalog_pages[:framework] %>
 
-<header>
-    <%= partial("partials/lesli-navigation", :locals => { :logo => true }) %>
-    <div class="container">
-        <div class="component-header">
-            <%= image_tag "brand/lesli.svg", alt: "Lesli logo", class: "lesli-logo" %>
-            <h1>Core <span class="lesli-title-colored">Documentation</span></h1>
-            <p>Lesli is a SaaS development framework designed to build highly scalable, secure and customizable software products.</p>
-        </div>
-</header>
-<section class="container mb-4">
-    <div class="lesli-component-boxes">
-            <div class="columns">
-                <% links.each do |link| %>
-                    <div class="column">
-                        <a href="<%= link[:href] %>">
-                            <i class="<%= link[:icon] %>"></i>
-                            <%= link[:text] %>
-                        </a>
-                    </div>
-                <% end %>
-            </div>
-        </div>
-    </div>
-</section>
+<%= partial("components/catalog-hero", :locals => { :catalog => catalog }) %>
+
+<main>
+    <%= partial("components/catalog-grid", :locals => { :catalog => catalog }) %>
+</main>

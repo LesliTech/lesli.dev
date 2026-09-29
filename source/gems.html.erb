@@ -1,18 +1,13 @@
 ---
-title: Lesli Gems -- Reusable Ruby Packages for Rails SaaS Development
+title: "Lesli Gems -- Reusable Ruby Packages for Rails Development"
+description: "Explore the focused Ruby gems that provide shared utilities, views, date formatting, frontend assets, testing helpers, and terminal output for Lesli projects."
 layout: website
 ---
 
-<% gems = data.send(I18n.locale.to_sym).component_gems %>
+<% catalog = data.send(I18n.locale.to_sym).catalog_pages[:gems] %>
 
-<header>
-    <%= partial("partials/lesli-navigation", :locals => { :logo => true }) %>
-    <div class="container">
-        <div class="component-header">
-            <%= image_tag "brand/lesli.svg", alt: "Lesli logo", class: "lesli-logo" %>
-            <h2><span class="lesli-title-colored"><%= gems[:title] %></span></h2>
-            <p><%= gems[:text] %></p>
-        </div>
-    </div>
-</header>
-<%= partial("components/lesli-gems", :locals => { :header => false }) %>
+<%= partial("components/catalog-hero", :locals => { :catalog => catalog }) %>
+
+<main>
+    <%= partial("components/catalog-grid", :locals => { :catalog => catalog }) %>
+</main>

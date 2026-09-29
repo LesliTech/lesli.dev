@@ -50,6 +50,12 @@ nav.lesli-partial-navigation {
             background-color: rgba(255, 255, 255, .72);
         }
 
+        &[aria-current="page"] {
+            color: c.lesli-color(lesli, primary);
+            background-color: rgba(255, 255, 255, .82);
+            font-weight: 650;
+        }
+
         &:focus-visible {
             outline: 3px solid rgba(13, 82, 191, .24);
             outline-offset: 2px;
