@@ -1,3 +1,4 @@
 {
-    "copyright": "All rights reserved."
+    "tagline": "Open-source tools for building thoughtful SaaS products with Ruby on Rails.",
+    "license": "Released under the GPLv3 license."
 }
