@@ -1,35 +1,142 @@
 @use "../component" as c;
 
+
 section.lesli-component-demo {
-    padding: 6rem 0 6rem;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: clamp(6rem, 8vw, 8rem) 0;
     background-color: c.lesli-color(primary);
-    
+    background-image: linear-gradient(145deg, rgba(255, 255, 255, .04), rgba(12, 40, 86, .12));
+
+    &::before {
+        position: absolute;
+        z-index: -1;
+        inset: 0;
+        opacity: .45;
+        background-image: radial-gradient(rgba(255, 255, 255, .22) 1px, transparent 1.25px);
+        background-size: 56px 56px;
+        content: "";
+        pointer-events: none;
+    }
+
     .component-header {
+        margin-bottom: 3rem;
+
         h2 {
-            color: c.lesli-color(primary, 100);
+            color: #ffffff;
+        }
+    }
+
+    .demo-highlights {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: .75rem;
+        margin: 1.5rem auto 0;
+        padding: 0;
+        color: c.lesli-color(primary, 100);
+        list-style: none;
+
+        li,
+        a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: .55rem;
         }
 
-        p {
-            display: flex;
-            margin: 0 auto;
-            max-width: 700px;
-            justify-content: space-around;
-            color: c.lesli-color(primary, 100);
+        li {
+            min-height: 2.9rem;
+            padding: .65rem .9rem;
+            border: 1px solid rgba(255, 255, 255, .18);
+            border-radius: 999px;
+            background-color: rgba(255, 255, 255, .08);
+            font-size: 1rem;
+            font-weight: 600;
+            line-height: 1.2;
+        }
 
-            a {
-                display: flex;
-                align-items: center;
-                font-size: 1.3rem;
+        a {
+            color: inherit;
+
+            &:hover {
+                color: #ffffff;
             }
 
-            svg {
-                width: 25px;
-                margin-right: 10px;
-                fill: c.lesli-color(primary, 100);
+            &:focus-visible {
+                border-radius: .25rem;
+                outline: 3px solid rgba(255, 255, 255, .45);
+                outline-offset: 3px;
+            }
+        }
+
+        i {
+            font-size: 1.2rem;
+        }
+    }
+
+    lesli-browser {
+        display: block;
+        width: min(100%, 900px);
+        margin: 0 auto;
+        border-radius: .75rem;
+        box-shadow: 0 28px 70px rgba(12, 40, 86, .32);
+    }
+
+    lesli-browser img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .buttons {
+        margin: 2rem auto 0;
+
+        .button-primary-ghost {
+            border-color: rgba(255, 255, 255, .5);
+            color: c.lesli-color(primary, 700);
+            background-color: rgba(255, 255, 255, .92);
+            box-shadow: 0 12px 30px rgba(12, 40, 86, .2);
+
+            &:hover {
+                background-color: #ffffff;
             }
         }
     }
-    .buttons {
-        margin-top: 8rem;
+}
+
+
+@include c.lesli-breakpoint-only-mobile() {
+    section.lesli-component-demo {
+        padding: 5rem 0;
+
+        .component-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .demo-highlights {
+            display: grid;
+            width: min(100%, 18rem);
+            grid-template-columns: 1fr;
+            gap: .6rem;
+
+            li {
+                min-height: 2.75rem;
+                padding: .6rem .8rem;
+            }
+        }
+
+        lesli-browser {
+            width: 100%;
+        }
+
+        .buttons {
+            width: min(100%, 22rem);
+
+            a {
+                width: 100%;
+            }
+        }
     }
 }
