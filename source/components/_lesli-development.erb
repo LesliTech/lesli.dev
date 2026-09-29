@@ -7,21 +7,23 @@
             <h2><%= development[:title] %></h2>
             <p><%= development[:text] %></p>
         </div>
-        <div class="hero-body">
-            <div class="columns">
-                <% development[:content].each do |highlight| %>
-                    <div class="column">
-                        <div class="feature has-background-white">
-                            <i class="<%= highlight[:icon] %>"></i>
-                            <h3><%= highlight[:name] %></h3>
-                            <p><%= highlight[:text] %></p>
-                        </div>
-                    </div>
-                <% end %>
-            </div>
+        <div class="development-grid">
+            <% development[:content].each do |highlight| %>
+                <article class="feature">
+                    <span class="feature-icon" aria-hidden="true">
+                        <i class="<%= highlight[:icon] %>"></i>
+                    </span>
+                    <h3><%= highlight[:name] %></h3>
+                    <p><%= highlight[:text] %></p>
+                </article>
+            <% end %>
         </div>
         <div class="component-footer">
             <p><%= development[:foot] %></p>
+            <a href="/engines/lesli/start/" class="development-action">
+                Start building with Lesli
+                <i class="ri-arrow-right-line" aria-hidden="true"></i>
+            </a>
         </div>
     </div>
 </section>
