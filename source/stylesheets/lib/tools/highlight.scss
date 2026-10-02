@@ -1,0 +1,134 @@
+@use "../component" as c;
+
+
+pre,
+code {
+    font-family: "JetBrains Mono", "Fira Code", source-code-pro, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: .875rem;
+    font-weight: 500;
+    line-height: 1.65;
+}
+
+pre {
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 1rem 1.2rem;
+    border: 1px solid c.lesli-color(neutral, 200);
+    border-radius: .5rem;
+    background-color: c.lesli-color(neutral, 50);
+    white-space: pre;
+    tab-size: 4;
+    -webkit-overflow-scrolling: touch;
+
+    code {
+        font-size: inherit;
+        line-height: inherit;
+    }
+}
+
+
+.highlight table td {
+    padding: .3rem;
+}
+
+.highlight table pre {
+    margin: 0;
+}
+
+.highlight,
+.highlight .w {
+    color: c.lesli-color(neutral, 700);
+}
+
+.highlight .err {
+    color: c.lesli-color(danger, 700);
+    background-color: c.lesli-color(danger, 50);
+}
+
+.highlight .c,
+.highlight .ch,
+.highlight .cd,
+.highlight .cm,
+.highlight .cpf,
+.highlight .c1,
+.highlight .cs {
+    color: c.lesli-color(neutral, 500);
+}
+
+.highlight .cp,
+.highlight .nt,
+.highlight .nn,
+.highlight .nc,
+.highlight .no {
+    color: c.lesli-color(warning, 700);
+}
+
+.highlight .o,
+.highlight .ow,
+.highlight .p,
+.highlight .pi {
+    color: c.lesli-color(neutral, 500);
+}
+
+.highlight .gi {
+    color: c.lesli-color(success, 700);
+}
+
+.highlight .gd {
+    color: c.lesli-color(danger, 700);
+}
+
+.highlight .gh {
+    color: c.lesli-color(primary, 700);
+    background-color: c.lesli-color(primary, 50);
+    font-weight: bold;
+}
+
+.highlight .k,
+.highlight .kn,
+.highlight .kp,
+.highlight .kr,
+.highlight .kv,
+.highlight .sa {
+    color: c.lesli-color(categorical-violet, 700);
+}
+
+.highlight .kc,
+.highlight .kt,
+.highlight .kd,
+.highlight .m,
+.highlight .mb,
+.highlight .mf,
+.highlight .mh,
+.highlight .mi,
+.highlight .il,
+.highlight .mo,
+.highlight .mx {
+    color: c.lesli-color(categorical-orange, 700);
+}
+
+.highlight .s,
+.highlight .sb,
+.highlight .sc,
+.highlight .dl,
+.highlight .sd,
+.highlight .s2,
+.highlight .sh,
+.highlight .sx,
+.highlight .s1,
+.highlight .ss {
+    color: c.lesli-color(success, 700);
+}
+
+.highlight .sr {
+    color: c.lesli-color(info, 700);
+}
+
+.highlight .si,
+.highlight .se {
+    color: c.lesli-color(categorical-rose, 700);
+}
+
+.highlight .na {
+    color: c.lesli-color(info, 700);
+}

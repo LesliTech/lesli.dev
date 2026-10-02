@@ -5,31 +5,13 @@ $hint-of-red: #f9f5f3;
 $navigation-height: 70px;
 
 :root {
-    --aside-width: 450px;
-}
-
-@include lesli.lesli-breakpoint-mobile() {
-    :root {
-        --aside-width: 0px;
-        --lesli-documentation-padding: 2rem 2rem;
-    }
-}
-
-@include lesli.lesli-breakpoint-tablet() {
-    :root {
-        --aside-width: 200px;
-        --lesli-documentation-padding: 10px 5rem 2rem;
-    }
-}
-
-@include lesli.lesli-breakpoint-desktop() {
-    :root {
-        --aside-width: 350px;
-    }
+    --aside-width: 0px;
+    --lesli-documentation-padding: 2rem;
 }
 
 @include lesli.lesli-breakpoint-widescreen() {
     :root {
-        --aside-width: 450px;
+        --aside-width: clamp(316px, calc(100vw - 900px), 450px);
+        --lesli-documentation-padding: 1rem 4rem 2rem;
     }
 }

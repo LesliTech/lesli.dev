@@ -46,12 +46,12 @@ nav.lesli-partial-navigation {
         transition: color 160ms ease, background-color 160ms ease;
 
         &:hover {
-            color: c.lesli-color(lesli, primary);
+            color: c.lesli-color(primary, 500);
             background-color: rgba(255, 255, 255, .72);
         }
 
         &[aria-current="page"] {
-            color: c.lesli-color(lesli, primary);
+            color: c.lesli-color(primary, 500);
             background-color: rgba(255, 255, 255, .82);
             font-weight: 650;
         }
@@ -69,9 +69,75 @@ nav.lesli-partial-navigation {
         font-size: 1.35rem;
     }
 
-    .lesli-partial-navigation-mobile,
+    .lesli-partial-navigation-mobile {
+        display: none;
+        position: relative;
+
+        summary {
+            display: grid;
+            width: 44px;
+            height: 44px;
+            border-radius: .6rem;
+            color: c.lesli-color(black, 700);
+            cursor: pointer;
+            list-style: none;
+            place-items: center;
+            font-size: 1.35rem;
+
+            &::-webkit-details-marker {
+                display: none;
+            }
+
+            &:focus-visible {
+                outline: 3px solid rgba(13, 82, 191, .24);
+                outline-offset: 2px;
+            }
+        }
+
+        &[open] summary {
+            color: c.lesli-color(primary, 500);
+            background-color: rgba(255, 255, 255, .88);
+        }
+
+        ul {
+            position: absolute;
+            top: calc(100% + .65rem);
+            right: 0;
+            display: grid;
+            width: min(18rem, calc(100vw - 2rem));
+            padding: .5rem;
+            border: 1px solid rgba(13, 82, 191, .12);
+            border-radius: .9rem;
+            background: rgba(255, 255, 255, .97);
+            box-shadow: 0 18px 45px rgba(18, 53, 83, .16);
+            -webkit-backdrop-filter: blur(14px);
+            backdrop-filter: blur(14px);
+        }
+
+        a {
+            justify-content: flex-start;
+            padding: .75rem 1rem;
+            font-size: 1rem;
+        }
+    }
+
     .lesli-partial-aside-open {
         display: none;
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        border: 0;
+        border-radius: .6rem;
+        color: c.lesli-color(black, 700);
+        background: transparent;
+        cursor: pointer;
+        place-items: center;
+        font-size: 1.35rem;
+
+        &:focus-visible {
+            outline: 3px solid rgba(13, 82, 191, .24);
+            outline-offset: 2px;
+        }
     }
 
     &.lesli-partial-navigation--website {
@@ -107,58 +173,10 @@ nav.lesli-partial-navigation {
         }
 
         .lesli-partial-navigation-mobile {
-            position: relative;
             display: block;
             grid-column: 3;
             grid-row: 1;
             justify-self: end;
-
-            summary {
-                display: grid;
-                width: 44px;
-                height: 44px;
-                border-radius: .6rem;
-                color: c.lesli-color(black, 700);
-                cursor: pointer;
-                list-style: none;
-                place-items: center;
-                font-size: 1.35rem;
-
-                &::-webkit-details-marker {
-                    display: none;
-                }
-
-                &:focus-visible {
-                    outline: 3px solid rgba(13, 82, 191, .24);
-                    outline-offset: 2px;
-                }
-            }
-
-            &[open] summary {
-                color: c.lesli-color(lesli, primary);
-                background-color: rgba(255, 255, 255, .88);
-            }
-
-            ul {
-                position: absolute;
-                top: calc(100% + .65rem);
-                right: 0;
-                display: grid;
-                width: min(18rem, calc(100vw - 2rem));
-                padding: .5rem;
-                border: 1px solid rgba(13, 82, 191, .12);
-                border-radius: .9rem;
-                background: rgba(255, 255, 255, .97);
-                box-shadow: 0 18px 45px rgba(18, 53, 83, .16);
-                -webkit-backdrop-filter: blur(14px);
-                backdrop-filter: blur(14px);
-            }
-
-            a {
-                justify-content: flex-start;
-                padding: .75rem 1rem;
-                font-size: 1rem;
-            }
         }
 
         &.lesli-partial-navigation--website {
@@ -187,25 +205,43 @@ nav.lesli-partial-navigation {
 
             .lesli-partial-aside-open {
                 display: grid;
-                width: 44px;
-                height: 44px;
-                padding: 0;
-                border: 0;
-                border-radius: .6rem;
-                color: c.lesli-color(black, 700);
-                background: transparent;
-                cursor: pointer;
                 grid-column: 1;
                 grid-row: 1;
                 justify-self: start;
-                place-items: center;
-                font-size: 1.35rem;
-
-                &:focus-visible {
-                    outline: 3px solid rgba(13, 82, 191, .24);
-                    outline-offset: 2px;
-                }
             }
+        }
+    }
+}
+
+
+// · Documentation keeps the drawer navigation until there is enough room for
+// · both the fixed section navigation and a comfortable reading column.
+@media only screen and (min-width: 769px) and (max-width: 1215px) {
+    nav.lesli-partial-navigation--documentation {
+        grid-template-columns: 1fr auto 1fr;
+
+        .lesli-partial-navigation-links {
+            display: none;
+        }
+
+        .lesli-partial-navigation-logo {
+            display: flex;
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .lesli-partial-aside-open {
+            display: grid;
+            grid-column: 1;
+            grid-row: 1;
+            justify-self: start;
+        }
+
+        .lesli-partial-navigation-mobile {
+            display: block;
+            grid-column: 3;
+            grid-row: 1;
+            justify-self: end;
         }
     }
 }

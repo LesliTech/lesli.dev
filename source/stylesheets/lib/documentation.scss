@@ -45,7 +45,7 @@ Building a better future, one line of code at a time.
 
 // · Override global navigation
 nav.lesli-partial-navigation {
-    border-bottom: 1px solid c.lesli-color(silver, 300);
+    border-bottom: 1px solid c.lesli-color(neutral, 300);
 
     .lesli-partial-navigation-links {
         width: 100%;
@@ -66,6 +66,7 @@ main {
         max-width: 900px;
         min-height: calc(100vh - #{c.$navigation-height});
         flex-direction: column;
+        margin: 0 auto;
         padding: var(--lesli-documentation-padding);
 
         // Keep rendered documentation in normal block flow. The outer container
@@ -73,6 +74,11 @@ main {
         .lesli-documentation-content {
             width: 100%;
             min-width: 0;
+
+            img {
+                max-width: 100%;
+                height: auto;
+            }
         }
 
         // Brand preview cards may share a row on narrow screens. Keep their
@@ -80,11 +86,6 @@ main {
         .lesli-css-color-logos {
             > div {
                 min-width: 0;
-            }
-
-            img {
-                max-width: 100%;
-                height: auto;
             }
         }
 
@@ -101,51 +102,69 @@ main {
 
         .documentation-statics {
             text-align: center;
-            padding-top: 0px;
-            padding-bottom: 0px;
+            padding-top: 0;
+            padding-bottom: 0;
         }
 
         // · Markdown main title
-        h1{
+        h1 {
             font-weight: bold;
-            color: c.lesli-color(slate, 700);
-            color: c.lesli-color(blue, 700);
-            color: c.lesli-color(blue, 900);
+            line-height: 1.2;
+            color: c.lesli-color(neutral, 900);
         }
 
         // · Markdown subtitles
         h2, h3 {
             margin-top: 2.4rem;
-            color: c.lesli-color(slate, 700);
+            line-height: 1.3;
+            color: c.lesli-color(neutral, 800);
+            scroll-margin-top: calc(#{c.$navigation-height} + 1rem);
         }
 
         h4 {
             font-size: 1.2rem;
-            color: c.lesli-color(slate, 700);
+            line-height: 1.35;
+            color: c.lesli-color(neutral, 700);
         }
 
         // standard links
         a { 
-            color: c.lesli-color(blue);
+            color: c.lesli-color(primary, 700);
             text-decoration:underline;
+
+            &:focus-visible {
+                outline: 3px solid rgba(39, 106, 214, .24);
+                outline-offset: 2px;
+            }
         }
 
         // paragraphs
         p {
             margin-bottom: 1rem;
-            font-size: 18px;
+            font-size: 1.125rem;
             font-weight: 400;
             line-height: 1.75;
-            color: #364153;
+            color: c.lesli-color(neutral, 700);
         }
 
         li {
             font-size: 1.0625rem;
             font-weight: 400;
             line-height: 1.7;
-            color: #364153;
+            color: c.lesli-color(neutral, 700);
             margin-bottom: 0.35rem;
+        }
+
+        ul > li {
             list-style: disc;
+        }
+
+        ol > li {
+            list-style: decimal;
+        }
+
+        li::marker {
+            color: c.lesli-color(neutral, 500);
         }
 
         ul,
@@ -156,37 +175,44 @@ main {
 
         strong {
             font-weight: 500;
-            color: #1f2937;
+            color: c.lesli-color(neutral, 900);
         }
 
-        p > code {
+        :not(pre) > code {
             font-family: "JetBrains Mono", "Fira Code", monospace;
             padding: 0.15rem 0.35rem;
             border-radius: 0.35rem;
-            background: #f3f4f6;
+            color: c.lesli-color(neutral, 800);
+            background: c.lesli-color(neutral, 100);
+            overflow-wrap: anywhere;
+        }
+
+        hr {
+            height: 0;
+            margin: 2rem 0;
+            border: 0;
+            border-top: 1px solid c.lesli-color(neutral, 200);
         }
 
         // · Markdown quotes as comments 
         blockquote {
-            font-family: 'Georgia', serif;
-            font-style: italic;
-            color: #555;
-            padding: 1em 20px;
-            margin: 20px 0;
-            border-left: 5px solid #ccc;
-            background-color: #f9f9f9;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid c.lesli-color(primary, 300);
+            color: c.lesli-color(neutral, 700);
+            background-color: c.lesli-color(primary, 50);
         
             p {
-                color: c.lesli-color(black, 500);
+                color: inherit;
                 display: inline;
-                line-height: 1.6 !important;
+                line-height: 1.6;
             }
         }
 
         table {
             margin-bottom: 1rem;
             td {
-                font-size: 18px;
+                font-size: 1rem;
             }
         }
 
@@ -198,16 +224,26 @@ main {
             padding: 1rem;
             margin: 4rem auto 2rem;
             box-sizing: border-box;
-            border-top: 1px solid c.lesli-color(slate, 300);
-            border-bottom: 1px solid c.lesli-color(slate, 300);
+            border-top: 1px solid c.lesli-color(neutral, 200);
+            border-bottom: 1px solid c.lesli-color(neutral, 200);
         
             a {
                 display: flex;
-                color: c.lesli-color(blue, 700);
+                color: c.lesli-color(primary, 700);
             }
         
             p {
-                margin: 0 !important;
+                margin: 0;
+
+                &:empty {
+                    display: none;
+                }
+
+                // Some generated Markdown pages contain a self-closing p tag,
+                // which browsers normalize into an empty middle paragraph.
+                &:nth-last-child(2):not(:first-child) {
+                    display: none;
+                }
         
                 &:first-child,
                 &:last-child {
@@ -242,19 +278,19 @@ main {
         
             img {
                 margin: 0 auto;
-                width:150px;
+                width: 9.375rem;
             }
         
             p {
                 font-size: 2rem;
                 margin-bottom: 1.6rem;
-                color: c.lesli-color(slate);
+                color: c.lesli-color(neutral, 500);
             }
         
             a {
-                color: c.lesli-color(lesli, primary);
-                border: 1px solid c.lesli-color(lesli, primary);
-                transition: all linear .3s;
+                color: c.lesli-color(primary, 500);
+                border: 1px solid c.lesli-color(primary, 500);
+                transition: color .2s ease, background-color .2s ease;
                 border-radius: 1.1rem;
                 font-weight: bold;
                 font-size: .9rem;
@@ -263,7 +299,7 @@ main {
         
                 &:hover {
                     color: white;
-                    background-color: c.lesli-color(lesli, primary);
+                    background-color: c.lesli-color(primary, 500);
                 }
             }
         }
@@ -275,5 +311,46 @@ main {
 
         @include c.lesli-color-print("background-color", "lesli-background");
         @include c.lesli-color-variables();
+    }
+}
+
+
+@include c.lesli-breakpoint-mobile() {
+    main section.lesli-documentation {
+        section.lesli-markdown-info {
+            align-items: flex-start;
+            flex-direction: column;
+            gap: .35rem;
+
+            p:last-child {
+                text-align: left;
+            }
+        }
+    }
+}
+
+
+@media print {
+    aside.lesli-partial-aside,
+    nav.lesli-partial-navigation,
+    footer.lesli-footer,
+    section.lesli-markdown-info {
+        display: none !important;
+    }
+
+    main {
+        margin-left: 0;
+
+        section.lesli-documentation {
+            display: block;
+            width: 100%;
+            max-width: none;
+            min-height: auto;
+            padding: 0;
+        }
+    }
+
+    pre {
+        white-space: pre-wrap;
     }
 }
