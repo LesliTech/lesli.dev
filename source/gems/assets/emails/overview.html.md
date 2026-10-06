@@ -29,7 +29,7 @@ make prod.mails
 The HTML ERB files under `app/views/lesli_assets/emails` are generated artifacts. Make lasting changes in the MJML source or shared includes, then rebuild.
 
 <section class="lesli-markdown-info">
-    <p><a target="blank" href="../LesliBuilder/gems/LesliAssets/tree/master/docs/emails/overview.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><a target="blank" href="https://github.com/LesliTech/LesliAssets/tree/master/docs/emails/overview.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
     <p><b>Last Update: </b>2026/09/14</p>
 </section>
 

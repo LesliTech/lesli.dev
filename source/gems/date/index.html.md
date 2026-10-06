@@ -126,6 +126,9 @@ bundle exec rake
 
 - [Lesli website](https://www.lesli.dev/)
 - [Documentation](https://www.lesli.dev/gems/date/)
+- [Installation](https://www.lesli.dev/gems/date/about/installation)
+- [Formatter API](https://www.lesli.dev/gems/date/api/formatter)
+- [Database expressions](https://www.lesli.dev/gems/date/api/database)
 - [Release notes](https://github.com/LesliTech/LesliDate/releases)
 - [Issue tracker](https://github.com/LesliTech/LesliDate/issues)
 - [Source code](https://github.com/LesliTech/LesliDate)
@@ -170,8 +173,8 @@ The complete license text is available in the [license file](./license).
 </div>
 
 <section class="lesli-markdown-info">
-    <p><a target="blank" href="../LesliBuilder/gems/LesliDate/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/07/19</p>
+    <p><a target="blank" href="https://github.com/LesliTech/LesliDate/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><b>Last Update: </b>2026/10/06</p>
 </section>
 
 <!-- This code was automatically generated -->

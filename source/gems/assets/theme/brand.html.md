@@ -116,7 +116,7 @@ The Lesli customization helper selects the default application logo and can retu
 The current customization helper resolves these packaged defaults. Automatic per-account logo replacement is not enabled in the current implementation. Do not edit LesliAssets from a consuming application, because an upgrade can replace those changes.
 
 <section class="lesli-markdown-info">
-    <p><a target="blank" href="../LesliBuilder/gems/LesliAssets/tree/master/docs/theme/brand.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><a target="blank" href="https://github.com/LesliTech/LesliAssets/tree/master/docs/theme/brand.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
     <p><b>Last Update: </b>2026/09/27</p>
 </section>
 

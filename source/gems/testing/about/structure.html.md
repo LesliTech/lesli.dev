@@ -117,11 +117,11 @@ LesliTesting/
 | `test/demo_test.rb` | Intentional failures for visually inspecting reporter output. |
 | `test/performance_test.rb` | Lightweight reporter execution tests. |
 
-See [Testing tools](./tools.md) for the behavior exposed by these components.
+See [Testing tools](/gems/testing/about/tools) for the behavior exposed by these components.
 
 <section class="lesli-markdown-info">
-    <p><a target="blank" href="../LesliBuilder/gems/LesliTesting/tree/master/docs/about/structure.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/09/27</p>
+    <p><a target="blank" href="https://github.com/LesliTech/LesliTesting/tree/master/docs/about/structure.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><b>Last Update: </b>2026/10/06</p>
 </section>
 
 <!-- This code was automatically generated -->

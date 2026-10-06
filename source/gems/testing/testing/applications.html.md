@@ -75,7 +75,7 @@ class AccountsControllerTest < LesliTesting::IntegrationTester
 end
 ```
 
-See [Testing tools](./tools.md) for the response helpers and fixture behavior.
+See [Testing tools](/gems/testing/about/tools) for the response helpers and fixture behavior.
 
 ## Run application tests
 
@@ -89,8 +89,8 @@ QUIET=true COVERAGE=true bin/rails test
 Coverage output is written under `coverage/` in the directory where the test process runs.
 
 <section class="lesli-markdown-info">
-    <p><a target="blank" href="../LesliBuilder/gems/LesliTesting/tree/master/docs/testing/applications.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/09/27</p>
+    <p><a target="blank" href="https://github.com/LesliTech/LesliTesting/tree/master/docs/testing/applications.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><b>Last Update: </b>2026/10/06</p>
 </section>
 
 <!-- This code was automatically generated -->

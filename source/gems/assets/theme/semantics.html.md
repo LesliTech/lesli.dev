@@ -136,7 +136,7 @@ Every palette is available through generated variables such as `--lesli-color-su
 Semantic and categorical palettes are independent. Do not substitute Cyan for Info, Teal for Success, Gold for Warning, or Rose for Danger.
 
 <section class="lesli-markdown-info">
-    <p><a target="blank" href="../LesliBuilder/gems/LesliAssets/tree/master/docs/theme/semantics.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><a target="blank" href="https://github.com/LesliTech/LesliAssets/tree/master/docs/theme/semantics.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
     <p><b>Last Update: </b>2026/09/27</p>
 </section>
 

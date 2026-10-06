@@ -141,6 +141,13 @@ LesliView organizes its public interface into focused groups:
 
 See the [LesliView documentation](https://www.lesli.dev/gems/view/) for component options and additional examples.
 
+- [Installation](https://www.lesli.dev/gems/view/about/installation)
+- [Components](https://www.lesli.dev/gems/view/components)
+- [Elements](https://www.lesli.dev/gems/view/elements)
+- [Forms](https://www.lesli.dev/gems/view/forms)
+- [Charts](https://www.lesli.dev/gems/view/charts)
+- [Widgets](https://www.lesli.dev/gems/view/widgets)
+
 <br />
 
 ## Development
@@ -217,8 +224,8 @@ The complete license text is available in the [license file](./license).
 </div>
 
 <section class="lesli-markdown-info">
-    <p><a target="blank" href="../LesliBuilder/gems/LesliView/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/09/26</p>
+    <p><a target="blank" href="https://github.com/LesliTech/LesliView/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><b>Last Update: </b>2026/10/06</p>
 </section>
 
 <!-- This code was automatically generated -->

@@ -102,13 +102,13 @@ Rails autoloading means application models and controllers can still be covered 
 
 ## Next steps
 
-- [Configure a Rails application](./applications.md)
-- [Configure a Rails engine](./engines.md)
-- [Configure a Ruby gem](./gems.md)
+- [Configure a Rails application](/gems/testing/testing/applications)
+- [Configure a Rails engine](/gems/testing/testing/engines)
+- [Configure a Ruby gem](/gems/testing/testing/gems)
 
 <section class="lesli-markdown-info">
-    <p><a target="blank" href="../LesliBuilder/gems/LesliTesting/tree/master/docs/about/installation.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/09/27</p>
+    <p><a target="blank" href="https://github.com/LesliTech/LesliTesting/tree/master/docs/about/installation.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><b>Last Update: </b>2026/10/06</p>
 </section>
 
 <!-- This code was automatically generated -->

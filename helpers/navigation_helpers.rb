@@ -33,7 +33,9 @@ Building a better future, one line of code at a time.
 module NavigationHelpers
 
     def titleize(string)
-        string.gsub("-", " ").split(" ").map(&:capitalize).join(" ")
+        return "API" if string == "api"
+
+        string.tr("-_", " ").split(" ").map(&:capitalize).join(" ")
     end
 
     def safe_join(array, sep = "")
@@ -74,7 +76,7 @@ module NavigationHelpers
 
     def get_url_from_file file
         {
-            :name => File.basename(file).sub(".html.md", "").sub(".erb","").sub("-"," "),
+            :name => File.basename(file).sub(".html.md", "").sub(".erb","").tr("-_", " "),
             :url => file.sub("source", "").sub(".html.md", "").sub(".erb","")
         }
     end
@@ -96,7 +98,7 @@ module NavigationHelpers
     end
     def navigation_for_folder(namespace, project, folder, order:nil)
 
-        if project != "lesli" and folder == "about"
+        if namespace == "engines" && project != "lesli" && folder == "about"
             order = [
                 "about", 
                 "installation", 

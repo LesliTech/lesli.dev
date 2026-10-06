@@ -125,6 +125,12 @@ LesliAssets organizes its resources into focused groups:
 
 See the [LesliAssets documentation](https://www.lesli.dev/gems/assets/) for the design system, asset catalog, and detailed usage guidance.
 
+- [Installation](https://www.lesli.dev/gems/assets/about/installation)
+- [Theme and brand system](https://www.lesli.dev/gems/assets/theme)
+- [View partials](https://www.lesli.dev/gems/assets/views)
+- [Email templates](https://www.lesli.dev/gems/assets/emails)
+- [Contributor build workflow](https://www.lesli.dev/gems/assets/about/development)
+
 <br />
 
 ## Development
@@ -230,8 +236,8 @@ The complete license text is available in the [license file](./license).
 </div>
 
 <section class="lesli-markdown-info">
-    <p><a target="blank" href="../LesliBuilder/gems/LesliAssets/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/09/26</p>
+    <p><a target="blank" href="https://github.com/LesliTech/LesliAssets/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><b>Last Update: </b>2026/10/06</p>
 </section>
 
 <!-- This code was automatically generated -->

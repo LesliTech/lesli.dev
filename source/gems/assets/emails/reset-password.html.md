@@ -18,7 +18,7 @@ The current message tells the user that the link remains valid for three hours. 
 After editing the MJML source or a shared email fragment, run `make build.mails` and verify the generated result with a Rails mailer preview.
 
 <section class="lesli-markdown-info">
-    <p><a target="blank" href="../LesliBuilder/gems/LesliAssets/tree/master/docs/emails/reset-password.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><a target="blank" href="https://github.com/LesliTech/LesliAssets/tree/master/docs/emails/reset-password.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
     <p><b>Last Update: </b>2026/09/14</p>
 </section>
 

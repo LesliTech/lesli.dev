@@ -1,31 +1,24 @@
 # Tabs
 
+`LesliView::Components::Tabs` renders client-side tabs with Alpine.js. The component requires Alpine to be loaded by the host assets.
+
 ```erb
-<%= render LesliView::Elements::Tabs.new do |tabs| %>
-    <% tabs.with_tab(tab_id: "tab1", title: "Tab 1") %>
-    <% tabs.with_tab(tab_id: "tab2", title: "Tab 2") %>
-    <% tabs.with_tab(tab_id: "tab3", title: "Tab 3") %>
-    <% tabs.with_tab(tab_id: "tab4", title: "Tab 4", icon: "save") %>
-    <% tabs.with_tab(tab_id: "tab5", title: "Tab 5", icon: "edit") %>
-    <% tabs.with_tab(tab_id: "tab6", title: "Tab 6", icon: "delete") %>
+<%= render LesliView::Components::Tabs.new(active_tab: "details") do |tabs| %>
+    <% tabs.with_tab(id: "details", title: "Details") do %>
+        <p>Ticket details</p>
+    <% end %>
+
+    <% tabs.with_tab(id: "activity", title: "Activity", icon: "history") do %>
+        <p>Recent changes</p>
+    <% end %>
 <% end %>
 ```
 
-
-```erb
-<%= render LesliView::Elements::Tabs.new(active_tab: "tab1") do |tabs| %>
-    <% tabs.with_tab(tab_id: "tab1", title: "Tab 1") %>
-    <% tabs.with_tab(tab_id: "tab2", title: "Tab 2") %>
-    <% tabs.with_tab(tab_id: "tab3", title: "Tab 3") %>
-    <% tabs.with_tab(tab_id: "tab4", title: "Tab 4", icon: "save") %>
-    <% tabs.with_tab(tab_id: "tab5", title: "Tab 5", icon: "edit") %>
-    <% tabs.with_tab(tab_id: "tab6", title: "Tab 6", icon: "delete") %>
-<% end %>
-```
+`active_tab:` selects the initial tab; otherwise the first tab is used. Set `vertical: true` for the vertical presentation. Each `with_tab` accepts `id:`, `title:`, and an optional Material Symbol `icon:`. When `id:` is omitted, a normalized ID is generated from the title and falls back to the tab position.
 
 <section class="lesli-markdown-info">
-    <p><a target="blank" href="../LesliBuilder/gems/LesliView/tree/master/docs/components/tabs.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/01/04</p>
+    <p><a target="blank" href="https://github.com/LesliTech/LesliView/tree/master/docs/components/tabs.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><b>Last Update: </b>2026/10/06</p>
 </section>
 
 <!-- This code was automatically generated -->

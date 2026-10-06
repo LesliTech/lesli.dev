@@ -155,10 +155,11 @@ Termline.line
 
 Message, list, table, and spacing helpers print directly to `STDOUT`. See the focused guides for all supported options and lower-level builders:
 
-- [Messages](./docs/messages.md)
-- [Lists](./docs/lists.md)
-- [Tables](./docs/tables.md)
-- [Separators and spacing](./docs/separator.md)
+- [Installation](https://www.lesli.dev/gems/termline/about/installation)
+- [Messages](https://www.lesli.dev/gems/termline/messages)
+- [Lists](https://www.lesli.dev/gems/termline/lists)
+- [Tables](https://www.lesli.dev/gems/termline/tables)
+- [Separators and spacing](https://www.lesli.dev/gems/termline/separator)
 
 <br />
 
@@ -242,8 +243,8 @@ The complete license text is available in the [license file](./license.txt).
 </div>
 
 <section class="lesli-markdown-info">
-    <p><a target="blank" href="../LesliBuilder/gems/Termline/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/02</p>
+    <p><a target="blank" href="https://github.com/LesliTech/Termline/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><b>Last Update: </b>2026/10/06</p>
 </section>
 
 <!-- This code was automatically generated -->

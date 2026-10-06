@@ -94,7 +94,7 @@ The gem profile uses the standard SimpleCov Rails base profile. For a convention
 If the coverage result unexpectedly omits a file, verify that LesliTesting is configured before `require "my_gem"` and before any other dependency loads the gem indirectly.
 
 <section class="lesli-markdown-info">
-    <p><a target="blank" href="../LesliBuilder/gems/LesliTesting/tree/master/docs/testing/gems.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><a target="blank" href="https://github.com/LesliTech/LesliTesting/tree/master/docs/testing/gems.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
     <p><b>Last Update: </b>2026/09/27</p>
 </section>
 

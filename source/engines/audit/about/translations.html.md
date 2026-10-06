@@ -1,16 +1,41 @@
-<script setup>
-    import Docs from "@lesli-dev/components/lesli-working.vue"
-</script>
-<Docs />
-<section class="lesli-parche-working">
-    <img alt="cat docs" src="/images/cats/dev.png" />
-    <p>Work in progress...</p>
-    <a href="/">Take me home</a>
-</section>
+# Translations
+
+LesliAudit reserves the `lesli_audit` namespace for all user-facing labels. Locale files live in `config/locales/translations.<locale>.yml`; the engine currently provides files for English, Spanish, French, Italian, and Portuguese.
+
+New labels should follow the standard engine, bucket, and label structure:
+
+```yaml
+en:
+  lesli_audit:
+    users:
+      title: "User activity"
+      empty: "No activity has been recorded"
+    shared:
+      requests: "Requests"
+```
+
+Use the complete key from Ruby or ERB:
+
+```erb
+<%= I18n.t("lesli_audit.users.title") %>
+```
+
+The shipped locale files are currently empty, so adding a key also requires replacing the corresponding hard-coded interface text. Add the same key to every supported locale and preserve interpolation variables between languages.
+
+When LesliBabel is installed, synchronize the local files with:
+
+```shell
+bin/rails lesli_babel:scan
+bin/rails lesli_babel:import
+```
+
+The files in LesliAudit remain the version-controlled source shipped with the gem. Review any Babel-generated changes before committing them.
+
+See the [engine documentation standard](/engines/lesli/contributing/engines) for namespace and bucket conventions.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliAudit/tree/master/docs/about/translations.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2025/07/04</p>
+    <p><b>Last Update: </b>2026/10/06</p>
 </section>
 
 <!-- This code was automatically generated -->

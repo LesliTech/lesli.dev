@@ -132,11 +132,11 @@ When `Lesli` is loaded, LesliTesting registers the Lesli engine's fixture direct
 
 The fixture integration runs during configuration. Load the Rails environment and the Lesli engine before calling the profile method when the suite depends on these shared fixtures.
 
-Engine-specific fixture paths remain the responsibility of the engine test helper. See [Testing Rails engines](./engines.md) for an example.
+Engine-specific fixture paths remain the responsibility of the engine test helper. See [Testing Rails engines](/gems/testing/testing/engines) for an example.
 
 <section class="lesli-markdown-info">
-    <p><a target="blank" href="../LesliBuilder/gems/LesliTesting/tree/master/docs/about/tools.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/09/27</p>
+    <p><a target="blank" href="https://github.com/LesliTech/LesliTesting/tree/master/docs/about/tools.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><b>Last Update: </b>2026/10/06</p>
 </section>
 
 <!-- This code was automatically generated -->

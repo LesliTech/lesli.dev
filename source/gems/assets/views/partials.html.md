@@ -22,7 +22,7 @@ The Lesli application layout already includes the engines sprite. A consuming ap
 These files are generated from the SVG sources under `app/assets/icons/lesli_assets`. Add or modify icons at the source, then run `make build.icons`; do not hand-edit the generated partials.
 
 <section class="lesli-markdown-info">
-    <p><a target="blank" href="../LesliBuilder/gems/LesliAssets/tree/master/docs/views/partials.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><a target="blank" href="https://github.com/LesliTech/LesliAssets/tree/master/docs/views/partials.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
     <p><b>Last Update: </b>2026/09/14</p>
 </section>
 

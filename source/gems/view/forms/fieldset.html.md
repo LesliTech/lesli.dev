@@ -1,12 +1,19 @@
-<section class="lesli-parche-working">
-    <img alt="cat docs" src="/images/cats/dev.png" />
-    <p>Work in progress...</p>
-    <a href="/">Take me home</a>
-</section>
+# Fieldset
+
+`fieldset` groups related controls with a semantic HTML fieldset and optional legend.
+
+```erb
+<%= form.fieldset("Contact details", category: :info) do %>
+    <%= form.field_control_text :name %>
+    <%= form.field_control_email :email %>
+<% end %>
+```
+
+The second argument is an HTML options hash. Existing classes are merged with `lesli-form-fieldset`; `category:` adds the corresponding semantic `is-*` class. An empty legend is omitted.
 
 <section class="lesli-markdown-info">
-    <p><a target="blank" href="../LesliBuilder/gems/LesliView/tree/master/docs/forms/fieldset.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/01/04</p>
+    <p><a target="blank" href="https://github.com/LesliTech/LesliView/tree/master/docs/forms/fieldset.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><b>Last Update: </b>2026/10/06</p>
 </section>
 
 <!-- This code was automatically generated -->

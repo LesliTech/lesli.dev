@@ -2,7 +2,7 @@
     <h1 align="center">
         <img width="100" alt="LesliAdmin" src="/images/engines/admin/admin-logo.svg" />
     </h1>
-    <h3 align="center">Account administration for the Lesli Framework.</h3>
+    <h3 align="center">Account and application administration for the Lesli Framework.</h3>
 </div>
 
 <br />
@@ -37,19 +37,19 @@
 
 ## Introduction
 
-LesliAdmin is the official account administration engine for the [Lesli Framework](https://github.com/LesliTech/Lesli).
+LesliAdmin is the official account and application administration engine for the [Lesli Framework](https://github.com/LesliTech/Lesli).
 
-It provides account owners and administrators with a central interface for managing organization settings and shared account data.
+It gives account owners and administrators a central interface for maintaining the core account identity, inspecting application configuration, and understanding the engines installed in a Lesli application.
 
 <br />
 
 ## Features
 
-- Account details and administrative settings
-- Locations and regional configuration
-- Currencies and account-level preferences
-- User profile administration
-- Integration with Lesli users, permissions, and navigation
+- Core account name and email management
+- Framework configuration overview
+- Installed-engine inventory and metadata
+- Account-scoped data structures for details, locations, settings, and currencies
+- Optional dashboard components through LesliDashboard
 
 <br />
 
@@ -64,7 +64,7 @@ It provides account owners and administrators with a central interface for manag
 
 ### Requirements
 
-- A Rails application with [Lesli](https://rubygems.org/gems/lesli)
+- A Rails application with [Lesli 5.1](https://rubygems.org/gems/lesli)
 - SQLite by default, or PostgreSQL when preferred by the host application
 
 ### Install LesliAdmin
@@ -73,7 +73,7 @@ Add the engine to the host Rails application and prepare its database:
 
 ```shell
 bundle add lesli_admin
-bin/rails db:prepare
+bin/rails lesli:db:prepare
 ```
 
 ### Mount the engine
@@ -99,8 +99,11 @@ end
 Start Rails and visit [http://127.0.0.1:3000/admin](http://127.0.0.1:3000/admin):
 
 ```shell
+bin/rails routes -g admin
 bin/rails server
 ```
+
+Install [LesliDashboard](https://rubygems.org/gems/lesli_dashboard) when the application should render LesliAdmin's shared dashboard and installed-engines component.
 
 <br />
 
@@ -124,7 +127,7 @@ Install dependencies, prepare the host database, and start Rails:
 
 ```shell
 bundle install
-bin/rails db:prepare
+bin/rails lesli:db:prepare
 bin/rails server
 ```
 
@@ -143,6 +146,11 @@ bin/rails test
 
 - [Lesli website](https://www.lesli.dev/)
 - [Documentation](https://www.lesli.dev/engines/admin)
+- [Installation guide](https://www.lesli.dev/engines/admin/about/installation)
+- [Account management](https://www.lesli.dev/engines/admin/account/)
+- [Dashboard components](https://www.lesli.dev/engines/admin/about/dashboards)
+- [Translations](https://www.lesli.dev/engines/admin/about/translations)
+- [Database](https://www.lesli.dev/engines/admin/about/database)
 - [Release notes](https://github.com/LesliTech/LesliAdmin/releases)
 - [Issue tracker](https://github.com/LesliTech/LesliAdmin/issues)
 - [Source code](https://github.com/LesliTech/LesliAdmin)
@@ -188,7 +196,7 @@ The complete license text is available in the [license file](./license).
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliAdmin/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/07/19</p>
+    <p><b>Last Update: </b>2026/10/02</p>
 </section>
 
 <!-- This code was automatically generated -->

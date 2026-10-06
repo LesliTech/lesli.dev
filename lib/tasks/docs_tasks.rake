@@ -199,6 +199,7 @@ def documentation_footer file_to_copy, file_to_paste
 
     file_link = file_to_copy
         .gsub("../LesliBuilder/engines/", "https://github.com/LesliTech/")
+        .gsub("../LesliBuilder/gems/", "https://github.com/LesliTech/")
         .gsub("/docs/", "/tree/master/docs/")
 
     footer= <<~TEXT

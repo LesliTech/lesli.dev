@@ -47,13 +47,21 @@ It exposes installed engine and gem metadata and provides helpers for resolving 
 
 <br />
 
-## Installation
+## Quick Start
+
+### Requirements
+
+LesliSystem is designed for Rails applications with Rails and Active Support loaded. Standard Lesli applications install it through the main `lesli` gem.
+
+### Installation
 
 Add LesliSystem to the application:
 
 ```shell
 bundle add lesli_system
 ```
+
+No initializer, routes, migrations, or database preparation are required.
 
 <br />
 
@@ -87,6 +95,8 @@ builder.engine_name
 builder.model.account
 builder.model.dashboard
 ```
+
+Missing conventional model constants resolve to `nil`.
 
 ```ruby
 builder = LesliSystem::Klass.new(engine: "LesliBell")
@@ -124,7 +134,12 @@ bundle exec rake
 ## Documentation
 
 - [Lesli website](https://www.lesli.dev/)
-- [Documentation](https://www.lesli.dev/gems/system/)
+- [LesliSystem documentation](https://www.lesli.dev/gems/system/)
+- [Installation](https://www.lesli.dev/gems/system/about/installation)
+- [API overview](https://www.lesli.dev/gems/system/api/)
+- [Engine discovery](https://www.lesli.dev/gems/system/api/engines)
+- [Gem discovery](https://www.lesli.dev/gems/system/api/gems)
+- [Model resolution](https://www.lesli.dev/gems/system/api/models)
 - [Release notes](https://github.com/LesliTech/LesliSystem/releases)
 - [Issue tracker](https://github.com/LesliTech/LesliSystem/issues)
 - [Source code](https://github.com/LesliTech/LesliSystem)
@@ -169,8 +184,8 @@ The complete license text is available in the [license file](./license).
 </div>
 
 <section class="lesli-markdown-info">
-    <p><a target="blank" href="../LesliBuilder/gems/LesliSystem/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/07/19</p>
+    <p><a target="blank" href="https://github.com/LesliTech/LesliSystem/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
+    <p><b>Last Update: </b>2026/10/06</p>
 </section>
 
 <!-- This code was automatically generated -->
