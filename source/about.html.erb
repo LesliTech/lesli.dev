@@ -1,0 +1,92 @@
+---
+title: "What is Lesli? — A Modular Ruby on Rails SaaS Framework"
+description: "Lesli is an open-source, modular Ruby on Rails framework for building SaaS products and long-lived business software."
+---
+
+<header class="about-header">
+    <%= partial("partials/lesli-navigation", locals: { logo: true }) %>
+
+    <div class="container about-hero">
+        <p class="about-eyebrow">Lesli in one minute</p>
+        <h1>A modular Rails foundation for <span class="lesli-title-colored">serious business software.</span></h1>
+        <p class="about-introduction">
+            Lesli gives Ruby on Rails developers a production-ready foundation for SaaS products,
+            so they can build the business that makes their product unique—not the same infrastructure again.
+        </p>
+
+        <ul class="about-pillars" aria-label="What Lesli provides">
+            <li class="about-pillar about-pillar--rails">
+                <span class="about-pillar-icon ri-code-s-slash-line" aria-hidden="true"></span>
+                <strong>Rails-first</strong>
+                <span>Rails, PostgreSQL, Hotwire, and familiar conventions.</span>
+            </li>
+            <li class="about-pillar about-pillar--saas">
+                <span class="about-pillar-icon ri-stack-line" aria-hidden="true"></span>
+                <strong>SaaS-ready</strong>
+                <span>Accounts, roles, admin, audit, notifications, and more.</span>
+            </li>
+            <li class="about-pillar about-pillar--modular">
+                <span class="about-pillar-icon ri-box-3-line" aria-hidden="true"></span>
+                <strong>Modular</strong>
+                <span>Add engines as your product grows and keep domains isolated.</span>
+            </li>
+        </ul>
+
+    </div>
+</header>
+
+<main class="about-content">
+    <section class="about-explanation">
+        <div class="container">
+            <p class="about-section-label">How it works</p>
+            <h2>Start with structure. Keep Rails freedom.</h2>
+            <p class="about-explanation-copy">
+                Lesli runs inside a regular Rails application. The core defines shared conventions for accounts,
+                users, navigation, assets, and engine integration. Official engines add business capabilities
+                without folding every domain into the host application. You keep Rails as the development model
+                and decide which parts of the ecosystem your product needs.
+            </p>
+
+            <ol class="about-flow">
+                <li>
+                    <span class="about-flow-number">01</span>
+                    <h3>Foundation</h3>
+                    <p>Install Lesli to establish the shared application shell and conventions.</p>
+                </li>
+                <li>
+                    <span class="about-flow-number">02</span>
+                    <h3>Engines</h3>
+                    <p>Add focused modules for administration, security, audit, dashboards, support, and more.</p>
+                </li>
+                <li>
+                    <span class="about-flow-number">03</span>
+                    <h3>Your product</h3>
+                    <p>Build your own domain without surrendering the structure of a normal Rails application.</p>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <section class="about-fit">
+        <div class="container">
+            <p class="about-section-label">When Lesli fits</p>
+            <h2>Built for software expected to grow.</h2>
+            <p>
+                Lesli is most useful when a product will outgrow a simple CRUD application: multi-account SaaS,
+                internal operations platforms, or business systems expected to evolve for years. It is not a
+                no-code builder or a finished admin panel; it is an open-source foundation for developers who
+                want to build deliberately.
+            </p>
+
+            <div class="about-actions">
+                <a class="button-primary" href="/engines/lesli/start/">
+                    Start building
+                    <span class="ri-arrow-right-line" aria-hidden="true"></span>
+                </a>
+                <a class="button-primary-ghost" href="/engines/lesli/about/architecture/">
+                    Explore the architecture
+                </a>
+            </div>
+        </div>
+    </section>
+</main>

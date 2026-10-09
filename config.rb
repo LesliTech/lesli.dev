@@ -9,6 +9,7 @@ set :trailing_slash, false
 
 # Layouts
 page "/", layout: "website"
+page "/about.html", layout: "website"
 page "/gems/*", layout: "documentation"
 page "/engines/*", layout: "documentation"
 page "/notes.html", layout: "documentation"
@@ -24,7 +25,6 @@ page "/404.html", :directory_index => false
 
 # · redirections
 redirect "start.html", to: "/engines/lesli/start/"
-redirect "about.html", to: "/engines/lesli/about/"
 redirect "blog.html", to: "/notes/"
 
 
