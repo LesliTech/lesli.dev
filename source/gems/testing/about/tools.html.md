@@ -71,7 +71,7 @@ Set it to `0` to remove the limit.
 
 ## Shared Rails test classes
 
-The shared classes are defined only when their corresponding Rails classes have already been loaded.
+The shared classes are defined only when their corresponding Rails classes have already been loaded. Engine suites should run through `bundle exec rails test` or `bundle exec rake app:test`, which initializes the Rails testing framework before loading test files.
 
 ### IntegrationTester
 
@@ -136,7 +136,7 @@ Engine-specific fixture paths remain the responsibility of the engine test helpe
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliTesting/tree/master/docs/about/tools.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/06</p>
+    <p><b>Last Update: </b>2026/10/10</p>
 </section>
 
 <!-- This code was automatically generated -->

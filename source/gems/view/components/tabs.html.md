@@ -16,9 +16,11 @@
 
 `active_tab:` selects the initial tab; otherwise the first tab is used. Set `vertical: true` for the vertical presentation. Each `with_tab` accepts `id:`, `title:`, and an optional Material Symbol `icon:`. When `id:` is omitted, a normalized ID is generated from the title and falls back to the tab position.
 
+The component uses Tailwind CSS for presentation and includes tab, tablist, and tabpanel semantics. Tabs can be selected with a pointer, `Tab`, `Enter`, `Space`, or the arrow keys.
+
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliView/tree/master/docs/components/tabs.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/06</p>
+    <p><b>Last Update: </b>2026/10/09</p>
 </section>
 
 <!-- This code was automatically generated -->

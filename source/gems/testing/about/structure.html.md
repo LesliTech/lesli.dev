@@ -38,8 +38,16 @@ my_engine/
 │       └── version.rb
 ├── test/
 │   ├── dummy/
+│   │   ├── app/
+│   │   │   ├── controllers/
+│   │   │   │   └── application_controller.rb
+│   │   │   └── models/
+│   │   │       └── application_record.rb
 │   │   ├── config/
-│   │   └── db/
+│   │   │   └── environments/
+│   │   │       └── test.rb
+│   │   ├── db/
+│   │   └── Rakefile
 │   ├── fixtures/
 │   │   └── files/
 │   ├── integration/
@@ -50,7 +58,7 @@ my_engine/
 └── Rakefile
 ```
 
-The dummy application supplies the Rails runtime used by the engine tests. Configure `LesliTesting.engine` in the engine's `test/test_helper.rb`.
+The dummy application supplies the Rails runtime used by the engine tests. Keep the complete Rails-generated dummy structure: eager loading and dependencies may require host constants such as top-level `ApplicationController` and `ApplicationRecord` even when ordinary local tests do not reference them. Configure `LesliTesting.engine` in the engine's `test/test_helper.rb`.
 
 ## Standalone Ruby gem structure
 
@@ -121,7 +129,7 @@ See [Testing tools](/gems/testing/about/tools) for the behavior exposed by these
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliTesting/tree/master/docs/about/structure.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/06</p>
+    <p><b>Last Update: </b>2026/10/10</p>
 </section>
 
 <!-- This code was automatically generated -->

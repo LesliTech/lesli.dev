@@ -143,6 +143,7 @@ bin/rails test
 
 - [Lesli website](https://www.lesli.dev/)
 - [Documentation](https://www.lesli.dev/engines/audit)
+- [Frontend development](./docs/about/frontend.md)
 - [Release notes](https://github.com/LesliTech/LesliAudit/releases)
 - [Issue tracker](https://github.com/LesliTech/LesliAudit/issues)
 - [Source code](https://github.com/LesliTech/LesliAudit)
@@ -188,7 +189,7 @@ The complete license text is available in the [license file](./license).
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliAudit/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/06</p>
+    <p><b>Last Update: </b>2026/10/10</p>
 </section>
 
 <!-- This code was automatically generated -->

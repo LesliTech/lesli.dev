@@ -87,7 +87,7 @@ require "minitest/autorun"
 require "my_gem"
 ```
 
-Rails-only base classes are created when the corresponding Rails test classes already exist. If a suite uses `LesliTesting::IntegrationTester`, `LesliTesting::ModelTester`, or `LesliTesting::ViewTester`, load the Rails environment and `rails/test_help` before configuring LesliTesting:
+Rails-only base classes are created when the corresponding Rails test classes already exist. Rails applications that use `LesliTesting::IntegrationTester`, `LesliTesting::ModelTester`, or `LesliTesting::ViewTester` should load the Rails environment and `rails/test_help` before configuring LesliTesting:
 
 ```ruby
 ENV["RAILS_ENV"] ||= "test"
@@ -97,6 +97,10 @@ require "rails/test_help"
 require "lesli_testing"
 LesliTesting.app("MyApplication")
 ```
+
+LesliTesting can still be required by a standalone Ruby gem without Rails. Rails-only files and test classes are optional in that mode.
+
+Rails engines should use the setup and Rails runner commands documented in [Testing Rails engines](/gems/testing/testing/engines). Do not execute an engine test file directly with Ruby when it inherits from a shared LesliTesting Rails class.
 
 Rails autoloading means application models and controllers can still be covered when they are first referenced by tests. Code eagerly loaded before LesliTesting starts is not included in that process's coverage measurement.
 
@@ -108,7 +112,7 @@ Rails autoloading means application models and controllers can still be covered 
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliTesting/tree/master/docs/about/installation.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/06</p>
+    <p><b>Last Update: </b>2026/10/10</p>
 </section>
 
 <!-- This code was automatically generated -->
