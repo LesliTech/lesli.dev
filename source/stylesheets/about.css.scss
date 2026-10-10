@@ -185,49 +185,150 @@
 }
 
 
-.about-flow {
+.about-diagram {
+    max-width: 75rem;
+    margin: 3rem auto 0;
+
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border: 1px solid c.lesli-color(primary, 100);
+        border-radius: 1.25rem;
+        background-color: c.lesli-color(primary, 50);
+        box-shadow: 0 1.5rem 4rem rgba(c.lesli-color(primary, 900), .1);
+    }
+
+    figcaption {
+        max-width: 50rem;
+        margin: 1.25rem auto 0;
+        color: c.lesli-color(neutral, 600);
+        font-size: .95rem;
+        line-height: 1.65;
+        text-align: center;
+        text-wrap: pretty;
+    }
+}
+
+
+.about-use {
+    padding: 6.5rem 0;
+    border-top: 1px solid c.lesli-color(neutral, 200);
+    background-color: c.lesli-color(neutral, 50);
+
+    .container {
+        display: grid;
+        width: min(100%, 68rem);
+        grid-template-columns: minmax(0, 1fr) minmax(22rem, .9fr);
+        align-items: center;
+        gap: clamp(3rem, 7vw, 6rem);
+        margin: 0 auto;
+    }
+
+    .about-section-label,
+    h2 {
+        margin-right: 0;
+        margin-left: 0;
+        text-align: left;
+    }
+
+    .about-use-copy > p:not(.about-section-label) {
+        margin: 1.5rem 0 0;
+        color: c.lesli-color(neutral, 700);
+        font-size: 1.08rem;
+        line-height: 1.75;
+    }
+}
+
+
+.about-steps {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1rem;
-    margin: 3.25rem 0 0;
+    margin: 2rem 0 0;
     padding: 0;
+    color: c.lesli-color(neutral, 700);
     list-style: none;
+    counter-reset: about-step;
 
     li {
-        padding: 2rem 1.6rem 1.75rem;
-        border: 1px solid c.lesli-color(neutral, 200);
-        border-radius: 1rem;
-        background-color: c.lesli-color(neutral, 50);
-        text-align: center;
+        position: relative;
+        min-height: 2.25rem;
+        padding-left: 3.25rem;
+        line-height: 1.6;
+        counter-increment: about-step;
+
+        &::before {
+            position: absolute;
+            top: -.15rem;
+            left: 0;
+            display: grid;
+            width: 2.25rem;
+            height: 2.25rem;
+            border-radius: .65rem;
+            color: c.lesli-color(primary, 700);
+            background-color: c.lesli-color(primary, 100);
+            content: counter(about-step, decimal-leading-zero);
+            font-size: .75rem;
+            font-weight: 800;
+            letter-spacing: .05em;
+            place-items: center;
+        }
     }
 
-    .about-flow-number {
-        display: inline-flex;
-        min-width: 2.65rem;
-        min-height: 2rem;
+    strong {
+        color: c.lesli-color(neutral, 900);
+    }
+}
+
+
+.about-code {
+    overflow: hidden;
+    border: 1px solid rgba(c.lesli-color(primary, 300), .35);
+    border-radius: 1rem;
+    color: c.lesli-color(primary, 100);
+    background-color: c.lesli-color(primary, 900);
+    box-shadow: 0 1.5rem 3.5rem rgba(c.lesli-color(primary, 900), .2);
+
+    .about-code-heading {
+        display: flex;
         align-items: center;
-        justify-content: center;
-        padding: .3rem .65rem;
-        border-radius: 999px;
-        color: c.lesli-color(primary, 700);
-        background-color: c.lesli-color(primary, 100);
-        font-size: .8rem;
+        justify-content: space-between;
+        padding: .85rem 1.15rem;
+        border-bottom: 1px solid rgba(255, 255, 255, .12);
+        color: c.lesli-color(primary, 200);
+        font-size: .75rem;
         font-weight: 750;
         letter-spacing: .08em;
+        text-transform: uppercase;
     }
 
-    h3 {
-        margin: 1rem 0 0;
-        color: c.lesli-color(neutral, 900);
-        font-size: 1.2rem;
+    pre {
+        overflow-x: auto;
+        margin: 0;
+        padding: 1.5rem;
+        background: transparent;
     }
 
-    p {
-        max-width: 19rem;
-        margin: .65rem auto 0;
-        color: c.lesli-color(neutral, 600);
-        line-height: 1.6;
-        text-wrap: balance;
+    code {
+        color: #ffffff;
+        font-size: .92rem;
+        line-height: 1.85;
+    }
+
+    > a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 1.15rem;
+        border-top: 1px solid rgba(255, 255, 255, .12);
+        color: c.lesli-color(primary, 100);
+        font-weight: 700;
+        text-decoration: none;
+
+        &:hover {
+            color: #ffffff;
+            background-color: rgba(255, 255, 255, .06);
+        }
     }
 }
 
@@ -346,18 +447,22 @@
     }
 
     .about-explanation,
+    .about-use,
     .about-fit {
         padding: 4.5rem 0;
     }
 
-    .about-flow {
-        grid-template-columns: 1fr;
-        gap: .75rem;
+    .about-diagram {
         margin-top: 2.5rem;
+    }
 
-        li {
-            padding: 1.5rem 1.25rem;
-        }
+    .about-use .container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .about-code {
+        min-width: 0;
     }
 }
 
