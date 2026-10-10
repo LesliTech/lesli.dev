@@ -84,7 +84,7 @@
     background-color: rgba(255, 255, 255, .9);
     box-shadow: 0 1rem 2.5rem rgba(c.lesli-color(primary, 700), .07);
 
-    &.about-pillar--rails {
+    &.about-pillar--product {
         border-top-color: c.lesli-color(primary, 500);
 
         .about-pillar-icon {
@@ -93,7 +93,7 @@
         }
     }
 
-    &.about-pillar--saas {
+    &.about-pillar--capabilities {
         border-top-color: c.lesli-color(categorical-cyan, 500);
 
         .about-pillar-icon {
@@ -102,7 +102,7 @@
         }
     }
 
-    &.about-pillar--modular {
+    &.about-pillar--ownership {
         border-top-color: c.lesli-color(categorical-gold, 500);
 
         .about-pillar-icon {
@@ -199,15 +199,6 @@
         box-shadow: 0 1.5rem 4rem rgba(c.lesli-color(primary, 900), .1);
     }
 
-    figcaption {
-        max-width: 50rem;
-        margin: 1.25rem auto 0;
-        color: c.lesli-color(neutral, 600);
-        font-size: .95rem;
-        line-height: 1.65;
-        text-align: center;
-        text-wrap: pretty;
-    }
 }
 
 
@@ -237,46 +228,6 @@
         color: c.lesli-color(neutral, 700);
         font-size: 1.08rem;
         line-height: 1.75;
-    }
-}
-
-
-.about-steps {
-    display: grid;
-    gap: 1rem;
-    margin: 2rem 0 0;
-    padding: 0;
-    color: c.lesli-color(neutral, 700);
-    list-style: none;
-    counter-reset: about-step;
-
-    li {
-        position: relative;
-        min-height: 2.25rem;
-        padding-left: 3.25rem;
-        line-height: 1.6;
-        counter-increment: about-step;
-
-        &::before {
-            position: absolute;
-            top: -.15rem;
-            left: 0;
-            display: grid;
-            width: 2.25rem;
-            height: 2.25rem;
-            border-radius: .65rem;
-            color: c.lesli-color(primary, 700);
-            background-color: c.lesli-color(primary, 100);
-            content: counter(about-step, decimal-leading-zero);
-            font-size: .75rem;
-            font-weight: 800;
-            letter-spacing: .05em;
-            place-items: center;
-        }
-    }
-
-    strong {
-        color: c.lesli-color(neutral, 900);
     }
 }
 
@@ -333,64 +284,6 @@
 }
 
 
-.about-fit {
-    padding: 6.5rem 0;
-    border-top: 1px solid c.lesli-color(primary, 100);
-    border-bottom: 1px solid c.lesli-color(primary, 100);
-    background:
-        radial-gradient(circle at 50% 0, rgba(c.lesli-color(primary, 200), .32), transparent 30rem),
-        c.lesli-color(primary, 50);
-    text-align: center;
-
-    .container {
-        width: min(100%, 58rem);
-        margin: 0 auto;
-    }
-
-    > .container > p:not(.about-section-label) {
-        max-width: 48rem;
-        margin: 1.5rem auto 0;
-        color: c.lesli-color(neutral, 700);
-        font-size: 1.12rem;
-        line-height: 1.75;
-        text-wrap: pretty;
-    }
-}
-
-
-.about-actions {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: .75rem;
-    margin-top: 2rem;
-
-    a {
-        display: inline-flex;
-        min-height: 3.35rem;
-        align-items: center;
-        justify-content: center;
-        gap: .45rem;
-        padding: .9rem 1.35rem;
-        border-radius: .75rem;
-        transition: transform 160ms ease, box-shadow 160ms ease;
-
-        &:hover {
-            transform: translateY(-2px);
-        }
-
-        &:focus-visible {
-            outline: 3px solid rgba(c.lesli-color(primary, 400), .35);
-            outline-offset: 3px;
-        }
-    }
-
-    .button-primary {
-        box-shadow: 0 10px 24px rgba(c.lesli-color(primary, 700), .2);
-    }
-}
-
-
 @include c.lesli-breakpoint-mobile() {
     .about-header {
         min-height: auto;
@@ -436,19 +329,8 @@
         }
     }
 
-    .about-actions {
-        display: grid;
-        width: min(100%, 22rem);
-        grid-template-columns: 1fr;
-
-        a {
-            width: 100%;
-        }
-    }
-
     .about-explanation,
-    .about-use,
-    .about-fit {
+    .about-use {
         padding: 4.5rem 0;
     }
 
@@ -463,16 +345,5 @@
 
     .about-code {
         min-width: 0;
-    }
-}
-
-
-@media (prefers-reduced-motion: reduce) {
-    .about-actions a {
-        transition: none;
-
-        &:hover {
-            transform: none;
-        }
     }
 }
