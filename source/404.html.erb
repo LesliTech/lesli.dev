@@ -1,11 +1,49 @@
 ---
-title: Page not found
+title: "Page not found — Lesli"
+description: "The page you requested could not be found. Return home or explore the Lesli framework and documentation."
 layout: website
+noindex: true
 ---
 <%= partial("partials/lesli-navigation", :locals => { :logo => true }) %>
-<section class="lesli-404">
-    <img alt="404 cat" src="/images/cats/404.png" />
-    <h3>404</h3>
-    <p>PAGE NOT FOUND</p>
-    <a href="/">Take me home</a>
-</section>
+
+<main class="lesli-404">
+    <div class="container">
+        <div class="lesli-404-visual" aria-hidden="true">
+            <img alt="" src="/images/cats/404.png" />
+            <span>404</span>
+        </div>
+
+        <p class="lesli-404-eyebrow">Page not found</p>
+        <h1>This page wandered off.</h1>
+        <p class="lesli-404-introduction">
+            The address may be outdated, or the page may have moved. You can return home or continue exploring
+            Lesli from one of the sections below.
+        </p>
+
+        <div class="lesli-404-actions">
+            <a class="button-primary" href="/">
+                Go to the homepage
+                <span class="ri-arrow-right-line" aria-hidden="true"></span>
+            </a>
+            <a class="button-primary-ghost" href="/engines/lesli/start/">Read the documentation</a>
+        </div>
+
+        <nav class="lesli-404-links" aria-label="Explore Lesli">
+            <a href="/lesli/">
+                <span class="ri-layout-grid-line" aria-hidden="true"></span>
+                <strong>Framework</strong>
+                <small>Understand the foundation</small>
+            </a>
+            <a href="/engines/">
+                <span class="ri-stack-line" aria-hidden="true"></span>
+                <strong>Engines</strong>
+                <small>Explore ready-made modules</small>
+            </a>
+            <a href="/gems/">
+                <span class="ri-box-3-line" aria-hidden="true"></span>
+                <strong>Gems</strong>
+                <small>Discover reusable tools</small>
+            </a>
+        </nav>
+    </div>
+</main>

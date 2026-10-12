@@ -1,36 +1,228 @@
 @use "lib/component" as c;
 @use "lib/website";
 
-section.lesli-404 {
-    @include c.lesli-flex-center('vertical');
+
+.lesli-404 {
+    display: grid;
+    min-height: calc(100svh - #{c.$navigation-height});
+    padding: clamp(4rem, 8vw, 7rem) 0;
+    place-items: center;
     text-align: center;
-    min-height: calc(100vh - 160px);
+    background:
+        radial-gradient(circle at 50% 38%, rgba(c.lesli-color(primary, 100), .9), transparent 25rem),
+        #ffffff;
+
+    > .container {
+        width: min(100%, 64rem);
+        margin: 0 auto;
+    }
+}
+
+
+.lesli-404-visual {
+    position: relative;
+    display: grid;
+    width: min(100%, 28rem);
+    min-height: 13rem;
+    align-items: end;
+    justify-items: center;
+    margin: 0 auto;
 
     img {
-        width:150px;
-        margin: 0 auto 0rem;
+        position: relative;
+        z-index: 1;
+        display: block;
+        width: clamp(9rem, 18vw, 12rem);
+        height: auto;
+        filter: drop-shadow(0 1.25rem 1.5rem rgba(c.lesli-color(primary, 900), .13));
     }
 
-    h3 {
-        margin: 1.6rem 0 1.2rem;
-        font-size: 5rem;
-        color: c.lesli-color(slate);
+    span {
+        position: absolute;
+        inset: 50% auto auto 50%;
+        color: c.lesli-color(primary, 100);
+        font-family: "Domine", serif;
+        font-size: clamp(8rem, 18vw, 13rem);
+        font-weight: 900;
+        line-height: .8;
+        letter-spacing: -.08em;
+        transform: translate(-50%, -50%);
     }
+}
 
-    p {
-        font-size: 1.8rem;
-        margin-bottom: 1.6rem;
-        color: c.lesli-color(slate, 700);
-    }
+
+.lesli-404-eyebrow {
+    display: inline-flex;
+    margin: 1rem 0 1.15rem;
+    padding: .42rem .8rem;
+    border: 1px solid c.lesli-color(primary, 200);
+    border-radius: 999px;
+    color: c.lesli-color(primary, 700);
+    background-color: rgba(c.lesli-color(primary, 100), .72);
+    font-size: .82rem;
+    font-weight: 750;
+    letter-spacing: .09em;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+
+.lesli-404 h1 {
+    max-width: 46rem;
+    margin: 0 auto;
+    color: c.lesli-color(neutral, 900);
+    font-size: clamp(2.7rem, 6vw, 4.5rem);
+    font-weight: 900;
+    letter-spacing: -.04em;
+    line-height: 1.05;
+    text-wrap: balance;
+}
+
+
+.lesli-404-introduction {
+    max-width: 43rem;
+    margin: 1.4rem auto 0;
+    color: c.lesli-color(neutral, 700);
+    font-size: clamp(1.05rem, 2vw, 1.2rem);
+    line-height: 1.7;
+    text-wrap: balance;
+}
+
+
+.lesli-404-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .75rem;
+    margin-top: 2rem;
 
     a {
-        color: c.lesli-color(lesli, primary);
-        border: 1px solid c.lesli-color(lesli, primary);
-        transition: all linear .3s;
-        border-radius: 1.1rem;
-        font-weight: bold;
-        font-size: .9rem;
-        padding: .4rem 1.2rem;
+        display: inline-flex;
+        min-height: 3.4rem;
+        align-items: center;
+        justify-content: center;
+        gap: .55rem;
+        padding: .9rem 1.35rem;
+        border-radius: .75rem;
         text-decoration: none;
+        transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+
+        &:hover {
+            transform: translateY(-2px);
+        }
+
+        &:focus-visible {
+            outline: 3px solid rgba(13, 82, 191, .24);
+            outline-offset: 3px;
+        }
+    }
+
+    .button-primary {
+        box-shadow: 0 .65rem 1.5rem rgba(13, 82, 191, .2);
+    }
+}
+
+
+.lesli-404-links {
+    display: grid;
+    max-width: 56rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: .75rem;
+    margin: 3rem auto 0;
+
+    a {
+        display: grid;
+        grid-template-columns: 2.6rem minmax(0, 1fr);
+        grid-template-rows: auto auto;
+        column-gap: .85rem;
+        align-items: center;
+        padding: 1rem;
+        border: 1px solid c.lesli-color(neutral, 200);
+        border-radius: .9rem;
+        color: c.lesli-color(neutral, 900);
+        background-color: rgba(255, 255, 255, .9);
+        text-align: left;
+        text-decoration: none;
+        transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+
+        > span {
+            display: grid;
+            width: 2.6rem;
+            height: 2.6rem;
+            grid-row: 1 / 3;
+            border-radius: .7rem;
+            color: c.lesli-color(primary, 700);
+            background-color: c.lesli-color(primary, 100);
+            place-items: center;
+            font-size: 1.2rem;
+        }
+
+        strong {
+            align-self: end;
+            font-family: "Domine", serif;
+            line-height: 1.25;
+        }
+
+        small {
+            align-self: start;
+            color: c.lesli-color(neutral, 600);
+            font-size: .88rem;
+            line-height: 1.35;
+        }
+
+        &:hover {
+            border-color: c.lesli-color(primary, 300);
+            box-shadow: 0 .8rem 2rem rgba(c.lesli-color(primary, 900), .08);
+            transform: translateY(-2px);
+        }
+
+        &:focus-visible {
+            outline: 3px solid rgba(13, 82, 191, .24);
+            outline-offset: 3px;
+        }
+    }
+}
+
+
+@include c.lesli-breakpoint-mobile() {
+    .lesli-404 {
+        min-height: auto;
+        padding: 3.5rem 0 4.5rem;
+    }
+
+    .lesli-404-visual {
+        min-height: 10rem;
+    }
+
+    .lesli-404-actions,
+    .lesli-404-links {
+        width: min(100%, 23rem);
+        grid-template-columns: 1fr;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .lesli-404-actions {
+        display: grid;
+
+        a {
+            width: 100%;
+        }
+    }
+
+    .lesli-404-links {
+        margin-top: 2.5rem;
+    }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+    .lesli-404-actions a,
+    .lesli-404-links a {
+        transition: none;
+
+        &:hover {
+            transform: none;
+        }
     }
 }
