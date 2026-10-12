@@ -5,7 +5,7 @@
 .lesli-404 {
     display: grid;
     min-height: calc(100svh - #{c.$navigation-height});
-    padding: clamp(4rem, 8vw, 7rem) 0;
+    padding: clamp(3rem, 5vw, 5rem) 0;
     place-items: center;
     text-align: center;
     background:
@@ -23,7 +23,7 @@
     position: relative;
     display: grid;
     width: min(100%, 28rem);
-    min-height: 13rem;
+    min-height: 10.5rem;
     align-items: end;
     justify-items: center;
     margin: 0 auto;
@@ -32,7 +32,7 @@
         position: relative;
         z-index: 1;
         display: block;
-        width: clamp(9rem, 18vw, 12rem);
+        width: clamp(8rem, 15vw, 10.5rem);
         height: auto;
         filter: drop-shadow(0 1.25rem 1.5rem rgba(c.lesli-color(primary, 900), .13));
     }
@@ -42,7 +42,7 @@
         inset: 50% auto auto 50%;
         color: c.lesli-color(primary, 100);
         font-family: "Domine", serif;
-        font-size: clamp(8rem, 18vw, 13rem);
+        font-size: clamp(8rem, 16vw, 11rem);
         font-weight: 900;
         line-height: .8;
         letter-spacing: -.08em;
@@ -53,7 +53,7 @@
 
 .lesli-404-eyebrow {
     display: inline-flex;
-    margin: 1rem 0 1.15rem;
+    margin: .75rem 0 1rem;
     padding: .42rem .8rem;
     border: 1px solid c.lesli-color(primary, 200);
     border-radius: 999px;
@@ -71,7 +71,7 @@
     max-width: 46rem;
     margin: 0 auto;
     color: c.lesli-color(neutral, 900);
-    font-size: clamp(2.7rem, 6vw, 4.5rem);
+    font-size: clamp(2.7rem, 5.5vw, 4.1rem);
     font-weight: 900;
     letter-spacing: -.04em;
     line-height: 1.05;
@@ -81,7 +81,7 @@
 
 .lesli-404-introduction {
     max-width: 43rem;
-    margin: 1.4rem auto 0;
+    margin: 1.15rem auto 0;
     color: c.lesli-color(neutral, 700);
     font-size: clamp(1.05rem, 2vw, 1.2rem);
     line-height: 1.7;
@@ -94,7 +94,7 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: .75rem;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
 
     a {
         display: inline-flex;

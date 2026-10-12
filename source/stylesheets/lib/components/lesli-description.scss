@@ -101,6 +101,31 @@ section.lesli-component-description {
             }
         }
     }
+
+    .foundation-architecture-link {
+        margin-top: 2rem;
+        text-align: center;
+
+        a {
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            color: c.lesli-color(primary, 700);
+            font-weight: 600;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+                text-underline-offset: .2em;
+            }
+
+            &:focus-visible {
+                border-radius: .2rem;
+                outline: 3px solid rgba(13, 82, 191, .22);
+                outline-offset: 4px;
+            }
+        }
+    }
 }
 
 
@@ -120,6 +145,10 @@ section.lesli-component-description {
 
         .column a {
             padding: 1.5rem;
+        }
+
+        .foundation-architecture-link {
+            margin-top: 1.75rem;
         }
     }
 }
