@@ -3,7 +3,7 @@
 @use "lib/component" as c;
 
 
-// · A short, symmetrical explanation of Lesli.
+// · The story and principles behind Lesli.
 .about-header {
     display: grid;
     min-height: min(820px, 100svh);
@@ -41,7 +41,7 @@
     }
 
     h1 {
-        max-width: 58rem;
+        max-width: 61rem;
         margin: 0;
         color: c.lesli-color(neutral, 900);
         font-size: clamp(2.65rem, 5.5vw, 4.65rem);
@@ -52,7 +52,7 @@
     }
 
     .about-introduction {
-        max-width: 48rem;
+        max-width: 50rem;
         margin: 1.75rem auto 0;
         color: c.lesli-color(neutral, 700);
         font-size: clamp(1.1rem, 2vw, 1.3rem);
@@ -72,6 +72,7 @@
     list-style: none;
 }
 
+
 .about-pillar {
     display: grid;
     min-height: 12rem;
@@ -84,7 +85,7 @@
     background-color: rgba(255, 255, 255, .9);
     box-shadow: 0 1rem 2.5rem rgba(c.lesli-color(primary, 700), .07);
 
-    &.about-pillar--product {
+    &.about-pillar--open {
         border-top-color: c.lesli-color(primary, 500);
 
         .about-pillar-icon {
@@ -93,7 +94,7 @@
         }
     }
 
-    &.about-pillar--capabilities {
+    &.about-pillar--rails {
         border-top-color: c.lesli-color(categorical-cyan, 500);
 
         .about-pillar-icon {
@@ -129,7 +130,7 @@
     }
 
     > span:last-child {
-        max-width: 17rem;
+        max-width: 18rem;
         margin-top: .55rem;
         color: c.lesli-color(neutral, 600);
         line-height: 1.55;
@@ -140,13 +141,11 @@
 
 .about-content {
     h2 {
-        max-width: 46rem;
-        margin: 0 auto;
+        margin: 0;
         color: c.lesli-color(neutral, 900);
         font-size: clamp(2rem, 4vw, 3rem);
         line-height: 1.15;
         letter-spacing: -.025em;
-        text-align: center;
         text-wrap: balance;
     }
 }
@@ -158,132 +157,146 @@
     font-size: .85rem;
     font-weight: 750;
     letter-spacing: .09em;
-    text-align: center;
     text-transform: uppercase;
 }
 
 
-.about-explanation {
+.about-purpose {
     padding: 7rem 0;
     background-color: #ffffff;
 
     .container {
-        width: min(100%, 76rem);
+        width: min(100%, 60rem);
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    h2 {
+        max-width: 50rem;
         margin: 0 auto;
     }
 }
 
 
-.about-explanation-copy {
+.about-purpose-copy {
     max-width: 50rem;
-    margin: 1.5rem auto 0;
+    margin: 1.75rem auto 0;
     color: c.lesli-color(neutral, 700);
     font-size: 1.12rem;
-    line-height: 1.75;
-    text-align: center;
+    line-height: 1.8;
     text-wrap: pretty;
-}
 
-
-.about-diagram {
-    max-width: 75rem;
-    margin: 3rem auto 0;
-
-    img {
-        display: block;
-        width: 100%;
-        height: auto;
-        border: 1px solid c.lesli-color(primary, 100);
-        border-radius: 1.25rem;
-        background-color: c.lesli-color(primary, 50);
-        box-shadow: 0 1.5rem 4rem rgba(c.lesli-color(primary, 900), .1);
+    p {
+        margin: 0;
     }
 
+    p + p {
+        margin-top: 1rem;
+    }
 }
 
 
-.about-use {
+.about-editorial {
     padding: 6.5rem 0;
     border-top: 1px solid c.lesli-color(neutral, 200);
+    border-bottom: 1px solid c.lesli-color(neutral, 200);
     background-color: c.lesli-color(neutral, 50);
 
     .container {
-        display: grid;
-        width: min(100%, 68rem);
-        grid-template-columns: minmax(0, 1fr) minmax(22rem, .9fr);
-        align-items: center;
-        gap: clamp(3rem, 7vw, 6rem);
+        width: min(100%, 72rem);
         margin: 0 auto;
     }
+}
 
-    .about-section-label,
-    h2 {
-        margin-right: 0;
-        margin-left: 0;
-        text-align: left;
+
+.about-editorial-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+
+    article {
+        padding: clamp(2rem, 4vw, 3rem);
+        border: 1px solid c.lesli-color(neutral, 200);
+        border-radius: 1.25rem;
+        background-color: #ffffff;
+        box-shadow: 0 1rem 3rem rgba(c.lesli-color(primary, 900), .06);
     }
 
-    .about-use-copy > p:not(.about-section-label) {
-        margin: 1.5rem 0 0;
+    h2 {
+        font-size: clamp(1.8rem, 3vw, 2.35rem);
+    }
+
+    article > p:last-child {
+        margin: 1.35rem 0 0;
         color: c.lesli-color(neutral, 700);
         font-size: 1.08rem;
         line-height: 1.75;
+        text-wrap: pretty;
     }
 }
 
 
-.about-code {
-    overflow: hidden;
-    border: 1px solid rgba(c.lesli-color(primary, 300), .35);
-    border-radius: 1rem;
-    color: c.lesli-color(primary, 100);
-    background-color: c.lesli-color(primary, 900);
-    box-shadow: 0 1.5rem 3.5rem rgba(c.lesli-color(primary, 900), .2);
+.about-closing {
+    padding: 7rem 0;
+    text-align: center;
+    background:
+        radial-gradient(circle at 50% 50%, rgba(c.lesli-color(primary, 100), .8), transparent 32rem),
+        #ffffff;
 
-    .about-code-heading {
-        display: flex;
+    .container {
+        width: min(100%, 52rem);
+        margin: 0 auto;
+    }
+
+    h2 {
+        margin: 0 auto;
+    }
+
+    .container > p:not(.about-section-label) {
+        max-width: 42rem;
+        margin: 1.35rem auto 0;
+        color: c.lesli-color(neutral, 700);
+        font-size: 1.12rem;
+        line-height: 1.7;
+    }
+}
+
+
+.about-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .75rem;
+    margin-top: 2rem;
+
+    a {
+        display: inline-flex;
+        min-height: 3.4rem;
         align-items: center;
-        justify-content: space-between;
-        padding: .85rem 1.15rem;
-        border-bottom: 1px solid rgba(255, 255, 255, .12);
-        color: c.lesli-color(primary, 200);
-        font-size: .75rem;
-        font-weight: 750;
-        letter-spacing: .08em;
-        text-transform: uppercase;
-    }
-
-    pre {
-        overflow-x: auto;
-        margin: 0;
-        padding: 1.5rem;
-        background: transparent;
-    }
-
-    code {
-        color: #ffffff;
-        font-size: .92rem;
-        line-height: 1.85;
-    }
-
-    > a {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 1rem 1.15rem;
-        border-top: 1px solid rgba(255, 255, 255, .12);
-        color: c.lesli-color(primary, 100);
-        font-weight: 700;
+        justify-content: center;
+        gap: .55rem;
+        padding: .9rem 1.35rem;
+        border-radius: .75rem;
         text-decoration: none;
+        transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
 
         &:hover {
-            color: #ffffff;
-            background-color: rgba(255, 255, 255, .06);
+            transform: translateY(-2px);
         }
+
+        &:focus-visible {
+            outline: 3px solid rgba(13, 82, 191, .24);
+            outline-offset: 3px;
+        }
+    }
+
+    .button-primary {
+        box-shadow: 0 10px 24px rgba(13, 82, 191, .2);
     }
 }
 
 
+// ·
 @include c.lesli-breakpoint-mobile() {
     .about-header {
         min-height: auto;
@@ -298,8 +311,12 @@
         }
     }
 
-    .about-pillars {
+    .about-pillars,
+    .about-editorial-grid {
         grid-template-columns: 1fr;
+    }
+
+    .about-pillars {
         gap: .75rem;
         margin-top: 2.25rem;
     }
@@ -329,21 +346,32 @@
         }
     }
 
-    .about-explanation,
-    .about-use {
-        padding: 4.5rem 0;
+    .about-purpose,
+    .about-editorial,
+    .about-closing {
+        padding: 4.75rem 0;
     }
 
-    .about-diagram {
-        margin-top: 2.5rem;
-    }
-
-    .about-use .container {
+    .about-actions {
+        display: grid;
+        width: min(100%, 22rem);
         grid-template-columns: 1fr;
-        gap: 2.5rem;
-    }
+        margin-right: auto;
+        margin-left: auto;
 
-    .about-code {
-        min-width: 0;
+        a {
+            width: 100%;
+        }
+    }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+    .about-actions a {
+        transition: none;
+
+        &:hover {
+            transform: none;
+        }
     }
 }

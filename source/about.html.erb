@@ -1,83 +1,95 @@
 ---
-title: "What is Lesli? — Build SaaS and Business Software with Rails"
-description: "Lesli is an open-source Rails framework that provides a modular foundation and reusable capabilities for building SaaS and business software."
+title: "About Lesli — Why We Built a Modular Rails Framework"
+description: "Learn why Lesli exists, the principles behind it, who it is for, and how it helps teams build software they can own and evolve."
 ---
 
 <header class="about-header">
     <%= partial("partials/lesli-navigation", locals: { logo: true }) %>
 
     <div class="container about-hero">
-        <p class="about-eyebrow">Lesli in one minute</p>
-        <h1>Build SaaS and business software <span class="lesli-title-colored">without rebuilding the foundation.</span></h1>
+        <p class="about-eyebrow">About Lesli</p>
+        <h1>A better foundation for teams <span class="lesli-title-colored">building software for the long term.</span></h1>
         <p class="about-introduction">
-            Lesli is an open-source framework that adds a modular foundation to a Ruby on Rails application.
-            Your team gets reusable building blocks while owning the code, data, and product.
+            Lesli exists so teams can spend less time rebuilding common application infrastructure and more time
+            creating the workflows, experiences, and value that make their product different.
         </p>
 
-        <ul class="about-pillars" aria-label="What Lesli provides">
-            <li class="about-pillar about-pillar--product">
-                <span class="about-pillar-icon ri-code-s-slash-line" aria-hidden="true"></span>
-                <strong>Build real products</strong>
-                <span>Create SaaS platforms, internal tools, customer portals, and workflow systems.</span>
+        <ul class="about-pillars" aria-label="Principles behind Lesli">
+            <li class="about-pillar about-pillar--open">
+                <span class="about-pillar-icon ri-open-source-line" aria-hidden="true"></span>
+                <strong>Open source by default</strong>
+                <span>Use, inspect, adapt, and contribute to Lesli under the GPLv3 license.</span>
             </li>
-            <li class="about-pillar about-pillar--capabilities">
-                <span class="about-pillar-icon ri-stack-line" aria-hidden="true"></span>
-                <strong>Reuse the essentials</strong>
-                <span>Add modules for access control, auditing, notifications, administration, and more.</span>
+            <li class="about-pillar about-pillar--rails">
+                <span class="about-pillar-icon ri-code-box-line" aria-hidden="true"></span>
+                <strong>Rails-native</strong>
+                <span>Work with standard Rails applications, engines, conventions, and tools.</span>
             </li>
             <li class="about-pillar about-pillar--ownership">
                 <span class="about-pillar-icon ri-box-3-line" aria-hidden="true"></span>
-                <strong>Own the result</strong>
-                <span>Choose what you need and keep your workflows, integrations, brand, and data.</span>
+                <strong>Built to be owned</strong>
+                <span>Your code, data, workflows, integrations, and roadmap remain yours.</span>
             </li>
         </ul>
-
     </div>
 </header>
 
 <main class="about-content">
-    <section class="about-explanation">
+    <section class="about-purpose">
         <div class="container">
-            <p class="about-section-label">How Lesli helps</p>
-            <h2>A shared foundation. A product that stays yours.</h2>
-            <p class="about-explanation-copy">
-                Start with a normal Rails application. Lesli Core provides the shared structure. Ready-made modules
-                add common capabilities; custom modules contain the workflows unique to your product. Lesli handles
-                the repeatable foundation so your team can focus on how the business works.
-            </p>
-
-            <figure class="about-diagram">
-                <img
-                    src="/images/engines/lesli/structure.excalidraw.svg"
-                    alt="Three-step diagram showing a Rails application using Lesli Core and optional modules to become an owned SaaS product"
-                    loading="lazy"
-                />
-            </figure>
+            <p class="about-section-label">Why Lesli exists</p>
+            <h2>Build the product—not the same foundation again.</h2>
+            <div class="about-purpose-copy">
+                <p>
+                    Business software repeatedly needs accounts, users, permissions, navigation, auditing,
+                    notifications, shared interface patterns, and other essential capabilities.
+                </p>
+                <p>
+                    Lesli turns those repeatable concerns into a shared foundation and modular capabilities, so teams
+                    can focus on the business model, workflows, and customer experience that make each product unique.
+                </p>
+            </div>
         </div>
     </section>
 
-    <section class="about-use">
+    <section class="about-editorial">
         <div class="container">
-            <div class="about-use-copy">
-                <p class="about-section-label">For developers</p>
-                <h2>From Rails app to Lesli in three commands.</h2>
-                <p>
-                    Install the core, prepare its database, and then add only the official or custom modules your
-                    product needs.
-                </p>
-            </div>
+            <div class="about-editorial-grid">
+                <article>
+                    <p class="about-section-label">Who it is for</p>
+                    <h2>Teams building software that will evolve.</h2>
+                    <p>
+                        Lesli fits multi-account SaaS products, internal operations platforms, customer portals,
+                        workflow applications, and custom business systems—especially when roles, domains,
+                        integrations, and history grow over time.
+                    </p>
+                </article>
 
-            <div class="about-code" aria-label="Lesli quick start commands">
-                <div class="about-code-heading">
-                    <span>Quick start</span>
-                    <span>Terminal</span>
-                </div>
-                <pre><code>bundle add lesli
-bin/rails generate lesli:install
-bin/rails lesli:db:prepare</code></pre>
-                <a href="/engines/lesli/start/">
-                    Read the full installation guide
+                <article>
+                    <p class="about-section-label">What it is—and isn't</p>
+                    <h2>A framework, not a finished product.</h2>
+                    <p>
+                        Lesli is not a hosted service, no-code builder, admin template, or one-time boilerplate. It is
+                        installed in a Rails application, where you choose official or custom modules and shape them
+                        around the product you need to build.
+                    </p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-closing">
+        <div class="container">
+            <p class="about-section-label">The idea</p>
+            <h2>Start with structure. Keep control.</h2>
+            <p>Use the foundation, add only what your product needs, and keep ownership of what you build.</p>
+            <div class="about-actions">
+                <a class="button-primary" href="/#how-lesli-works">
+                    See how Lesli works
                     <span class="ri-arrow-right-line" aria-hidden="true"></span>
+                </a>
+                <a class="button-primary-ghost" href="/engines/lesli/about/architecture/">
+                    Explore the architecture
                 </a>
             </div>
         </div>
