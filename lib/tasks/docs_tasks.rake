@@ -45,11 +45,6 @@ task :docs do
     images
     documentation
     documentation_replaces
-
-    # FileUtils.cp(
-    #     '../lesli-docker-demo/templates/lesli_demo_template.rb', 
-    #     'source/rails/template-dev.rb'
-    # )
 end
 
 def get_engine_name(file)
