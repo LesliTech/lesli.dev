@@ -11,10 +11,10 @@
 <br />
 
 <div align="center">
-    <a target="_blank" href="https://github.com/LesliTech/Lesli/actions/workflows/lesli-ci-tests.yaml">
+    <a target="_blank" href="https://github.com/LesliTech/Lesli/actions/workflows/lesli-ci-engine.yaml">
         <img
             alt="Lesli test status"
-            src="https://img.shields.io/github/actions/workflow/status/LesliTech/Lesli/lesli-ci-tests.yaml?branch=master&style=for-the-badge&logo=github&label=tests">
+            src="https://img.shields.io/github/actions/workflow/status/LesliTech/Lesli/lesli-ci-engine.yaml?branch=master&style=for-the-badge&logo=github&label=tests">
     </a>
     <a target="_blank" href="https://rubygems.org/gems/lesli">
         <img alt="Gem Version" src="https://img.shields.io/gem/v/lesli?style=for-the-badge&logo=ruby">
@@ -224,7 +224,7 @@ The complete license text is available in the [license file](./license).
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/09/15</p>
+    <p><b>Last Update: </b>2026/10/20</p>
 </section>
 
 <!-- This code was automatically generated -->
