@@ -24,18 +24,19 @@ QUIET=true bundle exec rake
 
 ## Coverage
 
-Coverage is disabled during ordinary test runs. Set `COVERAGE` to any value to start SimpleCov:
+Coverage is disabled during ordinary test runs. Set `COVERAGE` to `true`, `1`, or `yes` to start SimpleCov:
 
 ```shell
 COVERAGE=true bundle exec rake
 ```
+
+When coverage is enabled, requiring `lesli_testing` starts Ruby's line coverage before the LesliTesting implementation, Rails, or the project under test is loaded. The subsequent `LesliTesting.app`, `LesliTesting.engine`, or `LesliTesting.gem` call applies the selected SimpleCov profile, formatters, and minimum threshold.
 
 Every coverage run produces:
 
 | Format | Output |
 | --- | --- |
 | Console | Summary in the test command output |
-| HTML | `coverage/index.html` |
 | Cobertura | `coverage/coverage.xml` |
 
 The minimum line-coverage threshold defaults to 90 percent. Configure it for a suite with `coverage_min_coverage`:
@@ -64,14 +65,30 @@ Set it to `0` to remove the limit.
 
 | Variable | Behavior |
 | --- | --- |
-| `COVERAGE` | Enables SimpleCov and all three coverage formatters. |
-| `QUIET` | Hides individual test-result lines from the custom reporter. |
+| `COVERAGE` | Enables SimpleCov with the console and Cobertura formatters when set to `true`, `1`, or `yes`. |
+| `QUIET` | Hides individual test-result lines from the custom reporter when set to `true`, `1`, or `yes`. |
 
-`COVERAGE` and `QUIET` are enabled by presence. Do not set them to `false`; leave them unset when the behavior should be disabled.
+Values are case-insensitive and surrounding whitespace is ignored. Only `true`, `1`, and `yes` enable these options. Unset variables and values such as `false`, `0`, and `no` leave them disabled.
+
+`COVERAGE` is evaluated when `lesli_testing` is required, so it must be set
+before the Ruby process starts. `QUIET` changes reporter output only; it does not
+change assertions, summaries, coverage, or exit codes.
+
+## Process exit codes
+
+| Code | Meaning |
+| ---: | --- |
+| `0` | Tests passed; skipped tests are allowed. |
+| `1` | Failure, unexpected exception, warning promoted with `-Werror`, or explicit filter with no matching tests. |
+| `2` | SimpleCov result below `coverage_min_coverage`. |
+
+Other boot, dependency, signal, or operating-system failures may use other
+non-zero codes. See [Load order and process behavior](/gems/testing/about/execution)
+for the complete lifecycle.
 
 ## Shared Rails test classes
 
-The shared classes are defined only when their corresponding Rails classes have already been loaded. Engine suites should run through `bundle exec rails test` or `bundle exec rake app:test`, which initializes the Rails testing framework before loading test files.
+The shared classes are registered through ActiveSupport load hooks. They are created when `rails/test_help` loads their corresponding Rails classes, regardless of whether LesliTesting was configured before or after the Rails application booted. Engine suites should still run through `bundle exec rails test` or `bundle exec rake app:test`.
 
 ### IntegrationTester
 
@@ -82,7 +99,7 @@ class AccountsControllerTest < LesliTesting::IntegrationTester
   test "returns JSON" do
     get accounts_url, as: :json
 
-    expect_response_with_successful
+    assert_successful_json_response
     assert_kind_of Array, response_json
   end
 end
@@ -92,8 +109,9 @@ Available helpers:
 
 | Helper | Behavior |
 | --- | --- |
-| `response_json` | Parses the response body with `JSON.parse`; a blank body becomes an empty hash. |
-| `expect_response_with_successful` | Asserts a successful response and the `application/json; charset=utf-8` content type. |
+| `response_json(response = self.response)` | Parses the public response body with `JSON.parse`; a blank body becomes an empty hash. An explicit response may be supplied. |
+| `assert_successful_json_response(response = self.response)` | Asserts a successful response and the `application/json` media type, independently of its charset. |
+| `expect_response_with_successful(response = self.response)` | Compatibility wrapper for `assert_successful_json_response`. |
 
 ### ModelTester
 
@@ -121,22 +139,35 @@ class NavigationHelperTest < LesliTesting::ViewTester
 end
 ```
 
-## Lesli fixtures
+## Engine fixtures and migrations
 
-When `Lesli` is loaded, LesliTesting registers the Lesli engine's fixture directory and file-fixture directory with `ActiveSupport::TestCase`. It also maps these fixture sets to their namespaced models:
+For the engine profile, LesliTesting waits for Rails to load and then resolves the owner from the name passed to `LesliTesting.engine`. With a conventional engine layout it automatically registers:
+
+- the owner's `test/fixtures` and `test/fixtures/files` directories;
+- shared fixtures from `Lesli`;
+- the dummy application's, owner engine's, and shared Lesli migration directories;
+- all fixtures on `ActiveSupport::TestCase` and their paths on integration tests.
+
+The migration Railtie runs only when `Rails.env.test?`. The engine name is the default target; use `engine:` when the reporter name and engine constant differ:
+
+```ruby
+LesliTesting.engine("My engine tests", engine: "MyEngine")
+```
+
+`Lesli` is always the shared base for Rails application and engine profiles. Additional values passed through `shared:` are appended without removing it. LesliTesting maps these fixture sets to their namespaced models:
 
 | Fixture set | Model |
 | --- | --- |
 | `lesli_users` | `Lesli::User` |
 | `lesli_accounts` | `Lesli::Account` |
 
-The fixture integration runs during configuration. Load the Rails environment and the Lesli engine before calling the profile method when the suite depends on these shared fixtures.
+Fixture paths and classes are applied through Rails load hooks. Migration paths are added during the dummy application's test boot and again when Active Record becomes available; both operations preserve and de-duplicate existing paths. This allows coverage to start before Rails without losing test data configuration.
 
-Engine-specific fixture paths remain the responsibility of the engine test helper. See [Testing Rails engines](/gems/testing/testing/engines) for an example.
+Custom owners, paths, shared engines, fixture sets, model mappings, and migration paths can be supplied through the `fixtures:` and `migrations:` options. See [Testing Rails engines](/gems/testing/testing/engines) for the complete configuration.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliTesting/tree/master/docs/about/tools.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/10</p>
+    <p><b>Last Update: </b>2026/10/20</p>
 </section>
 
 <!-- This code was automatically generated -->

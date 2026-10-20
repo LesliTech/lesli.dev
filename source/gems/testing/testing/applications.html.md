@@ -9,14 +9,15 @@ A conventional `test/test_helper.rb` is:
 ```ruby
 ENV["RAILS_ENV"] ||= "test"
 
-require_relative "../config/environment"
-require "rails/test_help"
 require "lesli_testing"
 
 LesliTesting.app(
   "LesliBuilder",
   coverage_min_coverage: 90
 )
+
+require_relative "../config/environment"
+require "rails/test_help"
 
 module ActiveSupport
   class TestCase
@@ -25,7 +26,10 @@ module ActiveSupport
 end
 ```
 
-Loading `rails/test_help` first makes the LesliTesting Rails base classes available. Keep the configuration before any explicit `require` calls that load application components solely for the test suite.
+LesliTesting starts coverage before the application boots, registers its Minitest reporter, and then waits for Rails load hooks. Requiring `rails/test_help` creates the shared Rails base classes before the test files are loaded.
+
+Keep this order unchanged: loading `config/environment` before LesliTesting
+prevents coverage from observing application and engine boot code.
 
 ## Application coverage profile
 
@@ -69,7 +73,7 @@ class AccountsControllerTest < LesliTesting::IntegrationTester
   test "returns the accounts collection" do
     get accounts_url, as: :json
 
-    expect_response_with_successful
+    assert_successful_json_response
     assert_kind_of Array, response_json
   end
 end
@@ -90,7 +94,7 @@ Coverage output is written under `coverage/` in the directory where the test pro
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliTesting/tree/master/docs/testing/applications.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/06</p>
+    <p><b>Last Update: </b>2026/10/20</p>
 </section>
 
 <!-- This code was automatically generated -->

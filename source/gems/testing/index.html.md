@@ -8,8 +8,8 @@
 <br />
 
 <div align="center">
-    <a target="_blank" href="https://github.com/LesliTech/LesliTesting/actions/workflows/main.yml">
-        <img alt="LesliTesting test status" src="https://img.shields.io/github/actions/workflow/status/LesliTech/LesliTesting/main.yml?branch=main&style=for-the-badge&logo=github&label=tests">
+    <a target="_blank" href="https://github.com/LesliTech/LesliTesting/actions/workflows/lesli-ci-gem.yaml">
+        <img alt="LesliTesting test status" src="https://img.shields.io/github/actions/workflow/status/LesliTech/LesliTesting/lesli-ci-gem.yaml?branch=master&style=for-the-badge&logo=github&label=tests">
     </a>
     <a target="_blank" href="https://rubygems.org/gems/lesli_testing">
         <img alt="Gem Version" src="https://img.shields.io/gem/v/lesli_testing?style=for-the-badge&logo=ruby">
@@ -49,14 +49,14 @@ It standardizes Minitest output, SimpleCov profiles, coverage reports, and fixtu
 
 - Coverage profiles for Rails applications, Rails engines, and Ruby gems
 - A human-friendly Minitest reporter with per-test timing and failure details
-- SimpleCov HTML, console, and Cobertura reports
+- SimpleCov console and Cobertura reports
 - Configurable minimum coverage thresholds
 - Shared base classes for integration, model, and view tests
-- Automatic access to Lesli fixtures in Rails test cases
+- Automatic engine, shared Lesli fixture, and migration paths
 
 <br />
 
-## Quick Start
+## Quick start
 
 Add LesliTesting to the test group:
 
@@ -64,17 +64,48 @@ Add LesliTesting to the test group:
 bundle add lesli_testing --group test
 ```
 
-Require the gem from `test/test_helper.rb` and select exactly one profile for the project:
+Require the gem from `test/test_helper.rb` and select exactly one profile for
+the project. Configure LesliTesting before loading Rails or the library under
+test.
+
+### Rails application
 
 ```ruby
-require "lesli_testing"
+ENV["RAILS_ENV"] ||= "test"
 
-LesliTesting.app("LesliBuilder")       # Rails application
-# LesliTesting.engine("LesliShield")  # Rails engine
-# LesliTesting.gem("LesliDate")       # Standalone Ruby gem
+require "lesli_testing"
+LesliTesting.app("LesliBuilder", coverage_min_coverage: 90)
+
+require_relative "../config/environment"
+require "rails/test_help"
 ```
 
-Load LesliTesting before the code under test when coverage is enabled. Engine suites that use the shared Rails test classes should run through `bundle exec rails test` or `bundle exec rake app:test`.
+### Rails engine
+
+```ruby
+ENV["RAILS_ENV"] ||= "test"
+
+require "lesli_testing"
+LesliTesting.engine("LesliShield", coverage_min_coverage: 90)
+
+require_relative "dummy/config/environment"
+require "rails/test_help"
+```
+
+### Standalone Ruby gem
+
+```ruby
+$LOAD_PATH.unshift File.expand_path("../lib", __dir__)
+
+require "lesli_testing"
+LesliTesting.gem("Termline", coverage_min_coverage: 90)
+
+require "minitest/autorun"
+require "termline"
+```
+
+Engine suites that use the shared Rails test classes should run through
+`bundle exec rails test` or `bundle exec rake app:test`.
 
 Rails engines should keep a complete generated dummy application and verify eager loading locally before pushing:
 
@@ -84,7 +115,31 @@ CI=true bundle exec rails test
 
 LesliTesting does not provide an engine's runtime dependencies. Declare dependencies such as `lesli` explicitly in the engine gemspec and Gemfile so local and CI dependency resolution match.
 
-Run the suite normally or enable coverage with `COVERAGE`:
+For Rails applications and engines, `Lesli` is always included as the shared testing base. Engine profiles use the configured engine name to discover its `Engine` class after the dummy application boots and register the target and Lesli fixture and migration paths. Migration paths are modified only in the test environment. Pure Ruby gems remain independent from Rails and Lesli integrations.
+
+## Definitive load order
+
+LesliTesting initializes in five phases:
+
+1. `require "lesli_testing"` reads `COVERAGE` and starts native Ruby line
+   coverage immediately when enabled.
+2. `LesliTesting.app`, `.engine`, or `.gem` selects the profile, attaches
+   SimpleCov, and registers the Minitest reporter.
+3. Rails applications and engines boot their environment. ActiveSupport load
+   hooks install fixtures and shared test classes; the engine Railtie registers
+   migration paths only in the test environment.
+4. `rails/test_help` or `minitest/autorun` loads Minitest and the test files.
+   LesliTesting replaces any previously registered reporter when Minitest starts.
+5. At process exit, Minitest sets the suite result and SimpleCov writes
+   `coverage/coverage.xml` and enforces the coverage threshold.
+
+Loading the application, engine, or gem before steps 1 and 2 prevents coverage
+from observing code that Ruby already evaluated.
+
+## Running tests
+
+Run the suite normally or enable coverage with `COVERAGE=true` (`1` and `yes`
+are also accepted):
 
 ```shell
 bin/rails test
@@ -94,18 +149,41 @@ bundle exec rake
 COVERAGE=true bundle exec rake
 ```
 
-Set `QUIET=true` to hide individual passing-test lines while retaining the summary and failure details.
+Set `QUIET=true` (`1` and `yes` are also accepted) to hide individual test lines while retaining the summary and failure details. Values such as `false`, `0`, and `no` leave the option disabled.
+
+### Environment variables
+
+| Variable | Default | Enabled values | Effect |
+| --- | --- | --- | --- |
+| `COVERAGE` | Disabled | `true`, `1`, `yes` | Starts line coverage and writes console and Cobertura reports. |
+| `QUIET` | Disabled | `true`, `1`, `yes` | Hides per-test lines but keeps the summary and failure details. |
+
+Values are case-insensitive and surrounding whitespace is ignored. Every other
+value, including `false`, `0`, and `no`, is disabled.
+
+### Exit codes
+
+| Code | Meaning |
+| ---: | --- |
+| `0` | The suite passed. Skipped tests do not make the process fail. |
+| `1` | A test failed, raised an unexpected exception, emitted a warning under `-Werror`, or an explicit test filter matched no tests. |
+| `2` | Tests completed, but SimpleCov found coverage below `coverage_min_coverage`. |
+
+Dependency installation, Ruby boot, signals, and operating-system failures may
+return other non-zero codes. `QUIET` changes output only and never changes the
+process result.
 
 <br />
 
 ## Guides
 
-- [Installation and configuration](https://www.lesli.dev/gems/testing/about/installation)
-- [Testing Rails applications](https://www.lesli.dev/gems/testing/testing/applications)
-- [Testing Rails engines](https://www.lesli.dev/gems/testing/testing/engines)
-- [Testing Ruby gems](https://www.lesli.dev/gems/testing/testing/gems)
-- [Reporter, coverage, fixtures, and test helpers](https://www.lesli.dev/gems/testing/about/tools)
-- [Recommended project and gem structure](https://www.lesli.dev/gems/testing/about/structure)
+- [Installation and configuration](docs/about/installation.md)
+- [Load order, environment, and exit codes](docs/about/execution.md)
+- [Testing Rails applications](docs/testing/applications.md)
+- [Testing Rails engines](docs/testing/engines.md)
+- [Testing Ruby gems](docs/testing/gems.md)
+- [Reporter, coverage, fixtures, and test helpers](docs/about/tools.md)
+- [Recommended project and gem structure](docs/about/structure.md)
 
 <br />
 
@@ -131,15 +209,29 @@ Run the default test task from the LesliTesting directory:
 
 ```shell
 bundle exec rake
+COVERAGE=true bundle exec rake test
+bundle exec rake build
 ```
 
-Run the reporter demonstration failures explicitly with `DEMO=true`:
+The LesliTesting repository enforces a 45% coverage baseline. Rails integration
+behavior is tested in isolated Ruby processes, so those executed lines are not
+merged into the parent process report. Consumer projects keep the public 90%
+default unless they configure another threshold.
+
+Run the intentional reporter failures manually when visually inspecting its output:
 
 ```shell
-DEMO=true bundle exec ruby -Itest test/demo_test.rb
+bundle exec ruby examples/reporter_demo.rb
 ```
 
 The demo command is expected to fail and is intended for visually checking failure formatting.
+
+Run the optional reporter benchmark separately from the test suite. It renders 5,000 results by default:
+
+```shell
+bundle exec ruby benchmark/reporter_benchmark.rb
+ITERATIONS=10000 bundle exec ruby benchmark/reporter_benchmark.rb
+```
 
 <br />
 
@@ -192,7 +284,7 @@ The complete license text is available in the [license file](./license).
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliTesting/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/10</p>
+    <p><b>Last Update: </b>2026/10/20</p>
 </section>
 
 <!-- This code was automatically generated -->

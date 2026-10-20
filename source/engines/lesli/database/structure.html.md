@@ -82,6 +82,13 @@ add_reference(
 )
 ```
 
+Optional engines should install their associations on core models from the
+engine itself; Lesli Core should not own those references. A child table whose
+`account_id` points to `<engine>_accounts` must be reached through the engine
+account, not through a direct `has_many` on `Lesli::Account`. See
+[Optional Engine Associations](/engines/lesli/backend/models#optional-engine-associations)
+for the concern and `config.to_prepare` pattern.
+
 Add indexes for the queries and uniqueness rules the application actually uses. For account-scoped identifiers, enforce uniqueness with the account key:
 
 ```ruby
@@ -157,7 +164,7 @@ When a package keeps a table-code registry, update it in the same change as the 
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/database/structure.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/02</p>
+    <p><b>Last Update: </b>2026/10/19</p>
 </section>
 
 <!-- This code was automatically generated -->

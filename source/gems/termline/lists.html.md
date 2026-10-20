@@ -1,11 +1,12 @@
 ## Termline::List
 
-Termline includes a simple list helper for printing collections as styled terminal bullets.
+Termline includes simple helpers for printing unordered and numbered collections.
 
 In most cases, you should use the public shortcut:
 
 ```ruby
 Termline.list(*items, color: :default, icon: :debug)
+Termline.ordered_list(*items, color: :default, start: 1)
 ```
 
 
@@ -49,6 +50,33 @@ Example output:
 ```
 
 
+## Ordered Lists
+
+Use `ordered_list` for steps or ranked items:
+
+```ruby
+Termline.ordered_list(
+  "Install dependencies",
+  "Configure the application",
+  "Start the server"
+)
+```
+
+Example output:
+
+```text
+  1. Install dependencies
+  2. Configure the application
+  3. Start the server
+```
+
+Change the first number with `start`:
+
+```ruby
+Termline.ordered_list("Retry request", "Report failure", start: 3, color: :yellow)
+```
+
+
 ## Using Warning Style
 
 ```ruby
@@ -87,6 +115,7 @@ Example output:
 
 ```ruby
 Termline.list(*items, color: :default, icon: :debug)
+Termline.ordered_list(*items, color: :default, start: 1)
 ```
 
 ### Parameters
@@ -96,6 +125,7 @@ Termline.list(*items, color: :default, icon: :debug)
 | `items` | One or more strings or printable values. |
 | `color` | Color key used to style the icon. It must exist in `Termline::Style::COLORS`. |
 | `icon` | Icon key shown before each item. It must exist in `Termline::Style::ICONS`. |
+| `start` | First number used by `ordered_list`. Defaults to `1`. |
 
 
 ## Available Icons
@@ -141,6 +171,8 @@ The icon color can use any value from `Termline::Style::COLORS`:
 - applies color only to the icon
 - prints the item text without additional formatting
 
+`Termline.ordered_list` follows the same behavior but uses incrementing numbers instead of icons.
+
 Each item is rendered like this:
 
 ```text
@@ -158,6 +190,7 @@ If you need lower-level control or want to integrate directly with the internal 
 
 ```ruby
 Termline::List.builder(items, color: :green, icon: :success)
+Termline::List.builder(items, color: :blue, ordered: true, start: 1)
 ```
 
 Example:
@@ -169,10 +202,10 @@ items = [
   "Queue worker active"
 ]
 
-Termline::List.builder(items, color: :green, icon: :success)
+puts Termline::List.builder(items, color: :green, icon: :success)
 ```
 
-Use this only when you need full control over how the list input is passed internally. For normal usage, prefer:
+The builder returns a string without writing to the terminal. Use it only when you need to compose or inspect the rendered list. For normal usage, prefer:
 
 ```ruby
 Termline.list("Database connected", "Cache available", "Queue worker active", icon: :success, color: :green)
@@ -195,7 +228,7 @@ Termline.list(
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Termline/tree/master/docs/lists.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/02</p>
+    <p><b>Last Update: </b>2026/10/19</p>
 </section>
 
 <!-- This code was automatically generated -->

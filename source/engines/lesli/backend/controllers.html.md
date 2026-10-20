@@ -78,18 +78,24 @@ def update
     respond_with_lesli(
       turbo: stream_notification_success("Ticket updated"),
       json: ticket.result,
-      html: "my_engine/tickets/show"
+      redirect: ticket_path(ticket.result)
     )
   else
     respond_with_lesli(
       turbo: stream_notification_danger(ticket.errors_as_sentence),
-      json: { errors: ticket.errors }
+      json: { errors: ticket.errors },
+      html: "my_engine/tickets/edit",
+      status: :unprocessable_entity
     )
   end
 end
 ```
 
-Only provide formats the action is expected to serve. The responder selects the payload that matches the request format.
+`html:` identifies a template or renderable, while `redirect:` identifies an HTML redirect destination. Do not pass the result of `redirect_to` through `html:` and do not provide both options in one call. When neither is present, Rails renders the current action's HTML template.
+
+`status:` applies to HTML, JSON, and Turbo Stream renders and defaults to `:ok`. HTML redirects use `redirect_status: :see_other` by default. Only provide formats the action is expected to serve; the responder selects the payload matching the request format.
+
+See [Controller Interfaces](/engines/lesli/backend/interfaces/) for complete examples covering multiple Turbo Stream actions, redirects, JSON payloads, default HTML rendering, and validation errors.
 
 ---
 
@@ -129,12 +135,14 @@ Passing an ordinary, unpaginated Active Record relation raises an error because 
 The shared controller provides:
 
 * `respond_with_not_found(message = nil)` for HTML, JSON, and Turbo Stream 404 responses
-* `respond_with_unauthorized(details = {})` for access-control responses
+* `respond_with_forbidden(details = {})` for authorization failures after a user has authenticated
 * `info`, `success`, `warning`, and `danger` for flash messages
 * `stream_notification_info`, `stream_notification_success`, `stream_notification_warning`, and `stream_notification_danger` for Turbo Stream notifications
 * `stream_redirection(path)` for redirects initiated from a Turbo Stream response
 
-Avoid returning authorization details in production. The built-in unauthorized responder suppresses its diagnostic details when Rails runs in production.
+Authorization failures return HTTP 403. `respond_with_unauthorized` remains available as a backwards-compatible alias, but new code should use `respond_with_forbidden`. Authentication failures are separate: an unauthenticated browser request is handled by LesliShield's authentication interface and redirected to login.
+
+Avoid returning authorization details in production. The built-in forbidden responder suppresses its diagnostic details when Rails runs in production.
 
 ---
 
@@ -154,7 +162,7 @@ Keep required parameter names aligned with the form and API payload.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/backend/controllers.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/02</p>
+    <p><b>Last Update: </b>2026/10/13</p>
 </section>
 
 <!-- This code was automatically generated -->

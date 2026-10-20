@@ -50,7 +50,7 @@ The labels index uses Alpine.js for copy-to-clipboard feedback. Keep the action 
 The application loads stylesheets in this order:
 
 1. `lesli_assets/application.tailwind`
-2. `lesli_assets/view.tailwind`
+2. `lesli_view/view.tailwind`
 3. `lesli_babel/application.tailwind`
 
 Tailwind utility selectors have equal specificity. A base utility emitted by the Babel bundle can therefore override a responsive utility from a shared LesliView component because the engine stylesheet loads last.
@@ -104,7 +104,7 @@ See [Views and Layouts](/engines/lesli/frontend/views), [Styles with Tailwind CS
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliBabel/tree/master/docs/about/frontend.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/12</p>
+    <p><b>Last Update: </b>2026/10/18</p>
 </section>
 
 <!-- This code was automatically generated -->

@@ -21,7 +21,7 @@ The authenticated Lesli layout loads three stylesheets in order:
 | Stylesheet | Responsibility |
 | --- | --- |
 | `lesli_assets/application.tailwind` | Base theme, design tokens, fonts, icons, and application-shell utilities |
-| `lesli_assets/view.tailwind` | Utilities and component styles required by LesliView |
+| `lesli_view/view.tailwind` | Utilities and component styles provided by LesliView |
 | `<current_engine>/application.tailwind` | Utilities and rules used by the current engine |
 
 Because the engine stylesheet loads last, use it for feature-specific presentation. Changes that should affect every engine belong in LesliAssets; reusable component styles belong with the corresponding LesliView component.
@@ -131,7 +131,7 @@ Do not use arbitrary values to recreate a token that already exists. A small amo
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/frontend/styles.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/02</p>
+    <p><b>Last Update: </b>2026/10/18</p>
 </section>
 
 <!-- This code was automatically generated -->

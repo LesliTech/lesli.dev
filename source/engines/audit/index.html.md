@@ -47,9 +47,15 @@ It records account activity and provides administrators with searchable operatio
 
 - Account activity and audit logs
 - Request and navigation history
-- Visitor and authenticated-user analytics
-- Device and user-agent information
+- Request, device, and authenticated-user analytics
+- Direct account and authenticated-user request counters
+- Configurable batched data retention
+- Normalized browser, platform, and device categories
 - Detailed views for investigating recorded activity
+
+Activity logs are explicit append-only business or security events. They are
+separate from request analytics: user requests are grouped counters, while
+user journals are individual normalized HTTP request events.
 
 <br />
 
@@ -64,7 +70,8 @@ It records account activity and provides administrators with searchable operatio
 
 ### Requirements
 
-- A Rails application with [Lesli](https://rubygems.org/gems/lesli)
+- Ruby 3.x and Rails `~> 8.1`
+- A Rails application with [Lesli](https://rubygems.org/gems/lesli) `~> 5.1.0`
 - SQLite by default, or PostgreSQL when preferred by the host application
 
 ### Install LesliAudit
@@ -143,6 +150,12 @@ bin/rails test
 
 - [Lesli website](https://www.lesli.dev/)
 - [Documentation](https://www.lesli.dev/engines/audit)
+- [Architecture and data policy](./docs/about/architecture.md)
+- [Configuration](./docs/about/configuration.md)
+- [Request analytics](./docs/analytics/overview.md)
+- [Activity events](./docs/events/overview.md)
+- [Operational tasks](./docs/about/tasks.md)
+- [Database](./docs/about/database.md)
 - [Frontend development](./docs/about/frontend.md)
 - [Release notes](https://github.com/LesliTech/LesliAudit/releases)
 - [Issue tracker](https://github.com/LesliTech/LesliAudit/issues)
@@ -189,7 +202,7 @@ The complete license text is available in the [license file](./license).
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliAudit/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/10</p>
+    <p><b>Last Update: </b>2026/10/19</p>
 </section>
 
 <!-- This code was automatically generated -->

@@ -24,11 +24,35 @@ Verify the installation:
 Termline.success "Termline is ready"
 ```
 
-The public helpers print directly to standard output. Begin with [Messages](/gems/termline/messages), then use [Lists](/gems/termline/lists), [Tables](/gems/termline/tables), and [Separators and spacing](/gems/termline/separator) as needed.
+## Output and terminal detection
+
+The public helpers write to `$stdout` by default. Assign another IO-compatible object to `Termline.output` when output needs to be captured or redirected:
+
+```ruby
+require "stringio"
+
+buffer = StringIO.new
+Termline.output = buffer
+Termline.ansi = false
+
+Termline.success "Saved", time: false
+buffer.string # => "✔ SUCCESS: Saved\n"
+```
+
+ANSI mode defaults to `:auto`. In automatic mode, styling is enabled only for an interactive output and is disabled when `NO_COLOR` is present or `TERM=dumb`. Set `Termline.ansi` to `true` or `false` when deterministic output is required.
+
+Terminal width is detected from the configured output, `COLUMNS`, or the system console and falls back to 80 columns. Override or reset it with:
+
+```ruby
+Termline.width = 100
+Termline.width = nil # Resume automatic detection
+```
+
+Begin with [Messages](/gems/termline/messages), then use [Lists](/gems/termline/lists), [Tables](/gems/termline/tables), [Text components](/gems/termline/text), and [Separators and spacing](/gems/termline/separator) as needed.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Termline/tree/master/docs/about/installation.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/06</p>
+    <p><b>Last Update: </b>2026/10/19</p>
 </section>
 
 <!-- This code was automatically generated -->

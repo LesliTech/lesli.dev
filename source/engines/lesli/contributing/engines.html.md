@@ -258,6 +258,7 @@ Before publishing engine documentation:
 * Verify every command against the current repository tasks.
 * Verify gem names, Ruby constants, route prefixes, and translation namespaces.
 * Compare the database table registry with `db/migrate`.
+* Confirm the engine installs its own core-model associations through reload-safe concerns.
 * Confirm dashboard component names have matching partials.
 * Remove documentation for integrations the engine does not implement.
 * Replace VitePress or other retired-site components with standard Markdown and ERB supported by `lesli.dev`.
@@ -269,7 +270,7 @@ When behavior changes, update the owning engine's documentation in the same pull
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/contributing/engines.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/02</p>
+    <p><b>Last Update: </b>2026/10/19</p>
 </section>
 
 <!-- This code was automatically generated -->

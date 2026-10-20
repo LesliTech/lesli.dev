@@ -1,133 +1,84 @@
 ## Separators and Spacing
 
-Termline includes simple helpers for adding blank lines and visual separators in terminal output.
-
-In most cases, you should use the public shortcuts:
+Termline includes small helpers for blank lines and visual separators.
 
 ```ruby
 Termline.br(count = 1)
-Termline.line(count = 8)
+Termline.line(character: "─", width: nil)
+Termline.color(:red)
 ```
 
 
 ## Blank Lines
 
-Use `br` to print one or more blank lines:
-
 ```ruby
 Termline.br
-```
-
-This prints a single line break.
-
-You can also pass a custom count:
-
-```ruby
 Termline.br(3)
 ```
 
-This prints three line breaks.
+`br` prints one or more newline characters.
 
 
-## Separator Lines
+## Adaptive Separators
 
-Use `line` to print a repeated visual separator:
+`line` fills the current terminal width by default:
 
 ```ruby
 Termline.line
 ```
 
-Example output:
+For a 20-column output, this renders:
 
 ```text
--·-     -·-     -·-     -·-     -·-     -·-     -·-     -·-
+────────────────────
 ```
 
-You can also pass a custom count:
+Choose another character or an explicit width:
+
+```ruby
+Termline.line(character: "=")
+Termline.line(character: "·-", width: 40)
+```
+
+Multi-character patterns are repeated and cropped to the requested width.
+
+
+## Background Color Bars
+
+Use `color` to print a terminal-width background bar:
+
+```ruby
+Termline.color(:red)
+```
+
+The helper accepts colors from `Termline::Style::BG_COLORS`. It produces no output when ANSI styling is disabled, including non-interactive output in the default `:auto` mode.
+
+
+## Compatibility
+
+The previous positional count remains supported:
 
 ```ruby
 Termline.line(3)
 ```
 
-Example output:
-
-```text
--·-     -·-     -·-
-```
+It renders the original `-·-     ` pattern three times. Prefer the adaptive keyword API for new code.
 
 
-## Method Signatures
+## Builder API
+
+Builders return strings without writing them:
 
 ```ruby
-Termline.br(count = 1)
-Termline.line(count = 8)
+Termline::Space.builder("\n", 2)
+Termline::Space.line("─", 40)
 ```
 
-### Parameters
-
-#### `count`
-For `br`, the number of newline characters to generate. For `line`, the number of times the separator pattern is repeated.
-
-Default values:
-
-```ruby
-Termline.br(1)
-Termline.line(8)
-```
-
-
-## Behavior
-
-These helpers:
-
-- print directly to STDOUT
-- are useful for formatting CLI output
-- provide simple visual spacing between sections
-- make terminal output easier to scan
-
-Internally, these methods delegate to the separator builder, but the recommended public API is to use `Termline.br` and `Termline.line`.
-
-
-## Advanced Usage
-
-For most cases, the public shortcuts are the recommended API.
-
-If you need lower-level control or want to generate a custom spacing string, use `Termline::Space.builder`. The builder returns a string; it does not print it:
-
-```ruby
-Termline::Space.builder("\n", 3)
-Termline::Space.builder("-·-     ", 4)
-```
-
-Examples:
-
-```ruby
-puts Termline::Space.builder("\n", 2)
-puts Termline::Space.builder("-·-     ", 5)
-```
-
-Use this only when you need direct access to the internal separator builder. For normal usage, prefer:
-
-```ruby
-Termline.br(2)
-Termline.line(5)
-```
-
-
-## Example with Structured Output
-
-```ruby
-Termline.info "Starting deployment"
-Termline.line
-Termline.success "Dependencies installed"
-Termline.success "Database migrated"
-Termline.br
-Termline.info "Deployment completed"
-```
+Public helpers write to `Termline.output`, which defaults to `$stdout`.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Termline/tree/master/docs/separator.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/02</p>
+    <p><b>Last Update: </b>2026/10/19</p>
 </section>
 
 <!-- This code was automatically generated -->

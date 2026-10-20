@@ -9,7 +9,7 @@
 
 <div align="center">
     <a target="_blank" href="https://github.com/LesliTech/Termline/actions/workflows/master.yml">
-        <img alt="Termline test status" src="https://img.shields.io/github/actions/workflow/status/LesliTech/Termline/master.yml?branch=main&style=for-the-badge&logo=github&label=tests">
+        <img alt="Termline test status" src="https://img.shields.io/github/actions/workflow/status/LesliTech/Termline/master.yml?branch=master&style=for-the-badge&logo=github&label=tests">
     </a>
     <a target="_blank" href="https://rubygems.org/gems/termline">
         <img alt="Gem Version" src="https://img.shields.io/gem/v/termline?style=for-the-badge&logo=ruby">
@@ -53,8 +53,9 @@ Termline provides:
 - Semantic info, success, warning, and danger messages
 - Colored icons, labels, and timestamps
 - Structured key-value metadata
-- Styled lists and tabular output
-- Reusable spacing and separator helpers
+- Ordered and unordered lists
+- Terminal-aware tables with alignment and truncation
+- Reusable titles, detail blocks, spacing, and adaptive separators
 - A lightweight implementation with no runtime dependencies
 
 <br />
@@ -110,6 +111,8 @@ Termline.success "Compiled application.tailwind.css", size: "1.4 KB"
 Termline.info "Connected", adapter: "postgres", duration: "12ms"
 ```
 
+Metadata is rendered in a compact, readable form such as `adapter=postgres duration=12ms`.
+
 Override the default tag, icon, or timestamp when the output needs a different presentation:
 
 ```ruby
@@ -117,16 +120,36 @@ Termline.info "User authenticated", tag: "AUTH:", icon: :star
 Termline.success "Cache warmed", time: false
 ```
 
+Timestamp defaults can also be configured once for the application:
+
+```ruby
+Termline.configure do |config|
+  config.timestamps = false
+  config.timestamp_format = "%H:%M:%S"
+end
+```
+
 ### Lists and tables
 
 ```ruby
 Termline.list("Rails", "Lesli", "Tailwind")
 Termline.list("Database", "Cache", icon: :success, color: :green)
+Termline.ordered_list("Install", "Configure", "Run", start: 1)
 
 Termline.table([
   { name: "Luis", role: "Admin", status: "Active" },
   { name: "Ana", role: "Developer", status: "Pending" }
-])
+], align: { name: :left, status: :center })
+```
+
+Tables fit the available terminal width, truncate long values with `…`, and right-align numeric columns automatically.
+
+### Titles and details
+
+```ruby
+Termline.title "Deployment"
+Termline.details environment: "production", version: "1.4.0"
+Termline.details({ status: "ready", workers: 4 }, icons: { status: :success, workers: :info })
 ```
 
 ### Spacing and separators
@@ -135,7 +158,10 @@ Termline.table([
 Termline.br
 Termline.br(2)
 Termline.line
+Termline.line(character: "=")
 ```
+
+Without arguments, `line` adapts to the current terminal width.
 
 ### Public API
 
@@ -147,19 +173,52 @@ Termline.line
 | `Termline.success` | Print successful outcomes |
 | `Termline.warning` | Print warnings |
 | `Termline.danger` | Print errors or failed outcomes |
-| `Termline.alert` | Print a high-visibility blinking alert |
-| `Termline.list` | Print a styled list |
-| `Termline.table` | Print arrays, hashes, or Active Record relations as a table |
+| `Termline.alert` | Print a high-visibility alert |
+| `Termline.deprecation` | Print a deprecation warning |
+| `Termline.list` | Print an unordered styled list |
+| `Termline.ordered_list` | Print a numbered list |
+| `Termline.table` | Print width-aware arrays, hashes, or Active Record relations as a table |
+| `Termline.title` | Print a terminal-width section title |
+| `Termline.details` | Print an aligned block of labeled details |
 | `Termline.br` | Print blank lines |
 | `Termline.line` | Print a visual separator |
+| `Termline.color` | Print a terminal-width background color bar when ANSI is enabled |
+| `Termline.configure` | Configure output, ANSI mode, width, and timestamp defaults |
 
-Message, list, table, and spacing helpers print directly to `STDOUT`. See the focused guides for all supported options and lower-level builders:
+Message, list, table, and spacing helpers write to the configured output, which defaults to `$stdout`. See the focused guides for all supported options and lower-level builders:
 
 - [Installation](https://www.lesli.dev/gems/termline/about/installation)
 - [Messages](https://www.lesli.dev/gems/termline/messages)
 - [Lists](https://www.lesli.dev/gems/termline/lists)
 - [Tables](https://www.lesli.dev/gems/termline/tables)
+- [Details](https://www.lesli.dev/gems/termline/details)
+- [Titles](https://www.lesli.dev/gems/termline/text)
 - [Separators and spacing](https://www.lesli.dev/gems/termline/separator)
+
+### Output configuration
+
+Termline writes to `$stdout` and enables ANSI styles automatically for interactive terminals. Redirect the output or override ANSI rendering when needed:
+
+```ruby
+require "stringio"
+
+buffer = StringIO.new
+Termline.output = buffer
+Termline.ansi = false
+
+Termline.success "Saved", time: false
+buffer.string # => "✔ SUCCESS: Saved\n"
+```
+
+The supported ANSI modes are `:auto`, `true`, and `false`. Automatic mode disables escape sequences when the output is not a TTY, when `TERM=dumb`, or when the `NO_COLOR` environment variable is present.
+
+The terminal width is detected when content is rendered and falls back to 80 columns. It can be overridden explicitly:
+
+```ruby
+Termline.width = 100
+```
+
+Message timestamps are enabled by default. Use `Termline.timestamps = false` to disable them globally, and `time: true` or `time: false` to override the setting for one message.
 
 <br />
 
@@ -187,6 +246,18 @@ Run the default test task from the Termline directory:
 bundle exec rake
 ```
 
+The suite uses LesliTesting for the shared Lesli reporter and coverage configuration. Coverage is opt-in:
+
+```shell
+COVERAGE=true bundle exec rake
+```
+
+Use `QUIET=true` to suppress the line printed for every individual test:
+
+```shell
+QUIET=true COVERAGE=true bundle exec rake
+```
+
 Run the executable examples to preview the available output styles:
 
 ```shell
@@ -199,6 +270,8 @@ bundle exec ruby test/demo_termline.rb
 
 - [Lesli website](https://www.lesli.dev/)
 - [Termline documentation](https://www.lesli.dev/gems/termline/)
+- [Testing guide](https://www.lesli.dev/gems/termline/about/testing)
+- [Roadmap and P3 ToDo](./todo.md)
 - [Releases and changelog](https://github.com/LesliTech/Termline/releases)
 - [Issue tracker](https://github.com/LesliTech/Termline/issues)
 - [Source code](https://github.com/LesliTech/Termline)
@@ -244,7 +317,7 @@ The complete license text is available in the [license file](./license.txt).
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Termline/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/06</p>
+    <p><b>Last Update: </b>2026/10/19</p>
 </section>
 
 <!-- This code was automatically generated -->

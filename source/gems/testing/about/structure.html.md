@@ -87,6 +87,10 @@ LesliTesting/
 ├── docs/
 │   ├── images/
 │   └── *.md
+├── examples/
+│   └── reporter_demo.rb
+├── benchmark/
+│   └── reporter_benchmark.rb
 ├── lib/
 │   ├── minitest/
 │   │   └── lesli_testing_plugin.rb
@@ -105,31 +109,33 @@ LesliTesting/
 │       └── version.rb
 ├── test/
 │   ├── test_helper.rb
-│   ├── demo_test.rb
-│   └── performance_test.rb
+│   └── cli_reporter_test.rb
 ├── lesli_testing.gemspec
 └── Rakefile
 ```
 
 | Path | Responsibility |
 | --- | --- |
-| `lib/lesli_testing.rb` | Public `app`, `engine`, and `gem` configuration API. |
+| `lib/lesli_testing.rb` | Minimal entrypoint that starts native Ruby coverage before loading the implementation. |
+| `lib/lesli_testing/core.rb` | Public `app`, `engine`, and `gem` API and phased initialization coordinator. |
+| `lib/lesli_testing/rails_integration.rb` | Registers the optional Railtie and deferred Rails test integrations. |
 | `lib/minitest/lesli_testing_plugin.rb` | Registers the custom reporter with Minitest. |
 | `lib/lesli_testing/minitest/cli_reporter.rb` | Per-test output, summaries, and failure formatting. |
 | `lib/lesli_testing/coverage.rb` | Starts SimpleCov and configures its formatters and threshold. |
 | `lib/lesli_testing/simplecov/profiles.rb` | Application, engine, and gem coverage profiles. |
-| `lib/lesli_testing/engine.rb` | Rails initializer source for adding Lesli migration paths when this optional file is loaded. |
-| `lib/lesli_testing/testers.rb` | Shared Rails test base classes. |
-| `lib/lesli_testing/fixtures.rb` | Shared Lesli fixture integration. |
-| `lib/lesli_testing/helpers/response_integration_helper.rb` | JSON integration-response assertions and parsing. |
-| `test/demo_test.rb` | Intentional failures for visually inspecting reporter output. |
-| `test/performance_test.rb` | Lightweight reporter execution tests. |
+| `lib/lesli_testing/engine.rb` | Rails initializer that applies the configured dummy, owner, and shared engine migration paths. |
+| `lib/lesli_testing/testers.rb` | Defines shared Rails test base classes through ActiveSupport load hooks. |
+| `lib/lesli_testing/fixtures.rb` | Applies owner and shared fixtures through Rails load hooks and de-duplicates migration paths. |
+| `lib/lesli_testing/helpers/response_integration_helper.rb` | JSON response helpers loaded only with the Rails integration test base. |
+| `test/cli_reporter_test.rb` | Automated assertions for reporter formatting, summaries, failures, warnings, skips, and plugin integration. |
+| `examples/reporter_demo.rb` | Manual pass, skip, failure, diff, and error examples for visually inspecting terminal output. |
+| `benchmark/reporter_benchmark.rb` | Optional reporter throughput benchmark, excluded from the automated test suite. |
 
 See [Testing tools](/gems/testing/about/tools) for the behavior exposed by these components.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliTesting/tree/master/docs/about/structure.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/10</p>
+    <p><b>Last Update: </b>2026/10/20</p>
 </section>
 
 <!-- This code was automatically generated -->

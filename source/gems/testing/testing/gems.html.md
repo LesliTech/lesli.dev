@@ -1,6 +1,6 @@
 # Testing Ruby gems
 
-LesliTesting supports standalone Ruby gems without Rails. In this mode it configures Minitest, the custom terminal reporter, SimpleCov, and all coverage formatters. Rails-only base classes and fixture integration are skipped.
+LesliTesting supports standalone Ruby gems without Rails. In this mode it configures Minitest, the custom terminal reporter, SimpleCov, and the console and Cobertura coverage formatters. Rails-only base classes and fixture integration are skipped.
 
 ## Recommended structure
 
@@ -36,6 +36,10 @@ LesliTesting.gem(
 require "minitest/autorun"
 require "my_gem"
 ```
+
+Keep this order unchanged. Requiring `my_gem` before LesliTesting starts
+coverage means already evaluated files cannot appear as executed lines in the
+final report.
 
 ## Test files
 
@@ -95,7 +99,7 @@ If the coverage result unexpectedly omits a file, verify that LesliTesting is co
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliTesting/tree/master/docs/testing/gems.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/09/27</p>
+    <p><b>Last Update: </b>2026/10/20</p>
 </section>
 
 <!-- This code was automatically generated -->

@@ -81,7 +81,7 @@ GitHub Actions installs only dependencies available from the declared sources. A
 
 ## Test helper
 
-Configure LesliTesting before booting the dummy application so SimpleCov can observe engine boot code. Run the suite through Rails' test runner, which loads the Rails testing framework required by the shared tester classes.
+Configure LesliTesting before booting the dummy application so SimpleCov can observe engine boot code. LesliTesting registers its test-only Railtie immediately and creates its shared tester classes later, when `rails/test_help` fires the corresponding ActiveSupport hooks.
 
 ```ruby
 ENV["RAILS_ENV"] ||= "test"
@@ -95,23 +95,60 @@ LesliTesting.engine(
 
 require_relative "dummy/config/environment"
 require "rails/test_help"
-
-ActiveRecord::Migrator.migrations_paths = [
-  File.expand_path("dummy/db/migrate", __dir__),
-  File.expand_path("../db/migrate", __dir__)
-]
-
-if ActiveSupport::TestCase.respond_to?(:fixture_paths=)
-  fixture_path = File.expand_path("fixtures", __dir__)
-
-  ActiveSupport::TestCase.fixture_paths = [fixture_path]
-  ActionDispatch::IntegrationTest.fixture_paths = [fixture_path]
-  ActiveSupport::TestCase.file_fixture_path = File.join(fixture_path, "files")
-  ActiveSupport::TestCase.fixtures :all
-end
 ```
 
-The LesliTesting Rails engine adds the Lesli migration directory without duplicating an existing path. The test helper still owns the dummy application's and current engine's migration paths.
+Keep this order unchanged. The profile must be selected before the dummy
+application boots; the shared tester classes become available after
+`rails/test_help` fires the Rails load hooks.
+
+After the dummy application boots, LesliTesting resolves `MyEngine::Engine` and configures:
+
+- `test/fixtures` and `test/fixtures/files` from the current engine;
+- the shared fixture directory and model mappings from `Lesli`;
+- fixtures for `ActiveSupport::TestCase` and `ActionDispatch::IntegrationTest`;
+- migration directories from the dummy application, current engine, and `Lesli`.
+
+Paths already registered by Rails or another engine are preserved and de-duplicated.
+
+The first argument is used as both the reporter name and engine target. When they differ, provide the target explicitly:
+
+```ruby
+LesliTesting.engine("My engine tests", engine: "MyEngine")
+```
+
+Use declarative options when an engine needs custom fixture sets, mappings, shared engines, or paths:
+
+```ruby
+LesliTesting.engine(
+  "MyEngine",
+  coverage_min_coverage: 90,
+  fixtures: {
+    # Defaults to "MyEngine" and is resolved after Rails boots.
+    owner: "MyEngine",
+    path: File.expand_path("custom/fixtures", __dir__),
+    file_path: File.expand_path("custom/fixtures/files", __dir__),
+    # Lesli is always included; list only additional shared engines.
+    shared: ["AnotherEngine"],
+    shared_paths: [File.expand_path("shared/fixtures", __dir__)],
+    sets: [:lesli_accounts, :my_engine_records],
+    classes: {
+      my_engine_records: "MyEngine::Record"
+    }
+  },
+  migrations: {
+    # Dummy and owner migrations are included by default.
+    include_dummy: true,
+    include_owner: true,
+    # Lesli is always included; list only additional shared engines.
+    shared: ["AnotherEngine"],
+    paths: [File.expand_path("custom/migrate", __dir__)]
+  }
+)
+```
+
+Omit these options for the conventional structure of the target engine. `Lesli` is always included for application and engine profiles. The `shared:` option adds other shared engines without removing `Lesli`. Use `fixtures: false` or `migrations: false` only when the engine intentionally manages that integration itself. The default fixture set is `:all`.
+
+An engine exposed through `fixtures[:shared]` must include its fixture files in the built gem. Lesli packages `test/fixtures/**/*` for this purpose; apply the same rule to another engine before using it as a shared fixture source in CI.
 
 Tests may use the shared base classes with this load order:
 
@@ -171,20 +208,20 @@ Do not fix an eager-loading failure by setting `config.eager_load = false` in CI
 | `uninitialized constant MyEngine::...::ApplicationRecord` | A namespaced model expects the engine's conventional base record, but its file was removed or misnamed. | Restore `MyEngine::ApplicationRecord` in the path Zeitwerk expects. Keep framework-specific base records separate when they have different responsibilities. |
 | `uninitialized constant ApplicationController` while loading Devise | The dummy host does not define the standard top-level controller. | Restore `test/dummy/app/controllers/application_controller.rb`. |
 | A published dependency fails but a workspace run passes | Local Bundler resolution differs from CI, or the fix has not been released. | Compare `bundle info`, publish/reference the fixed version, and update `Gemfile.lock`. |
-| Duplicate or invalid migration paths | The same dependency path is registered more than once, or a Rails paths object is treated like an Array. | Let LesliTesting de-duplicate Lesli's migration path and configure only the dummy/current engine paths explicitly. |
+| Duplicate or invalid migration paths | The same dependency path is registered more than once, or a Rails paths object is treated like an Array. | Remove manual migration configuration and let LesliTesting register and de-duplicate dummy, owner, and shared engine paths. |
 | `LesliTesting::ViewTester` or another shared tester is missing | The test file was executed directly with Ruby before Rails loaded its testing framework. | Run engine tests with `bundle exec rails test` or `bundle exec rake app:test`. |
 
 When diagnosing a CI-only boot failure, reproduce it locally with `CI=true`, read the first application or gem file in the stack trace, and fix that constant before chasing later framework frames.
 
 ## Engine coverage profile
 
-The engine profile loads SimpleCov's Rails defaults and excludes files under `test/`. It produces console, HTML, and Cobertura reports when `COVERAGE` is present.
+The engine profile loads SimpleCov's Rails defaults and excludes files under `test/`. It produces console and Cobertura reports when `COVERAGE` is set to `true`, `1`, or `yes`.
 
 When the engine is developed inside a host application, run commands from the engine directory so its own Gemfile, test helper, lockfile, and coverage directory are used.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliTesting/tree/master/docs/testing/engines.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/10</p>
+    <p><b>Last Update: </b>2026/10/20</p>
 </section>
 
 <!-- This code was automatically generated -->
