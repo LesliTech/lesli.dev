@@ -1,0 +1,13 @@
+---
+title: "Lesli Developer Tools -- Automation and Frontend Tooling"
+description: "Explore Lesli's developer tools for continuous integration, shared styling, and reusable JavaScript utilities."
+layout: website
+---
+
+<% catalog = data.send(I18n.locale.to_sym).catalog_pages[:tools] %>
+
+<%= partial("components/catalog-hero", :locals => { :catalog => catalog }) %>
+
+<main>
+    <%= partial("components/catalog-grid", :locals => { :catalog => catalog }) %>
+</main>

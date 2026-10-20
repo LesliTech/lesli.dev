@@ -158,5 +158,33 @@
             "href": "/gems/termline/",
             "svg": "gem-termline"
         }]
+    },
+    "tools": {
+        "key": "tools",
+        "eyebrow": "Lesli Developer Tools",
+        "title": "Build consistently,",
+        "highlight": "from code to delivery.",
+        "text": "Shared automation and frontend tooling for building, testing, and shipping projects across the Lesli ecosystem.",
+        "label": "Available Lesli developer tools",
+        "columns": 3,
+        "items": [{
+            "name": "LesliActions",
+            "summary": "Reusable GitHub Actions workflows for testing, security, and integration.",
+            "href": "/tools/actions/",
+            "icon": "ri-github-line",
+            "tone": "integration"
+        }, {
+            "name": "LesliCSS",
+            "summary": "Shared Sass utilities, design tokens, and color foundations.",
+            "href": "/tools/css/",
+            "icon": "ri-css3-line",
+            "tone": "productivity"
+        }, {
+            "name": "LesliJS",
+            "summary": "Reusable JavaScript utilities for browser and Node.js projects.",
+            "href": "/tools/js/",
+            "icon": "ri-javascript-line",
+            "tone": "intelligence"
+        }]
     }
 }

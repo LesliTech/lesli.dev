@@ -129,6 +129,13 @@ def documentation
         "../LesliBuilder/gems/*/docs/*/index",
         "../LesliBuilder/gems/*/docs/navigation",
         "../LesliBuilder/gems/*/docs/*.md",
+
+        "../LesliBuilder/tools/*/readme.md",
+        "../LesliBuilder/tools/*/docs/*/*.md",
+        "../LesliBuilder/tools/*/docs/*/*.md.erb",
+        "../LesliBuilder/tools/*/docs/*/index",
+        "../LesliBuilder/tools/*/docs/navigation",
+        "../LesliBuilder/tools/*/docs/*.md",
     ].each do |source_path|
         Dir.glob(source_path) do |file_to_copy|
 

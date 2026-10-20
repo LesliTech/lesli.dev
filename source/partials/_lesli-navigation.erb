@@ -1,7 +1,7 @@
 
 <% has_logo = logo %>
 <% active_section = defined?(active) ? active.to_s : nil %>
-<% navigation_links = [{ key: "framework", href: "/lesli/", text: "Framework" }, { key: "engines", href: "/engines/", text: "Engines" }, { key: "gems", href: "/gems/", text: "Gems" }, { key: "notes", href: "/notes/", text: "Notes" }] %>
+<% navigation_links = [{ key: "framework", href: "/lesli/", text: "Framework" }, { key: "engines", href: "/engines/", text: "Engines" }, { key: "gems", href: "/gems/", text: "Gems" }, { key: "tools", href: "/tools/", text: "Tools" }, { key: "notes", href: "/notes/", text: "Notes" }] %>
 <%
 unless active_section
     page_path = current_page.path
@@ -9,6 +9,8 @@ unless active_section
 
     active_section = if page_path.start_with?("notes")
         "notes"
+    elsif path_parts[0] == "tools"
+        "tools"
     elsif path_parts[0] == "gems"
         "gems"
     elsif path_parts[0] == "engines" && path_parts[1] == "lesli"

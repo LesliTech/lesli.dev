@@ -1,7 +1,7 @@
 @use "../component" as c;
 
 
-// · Shared hero for the Framework, Engines, and Gems index pages.
+// · Shared hero for the Framework, Engines, Gems, and Tools index pages.
 header.catalog-hero {
     display: grid;
     min-height: clamp(27rem, 46vw, 32rem);
