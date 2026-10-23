@@ -1,116 +1,84 @@
 # Dashboards
 
-LesliAdmin integrates with LesliDashboard through the framework's shared dashboard contract. The engine currently registers one component, `installed_engines`, which displays the number of Lesli engines loaded by the host application.
+LesliAdmin integrates with LesliDashboard through the framework's shared dashboard contract. Its dashboard summarizes the current account without mixing configuration catalogs or operational settings into the overview.
 
-LesliDashboard is an optional integration and must be installed for shared dashboard persistence and rendering.
+LesliDashboard is an optional integration. When it is installed, it provides persisted component placement and rendering. LesliAdmin still prepares the account summary before rendering the shared dashboard.
 
 ---
 
-## Register Components
+## Registered Components
 
-LesliAdmin declares its components in `LesliAdmin::Dashboard`:
+`LesliAdmin::Dashboard` registers four components:
+
+| Component | Width | Position | Content |
+| --- | ---: | ---: | --- |
+| `users` | 4 | 1 | Number of users belonging to the current account |
+| `roles` | 4 | 2 | Number of roles belonging to the current account |
+| `installed_engines` | 4 | 3 | Number of engines in the Lesli engine registry |
+| `account_metadata` | 12 | 4 | Account ID, owner, status, creation date, and last update |
+
+Widths use LesliDashboard's twelve-column desktop grid. Components stack on smaller screens.
+
+The dashboard intentionally excludes locations, currencies, and settings. Older persisted components with those names are retired automatically when the dashboard is opened.
+
+---
+
+## Data Loading
+
+`LesliAdmin::AccountService#summary` loads the current account with its owner, users, and roles, then returns one account-scoped payload:
 
 ```ruby
-module LesliAdmin
-  class Dashboard < Lesli::Shared::Dashboard
-    COMPONENTS = %i[installed_engines]
-  end
-end
+{
+  account: account,
+  users: account.users.size,
+  roles: account.roles.size,
+  installed_engines: LesliSystem.engines.size
+}
 ```
 
-A symbol uses the LesliDashboard defaults:
-
-| Option | Default |
-| --- | --- |
-| `size` | `4` columns in the twelve-column desktop grid |
-| `position` | `1` |
-| `config` | `{}` |
-
-The shared renderer stacks components on small screens and applies the persisted width on larger screens.
+The dashboard partials consume `@account_summary`. Keep additional queries out of the partials; extend the service when a new metric needs data.
 
 ---
 
-## Render a Component
+## Component Partials
 
-The component name maps to a partial in the engine dashboard directory:
+Component names map to partials in `app/views/lesli_admin/dashboards`:
 
 ```text
-installed_engines
-    ↓
-app/views/lesli_admin/dashboards/_component-installed-engines.html.erb
+users             -> _component-users.html.erb
+roles             -> _component-roles.html.erb
+installed_engines -> _component-installed-engines.html.erb
+account_metadata  -> _component-account-metadata.html.erb
 ```
 
-The current component reads the installed engine registry:
+The three count metrics use `LesliView::Widgets::Count`. Account metadata has its own responsive component because it presents several related values and a status badge.
 
-```erb
-<div class="box has-text-centered py-6">
-  <p class="is-title is-size-3 mb-2">
-    <b><%= LesliSystem.engines.size %></b>
-  </p>
-  <p class="is-title is-size-4">Installed engines</p>
-</div>
-```
+A new component should include:
 
-The shared dashboard renderer also passes the persisted dashboard component as the `component` local. Use it when the partial supports values stored in `component.config`.
-
-Keep queries account-scoped and move substantial data loading into a service instead of performing it directly in the partial.
+* A stable snake-case name in `LesliAdmin::Dashboard::COMPONENTS`
+* A matching `_component-<name>.html.erb` partial
+* Account-scoped data loaded by a service
+* An accessible label and a useful empty state where applicable
+* Responsive content that fits the configured width
+* Model or rendering tests for its registration and behavior
 
 ---
 
-## Add a Custom Component
+## Synchronize Existing Accounts
 
-Add the component name and its initial options to the dashboard model:
-
-```ruby
-module LesliAdmin
-  class Dashboard < Lesli::Shared::Dashboard
-    COMPONENTS = [
-      :installed_engines,
-      {
-        account_summary: {
-          size: 8,
-          position: 2,
-          config: { show_status: true }
-        }
-      }
-    ].freeze
-  end
-end
-```
-
-Then create the matching partial:
-
-```text
-app/views/lesli_admin/dashboards/_component-account-summary.html.erb
-```
-
-Use a stable snake-case component name. The renderer converts underscores to dashes when resolving the partial.
-
-A production component should provide:
-
-* A clear heading or accessible label
-* An empty state when there is no data
-* Account-scoped queries and authorization where required
-* Responsive content that fits its configured width
-* Tests for its data and rendering behavior
-
----
-
-## Initialize Existing Accounts
-
-Register any missing dashboards and components after installing LesliDashboard or adding a component:
+Prepare the application after installing LesliDashboard or registering a new component:
 
 ```shell
-bin/rails lesli_dashboard:register
+bin/rails lesli:db:prepare
 ```
 
-The task creates missing records for every Lesli account. It is safe to rerun, but it does not overwrite existing component size, position, or configuration. Changing defaults affects newly created component records; provide an explicit migration or maintenance task when existing records must change.
+The dashboard controller also registers missing LesliAdmin components when the dashboard is opened. Registration preserves the persisted size, position, and configuration of existing components, while the controller removes components listed in `RETIRED_COMPONENTS`.
 
-Verify the component by visiting the LesliAdmin dashboard at `/admin`.
+Verify the result by visiting the LesliAdmin dashboard at `/admin`.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliAdmin/tree/master/docs/about/dashboards.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/02</p>
+    <p><b>Last Update: </b>2026/10/21</p>
 </section>
 
 <!-- This code was automatically generated -->

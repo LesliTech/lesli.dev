@@ -67,58 +67,54 @@ add_index :my_engine_tickets, :uid, unique: true
 
 ## Account Ownership
 
-Most engine resources belong to a Lesli account. Keep the association explicit and query through the current account in services:
+Core resources belong directly to `Lesli::Account`. Resources owned by an
+engine belong to that engine's account, while user references continue to use
+`Lesli::User`:
 
 ```ruby
-belongs_to :account, class_name: "Lesli::Account"
+belongs_to :account, class_name: "MyEngine::Account"
+belongs_to :user, class_name: "Lesli::User"
 ```
 
 ```ruby
 current_user.account.my_engine.tickets.find_by(id: params[:id])
 ```
 
-An `account_id` submitted by a client must not decide ownership. Derive the account from the authenticated user.
+An `account_id` submitted by a client must not decide ownership. Derive the
+engine account from the authenticated user's Core account.
 
 ---
 
-## Optional Engine Associations
+## Engine Account Associations
 
-Optional-engine associations are owned by the engine and should not be added
-to Lesli Core. New and updated engines must use concerns to extend core models
-such as `Lesli::Account` and `Lesli::User`; legacy direct declarations should
-be migrated to this pattern. This keeps Core loadable when an engine is not
-installed and keeps the association next to the models and tables it exposes.
+Lesli Core exposes one association for each supported engine workspace:
 
-Define the account extension inside the engine:
+```ruby
+has_one :my_engine,
+  class_name: "MyEngine::Account",
+  foreign_key: :account_id,
+  inverse_of: :account
+```
+
+The matching engine model owns the inverse association. An engine account is a
+one-to-one workspace for the Core account, so its `account_id` must have a
+unique database index and the model must mirror that constraint:
 
 ```ruby
 module MyEngine
-  module AccountAssociations
-    extend ActiveSupport::Concern
+  class Account < ApplicationRecord
+    belongs_to :account,
+      class_name: "Lesli::Account",
+      inverse_of: :my_engine
 
-    included do
-      has_one :my_engine,
-        class_name: "MyEngine::Account",
-        foreign_key: :account_id,
-        inverse_of: :account
-    end
+    validates :account_id, uniqueness: true
   end
 end
 ```
 
-Install it from the engine's reload-safe preparation block:
-
-```ruby
-config.to_prepare do
-  unless Lesli::Account < MyEngine::AccountAssociations
-    Lesli::Account.include(MyEngine::AccountAssociations)
-  end
-end
-```
-
-Use the same pattern with a separate concern when the engine extends
-`Lesli::User`. Always make `class_name`, `foreign_key`, and `inverse_of`
-explicit at this boundary.
+Only initialize this workspace when the engine is installed. Keep
+`class_name`, `foreign_key`, and `inverse_of` explicit at the Core/engine
+boundary, and keep all user ownership on `Lesli::User`.
 
 Do not add a direct association from the core account to an engine child table
 when that table's `account_id` references the engine account. For example, if
@@ -137,7 +133,8 @@ coincide and expose records belonging to another account.
 
 ## Item Concerns
 
-Lesli provides concerns for resources that support tasks, discussions, or activities:
+Lesli provides concerns for resources that support tasks, discussions,
+activities, or file attachments:
 
 ```ruby
 module MyEngine
@@ -145,6 +142,7 @@ module MyEngine
     include Lesli::Items::Tasks
     include Lesli::Items::Discussions
     include Lesli::Items::Activities
+    include Lesli::Items::Attachments
   end
 end
 ```
@@ -154,14 +152,178 @@ By default, each concern expects a matching namespaced model:
 * `MyEngine::Items::Task`
 * `MyEngine::Items::Discussion`
 * `MyEngine::Items::Activity`
+* `MyEngine::Items::Attachment`
 
 The corresponding item tables and polymorphic columns must also exist. If an engine uses different classes or association names, call the concern's setup method with its `use`, `as`, or `association_name` options.
+
+When `association_name` is customized, `record_activity!` writes through that
+configured association:
+
+```ruby
+lesli_activities_setup(
+  use: "MyEngine::Items::Activity",
+  association_name: :activity_history
+)
+```
+
+Activity records follow a shared ownership contract:
+
+* `subject` is the resource affected by the event.
+* `actor` is the `Lesli::User` who performed the event and is stored in
+  `user_id`.
+* `account` is the account record owned by the engine. The abstract activity
+  model deliberately does not assume an account class.
+* `activity_code` is a semantic snake-case event name such as
+  `priority_changed`, not a database column name such as `priority_id`.
+
+Every concrete activity model must declare its table explicitly:
+
+```ruby
+module MyEngine
+  module Items
+    class Activity < Lesli::Items::Activity
+      self.table_name = "my_engine_items_activities"
+
+      belongs_to :account, class_name: "MyEngine::Account"
+    end
+  end
+end
+```
+
+Record activities through the parent resource. The association assigns the
+polymorphic subject, and the method returns the persisted activity:
+
+```ruby
+activity = ticket.record_activity!(
+  actor: current_user,
+  code: :priority_changed,
+  description: "Ticket priority changed",
+  metadata: {
+    from: previous_priority_id,
+    to: ticket.priority_id
+  }
+)
+```
+
+`record_activity!` uses the account returned by `lesli_item_account` and raises
+`ActiveRecord::RecordInvalid` when the actor, account, subject, code, type, or
+metadata is invalid. Engine resources normally return their direct engine
+account:
+
+```ruby
+def lesli_item_account
+  account
+end
+```
+
+Activities provide an operational timeline for a resource. They are removed
+with their subject and should not be used as a substitute for an immutable
+audit log. Use LesliAudit when records must survive resource deletion or meet
+audit-retention requirements.
+
+Task, discussion, activity, and attachment records belong to the same engine
+account as their parent resource. Their abstract Core models deliberately do
+not select an account class; every concrete engine item declares it.
+
+A discussion is one linear comment, not a reply or a thread. Its `author` is a
+Core `Lesli::User` stored in `user_id`, its `account` belongs to the engine, its
+`discussable` is the polymorphic parent resource, and its `message` must contain
+non-blank plain text. Messages are escaped when rendered and preserve line
+breaks without interpreting HTML. Discussion tables do not include
+`deleted_at` because the first version does not expose editing or deletion.
+
+Create comments through the discussable resource. The concern assigns the
+polymorphic resource and engine account, raises when the comment is invalid,
+and returns the persisted comment:
+
+```ruby
+comment = ticket.add_comment!(
+  author: current_user,
+  message: "Follow up with the customer"
+)
+```
+
+When an engine configures a different association name,
+`lesli_discussions_setup` stores both the concrete class and association used by
+`add_comment!`:
+
+```ruby
+lesli_discussions_setup(
+  use: "MyEngine::Items::Discussion",
+  association_name: :comments
+)
+```
+
+Tasks require only a non-blank title as domain data. Their account comes from
+the parent resource through `lesli_item_account`, and their user is always a
+Core `Lesli::User`. Tasks do not use soft deletion, so their tables must not
+include `deleted_at`. The shared routes expose task creation and completion;
+there are no individual show, index, or deletion operations. The parent
+resource supplies the task collection when its page is rendered. Completion is
+reversible: the update endpoint toggles a task between completed and pending.
+
+Create a task through the taskable resource. The concern assigns the
+polymorphic resource and engine account automatically, raises when the task is
+invalid, and returns the persisted task:
+
+```ruby
+task = ticket.add_task!(
+  creator: current_user,
+  title: "Follow up with customer"
+)
+```
+
+If an engine uses a different association name, `lesli_tasks_setup` stores it
+and `add_task!` continues to use the configured association:
+
+```ruby
+lesli_tasks_setup(
+  use: "MyEngine::Items::Task",
+  association_name: :task_list
+)
+```
+
+Attachment models inherit from `Lesli::Items::Attachment` and use Active
+Storage for the file body and technical metadata. The engine table stores the
+engine account, Core uploader, polymorphic resource, label, and category:
+
+```ruby
+module MyEngine
+  module Items
+    class Attachment < Lesli::Items::Attachment
+      self.table_name = "my_engine_items_attachments"
+
+      belongs_to :account, class_name: "MyEngine::Account"
+    end
+  end
+end
+```
+
+Install Active Storage once in the host application, not once per engine:
+
+```shell
+bin/rails active_storage:install
+bin/rails db:migrate
+```
+
+This standard Rails generator creates the shared `active_storage_blobs`,
+`active_storage_attachments`, and `active_storage_variant_records` tables.
+Lesli's item migration helper creates only the engine's domain table, and
+`lesli:db:prepare` does not generate the Active Storage migration. Skip the
+generator when the host application already has those tables or an equivalent
+pending migration.
+
+The shared item concerns obtain ownership from `lesli_item_account`, which
+returns the parent resource's direct account by default. Access checks unwrap
+that engine account to its owning `Lesli::Account` when comparing it with the
+authenticated user. Override these methods only when a resource uses a
+different ownership model.
 
 Include only the concerns for which the engine provides the required models and migrations; missing item classes cause model loading to fail.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/backend/models.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/19</p>
+    <p><b>Last Update: </b>2026/10/22</p>
 </section>
 
 <!-- This code was automatically generated -->

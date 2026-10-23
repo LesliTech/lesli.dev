@@ -9,7 +9,8 @@ The builder exposes complete field wrappers that combine a label, input, optiona
 | `field_control_password` | Password input |
 | `field_control_checkbox` | Checkbox and label |
 | `field_control_select` / `field_select` | Select menu |
-| `field_control_textarea` / `field_textarea` | Lexxy rich textarea |
+| `field_control_textarea` / `field_textarea` | Plain textarea |
+| `field_control_textarea_rich` | Lexxy rich textarea |
 | `field_control_submit` | Rails submit control |
 | `field_control_button` | Configurable button with optional icon |
 
@@ -28,7 +29,7 @@ Input-specific keyword arguments are passed to the underlying Rails helper. Use 
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliView/tree/master/docs/forms/fields.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/06</p>
+    <p><b>Last Update: </b>2026/10/22</p>
 </section>
 
 <!-- This code was automatically generated -->

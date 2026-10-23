@@ -115,11 +115,23 @@ end
 The helper declares:
 
 * The engine root and singleton `dashboard` routes
-* `items/tasks` routes for `index`, `create`, and `update`
-* `items/discussions` routes for `index`, `create`, and `update`
+* `items/tasks` routes for `create` and `update`
+* An `items/discussions` route for `create`
 * An `up` health-check route
 
 Use this helper only when the engine provides the corresponding dashboard and item controllers.
+
+Attachment routes are opt-in because the engine must also provide its concrete
+attachment model and migration:
+
+```ruby
+MyEngine::Engine.routes.draw do
+  Lesli::Router.mount_lesli_engine_routes(self, attachments: true)
+end
+```
+
+This adds `items/attachments` routes for `index`, `create`, `show`, and
+`destroy`.
 
 ---
 
@@ -137,7 +149,7 @@ Route output is the source of truth when host routes, Lesli helpers, and mounted
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/backend/router.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/02</p>
+    <p><b>Last Update: </b>2026/10/22</p>
 </section>
 
 <!-- This code was automatically generated -->

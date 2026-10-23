@@ -45,8 +45,10 @@ It gives account owners and administrators a central interface for maintaining t
 
 ## Features
 
-- Core account name and email management
-- Framework configuration overview
+- Core account identity, status, and data-region management
+- Company profile, contact, address, and social-link management
+- Read-only framework configuration viewer with server-side secret filtering
+- Account dashboard with user, role, installed-engine, and lifecycle metrics
 - Installed-engine inventory and metadata
 - Account-scoped data structures for details, locations, settings, and currencies
 - Optional dashboard components through LesliDashboard
@@ -103,7 +105,7 @@ bin/rails routes -g admin
 bin/rails server
 ```
 
-Install [LesliDashboard](https://rubygems.org/gems/lesli_dashboard) when the application should render LesliAdmin's shared dashboard and installed-engines component.
+Install [LesliDashboard](https://rubygems.org/gems/lesli_dashboard) when the application should persist and render LesliAdmin's account metrics and metadata components.
 
 <br />
 
@@ -149,6 +151,7 @@ bin/rails test
 - [Installation guide](https://www.lesli.dev/engines/admin/about/installation)
 - [Account management](https://www.lesli.dev/engines/admin/account/)
 - [Dashboard components](https://www.lesli.dev/engines/admin/about/dashboards)
+- [Settings and configuration](https://www.lesli.dev/engines/admin/about/settings)
 - [Translations](https://www.lesli.dev/engines/admin/about/translations)
 - [Database](https://www.lesli.dev/engines/admin/about/database)
 - [Release notes](https://github.com/LesliTech/LesliAdmin/releases)
@@ -196,7 +199,7 @@ The complete license text is available in the [license file](./license).
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliAdmin/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/02</p>
+    <p><b>Last Update: </b>2026/10/21</p>
 </section>
 
 <!-- This code was automatically generated -->

@@ -11,6 +11,7 @@ set :trailing_slash, false
 page "/", layout: "website"
 page "/about.html", layout: "website"
 page "/gems/*", layout: "documentation"
+page "/tools/*", layout: "documentation"
 page "/engines/*", layout: "documentation"
 page "/notes.html", layout: "documentation"
 page "/notes/*", layout: "documentation"

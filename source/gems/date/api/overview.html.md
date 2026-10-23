@@ -17,11 +17,17 @@ formatter.date_time_words.to_s
 formatter.get
 ```
 
-Use [Formatter](/gems/date/api/formatter) for display values and [Database expressions](/gems/date/api/database) for SQL selection helpers.
+`get` returns a `Date` for calendar inputs and an `ActiveSupport::TimeWithZone`
+for instants. Calendar dates support only date selectors; time selectors raise
+`LesliDate::InvalidFormat`.
+
+Use [Parsing rules](/gems/date/api/parsing) for accepted inputs, zones and errors,
+[Formatter](/gems/date/api/formatter) for display values, and
+[Database expressions](/gems/date/api/database) for SQL selection helpers.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliDate/tree/master/docs/api/overview.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/06</p>
+    <p><b>Last Update: </b>2026/10/22</p>
 </section>
 
 <!-- This code was automatically generated -->

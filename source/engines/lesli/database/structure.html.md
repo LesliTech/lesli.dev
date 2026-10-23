@@ -110,9 +110,9 @@ Lesli includes migration helpers for schema repeated across engines. They are mi
 | `create_table_lesli_shared_account_10(engine)` | The engine's account table and its reference to `lesli_accounts` |
 | `create_table_lesli_shared_catalogs_10(engine)` | Engine catalog and catalog-item tables |
 | `create_table_lesli_item_tasks_10(engine)` | Account-scoped polymorphic tasks |
-| `create_table_lesli_item_activities_10(engine)` | Account-scoped polymorphic activities |
+| `create_table_lesli_item_activities_10(engine)` | Engine-account-scoped polymorphic activities |
 | `create_table_lesli_item_discussions_10(engine)` | Account-scoped polymorphic discussions |
-| `create_table_lesli_item_attachments_10(resource)` | Attachments for a specific resource table |
+| `create_table_lesli_item_attachments_10(engine)` | Account-scoped polymorphic attachment metadata |
 | `create_table_lesli_item_subscribers_10(resource)` | Subscribers for a specific resource table |
 | `create_table_lesli_item_versions_10(resource)` | Field-change history for a specific resource table |
 
@@ -125,9 +125,14 @@ class CreateLesliSupportAccounts < ActiveRecord::Migration[7.0]
     create_table_lesli_item_tasks_10(:lesli_support)
     create_table_lesli_item_activities_10(:lesli_support)
     create_table_lesli_item_discussions_10(:lesli_support)
+    create_table_lesli_item_attachments_10(:lesli_support)
   end
 end
 ```
+
+The attachment helper creates only the Lesli domain table. Its file data is
+stored through the host application's shared Active Storage tables, which must
+be installed separately with `bin/rails active_storage:install`.
 
 Use a shared helper only when its complete schema and behavior fit the feature. A domain table with different lifecycle or ownership requirements should use a normal Rails migration.
 
@@ -164,7 +169,7 @@ When a package keeps a table-code registry, update it in the same change as the 
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/database/structure.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/19</p>
+    <p><b>Last Update: </b>2026/10/21</p>
 </section>
 
 <!-- This code was automatically generated -->

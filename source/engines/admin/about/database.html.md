@@ -11,9 +11,9 @@ The host database remains the runtime source for all installed engines; LesliAdm
 | Migration code | Table | Responsibility | Important relationships |
 | --- | --- | --- | --- |
 | `01.01.00.01.10` | `lesli_admin_accounts` | Engine-specific state for a Lesli account | Required reference to `lesli_accounts` |
-| `01.01.00.02.10` | `lesli_admin_account_details` | Company, contact, address, and social profile details | Reference to `lesli_accounts` |
+| `01.01.00.02.10` | `lesli_admin_account_details` | Company, contact, address, and social profile details | Required, unique reference to `lesli_admin_accounts` |
 | `01.01.00.03.13` | `lesli_admin_account_settings` | Account and optional user setting values | Required reference to `lesli_admin_accounts`; optional reference to `lesli_users` |
-| `01.01.00.04.10` | `lesli_admin_account_locations` | Hierarchical account locations | Reference to `lesli_accounts`; self-reference through `parent_id` |
+| `01.01.00.04.10` | `lesli_admin_account_locations` | Hierarchical account locations | Required reference to `lesli_admin_accounts`; self-reference through `parent_id` |
 | `01.01.00.05.10` | `lesli_admin_account_currencies` | Account currency definitions | References to `lesli_admin_accounts` and `lesli_users` |
 
 The final two digits are the migration revision. For example, `13` identifies revision 1.3 of the account-settings table; it must not be omitted when checking whether a migration code is unique.
@@ -30,23 +30,29 @@ create_table_lesli_shared_account_10(:lesli_admin)
 
 The helper creates the engine account table and its required reference to the core `lesli_accounts` table. This establishes one engine-specific account record for each participating Lesli account.
 
-Other tables currently use one of two ownership levels:
+All LesliAdmin resources belong to the engine account:
 
 ```text
 lesli_accounts
-├── lesli_admin_accounts
-├── lesli_admin_account_details
-└── lesli_admin_account_locations
+└── lesli_admin_accounts
 
 lesli_admin_accounts
+├── lesli_admin_account_details
+├── lesli_admin_account_locations
 ├── lesli_admin_account_settings
 └── lesli_admin_account_currencies
 ```
 
-When adding a table, choose the relationship deliberately:
+This preserves the standard account navigation:
 
-* Reference `lesli_accounts` when the record belongs directly to the core account.
-* Reference `lesli_admin_accounts` when it depends on LesliAdmin-specific account state.
+```ruby
+current_user.account.admin.detail
+current_user.account.admin.locations
+```
+
+When adding a table:
+
+* Reference `lesli_admin_accounts` for every LesliAdmin-owned resource.
 * Reference `lesli_users` when a value belongs to or was selected by a specific user.
 
 Always use an explicit `to_table` when the association name does not identify the target table.
@@ -99,7 +105,7 @@ Review the resulting `db/schema.rb` and run the host test suite. New migration n
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliAdmin/tree/master/docs/about/database.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/02</p>
+    <p><b>Last Update: </b>2026/10/22</p>
 </section>
 
 <!-- This code was automatically generated -->
