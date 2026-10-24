@@ -8,8 +8,8 @@
 <br />
 
 <div align="center">
-    <a target="_blank" href="https://github.com/LesliTech/LesliCalendar/actions/workflows/lesli-ci.yaml">
-        <img alt="LesliCalendar test status" src="https://img.shields.io/github/actions/workflow/status/LesliTech/LesliCalendar/lesli-ci.yaml?branch=master&style=for-the-badge&logo=github&label=tests">
+    <a target="_blank" href="https://github.com/LesliTech/LesliCalendar/actions/workflows/lesli-ci-engine.yaml">
+        <img alt="LesliCalendar test status" src="https://img.shields.io/github/actions/workflow/status/LesliTech/LesliCalendar/lesli-ci-engine.yaml?branch=master&style=for-the-badge&logo=github&label=tests">
     </a>
     <a target="_blank" href="https://rubygems.org/gems/lesli_calendar">
         <img alt="Gem Version" src="https://img.shields.io/gem/v/lesli_calendar?style=for-the-badge&logo=ruby">
@@ -140,7 +140,7 @@ bin/rails test
 
 ### Tailwind styles
 
-Calendar and agenda templates use Tailwind CSS. FullCalendar-specific rules are maintained in `source/tailwind/application.tailwind.css`; the file under `app/assets/stylesheets` is generated and should not be edited directly.
+Calendar and agenda templates use Tailwind CSS. FullCalendar-specific rules are maintained in `source/tailwind/application.css`; the file under `app/assets/stylesheets` is generated and should not be edited directly.
 
 From a complete Lesli workspace, rebuild the engine stylesheet through LesliAssets:
 
@@ -206,7 +206,7 @@ The complete license text is available in the [license file](./license).
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliCalendar/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/12</p>
+    <p><b>Last Update: </b>2026/10/23</p>
 </section>
 
 <!-- This code was automatically generated -->

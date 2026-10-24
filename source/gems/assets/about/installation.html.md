@@ -30,11 +30,14 @@ Assets use the `lesli_assets` logical namespace. Generated icon sprites and emai
 
 ## Runtime and build requirements
 
-The current development baseline is Ruby 3.2 or newer and Rails 8.1. Node.js and npm are required only when contributing to LesliAssets or rebuilding generated output. See [Development](/gems/assets/about/development) for that workflow.
+The current development baseline is Ruby 3.3 or newer and Rails 8.1. The
+release workflow uses Ruby 3.3.5. Node.js and npm are required only when
+contributing to LesliAssets or rebuilding generated output. See
+[Development](/gems/assets/about/development) for that workflow.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliAssets/tree/master/docs/about/installation.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/06</p>
+    <p><b>Last Update: </b>2026/10/23</p>
 </section>
 
 <!-- This code was automatically generated -->

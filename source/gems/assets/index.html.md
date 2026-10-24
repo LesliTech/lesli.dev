@@ -8,10 +8,10 @@
 <br />
 
 <div align="center">
-    <a target="_blank" href="https://github.com/LesliTech/LesliAssets/actions/workflows/lesli-ci-tests.yaml">
+    <a target="_blank" href="https://github.com/LesliTech/LesliAssets/actions/workflows/lesli-ci-gem.yaml">
         <img
             alt="LesliAssets test status"
-            src="https://img.shields.io/github/actions/workflow/status/LesliTech/LesliAssets/lesli-ci-tests.yaml?branch=master&style=for-the-badge&logo=github&label=tests">
+            src="https://img.shields.io/github/actions/workflow/status/LesliTech/LesliAssets/lesli-ci-gem.yaml?branch=master&style=for-the-badge&logo=github&label=tests">
     </a>
     <a target="_blank" href="https://rubygems.org/gems/lesli_assets">
         <img alt="Gem Version" src="https://img.shields.io/gem/v/lesli_assets?style=for-the-badge&logo=ruby">
@@ -53,7 +53,7 @@ LesliAssets provides:
 
 The current Lesli development baseline is:
 
-- Ruby 3.2 or newer
+- Ruby 3.3 or newer (the release workflow uses Ruby 3.3.5)
 - Rails 8.1
 
 The released gem contains precompiled assets, so Node.js is not required to use it in a Rails application. Node.js 20.x and npm are required only when developing or rebuilding this repository.
@@ -160,7 +160,6 @@ Individual build targets are also available:
 
 ```shell
 make build.js
-make build.css
 make build.icons
 make build.mails
 make build.tailwind
@@ -238,7 +237,7 @@ The complete license text is available in the [license file](./license).
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliAssets/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/19</p>
+    <p><b>Last Update: </b>2026/10/23</p>
 </section>
 
 <!-- This code was automatically generated -->

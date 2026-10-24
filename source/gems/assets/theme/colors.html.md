@@ -1,6 +1,6 @@
 # Color system
 
-The Lesli color system separates brand identity, interface meaning, reusable categories, and business grouping. `lesli-css` 4.1.0 owns the canonical palettes; LesliAssets connects those tokens to Sass, CSS, Tailwind CSS, and application-level theme settings.
+The Lesli color system separates brand identity, interface meaning, reusable categories, and business grouping. LesliAssets owns the canonical CSS variables and connects them to Tailwind CSS and application-level theme settings.
 
 Application code should depend on a token's intent instead of copying its hexadecimal value.
 
@@ -38,17 +38,14 @@ Categorical colors never communicate semantic state. Rose is not Danger, Gold is
 
 | Layer | Responsibility |
 | --- | --- |
-| `lesli-css` | Defines the canonical Sass maps and exports generated CSS variables. |
-| LesliAssets | Loads the tokens and exposes them through framework styles, Tailwind CSS, and runtime settings. |
+| LesliAssets | Defines the canonical CSS variables and exposes them through framework styles, Tailwind CSS, and runtime settings. |
 | Lesli application | Consumes tokens by intent and supplies optional account-level theme values. |
 
 ## CSS custom properties
 
-Every canonical palette entry is available as a portable CSS variable. A standalone CSS project can load the generated token file directly:
+Every canonical palette entry is available as a portable CSS variable. LesliAssets loads the token file as part of its application stylesheets:
 
 ```css
-@import "lesli-css/css/colors.css";
-
 .primary-action {
     background-color: var(--lesli-color-primary-500);
     color: var(--lesli-color-neutral-50);
@@ -75,33 +72,6 @@ Collection identities omit the shade because the Collection owns a single public
 ```text
 --lesli-color-collection-{collection}
 ```
-
-## Sass API
-
-Use the `lesli-css` Sass module when styles are compiled with Sass:
-
-```scss
-@use "lesli-css" as lesli;
-
-.primary-action {
-    background-color: lesli.lesli-color(primary, 500);
-    color: lesli.lesli-color(neutral, 50);
-}
-
-.notification-success {
-    background-color: lesli.lesli-color(success, 100);
-    color: lesli.lesli-color(success, 800);
-}
-```
-
-The default shade is `500`, so these expressions are equivalent:
-
-```scss
-color: lesli.lesli-color(primary);
-color: lesli.lesli-color(primary, 500);
-```
-
-Use CSS variables instead when a value must react to runtime theme changes after Sass has been compiled.
 
 ## Tailwind CSS
 
@@ -176,7 +146,7 @@ These settings are exposed as runtime CSS properties. They can change account su
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliAssets/tree/master/docs/theme/colors.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/09/27</p>
+    <p><b>Last Update: </b>2026/10/22</p>
 </section>
 
 <!-- This code was automatically generated -->

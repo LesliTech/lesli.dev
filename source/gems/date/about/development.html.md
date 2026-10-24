@@ -116,9 +116,9 @@ bundle exec rake test A="--seed 1729"
 
 1. Choose the release version in `lib/lesli_date/version.rb`, move the
    `Unreleased` changelog entries to that version, and refresh `Gemfile.lock`.
-2. Run the CI matrix and review the [migration notes](/gems/date/about/migration).
+2. Run the CI matrix and review the changelog.
 3. Build and inspect the package, which includes the public documentation,
-   migration notes, changelog, runtime source and license:
+   changelog, runtime source and license:
 
 ```shell
 COVERAGE=true bundle exec rake test

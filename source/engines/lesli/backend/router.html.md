@@ -36,6 +36,11 @@ The helper defines the host application's root route. Use manual mounting if the
 
 The helper checks whether each engine constant is defined before mounting it. Installing or requiring an engine is still the application's responsibility.
 
+This table describes every engine name recognized by the router, not the
+official production bundle. LesliMailer, LesliPapers, LesliSecurity, and
+LesliContacts remain optional or experimental; the current official stack is
+listed in the [ecosystem overview](/engines/lesli/about/ecosystem/).
+
 The second argument to `mount` changes the authentication prefix only; it does not change the engine paths in the table:
 
 ```ruby
@@ -149,7 +154,7 @@ Route output is the source of truth when host routes, Lesli helpers, and mounted
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/backend/router.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/22</p>
+    <p><b>Last Update: </b>2026/10/23</p>
 </section>
 
 <!-- This code was automatically generated -->

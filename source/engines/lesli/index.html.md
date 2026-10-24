@@ -75,7 +75,7 @@ Lesli core and its official engines provide:
 
 ### Requirements
 
-- Ruby 3.3 or newer
+- Ruby 3.3 or newer (the release workflow uses Ruby 3.3.5)
 - Rails 8.1
 - SQLite, included in the default Rails application
 
@@ -224,7 +224,7 @@ The complete license text is available in the [license file](./license).
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/22</p>
+    <p><b>Last Update: </b>2026/10/23</p>
 </section>
 
 <!-- This code was automatically generated -->

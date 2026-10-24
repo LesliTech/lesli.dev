@@ -47,8 +47,6 @@ for input and presentation zones, supported syntax, and validation errors.
 
 LesliDate currently generates adapter-specific database expressions for SQLite and PostgreSQL. See [Database expressions](/gems/date/api/database) before using those helpers with another adapter.
 
-For behavior changes, see [Migration notes](/gems/date/about/migration).
-
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliDate/tree/master/docs/about/installation.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
     <p><b>Last Update: </b>2026/10/22</p>

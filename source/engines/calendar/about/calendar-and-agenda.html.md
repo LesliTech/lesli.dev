@@ -67,13 +67,13 @@ Keep `index` compatible with FullCalendar. When adding another event source, map
 Calendar and agenda templates use Tailwind utilities. FullCalendar creates its internal markup at runtime, so its component rules live in the engine Tailwind entrypoint:
 
 ```text
-source/tailwind/application.tailwind.css
+source/tailwind/application.css
 ```
 
 Do not edit the compiled asset directly:
 
 ```text
-app/assets/stylesheets/lesli_calendar/application.tailwind.css
+app/assets/stylesheets/lesli_calendar/application.css
 ```
 
 From a complete Lesli development workspace, compile the source through LesliAssets:
@@ -89,7 +89,7 @@ Event-source classes are styling hooks rather than Tailwind utilities assembled 
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliCalendar/tree/master/docs/about/calendar-and-agenda.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/12</p>
+    <p><b>Last Update: </b>2026/10/22</p>
 </section>
 
 <!-- This code was automatically generated -->

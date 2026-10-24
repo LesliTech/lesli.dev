@@ -6,7 +6,7 @@ The Lesli brand combines its wordmark, compact icon, and Lesli Blue. These eleme
 
 Use the standard wordmark on light backgrounds and the negative wordmark on dark or saturated backgrounds.
 
-<div class="columns lesli-css-color-logos">
+<div class="columns lesli-assets-color-logos">
     <div class="br-2 pl-6 pb-5 has-background-grey-lighter">
         <h4>Standard wordmark</h4>
         <img width="200" alt="Lesli Framework logo blue" src="/images/brand/lesli.svg" />
@@ -21,7 +21,7 @@ Use the standard wordmark on light backgrounds and the negative wordmark on dark
 
 Use the compact icon when horizontal space is limited, including application navigation, favicons, and other square placements.
 
-<div class="columns lesli-css-color-logos">
+<div class="columns lesli-assets-color-logos">
     <div class="br-2 pl-6 pb-5 has-background-grey-lighter">
         <h4>Standard icon</h4>
         <img width="180" class="m-auto display-block" alt="Lesli Framework icon blue" src="/images/brand/lesli-icon.svg" />
@@ -74,7 +74,7 @@ Primary is not a synonym for Info, and it is separate from the Sky and Indigo ca
 
 For normal-sized text, use a sufficiently dark foreground on Primary 50–400 and white on Primary 500–900. Primary 400 does not provide enough contrast with white.
 
-See the [color system documentation](/gems/assets/theme/colors) for CSS variables, Sass functions, Tailwind utilities, and runtime application themes.
+See the [color system documentation](/gems/assets/theme/colors) for CSS variables, Tailwind utilities, and runtime application themes.
 
 ## Packaged assets
 
@@ -117,7 +117,7 @@ The current customization helper resolves these packaged defaults. Automatic per
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliAssets/tree/master/docs/theme/brand.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/09/27</p>
+    <p><b>Last Update: </b>2026/10/22</p>
 </section>
 
 <!-- This code was automatically generated -->

@@ -8,8 +8,8 @@
 <br />
 
 <div align="center">
-    <a target="_blank" href="https://github.com/LesliTech/LesliDate/actions/workflows/lesli-ci-gem.yml">
-        <img alt="LesliDate test status" src="https://img.shields.io/github/actions/workflow/status/LesliTech/LesliDate/lesli-ci-gem.yml?branch=main&style=for-the-badge&logo=github&label=tests">
+    <a target="_blank" href="https://github.com/LesliTech/LesliDate/actions/workflows/lesli-ci-gem.yaml">
+        <img alt="LesliDate test status" src="https://img.shields.io/github/actions/workflow/status/LesliTech/LesliDate/lesli-ci-gem.yaml?branch=main&style=for-the-badge&logo=github&label=tests">
     </a>
     <a target="_blank" href="https://rubygems.org/gems/lesli_date">
         <img alt="Gem Version" src="https://img.shields.io/gem/v/lesli_date?style=for-the-badge&logo=ruby">
@@ -141,8 +141,7 @@ formats and zone support differ between adapters; see
 supported patterns, SQLite fixed-offset limits, and PostgreSQL zone conversion.
 
 See [application examples](docs/api/examples.md) for form fields, API timestamps,
-CSV imports and SQL selections, and [migration notes](docs/about/migration.md)
-for changes to `.get`, zones, exceptions and aliases. Selectors still mutate
+CSV imports and SQL selections. Selectors still mutate
 the same formatter and return `self`; input values and configuration are not
 modified.
 
@@ -201,7 +200,6 @@ for setup and reproducible ordering.
 - [Parsing rules](https://www.lesli.dev/gems/date/api/parsing)
 - [Database expressions](https://www.lesli.dev/gems/date/api/database)
 - [Application examples](docs/api/examples.md)
-- [Migration notes](docs/about/migration.md)
 - [Changelog](CHANGELOG.md)
 - [Release notes](https://github.com/LesliTech/LesliDate/releases)
 - [Issue tracker](https://github.com/LesliTech/LesliDate/issues)
@@ -248,7 +246,7 @@ The complete license text is available in the [license file](./license).
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliDate/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/22</p>
+    <p><b>Last Update: </b>2026/10/23</p>
 </section>
 
 <!-- This code was automatically generated -->
