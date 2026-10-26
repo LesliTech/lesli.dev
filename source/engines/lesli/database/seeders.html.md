@@ -11,11 +11,12 @@ Run database tasks through the host Rails application:
 | Command | Behavior |
 | --- | --- |
 | `bin/rails lesli:db:prepare` | Runs Rails `db:prepare`, configures Lesli for every account, and prints system status |
-| `bin/rails lesli:db:seed` | Loads seed files for installed Lesli engines, then the host application's seeds, and prints status |
+| `bin/rails lesli:db:build` | Prepares the schema, loads engine and host seeds, configures Lesli, and prints status without dropping the database |
+| `bin/rails lesli:db:seed` | Loads engine and host seeds, configures Lesli accounts and installed modules, and prints status |
 | `bin/rails lesli:db:rebuild` | Drops and recreates the database, seeds it, configures accounts, and prints status |
 | `bin/rails db:migrate:status` | Shows the migration state assembled from the host and installed engines |
 
-`lesli:db:prepare` does not load seed data. This makes it suitable for applying schema changes and initializing installed engines without creating demo records.
+`lesli:db:prepare` does not load seed data, even when Rails creates a new database. This makes it suitable for applying schema changes and initializing installed engines without creating demo records. Lesli temporarily disables the Rails seed loader while preserving the rest of the standard `db:prepare` behavior.
 
 ```shell
 bin/rails lesli:db:prepare
@@ -28,15 +29,29 @@ The configuration phase also:
 * Builds privileges when LesliShield is installed
 * Scans and imports translations when LesliBabel is installed
 
+These operations are designed to be repeatable. Existing engine accounts are reused, and account-initialization activities are recorded only when a new engine account is created.
+
+### Non-destructive build
+
+`lesli:db:build` combines database preparation, seed loading, Lesli configuration, and the status report:
+
+```shell
+bin/rails lesli:db:build
+```
+
+Unlike `lesli:db:rebuild`, it does not drop the database and can run in any Rails environment. Use it when a new or existing environment needs both migrations and required seed records. The task is only as safe and repeatable as the loaded seeders, so review them and back up persistent data before using it in production.
+
 ### Destructive rebuild
 
-`lesli:db:rebuild` permanently deletes the current database data and removes `db/schema.rb` before rebuilding it.
+`lesli:db:rebuild` permanently deletes the current database data and invokes Rails `db:migrate:reset`. Rails recreates the database from the migrations currently available from the host and installed engines, then regenerates the configured `db/schema.rb` or `db/structure.sql` file.
+
+If an engine is removed and its migrations were supplied only by that engine, its tables are excluded from the rebuilt database and schema. Migrations copied into the host application's `db/migrate` directory remain active even after removing the engine.
 
 ```shell
 bin/rails lesli:db:rebuild
 ```
 
-The task refuses to drop the database in production. Use it only for a disposable development environment and verify the active Rails environment before running it.
+The task runs only in the Rails development and test environments and refuses to run in staging, production, or custom environments. Use it only with disposable data and verify the active database before running it.
 
 ---
 
@@ -47,9 +62,11 @@ The task refuses to drop the database in production. Use it only for a disposabl
 1. Reads installed engines from `LesliSystem.engines`.
 2. Calls `Engine.load_seed` for each installed Lesli engine, excluding the host application's `Root` entry.
 3. Invokes the host application's standard `db:seed` task.
-4. Prints Lesli system status.
+4. Rebuilds resources and initializes every Lesli account and its installed engines.
+5. Synchronizes privileges and translations when LesliShield or LesliBabel are installed.
+6. Prints Lesli system status.
 
-Lesli Core is an engine and loads its own `db/seeds.rb` through the same process. Its seed files create the initial account and users from `Lesli.config.company` and `Lesli.config.security`.
+Lesli Core is an engine and loads its own `db/seeds.rb` through the same process. Its seed files create the initial account and users from `Lesli.config.company` and `Lesli.config.security`. The configuration phase runs afterward so newly seeded accounts receive their roles, engine accounts, and privileges.
 
 The final set of seed files depends on which engine constants are loaded. Installing an engine does not guarantee useful seed data; its `db/seeds.rb` decides what to create for the active environment.
 
@@ -183,11 +200,11 @@ bin/rails lesli:db:seed
 
 The second run should succeed without changing record counts unexpectedly. Also test the environments or demo-mode branches the engine supports.
 
-After installing a new engine, run `lesli:db:prepare` before its seeds so its migrations and per-account initialization are complete.
+After installing a new engine, run `lesli:db:prepare` before its seeds so its migrations are applied. The subsequent `lesli:db:seed` execution configures existing and newly seeded accounts.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/database/seeders.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/02</p>
+    <p><b>Last Update: </b>2026/10/24</p>
 </section>
 
 <!-- This code was automatically generated -->
