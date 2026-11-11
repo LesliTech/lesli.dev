@@ -66,6 +66,7 @@ bin/rails server
 Visit `http://127.0.0.1:3000/audit`. Install LesliDashboard and run `bin/rails lesli_dashboard:register` when the Audit dashboard component should be available to existing accounts.
 
 See [Activity Events](/engines/audit/events/),
+[Cloudflare Traffic](/engines/audit/traffic/cloudflare),
 [Tasks](/engines/audit/about/tasks), [Dashboards](/engines/audit/about/dashboards),
 [Translations](/engines/audit/about/translations),
 [Database](/engines/audit/about/database), and
@@ -73,7 +74,7 @@ See [Activity Events](/engines/audit/events/),
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliAudit/tree/master/docs/about/installation.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/19</p>
+    <p><b>Last Update: </b>2026/10/29</p>
 </section>
 
 <!-- This code was automatically generated -->

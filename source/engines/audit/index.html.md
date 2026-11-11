@@ -48,6 +48,7 @@ It records account activity and provides administrators with searchable operatio
 - Account activity and audit logs
 - Request and navigation history
 - Request, device, and authenticated-user analytics
+- Cloudflare-imported traffic snapshots for resources served outside Rails
 - Direct account and authenticated-user request counters
 - Configurable batched data retention
 - Normalized browser, platform, and device categories
@@ -56,6 +57,13 @@ It records account activity and provides administrators with searchable operatio
 Activity logs are explicit append-only business or security events. They are
 separate from request analytics: user requests are grouped counters, while
 user journals are individual normalized HTTP request events.
+
+The interface uses five single-word reports in a fixed order: **Users**,
+**Analytics**, **Traffic**, **Requests**, and **Logs**. Analytics measures
+authenticated application use. Traffic presents aggregate resource visits
+imported from Cloudflare without logging individual requests. Cloudflare
+`count` is presented as mapped-resource page views and `sum.visits` as visits;
+neither metric is a unique person or audit evidence.
 
 <br />
 
@@ -153,6 +161,8 @@ bin/rails test
 - [Architecture and data policy](./docs/about/architecture.md)
 - [Configuration](./docs/about/configuration.md)
 - [Request analytics](./docs/analytics/overview.md)
+- [Provider traffic](./docs/traffic/overview.md)
+- [Cloudflare Traffic integration](./docs/traffic/cloudflare.md)
 - [Activity events](./docs/events/overview.md)
 - [Operational tasks](./docs/about/tasks.md)
 - [Database](./docs/about/database.md)
@@ -202,7 +212,7 @@ The complete license text is available in the [license file](./license).
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliAudit/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/23</p>
+    <p><b>Last Update: </b>2026/10/29</p>
 </section>
 
 <!-- This code was automatically generated -->

@@ -22,13 +22,16 @@ Lesli is published under the **GNU General Public License v3 (GPLv3)**. You are 
 
 Lesli is built around modularity and extensibility.
 
-Need task management? Install the corresponding module. Want a calendar? Add the calendar module. Need custom business logic? Extend Lesli’s controllers, models, and services to adapt the framework to your application.
+Need task management? Install the corresponding module. Want a calendar? Add
+the calendar module. Need custom business logic? Extend Lesli's controllers,
+models, CRUD services, and business operators to adapt the framework to your
+application.
 
 There are several ways to work with Lesli:
 
 * Install official modules through gems
 * Extend existing functionality through inheritance
-* Integrate specific features through services and shared components
+* Integrate specific features through services, operators, and shared components
 * Use Lesli as an API-first backend for web or mobile applications
 
 <img alt="Lesli architecture" src="/images/engines/lesli/lesli.excalidraw.svg" />
@@ -45,7 +48,7 @@ This allows development teams to move faster, keep their codebases organized, an
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/about/lesli.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/10</p>
+    <p><b>Last Update: </b>2026/10/29</p>
 </section>
 
 <!-- This code was automatically generated -->

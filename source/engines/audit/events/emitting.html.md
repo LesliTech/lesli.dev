@@ -61,6 +61,17 @@ account.log(
 
 The optional `user:` argument records the actor and its immutable UID snapshot.
 
+Choose the event type from the subject of the evidence, not only from the actor:
+
+- use `User#log` when the history belongs to a specific user, such as a profile
+  change, authentication outcome, or user permission change;
+- use `Account#log` when the history belongs to the tenant, such as account
+  initialization, a global policy change, or an account-wide security action.
+
+An account event may still have a user actor. Conversely, do not emit both
+types for the same operation unless the product genuinely requires two
+independent audit histories.
+
 ## Transaction Boundary
 
 For an operation that requires audit evidence, write the business change and
@@ -95,10 +106,15 @@ parameters, raw user-agent strings, or unrestricted serialized payloads in the
 description. If richer structured event metadata becomes necessary, extend the
 allowlist and schema explicitly instead of embedding JSON in a text field.
 
+Requests and journals must never be promoted into activity events after the
+fact. Their presence proves that Rails observed a request, not that the intended
+business operation completed. Emit the log from the code that knows the final
+outcome.
+
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliAudit/tree/master/docs/events/emitting.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/19</p>
+    <p><b>Last Update: </b>2026/10/27</p>
 </section>
 
 <!-- This code was automatically generated -->

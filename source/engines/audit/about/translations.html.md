@@ -8,8 +8,8 @@ New labels should follow the standard engine, bucket, and label structure:
 en:
   lesli_audit:
     users:
-      title: "User activity"
-      empty: "No activity has been recorded"
+      title: "Users"
+      no_activity: "No retained user activity was found"
     shared:
       requests: "Requests"
 ```
@@ -20,7 +20,13 @@ Use the complete key from Ruby or ERB:
 <%= I18n.t("lesli_audit.users.title") %>
 ```
 
-The shipped locale files are currently empty, so adding a key also requires replacing the corresponding hard-coded interface text. Add the same key to every supported locale and preserve interpolation variables between languages.
+The shipped locale files contain the current interface vocabulary. Add every
+new key to each supported locale, replace the corresponding hard-coded text,
+and preserve interpolation variables between languages.
+
+Navigation labels remain single words and use this fixed conceptual order:
+Users, Analytics, Traffic, Requests, and Logs. Translate the words naturally,
+but do not merge concepts or replace Traffic with an Analytics label.
 
 When LesliBabel is installed, synchronize the local files with:
 
@@ -35,7 +41,7 @@ See the [engine documentation standard](/engines/lesli/contributing/engines) for
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliAudit/tree/master/docs/about/translations.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/06</p>
+    <p><b>Last Update: </b>2026/10/27</p>
 </section>
 
 <!-- This code was automatically generated -->

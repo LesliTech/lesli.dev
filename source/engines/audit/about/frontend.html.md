@@ -23,8 +23,10 @@ covered by an `@source` rule. The current page-specific sources are:
 
 ```css
 @source "../../app/views/lesli_audit/users/index.html.erb";
-@source "../../app/views/lesli_audit/visitors/index.html.erb";
-@source "../../app/views/lesli_audit/logs/show.html.erb";
+@source "../../app/views/lesli_audit/analytics/index.html.erb";
+@source "../../app/views/lesli_audit/requests/index.html.erb";
+@source "../../app/views/lesli_audit/logs/**/*.html.erb";
+@source "../../app/views/lesli_audit/traffic/**/*.html.erb";
 ```
 
 Add another source when migrating or creating a view that contains utilities.
@@ -69,7 +71,7 @@ APIs.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliAudit/tree/master/docs/about/frontend.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/22</p>
+    <p><b>Last Update: </b>2026/10/27</p>
 </section>
 
 <!-- This code was automatically generated -->

@@ -16,6 +16,11 @@ end
 
 Use `Lesli::ApplicationController` instead for public pages that do not need the authenticated engine lifecycle.
 
+Controllers are HTTP adapters. Delegate resource CRUD to services and named
+business actions to operators. The complete responsibility and dependency
+rules are documented in
+[Application Architecture](/engines/lesli/backend/architecture/).
+
 ---
 
 ## Controller Lifecycle
@@ -99,6 +104,33 @@ See [Controller Interfaces](/engines/lesli/backend/interfaces/) for complete exa
 
 ---
 
+## Custom Business Actions
+
+Use an operator for a controller action that does not represent CRUD. Resolve
+the resource through its account-scoped service before invoking the operator:
+
+```ruby
+def close
+  service = TicketService.new(current_user, query).find(id: params[:id])
+  return respond_with_not_found unless service.found?
+
+  ticket = TicketOperator.new(
+    ticket: service.result,
+    actor: current_user
+  ).close!
+
+  respond_with_lesli(
+    turbo: stream_notification_success("Ticket closed"),
+    json: ticket
+  )
+end
+```
+
+The controller selects the response. The operator owns the close workflow and
+must not render, redirect, or construct Turbo Streams.
+
+---
+
 ## Pagination Responses
 
 `respond_with_pagination` expects a paginated collection that responds to Kaminari's pagination methods:
@@ -162,7 +194,7 @@ Keep required parameter names aligned with the form and API payload.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/backend/controllers.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/13</p>
+    <p><b>Last Update: </b>2026/10/29</p>
 </section>
 
 <!-- This code was automatically generated -->

@@ -11,6 +11,134 @@ LesliAudit uses collection code `05` and engine code `01`. Its migrations live u
 | `05.01.12.01.10` | `lesli_audit_user_logs` | User-specific activity records |
 | `05.01.12.02.10` | `lesli_audit_user_journals` | Individual user request journals |
 | `05.01.12.03.10` | `lesli_audit_user_requests` | User request analytics |
+| `05.01.13.01.10` | `lesli_audit_traffic_rollups` | Daily page-view and visit snapshots imported from a provider |
+| `05.01.13.02.10` | `lesli_audit_traffic_breakdowns` | Optional dimensions belonging to a daily traffic rollup |
+
+## Complete Column Dictionary
+
+Every table has an `id` primary key plus non-null `created_at` and `updated_at`
+timestamps. The tables below list every additional column. “Audit account”
+means `lesli_audit_accounts`; “core account” and “core user” mean
+`lesli_accounts` and `lesli_users`.
+
+### `lesli_audit_accounts`
+
+| Column | Type | Meaning |
+| --- | --- | --- |
+| `account_id` | Foreign key | Required, unique core account. Hard deletion cascades to this row. |
+| `name` | String | Optional engine-local account label. |
+| `status` | Integer | Required engine account state; defaults to `0`. |
+| `enabled_at` | Date-time | Optional time at which Audit was enabled. |
+| `deleted_at` | Date-time | Soft-deletion marker used by the shared account model. |
+
+### `lesli_audit_account_logs` and `lesli_audit_user_logs`
+
+Both append-only event tables use the same event columns. Their distinction is
+semantic: `AccountLog` is tenant history and `UserLog` is user-associated
+history.
+
+| Column | Type | Meaning |
+| --- | --- | --- |
+| `account_id` | Foreign key | Required Audit account; hard deletion cascades to the event. |
+| `user_id` | Foreign key | Optional core user; hard user deletion nullifies the reference and preserves the event. |
+| `engine` | String | Optional engine that emitted the event. |
+| `source` | String | Optional emitting component or workflow. |
+| `action` | String | Optional application action associated with the event. |
+| `operation` | String | Required allowlisted business or security operation. |
+| `description` | Text | Optional human-readable event description. |
+| `session_id` | String | Optional opaque authentication-session reference; it has no Shield foreign key. |
+| `actor_uid` | String | Immutable actor identity snapshot retained when `user_id` is nullified. |
+| `subject_type` | String | Optional opaque subject type. LesliAudit does not constantize it. |
+| `subject_id` | Big integer | Optional opaque subject identifier. |
+
+### `lesli_audit_account_devices`
+
+| Column | Type | Meaning |
+| --- | --- | --- |
+| `account_id` | Foreign key | Required Audit account; part of the tenant-first unique key. |
+| `agent_platform` | String | Required normalized operating-system or platform category observed at successful login. |
+| `agent_browser` | String | Required normalized browser category observed at successful login. |
+| `agent_device` | String | Required normalized device category observed at successful login. |
+| `agent_count` | Big integer | Required nonnegative successful-login count; defaults to `0`. |
+| `date` | Date | Required daily aggregation bucket and retention date. |
+
+The unique key is account, date, platform, browser, and device. This table does
+not identify physical devices or unique people.
+
+### `lesli_audit_account_requests`
+
+| Column | Type | Meaning |
+| --- | --- | --- |
+| `account_id` | Foreign key | Required Audit account; part of the tenant-first unique key. |
+| `request_controller` | String | Required normalized Rails controller. |
+| `request_action` | String | Required normalized Rails action. |
+| `request_count` | Big integer | Required nonnegative matching-request count; defaults to `0`. |
+| `date` | Date | Required daily aggregation bucket and retention date. |
+
+The unique key is account, date, controller, and action.
+
+### `lesli_audit_user_journals`
+
+| Column | Type | Meaning |
+| --- | --- | --- |
+| `account_id` | Foreign key | Required Audit account; scopes identity and access. |
+| `user_id` | Foreign key | Optional core user; hard user deletion nullifies the reference. |
+| `event_uid` | String | Required event identifier, unique within the Audit account. |
+| `request_controller` | String | Optional normalized Rails controller. |
+| `request_action` | String | Optional normalized Rails action. |
+| `date` | Date | Required reporting and retention day. |
+| `session_id` | String | Optional opaque authentication-session reference. |
+| `agent_platform` | String | Optional normalized platform captured for the request. |
+| `agent_browser` | String | Optional normalized browser captured for the request. |
+| `agent_device` | String | Optional normalized device category captured for the request. |
+| `retain` | Boolean | Required retention category; defaults to `true`. |
+
+### `lesli_audit_user_requests`
+
+| Column | Type | Meaning |
+| --- | --- | --- |
+| `account_id` | Foreign key | Required Audit account; scopes every report query. |
+| `user_id` | Foreign key | Required core user; hard user deletion cascades to the aggregate. |
+| `request_controller` | String | Required normalized Rails controller. |
+| `request_action` | String | Required normalized Rails action. |
+| `request_count` | Big integer | Required nonnegative matching-request count; defaults to `0`. |
+| `date` | Date | Required daily aggregation bucket and retention date. |
+| `session_id` | String | Optional opaque session dimension used by the aggregate key. |
+
+The unique key is account, user, optional session, date, controller, and
+action.
+
+### `lesli_audit_traffic_rollups`
+
+| Column | Type | Meaning |
+| --- | --- | --- |
+| `account_id` | Foreign key | Required Audit account; hard deletion cascades to the snapshot. |
+| `provider` | String | Required normalized provider identifier, currently `cloudflare`. |
+| `hostname` | String | Required normalized hostname without scheme, port, credentials, or trailing dot. |
+| `path` | String | Required normalized path; query strings and fragments are removed. |
+| `resource_type` | String | Required opaque host resource type. |
+| `resource_id` | Big integer | Required positive opaque host resource identifier. |
+| `date` | Date | Required provider reporting day. |
+| `page_views` | Big integer | Required nonnegative provider request total stored under the Traffic UI contract. |
+| `visits` | Big integer | Required nonnegative provider visit total. |
+| `snapshot_at` | Date-time | Required snapshot version used to reject retries and out-of-order imports. |
+
+The unique key is account, provider, hostname, path, and date. Resource queries
+use the account, resource type, resource ID, and date index.
+
+### `lesli_audit_traffic_breakdowns`
+
+| Column | Type | Meaning |
+| --- | --- | --- |
+| `account_id` | Foreign key | Required Audit account; validated to match the parent rollup account. |
+| `traffic_rollup_id` | Foreign key | Required parent snapshot; deletion cascades to the breakdown. |
+| `dimension` | String | Required normalized `country`, `device`, `browser`, `operating_system`, or `referrer` dimension. |
+| `value` | String | Required normalized value within the dimension. |
+| `page_views` | Big integer | Required nonnegative attributed page-view count. |
+| `visits` | Big integer | Required nonnegative attributed visit count. |
+
+The unique key is account, rollup, dimension, and value. Provider totals and
+breakdown totals may differ because providers can sample or suppress data.
 
 ## Choosing the Correct Record
 
@@ -20,12 +148,18 @@ The similarly named tables do not contain interchangeable data:
 | --- | --- | --- | --- |
 | `AccountLog` / `lesli_audit_account_logs` | One explicitly emitted tenant-level business or security event | Account lifecycle and operations whose actor may be a user | Yes |
 | `UserLog` / `lesli_audit_user_logs` | One explicitly emitted user activity event | A user's business or security history | Yes |
-| `AccountRequest` / `lesli_audit_account_requests` | One counter per tenant, date, controller, and action | Traffic totals and controller trends | No |
+| `AccountRequest` / `lesli_audit_account_requests` | One counter per tenant, date, controller, and action | Authenticated request totals and controller trends | No |
 | `UserRequest` / `lesli_audit_user_requests` | One counter per tenant, user, optional session, date, controller, and action | Per-user request totals | No |
 | `UserJournal` / `lesli_audit_user_journals` | One normalized row per captured HTTP request | Detailed user timing and request history | No |
 | `AccountDevice` / `lesli_audit_account_devices` | One counter per tenant, date, platform, browser, and device category | Successful-login distribution by normalized agent category | No |
+| `TrafficRollup` / `lesli_audit_traffic_rollups` | One provider snapshot per tenant, hostname, path, and date | Public page views and visits attributed to a host resource | No |
+| `TrafficBreakdown` / `lesli_audit_traffic_breakdowns` | One value within a rollup dimension | Country, device, browser, operating-system, and referrer distributions | No |
 
-### User requests versus user journals
+### Account requests, user requests, and user journals
+
+`AccountRequest` is an **account-level aggregate counter**. It groups matching
+requests by tenant, date, controller, and action. It supports the Analytics
+dashboard but cannot identify which user produced a request.
 
 `UserRequest` is an **aggregate counter**. Repeated matching requests increase
 `request_count`; the row is intended for totals and grouped reports. It does
@@ -40,6 +174,8 @@ operational history and working-hours reports.
 
 In short:
 
+- query `account_requests` to answer **how many matching requests reached an
+  endpoint across the account**;
 - query `user_requests` to answer **how many matching requests** a user made;
 - query retained `user_journals` to answer **when individual requests** were
   captured;
@@ -49,6 +185,17 @@ In short:
 Neither request table replaces `UserLog`. A controller request can finish
 without representing a business change, while one business operation may also
 emit multiple outcome events.
+
+The `/audit/logs` report queries only `UserLog` or `AccountLog`. LesliShield
+controls access to the controller through role permissions. Every role with
+that permission may select either collection and see its account-wide history.
+Both list and detail queries begin from the current Audit account, so granting
+access to Logs never weakens tenant isolation.
+
+The `/audit/requests` report always queries `UserRequest` through the current
+Audit account. Owners and administrators can review all users in that account;
+other roles granted access to the report remain limited to their own rows.
+Authorization changes the scope within the tenant, never the tenant boundary.
 
 The accounts table uses `create_table_lesli_shared_account_10(:lesli_audit)` and adds a unique index over `account_id`, so each core account has exactly one audit account. Request and device tables use a dedicated `date` column for their aggregation bucket and normal Rails timestamps for record lifecycle metadata.
 
@@ -78,6 +225,17 @@ Device dimensions follow a separate path. `log_devices` parses and aggregates
 the user agent only after a successful login; ordinary request logging never
 increments `AccountDevice`.
 
+Traffic follows another path. A `TrafficRollup` stores the provider, normalized
+hostname and path, opaque host resource identity, daily totals, and provider
+snapshot time in the same row. This keeps the feature to two tables while
+preserving the URL that produced every day's data. `TrafficSnapshotImporter`
+upserts one complete daily snapshot under an account lock. A retry or an older
+snapshot cannot overwrite newer data. Omitted breakdown data is preserved;
+an explicitly empty breakdown set removes existing values.
+
+See [Traffic](/engines/audit/traffic/overview#database-column-dictionary) for
+the complete column-by-column contract of both traffic tables.
+
 Account and user activity logs require an `operation`, use text for their
 human-readable description, and index account plus creation time for tenant
 history queries. User histories additionally index user plus creation time.
@@ -100,10 +258,12 @@ bin/rails lesli_audit:retention:cleanup
 ```
 
 The retention operation is available to host schedulers through
-`LesliAudit::RetentionCleanupJob`. Cleanup uses the `date` indexes for journals
-and analytics and the `created_at` indexes for activity histories, deleting in
-bounded batches. Activity histories are skipped while
-`audit_retention_days` is `nil`.
+`LesliAudit::RetentionCleanupJob`. Cleanup uses `analytics_retention_days` for
+authenticated counters, journals, and login-device aggregates;
+`traffic_retention_days` for imported rollups; and `audit_retention_days` for
+account and user logs. Cleanup runs in bounded batches. A `nil` setting skips
+that domain. Hard deletion of the Audit account permanently removes every
+account-scoped collection through its cascade rules.
 
 Audit data can grow quickly. New queries should remain account-scoped and be supported by indexes matching their filters and grouping columns.
 
@@ -116,7 +276,7 @@ See [Database Architecture](/engines/lesli/database/structure) and [Migration Ve
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliAudit/tree/master/docs/about/database.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/23</p>
+    <p><b>Last Update: </b>2026/10/29</p>
 </section>
 
 <!-- This code was automatically generated -->

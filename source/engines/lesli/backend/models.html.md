@@ -22,6 +22,17 @@ module MyEngine
 end
 ```
 
+## Model Responsibilities
+
+Models define associations, persistence invariants, validations, small scopes,
+and behavior local to the record. Rules that must hold regardless of whether a
+record is changed by a controller, job, console, or operator belong in the
+model.
+
+Use callbacks only to preserve the model's own persistence lifecycle. Put
+multi-model workflows, processing, notifications, and optional-engine
+integration in an operator so execution remains explicit.
+
 ---
 
 ## Soft Deletion
@@ -326,7 +337,7 @@ Include only the concerns for which the engine provides the required models and 
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/backend/models.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/23</p>
+    <p><b>Last Update: </b>2026/10/29</p>
 </section>
 
 <!-- This code was automatically generated -->

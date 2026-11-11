@@ -25,7 +25,9 @@ This page is the framework-level feature overview. Detailed configuration and im
 
 Lesli uses standard Rails engines to keep business domains independent. Applications can start with the core framework and add official or custom engines as requirements grow.
 
-This approach keeps shared infrastructure centralized while allowing each module to own its models, controllers, views, migrations, services, and API endpoints.
+This approach keeps shared infrastructure centralized while allowing each
+module to own its models, controllers, views, migrations, CRUD services,
+business operators, and API endpoints.
 
 Read the [architecture overview](/engines/lesli/about/architecture/) for the complete structural model.
 
@@ -71,7 +73,7 @@ This separation keeps the framework overview easy to navigate while allowing eve
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/about/features.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/02</p>
+    <p><b>Last Update: </b>2026/10/29</p>
 </section>
 
 <!-- This code was automatically generated -->
