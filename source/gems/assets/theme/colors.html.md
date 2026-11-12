@@ -10,6 +10,7 @@ Application code should depend on a token's intent instead of copying its hexade
 Lesli Color System
 ├── Brand
 │   └── Primary
+│       └── Lesli Blue (`primary-500`, `#276AD6`)
 ├── Semantic
 │   ├── Info
 │   ├── Success
@@ -26,7 +27,7 @@ Lesli Color System
 
 | Layer | Use it for | Documentation |
 | --- | --- | --- |
-| Brand / Primary | Lesli identity and primary actions | [Brand](/gems/assets/theme/brand) |
+| Brand / Primary | Lesli Blue, Lesli identity, and primary actions | [Brand](/gems/assets/theme/brand) |
 | Semantic | Information, success, warning, and danger states | [Semantic colors](/gems/assets/theme/semantics) |
 | Foundation / Neutral | Text, borders, disabled states, and surfaces | [Foundation colors](/gems/assets/theme/semantics) |
 | Categorical | Charts, datasets, calendars, and reusable categories | [Categorical colors](/gems/assets/theme/categorical) |
@@ -103,7 +104,7 @@ Use numbered utilities for stable design-system colors. The unnumbered `primary`
 
 Lesli exposes two related but distinct concepts:
 
-- `primary-50` through `primary-900` are stable Lesli brand tokens.
+- `primary-50` through `primary-900` are the stable Lesli Blue brand palette.
 - Unnumbered `primary` is the runtime application color and may be customized for an account.
 
 Use `primary-500` when a component must retain Lesli Blue. Use unnumbered `primary` when the component should follow the configured application theme.
@@ -146,7 +147,7 @@ These settings are exposed as runtime CSS properties. They can change account su
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliAssets/tree/master/docs/theme/colors.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/22</p>
+    <p><b>Last Update: </b>2026/11/11</p>
 </section>
 
 <!-- This code was automatically generated -->

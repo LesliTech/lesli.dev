@@ -245,13 +245,12 @@ A core account's normal soft deletion keeps its audit history. A deliberate
 hard deletion cascades through database foreign keys to the Audit account and
 its data, without requiring the core model to own engine lifecycle callbacks.
 
-Traffic providers are host integrations. The engine does not embed a
-Cloudflare account, API token, scheduler, or network client. A host adapter
-queries Cloudflare, builds a normalized
-`LesliAudit::CloudflareTrafficSnapshot`, and passes it to
-`LesliAudit::TrafficSnapshotImporter`. Provider credentials must remain in the
-host's encrypted credentials or secret manager and must never be passed to a
-public page.
+LesliAudit includes the standard Cloudflare Traffic adapter. Its client queries
+Cloudflare, its converter builds normalized snapshots, and the importer writes
+those snapshots to the engine tables. The host supplies deployment-specific
+configuration and scheduling. Provider credentials remain in encrypted
+credentials or the deployment secret manager and are never passed to a public
+page.
 
 Until the first production deployment, schema hardening may be consolidated in
 the existing `v1.0` migrations so a fresh installation starts from the target

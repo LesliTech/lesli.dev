@@ -9,6 +9,7 @@ LesliAssets provides responsive transactional email templates written in MJML an
 | Welcome | `source/mails/lesli/welcome.mjml` | `app/views/lesli_assets/emails/lesli/welcome.html.erb` |
 | Confirmation | `source/mails/devise/confirmation_instructions.mjml` | `app/views/lesli_assets/emails/devise/confirmation_instructions.html.erb` |
 | Password reset | `source/mails/devise/reset_password_instructions.mjml` | `app/views/lesli_assets/emails/devise/reset_password_instructions.html.erb` |
+| Account invitation | `source/mails/lesli_shield/invitation_mailer/account_invitation.mjml` | `app/views/lesli_shield/invitation_mailer/account_invitation.html.erb` |
 
 Shared MJML fragments for the head, header, footer, logo, and social content live in `source/mails/partials`.
 
@@ -81,7 +82,10 @@ config.action_mailer.default_url_options = {
 }
 ```
 
-LesliShield uses these settings for confirmation, password-reset, and welcome emails. `LESLI_MAILER_FROM` can override the sender directly. Custom headers supplied by Devise, such as `from`, `reply_to`, `subject`, and `to`, are preserved.
+LesliShield uses these settings for confirmation, password-reset, welcome, and
+account-invitation emails. `LESLI_MAILER_FROM` can override the sender
+directly. Custom headers supplied by Devise, such as `from`, `reply_to`,
+`subject`, and `to`, are preserved.
 
 When LesliMailer is installed, Rails exposes deterministic previews that do not require database records:
 
@@ -93,7 +97,7 @@ When LesliMailer is installed, Rails exposes deterministic previews that do not 
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliAssets/tree/master/docs/emails/overview.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/19</p>
+    <p><b>Last Update: </b>2026/11/11</p>
 </section>
 
 <!-- This code was automatically generated -->

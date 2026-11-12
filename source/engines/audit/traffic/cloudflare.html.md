@@ -1,25 +1,26 @@
 # Cloudflare Traffic
 
-Cloudflare Traffic is the reference host integration for LesliAudit's Traffic
-report. It is useful when Cloudflare serves a cached public resource without a
-request reaching Rails. The host queries aggregate analytics and imports
-complete daily snapshots; LesliAudit never installs a tracking beacon or logs
-one row per anonymous request.
+Cloudflare Traffic is LesliAudit's standard Traffic integration. It is useful
+when Cloudflare serves a cached public resource without a request reaching
+Rails. LesliAudit downloads aggregate analytics and imports complete daily
+snapshots; it never installs a tracking beacon or logs one row per anonymous
+request.
 
 ## Responsibility Boundary
 
-LesliAudit owns the normalized DTO, importer, database tables, retention, and
-Traffic report. The host application owns:
+The integration intentionally follows three steps:
 
-- the Cloudflare API client and credentials;
-- the zone, hostnames, and account selection;
-- mapping public paths to host-owned resources;
-- the synchronization job, schedule, retries, and backfill;
-- provider success and failure monitoring.
+```text
+Cloudflare GraphQL POST request
+  -> SnapshotConverter
+  -> TrafficSnapshotImporter
+```
 
-This boundary keeps credentials and host models out of the engine. A host
-passes each result through `LesliAudit::CloudflareTrafficSnapshot` and
-`LesliAudit::TrafficSnapshotImporter`.
+LesliAudit owns the API client, converter, importer, synchronization job,
+status table, rake tasks, retention, and Traffic report. The host supplies only
+deployment-specific values: credentials, zone, hostnames, account IDs, the
+path-to-resource resolver, and the recurring schedule. This keeps host models
+out of the engine without moving the standard integration out of LesliAudit.
 
 ## Exact Metric Contract
 
@@ -50,21 +51,19 @@ and [adaptive sampling](https://developers.cloudflare.com/analytics/faq/graphql-
    and restrict its Zone Resources to the required zone.
 3. Store the token in Rails encrypted credentials or the deployment secret
    manager. Never store it in LesliAudit tables or client-side code.
-4. Configure the zone ID, allowed hostnames, target Lesli account IDs, and
-   query limits in the host application.
+4. Configure `Lesli.config.audit[:cloudflare]` with the zone ID, allowed
+   hostnames, target Lesli account IDs, and query limits.
 5. Implement a callable path resolver that returns `resource_type` and
    `resource_id`, or `nil` for paths that should be ignored.
-6. Schedule a host job that queries complete UTC days and imports snapshots.
+6. Schedule `LesliAudit::CloudflareTrafficSyncJob.enqueue_recent` in the host.
 7. Run an initial backfill, then reimport recent days on every scheduled run.
 
-The LesliBuilder reference host supports an encrypted credential at
-`cloudflare.analytics.token` or the `CLOUDFLARE_ANALYTICS_TOKEN` deployment
-secret. Its operational variables, tasks, and example resolver are documented
-in `docs/integrations/cloudflare-traffic.md` in that host repository.
+The token can be stored at `cloudflare.analytics.token` in encrypted Rails
+credentials or provided through `CLOUDFLARE_ANALYTICS_TOKEN`.
 
 ## Jobs and Backfill
 
-The reference host exposes:
+LesliAudit exposes:
 
 ```shell
 # Reimport the configured recent period for every configured account.
@@ -88,7 +87,7 @@ validated against the dataset settings returned for the zone.
 | Dataset disabled or missing fields | Inspect the zone's `httpRequestsAdaptiveGroups` settings. Country, device, or referrer breakdowns are imported only when their fields are available. |
 | Results differ between runs | Cloudflare adaptive data may be sampled or adjusted. Query short daily ranges and allow recent-day reimports. |
 | Import exceeds its page limit | Raise the configured safety limit only after checking the zone `maxPageSize`, dataset duration, and expected path cardinality. A partial result is never silently stored. |
-| Last synchronization is stale | Inspect the host job record, queue worker, schedule, and most recent error. The report warns after 36 hours without a successful synchronization. |
+| Last synchronization is stale | Inspect `lesli_audit_cloudflare_traffic_syncs`, the queue worker, schedule, and most recent error. The report warns after 36 hours without a successful synchronization. |
 | A path is missing | Confirm the configured hostname and inspect the resolver. Query strings and fragments are removed before resource matching. |
 
 ## Evidence and Privacy

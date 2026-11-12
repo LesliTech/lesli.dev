@@ -58,13 +58,12 @@ their counts into `Other` instead of making the visible percentages appear to
 represent the entire dataset.
 
 Users can filter the report by period or by the opaque resource type and ID.
-The synchronization panel identifies Cloudflare as the source. A host can set
-`Lesli.config.audit[:traffic_sync_resolver]` to provide the time of its latest
-successful provider job. Standalone and demo installations fall back to the
-most recent `snapshot_at` for the account. Data older than 36 hours is marked
-as potentially outdated. Synchronization freshness intentionally ignores the
-report filters, because filtering historical data must not make a current
-account synchronization look stale.
+The synchronization panel reads the latest successful
+`CloudflareTrafficSync`. Standalone demo data falls back to the most recent
+`snapshot_at` for the account. Data older than 36 hours is marked as
+potentially outdated. Synchronization freshness intentionally ignores report
+filters, because filtering historical data must not make a current account
+synchronization look stale.
 
 `TrafficBreakdown` stores optional `country`, `device`, `browser`,
 `operating_system`, and `referrer` dimensions for the same day.
@@ -147,12 +146,12 @@ a different resource. Any failure rolls back both totals and breakdowns.
 
 ## Provider Boundary
 
-LesliAudit does not make provider network requests. The host application owns
-the API adapter, path-to-resource resolver, schedule, retries, monitoring, and
-credentials. The reference host integration queries Cloudflare
-`httpRequestsAdaptiveGroups` one UTC day at a time, paginates totals and
-supported dimensions, builds `CloudflareTrafficSnapshot` instances, and passes
-them to `TrafficSnapshotImporter`.
+LesliAudit owns the standard Cloudflare adapter. `Cloudflare::GraphqlClient`
+queries `httpRequestsAdaptiveGroups` one UTC day at a time,
+`Cloudflare::SnapshotConverter` converts supported paths to
+`CloudflareTrafficSnapshot` objects, and `TrafficSnapshotImporter` persists
+them. The host supplies the token, zone, hostnames, account IDs, resource
+resolver, and schedule.
 
 The Cloudflare adapter stores `httpRequestsAdaptiveGroups.count` as
 `page_views`: the number of end-user HTTP requests reported for a mapped

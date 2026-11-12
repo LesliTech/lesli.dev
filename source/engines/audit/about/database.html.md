@@ -13,6 +13,7 @@ LesliAudit uses collection code `05` and engine code `01`. Its migrations live u
 | `05.01.12.03.10` | `lesli_audit_user_requests` | User request analytics |
 | `05.01.13.01.10` | `lesli_audit_traffic_rollups` | Daily page-view and visit snapshots imported from a provider |
 | `05.01.13.02.10` | `lesli_audit_traffic_breakdowns` | Optional dimensions belonging to a daily traffic rollup |
+| `05.01.13.03.10` | `lesli_audit_cloudflare_traffic_syncs` | Cloudflare synchronization status by account, zone, and period |
 
 ## Complete Column Dictionary
 
@@ -140,6 +141,26 @@ use the account, resource type, resource ID, and date index.
 The unique key is account, rollup, dimension, and value. Provider totals and
 breakdown totals may differ because providers can sample or suppress data.
 
+### `lesli_audit_cloudflare_traffic_syncs`
+
+| Column | Type | Meaning |
+| --- | --- | --- |
+| `account_id` | Foreign key | Required Audit account; hard deletion cascades to the synchronization history. |
+| `zone_id` | String | Required Cloudflare zone used by the import. It is not a credential. |
+| `period_start` | Date | First complete UTC day requested by the job. |
+| `period_end` | Date | Last complete UTC day requested by the job. |
+| `status` | String | Required `pending`, `running`, `succeeded`, or `failed` state. |
+| `execution_id` | String | Temporary worker identifier that prevents an old retry from finishing a newer execution. |
+| `snapshots_count` | Integer | Number of converted snapshots written by the successful execution. |
+| `started_at` | Date-time | Time at which the worker acquired the synchronization row. |
+| `finished_at` | Date-time | Time at which the worker succeeded or failed. |
+| `last_synced_at` | Date-time | Time of the most recent successful execution; failures do not clear it. |
+| `error_message` | Text | Most recent failure message, limited by the model before persistence. |
+
+The unique key is Audit account, Cloudflare zone, start date, and end date.
+The row lock prevents two workers from importing the exact same period at the
+same time.
+
 ## Choosing the Correct Record
 
 The similarly named tables do not contain interchangeable data:
@@ -154,6 +175,7 @@ The similarly named tables do not contain interchangeable data:
 | `AccountDevice` / `lesli_audit_account_devices` | One counter per tenant, date, platform, browser, and device category | Successful-login distribution by normalized agent category | No |
 | `TrafficRollup` / `lesli_audit_traffic_rollups` | One provider snapshot per tenant, hostname, path, and date | Public page views and visits attributed to a host resource | No |
 | `TrafficBreakdown` / `lesli_audit_traffic_breakdowns` | One value within a rollup dimension | Country, device, browser, operating-system, and referrer distributions | No |
+| `CloudflareTrafficSync` / `lesli_audit_cloudflare_traffic_syncs` | One synchronization state per tenant, zone, and requested period | Job coordination, errors, and freshness shown by Traffic | No |
 
 ### Account requests, user requests, and user journals
 
@@ -233,6 +255,11 @@ upserts one complete daily snapshot under an account lock. A retry or an older
 snapshot cannot overwrite newer data. Omitted breakdown data is preserved;
 an explicitly empty breakdown set removes existing values.
 
+The standard Cloudflare flow is intentionally small: `GraphqlClient` requests
+the aggregate data, `SnapshotConverter` converts it to LesliAudit snapshots,
+and `TrafficSnapshotImporter` writes them. `CloudflareTrafficSync` records only
+job state and the latest successful synchronization time.
+
 See [Traffic](/engines/audit/traffic/overview#database-column-dictionary) for
 the complete column-by-column contract of both traffic tables.
 
@@ -260,10 +287,11 @@ bin/rails lesli_audit:retention:cleanup
 The retention operation is available to host schedulers through
 `LesliAudit::RetentionCleanupJob`. Cleanup uses `analytics_retention_days` for
 authenticated counters, journals, and login-device aggregates;
-`traffic_retention_days` for imported rollups; and `audit_retention_days` for
-account and user logs. Cleanup runs in bounded batches. A `nil` setting skips
-that domain. Hard deletion of the Audit account permanently removes every
-account-scoped collection through its cascade rules.
+`traffic_retention_days` for imported rollups and Cloudflare synchronization
+history; and `audit_retention_days` for account and user logs. Cleanup runs in
+bounded batches. A `nil` setting skips that domain. Hard deletion of the Audit
+account permanently removes every account-scoped collection through its
+cascade rules.
 
 Audit data can grow quickly. New queries should remain account-scoped and be supported by indexes matching their filters and grouping columns.
 
