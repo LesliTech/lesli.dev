@@ -33,13 +33,10 @@ the scope defaults to `lesli.items.activities` for shared messages.
 en:
   my_engine:
     items:
-      activities:
-        events:
-          owner_changed:
-            operation: Owner changed
-            set: Assigned to %{to}.
-            changed: Changed from %{from} to %{to}.
-            removed: Removed %{from} as owner.
+      activities_events_owner_changed_operation: Owner changed
+      activities_events_owner_changed_set: Assigned to %{to}.
+      activities_events_owner_changed_changed: Changed from %{from} to %{to}.
+      activities_events_owner_changed_removed: Removed %{from} as owner.
 ```
 
 Override the initial query size with `limit:` when needed. It must be a positive integer:
@@ -57,7 +54,7 @@ This component is intended for Lesli records using the standard activity schema.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliView/tree/master/docs/items/activities.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/21</p>
+    <p><b>Last Update: </b>2026/11/13</p>
 </section>
 
 <!-- This code was automatically generated -->

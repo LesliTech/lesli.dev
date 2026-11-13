@@ -10,6 +10,8 @@ bin/rails lesli_babel:scan
 
 The task reads the Lesli route matrix and creates missing translation modules and buckets. It is safe to rerun: existing records are found instead of duplicated.
 
+The `rails_app` resource namespace is registered as the `main_app` module on the `rails_app` platform. Lesli core is registered as `lesli` on `lesli_core`; every other engine uses `lesli_engine`.
+
 | Property | Value |
 | --- | --- |
 | Environment | Development, test, or controlled application setup |
@@ -23,24 +25,78 @@ The task reads the Lesli route matrix and creates missing translation modules an
 bin/rails lesli_babel:import
 ```
 
-The task reads each installed engine's namespace from the active I18n locales, creates missing labels, and updates locale values in the Babel database.
+The task discovers each installed engine's `config/locales/translations.*.yml` files and imports them through `LesliBabel::TranslationImportService`. The host application uses the `rails_app` platform, Lesli core uses `lesli_core`, and all other engines use `lesli_engine`. It creates missing records and completes only locale columns that are empty in the database.
+
+Invalid branches are reported with Termline while valid translations continue importing. After all files have been processed, the task exits with an error when any entries were rejected. YAML parser, filesystem, and database errors still stop the task immediately.
 
 | Property | Value |
 | --- | --- |
 | Environment | Writable database with installed engines loaded |
-| Reads | `config/locales/translations.<locale>.yml` through I18n |
+| Reads | `config/locales/translations.<locale>.yml` directly |
 | Writes | Modules, buckets, labels, and locale values |
-| Repeatability | Updates existing labels and creates missing labels |
+| Repeatability | Preserves existing translations and creates or completes missing values |
+
+Termline reports each processed engine and translation file. Structural errors are printed below the affected file and cause the task to finish with an error after all importable files have been processed.
+
+Pass `true` to the `silent` argument when the task is used by automation and its Termline output is not needed:
+
+```shell
+bin/rails "lesli_babel:import[true]"
+```
+
+Silent mode suppresses the message for each processed file and retains only the final import status. YAML, filesystem, database, and other runtime exceptions continue propagating normally.
 
 The standard `bin/rails lesli:db:prepare` task runs `scan` followed by `import` automatically when LesliBabel is installed.
 
+## Export Locale Files
+
+Export translations to a temporary directory:
+
+```shell
+bin/rails lesli_babel:export
+```
+
+Or provide an explicit output directory:
+
+```shell
+bin/rails "lesli_babel:export[/path/to/output]"
+```
+
+The task generates every document through `LesliBabel::TranslationExportService` before writing. Exported files are grouped by engine code inside the output directory, and Termline reports the engine and filename. Official files inside installed engines are never modified.
+
+## Deploy Locale Files
+
+```shell
+bin/rails lesli_babel:deploy
+```
+
+The task invokes `LesliBabel::TranslationDeployService` to replace the official locale files safely. Termline reports the engine and filename for every updated file without printing counters or aggregate statistics.
+
+All documents are generated and staged before deployment. Generation errors make the task fail without writing files, while filesystem errors propagate immediately. Repeated deploys from unchanged database translations produce identical YAML content.
+
+Deploy is also available from the LesliBabel web interface. Web deploy is enabled outside production by default and can be controlled explicitly with:
+
+```ruby
+Lesli.config.babel[:allow_web_deploy] = true
+```
+
+Explicit `true` or `false` values override the environment default. The setting restricts only the web endpoint; the Rake task remains available for controlled deployment and release workflows. See the [dashboard guide](./dashboard.md#web-deploy-flow) for confirmation, duplicate-submission protection, success and error behavior, and the full configuration matrix.
+
+### Operational Safety
+
+- Use `lesli_babel:export` for a read-only preview; it never writes installed locale files.
+- Run `lesli_babel:deploy` only from a trusted shell with a clean, writable source checkout.
+- Keep web deploy disabled in production unless trusted operators explicitly require it.
+- Review version-control changes after deploy and retain the YAML files as the portable source.
+- Each file replacement is atomic, but the complete multi-file operation is not a single filesystem transaction.
+
 ## Unsupported Task Stubs
 
-The repository currently exposes `lesli_babel:clean` and `lesli_babel:export`, but they are not supported operational commands: `clean` still references the retired `CloudBabel` namespace and `export` does not write output. Do not use them in installation, deployment, or release automation until their implementations are completed and tested.
+The repository currently exposes `lesli_babel:clean`, but it is not a supported operational command because it still references the retired `CloudBabel` namespace. Do not use it in installation, deployment, or release automation until its implementation is replaced and tested.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliBabel/tree/master/docs/about/tasks.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/06</p>
+    <p><b>Last Update: </b>2026/11/13</p>
 </section>
 
 <!-- This code was automatically generated -->

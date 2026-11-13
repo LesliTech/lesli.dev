@@ -27,9 +27,15 @@
 
 For an icon-only button, pass `aria_label:` when the humanized icon name does not adequately describe the action. A component block can supply the visible label instead of the first argument.
 
+### Submit values
+
+Use `type: :submit` inside an existing form. Optional `name` and `value`
+identify the clicked submitter, for example `name: "role[active]", value: false`.
+Do not specify `method` inside an existing form: it generates a separate form.
+
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliView/tree/master/docs/elements/button.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/06</p>
+    <p><b>Last Update: </b>2026/11/12</p>
 </section>
 
 <!-- This code was automatically generated -->

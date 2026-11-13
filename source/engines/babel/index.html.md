@@ -48,8 +48,8 @@ It organizes application text and helps teams maintain, synchronize, and deploy 
 - Translation modules and buckets
 - Centralized label management
 - Language-specific translation values
-- Synchronization of source labels
-- Translation deployment across Lesli applications
+- Import from version-controlled YAML files
+- Safe YAML export and deployment across Lesli applications
 
 <br />
 
@@ -169,6 +169,8 @@ CI=true bundle exec rake app:test
 
 - [Installation guide](./docs/about/installation.md)
 - [Translation workflow](./docs/about/translations.md)
+- [Dashboard metrics and web deploy](./docs/about/dashboard.md)
+- [Official YAML structure](./docs/about/yaml-structure.md)
 - [Frontend development](./docs/about/frontend.md)
 - [Database](./docs/about/database.md)
 - [Tasks](./docs/about/tasks.md)
@@ -219,7 +221,7 @@ The complete license text is available in the [license file](./license).
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliBabel/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/23</p>
+    <p><b>Last Update: </b>2026/11/13</p>
 </section>
 
 <!-- This code was automatically generated -->

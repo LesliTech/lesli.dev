@@ -24,9 +24,13 @@
 
 Block content is rendered in the page-actions group. The back action targets the top Turbo frame, and visible actions include accessible labels.
 
+The title and actions remain in two top-aligned columns. The title section uses
+the available width while the actions section keeps the width required by its
+content.
+
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliView/tree/master/docs/components/header.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/06</p>
+    <p><b>Last Update: </b>2026/11/12</p>
 </section>
 
 <!-- This code was automatically generated -->

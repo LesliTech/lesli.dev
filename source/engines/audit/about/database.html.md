@@ -51,6 +51,7 @@ history.
 | `actor_uid` | String | Immutable actor identity snapshot retained when `user_id` is nullified. |
 | `subject_type` | String | Optional opaque subject type. LesliAudit does not constantize it. |
 | `subject_id` | Big integer | Optional opaque subject identifier. |
+| `details` | JSON | Explicit domain evidence; a required object defaulting to `{}`. |
 
 ### `lesli_audit_account_devices`
 
@@ -304,7 +305,7 @@ See [Database Architecture](/engines/lesli/database/structure) and [Migration Ve
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliAudit/tree/master/docs/about/database.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/29</p>
+    <p><b>Last Update: </b>2026/11/12</p>
 </section>
 
 <!-- This code was automatically generated -->
