@@ -19,10 +19,10 @@ LesliDate::Formatter.new("2026/10/05 14:30", "%Y/%m/%d %H:%M")
 | `datetime` | `Time.current` | Date or instant to interpret; explicit `nil` is invalid |
 | `format` | `nil` | Native Ruby `strptime` pattern; otherwise use `DateTime.parse` |
 | `input_zone:` | `"UTC"` | Interpret date-time strings that have no offset |
-| `zone:` | `nil` | Presentation zone; `nil` reads `Lesli.config.datetime[:time_zone]` |
+| `zone:` | `nil` | Presentation zone; `nil` uses `Time.zone`, then `Lesli.config.datetime[:time_zone]` |
 | `locale:` | `nil` | Output language; `nil` uses `I18n.locale` when rendering |
 
-Lesli's database timestamps are UTC. The configured zone controls output;
+Lesli's database timestamps are UTC. The active Rails zone controls output;
 normal Lesli calls need no zone keywords. `input_zone:` is available for
 external sources that provide local times instead of UTC.
 
@@ -105,7 +105,7 @@ See [Application examples](/gems/date/api/examples) for forms, APIs and imports.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliDate/tree/master/docs/api/formatter.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/22</p>
+    <p><b>Last Update: </b>2026/11/15</p>
 </section>
 
 <!-- This code was automatically generated -->

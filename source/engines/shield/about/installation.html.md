@@ -45,9 +45,16 @@ Visit `http://127.0.0.1:3000/shield`. After signing in, visit `/shield/profile` 
 
 Run the [privilege synchronization task](/engines/shield/about/tasks) after changing roles, actions, or protected resources.
 
+## Profile Timezone
+
+Users choose an optional IANA timezone in their profile. Login does not detect,
+submit or save the browser timezone. Core uses the profile preference, otherwise
+`Lesli.config.datetime[:time_zone]`, then the Rails application timezone.
+Timestamps remain stored in UTC. See [User Profile](/engines/shield/profile/overview).
+
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliShield/tree/master/docs/about/installation.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/21</p>
+    <p><b>Last Update: </b>2026/11/16</p>
 </section>
 
 <!-- This code was automatically generated -->

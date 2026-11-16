@@ -47,7 +47,11 @@ Visit `http://127.0.0.1:3000/bell`. The current route surface is:
 | `GET` | `/bell/notifications` | Current user's unread notification feed |
 | `GET` | `/bell/notifications/new` | Reserved notification creation page |
 | `PUT/PATCH` | `/bell/notifications/:id` | Mark one notification as read |
-| `GET` | `/bell/announcements` | Announcement application entry point |
+| `GET/POST` | `/bell/announcements` | List or create announcements |
+| `GET` | `/bell/announcements/new` | Announcement creation form |
+| `GET/PATCH/PUT/DELETE` | `/bell/announcements/:id` | Show, update, or soft-delete an announcement |
+| `GET` | `/bell/announcements/:id/edit` | Announcement edit form |
+| `POST` | `/bell/announcements/:id/dismiss` | Dismiss for the current user |
 
 Lesli's shared engine routes also provide dashboard editing and reusable item endpoints. Treat the output of `bin/rails routes -g bell` as the authoritative route list for the installed versions.
 
@@ -61,11 +65,13 @@ bin/rails lesli:db:seed
 
 The seeders require at least one Lesli account and user. They are intended for disposable development or demo environments.
 
+Announcement samples use `AnnouncementService#create` with the first user's account and a general audience. Repeated runs skip names already present in that account, including soft-deleted announcements, preserving edits, publication state, and dismissals. Validation failures raise an error instead of silently producing incomplete demo data. This repeatability guarantee applies to announcement samples, not the separate notification seeder.
+
 See [Notifications](/engines/bell/notifications/overview), [Announcements](/engines/bell/announcements/overview), [Database](/engines/bell/about/database), [Translations](/engines/bell/about/translations), and [Frontend](/engines/bell/about/frontend) for integration details.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliBell/tree/master/docs/about/installation.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/12</p>
+    <p><b>Last Update: </b>2026/11/14</p>
 </section>
 
 <!-- This code was automatically generated -->

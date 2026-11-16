@@ -178,6 +178,8 @@ Then run `bundle install` from the host application so changes to the local gem 
 
 ## Documentation
 
+For page-level sidebars, follow the [navigation sidebar standard](docs/layout/navigation_sidebar.md).
+
 - [Lesli website](https://www.lesli.dev/)
 - [LesliView documentation](https://www.lesli.dev/gems/view/)
 - [Releases and changelog](https://github.com/LesliTech/LesliView/releases)
@@ -225,7 +227,7 @@ The complete license text is available in the [license file](./license).
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliView/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/23</p>
+    <p><b>Last Update: </b>2026/11/15</p>
 </section>
 
 <!-- This code was automatically generated -->

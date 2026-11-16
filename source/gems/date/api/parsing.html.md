@@ -47,11 +47,12 @@ or a valid prefix with trailing text. LesliDate does not add complete-input
 validation, a directive allowlist, year bounds, encoding conversion, or manual
 range checks. Patterns apply to string inputs; temporal objects are used directly.
 
-## UTC input and configured output
+## UTC input and active output zone
 
-Lesli stores database timestamps in UTC. The initializer's
-`Lesli.config.datetime[:time_zone]` controls presentation. Normal Lesli calls
-need no zone options:
+Lesli stores database timestamps in UTC. Output uses an explicit `zone:`, then
+the active Rails `Time.zone`, then `Lesli.config.datetime[:time_zone]` if no Rails
+zone is active. Core sets the active zone from the profile or application default.
+Normal Lesli calls need no zone options:
 
 ```ruby
 # With America/Guatemala and output format %d/%m/%Y %H:%M:
@@ -102,7 +103,7 @@ end
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliDate/tree/master/docs/api/parsing.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/22</p>
+    <p><b>Last Update: </b>2026/11/16</p>
 </section>
 
 <!-- This code was automatically generated -->

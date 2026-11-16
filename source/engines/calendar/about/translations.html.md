@@ -21,7 +21,7 @@ Use complete keys in views and services:
 <%= I18n.t("lesli_calendar.events.new") %>
 ```
 
-The shipped files are currently empty. Add keys to every supported locale while replacing the matching hard-coded UI text. Date and time formatting should use Rails locale formats rather than translated string fragments.
+English and Spanish contain the implemented UI messages. French, Italian and Portuguese files are placeholders, not complete translations. Configure Rails fallbacks or supply translations before exposing those locales. Date and time formatting should use Rails locale formats rather than translated string fragments.
 
 When LesliBabel is installed:
 
@@ -34,7 +34,7 @@ Review generated changes and keep the engine locale files as the version-control
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliCalendar/tree/master/docs/about/translations.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/06</p>
+    <p><b>Last Update: </b>2026/11/16</p>
 </section>
 
 <!-- This code was automatically generated -->

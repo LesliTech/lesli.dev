@@ -20,12 +20,6 @@
             "icon": "ri-send-plane-line",
             "tone": "intelligence"
         }, {
-            "name": "Contributing",
-            "summary": "Conventions for contributing changes.",
-            "href": "/engines/lesli/contributing/",
-            "icon": "ri-git-pull-request-line",
-            "tone": "productivity"
-        }, {
             "name": "Database",
             "summary": "Structure, migrations, and seeders.",
             "href": "/engines/lesli/database/",
@@ -67,6 +61,12 @@
             "href": "/engines/lesli/deployment/",
             "icon": "ri-flashlight-line",
             "tone": "intelligence"
+        }, {
+            "name": "Contributing",
+            "summary": "Conventions for contributing changes.",
+            "href": "/engines/lesli/contributing/",
+            "icon": "ri-git-pull-request-line",
+            "tone": "productivity"
         }]
     },
     "engines": {
@@ -78,20 +78,35 @@
         "label": "Available Lesli engines",
         "columns": 4,
         "items": [{
-            "name": "Dashboard",
-            "summary": "Flexible dashboards for application data.",
-            "href": "/engines/dashboard/",
-            "svg": "engine-dashboard"
+            "name": "Shield",
+            "summary": "Authentication and user access management.",
+            "href": "/engines/shield/",
+            "svg": "engine-shield"
         }, {
             "name": "Admin",
             "summary": "A central administration area for Lesli.",
             "href": "/engines/admin/",
             "svg": "engine-admin"
         }, {
+            "name": "Audit",
+            "summary": "Activity history and application analytics.",
+            "href": "/engines/audit/",
+            "svg": "engine-audit"
+        }, {
+            "name": "Dashboard",
+            "summary": "Flexible dashboards for application data.",
+            "href": "/engines/dashboard/",
+            "svg": "engine-dashboard"
+        }, {
             "name": "Bell",
             "summary": "Application and user notification workflows.",
             "href": "/engines/bell/",
             "svg": "engine-bell"
+        }, {
+            "name": "Babel",
+            "summary": "Translation and localization management.",
+            "href": "/engines/babel/",
+            "svg": "engine-babel"
         }, {
             "name": "Calendar",
             "summary": "Unified calendars and event management.",
@@ -102,21 +117,6 @@
             "summary": "Organized customer support and ticketing.",
             "href": "/engines/support/",
             "svg": "engine-support"
-        }, {
-            "name": "Shield",
-            "summary": "Authentication and user access management.",
-            "href": "/engines/shield/",
-            "svg": "engine-shield"
-        }, {
-            "name": "Audit",
-            "summary": "Activity history and application analytics.",
-            "href": "/engines/audit/",
-            "svg": "engine-audit"
-        }, {
-            "name": "Babel",
-            "summary": "Translation and localization management.",
-            "href": "/engines/babel/",
-            "svg": "engine-babel"
         }]
     },
     "gems": {
@@ -133,15 +133,15 @@
             "href": "/gems/system/",
             "svg": "gem-system"
         }, {
-            "name": "LesliView",
-            "summary": "Reusable web elements and view components.",
-            "href": "/gems/view/",
-            "svg": "gem-view"
-        }, {
             "name": "LesliDate",
             "summary": "Consistent date and time formatting.",
             "href": "/gems/date/",
             "svg": "gem-date"
+        }, {
+            "name": "LesliView",
+            "summary": "Reusable web elements and view components.",
+            "href": "/gems/view/",
+            "svg": "gem-view"
         }, {
             "name": "LesliAssets",
             "summary": "Shared frontend assets and brand resources.",
@@ -168,12 +168,6 @@
         "label": "Available Lesli developer tools",
         "columns": 3,
         "items": [{
-            "name": "LesliActions",
-            "summary": "Reusable GitHub Actions workflows for testing, security, and integration.",
-            "href": "/tools/actions/",
-            "icon": "ri-github-line",
-            "tone": "integration"
-        }, {
             "name": "LesliCSS",
             "summary": "Shared Sass utilities, design tokens, and color foundations.",
             "href": "/tools/css/",
@@ -185,6 +179,12 @@
             "href": "/tools/js/",
             "icon": "ri-javascript-line",
             "tone": "intelligence"
+        }, {
+            "name": "LesliActions",
+            "summary": "Reusable GitHub Actions workflows for testing, security, and integration.",
+            "href": "/tools/actions/",
+            "icon": "ri-github-line",
+            "tone": "integration"
         }]
     }
 }

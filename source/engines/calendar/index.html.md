@@ -46,7 +46,9 @@ It provides account-scoped calendars, events, agendas, and attendee management f
 ## Features
 
 - Account-scoped calendars
-- Responsive FullCalendar grid and chronological agenda views
+- FullCalendar grid loading the visible local range
+- Agenda sidebar for upcoming events, personal history, pending invitations, and public discovery
+- Shared Turbo detail panel with actions below the detail and local error handling
 - Event creation and scheduling
 - Event attendee management
 - Optional LesliSupport deadline integration
@@ -157,6 +159,7 @@ See [Calendar and Agenda](./docs/about/calendar-and-agenda.md) for the event pip
 
 - [Installation](./docs/about/installation.md)
 - [Calendar and agenda](./docs/about/calendar-and-agenda.md)
+- [Interface, routes, and demo seeds](./docs/about/interface.md)
 - [Translations](./docs/about/translations.md)
 - [Database](./docs/about/database.md)
 - [Lesli website](https://www.lesli.dev/)
@@ -204,9 +207,14 @@ The complete license text is available in the [license file](./license).
     <h3 align="center">The Open-Source SaaS Development Framework for Ruby on Rails.</h3>
 </div>
 
+## Verification
+
+See [Testing and release verification](docs/about/testing.md) for standalone,
+Builder and PostgreSQL commands, covered behavior and current Agenda limits.
+
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliCalendar/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/23</p>
+    <p><b>Last Update: </b>2026/11/16</p>
 </section>
 
 <!-- This code was automatically generated -->

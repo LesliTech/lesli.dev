@@ -1,7 +1,7 @@
 # Configuration and presentation
 
 LesliDate reads `Lesli.config.datetime` from the Lesli initializer. Database
-timestamps are interpreted as UTC; `time_zone` controls presentation. The fluent
+timestamps are interpreted as UTC; the active Rails timezone controls presentation. The fluent
 API stays the same:
 
 ```ruby
@@ -53,10 +53,84 @@ Syntax checks delegate to Ruby's `strftime`; there is no directive allowlist or
 custom pattern compiler. Directives that Ruby preserves as literal text retain
 that behavior. Native formatting exceptions are exposed as `InvalidFormat`.
 
-A valid output zone is required in the initializer unless supplied through
-`zone:`. `input_zone:` defaults to UTC and can be used for external local-time
-sources. Both zone names are validated during construction. Missing or unknown
-zones raise `LesliDate::InvalidTimeZone` rather than using the process timezone.
+## Profile timezone
+
+Output zone precedence is:
+
+1. An explicit `zone:` argument.
+2. The active Rails `Time.zone`.
+3. `Lesli.config.datetime[:time_zone]` when no Rails zone is active.
+
+Core's `ApplicationLesliController` applies the authenticated user's profile zone
+with `Time.use_zone` for each request, including services and views. If the profile
+has no zone, Core uses the Lesli initializer, then the Rails application timezone.
+Login and browser detection do not set the timezone. LesliDate reads the active
+Rails zone without accessing the user or HTTP session directly.
+
+```ruby
+Time.use_zone("Europe/Berlin") do
+    LesliDate::Formatter.new("2027-01-15 15:00:00").date_time.to_s
+    # => "15/01/2027 16:00", with the initializer above
+end
+```
+
+`Date2` inherits the same behavior. Existing formatter instances retain the zone
+selected at construction. Outside requests, jobs and console calls use their
+active `Time.zone`; pass `zone:` when a specific output zone is required.
+This changes the previous behavior where the global Lesli setting took precedence
+over the active Rails zone.
+
+`input_zone:` still defaults to UTC for strings without an offset. Zone names
+are validated during construction; unknown zones or no available output zone
+raise `LesliDate::InvalidTimeZone`. Database storage remains UTC.
+
+## Jobs and emails
+
+Jobs and mailers do not run inside Core's HTTP controller callback. Always apply
+the recipient's `effective_time_zone` where dates are formatted. Active Job may
+carry the enqueueing context's timezone, but that can belong to a different user.
+Do not rely on it for recipient-specific output.
+
+```ruby
+class ExportJob < ApplicationJob
+    def perform(user_id)
+        user = Lesli::User.find(user_id)
+
+        Time.use_zone(user.effective_time_zone) do
+            # Build the export here so services and Date2 use the recipient's zone.
+            ExportService.new(user).create
+        end
+    end
+end
+```
+
+For emails, wrap the mailer action so template rendering uses the recipient's
+zone, including when delivery is queued:
+
+```ruby
+class ReminderMailer < ApplicationMailer
+    around_action :use_recipient_timezone
+
+    def reminder
+        @event = params[:event]
+        mail(to: params[:recipient].email, subject: "Event reminder")
+    end
+
+    private
+
+    def use_recipient_timezone(&action)
+        Time.use_zone(params[:recipient].effective_time_zone, &action)
+    end
+end
+
+ReminderMailer.with(recipient: user, event: event).reminder.deliver_later
+```
+
+These are application examples, not additional framework classes. For multiple
+recipients, format each recipient's content in their own zone. `Time.use_zone`
+restores the previous zone even if the operation raises an exception. It does
+not alter stored timestamps. Construct formatters inside the block; an existing
+formatter retains the zone it was created with.
 
 ## Native Rails translations
 
@@ -101,7 +175,7 @@ a separate fallback language or translation-loading mechanism.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliDate/tree/master/docs/about/configuration.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/22</p>
+    <p><b>Last Update: </b>2026/11/16</p>
 </section>
 
 <!-- This code was automatically generated -->

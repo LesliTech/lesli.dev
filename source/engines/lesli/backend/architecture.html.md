@@ -44,7 +44,7 @@ Streams, redirect, or depend on `ActionController::Parameters`.
 
 ### Services
 
-One resource service exposes its CRUD lifecycle:
+A resource service exposes only the CRUD operations its controller needs:
 
 ```ruby
 TicketService#index
@@ -56,7 +56,10 @@ TicketService#destroy
 
 Services own account-scoped lookup, persistence, and the standard Lesli result
 contract. They may coordinate an operator when a CRUD action needs additional
-work. See [Services](/engines/lesli/backend/services/).
+work. `find` and the inherited result/error helpers support that contract; they
+are not additional business operations. Private helpers may keep the CRUD
+implementation readable. Do not add public workflow methods to the service.
+See [Services](/engines/lesli/backend/services/).
 
 ### Operators
 
@@ -122,13 +125,33 @@ app/
 └── services/my_engine/ticket_service.rb
 ```
 
-Start with one service and one operator per resource. Split an operator only
-when an operation becomes independently complex or no longer shares the same
-resource and collaborators.
+Create a service for resource CRUD. Add an operator only when the resource
+needs a non-CRUD operation; an empty operator is unnecessary. Split an operator
+only when an operation becomes independently complex or no longer shares the
+same resource and collaborators.
+
+## Choosing the Right Layer
+
+| Requirement | Location |
+| --- | --- |
+| Require a user's email on every save | Model validation |
+| List, show, create, update, or delete a user | `UserService` CRUD method |
+| Validate a dataset before importing it | `UserOperator#validate` |
+| Import users, close a ticket, or send a notification | Named operator method |
+| Permit input fields or choose an HTTP status | Controller |
+
+Classify an operation by its purpose, not by the SQL it executes. An operator
+may read or update records: closing a ticket is still a business operation,
+even when its implementation uses `update!`. An ordinary edit of a resource's
+attributes belongs in the service's `update` method.
+
+These are the standards for new and revised code. Existing services may still
+expose non-CRUD methods; move those operations to operators when updating their
+consumers. This documentation does not change existing runtime APIs.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/backend/architecture.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/29</p>
+    <p><b>Last Update: </b>2026/11/16</p>
 </section>
 
 <!-- This code was automatically generated -->

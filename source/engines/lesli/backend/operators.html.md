@@ -6,42 +6,42 @@ notifications, and workflows involving more than one model.
 
 ```ruby
 module MyEngine
-  class TicketOperator
-    def initialize(ticket:, actor:)
-      @ticket = ticket
-      @actor = actor
+    class TicketOperator
+        def initialize(ticket:, actor:)
+            @ticket = ticket
+            @actor = actor
+        end
+
+        def close!
+            Ticket.transaction do
+                ticket.update!(status: :closed)
+
+                ticket.record_activity!(
+                    actor: actor,
+                    code: :ticket_closed
+                )
+            end
+
+            ticket
+        end
+
+        def reopen!
+            Ticket.transaction do
+                ticket.update!(status: :open)
+
+                ticket.record_activity!(
+                    actor: actor,
+                    code: :ticket_reopened
+                )
+            end
+
+            ticket
+        end
+
+        private
+
+        attr_reader :actor, :ticket
     end
-
-    def close!
-      Ticket.transaction do
-        ticket.update!(status: :closed)
-
-        ticket.record_activity!(
-          actor: actor,
-          code: :ticket_closed
-        )
-      end
-
-      ticket
-    end
-
-    def reopen!
-      Ticket.transaction do
-        ticket.update!(status: :open)
-
-        ticket.record_activity!(
-          actor: actor,
-          code: :ticket_reopened
-        )
-      end
-
-      ticket
-    end
-
-    private
-
-    attr_reader :actor, :ticket
-  end
 end
 ```
 
@@ -63,7 +63,8 @@ operator.assign!(owner: user)
 operator.notify_owner!
 ```
 
-Use `!` for methods that persist records or raise when they cannot complete.
+Use `!` for operations that raise when they cannot complete, following the
+convention used by Active Record persistence methods.
 Predicates should describe the decision they answer:
 
 ```ruby
@@ -71,8 +72,11 @@ operator.closable?
 operator.assignable_to?(user)
 ```
 
-Avoid generic names such as `validate` or `notify` when the specific intent can
-be expressed as `validate_closure!` or `notify_owner!`.
+`validate` is appropriate when the class and input make the operation clear,
+for example `UserOperator#validate` for a dataset of users. Use a more specific
+name such as `validate_closure!` when the operator has several validation
+workflows. Multiple explicit methods can share one operator; a generic `call`
+or `operate` entry point is not required.
 
 ## Construction
 
@@ -81,19 +85,63 @@ operation:
 
 ```ruby
 TicketOperator.new(
-  ticket: ticket,
-  actor: current_user
+    ticket: ticket,
+    actor: current_user
 )
 ```
 
-Account-scoped lookup belongs to the resource service. Passing a record instead
-of an unscoped ID prevents the operator from duplicating tenant resolution.
+When a controller needs a resource, resolve it through the account-scoped
+resource service. Passing a record instead of an unscoped ID prevents the
+operator from duplicating tenant resolution.
 
 Operators do not inherit from `Lesli::ApplicationLesliService`. The service
-base provides CRUD state such as `query`, `resource`, `failures`, and
+base provides CRUD state such as `query`, `resource`, `errors`, and
 `successful?`; those concepts are not part of an operator's contract. Keep an
 operator as a plain Ruby object until repeated behavior demonstrates the need
-for a smaller shared abstraction.
+for a smaller shared abstraction. Services and operators are both application
+objects, but their responsibilities differ; sharing a purpose does not require
+sharing a superclass.
+
+## Validating a Dataset
+
+An operator can validate input before a later import without persisting it.
+This example reuses the model's validations and returns errors by row:
+
+```ruby
+module MyEngine
+    class UserOperator
+        def initialize(account:)
+            @account = account
+        end
+
+        def validate(rows)
+            rows.each_with_index.filter_map do |attributes, index|
+                user = @account.users.new(attributes)
+                next if user.valid?
+
+                { row: index + 1, errors: user.errors.full_messages }
+            end
+        end
+    end
+end
+
+errors = MyEngine::UserOperator.new(account: current_user.account).validate(rows)
+```
+
+Here `rows` is an array of permitted attribute hashes, and `account` is a Core
+account. An empty array means no validation errors were found. This performs
+model validation only; database constraints still apply when records are
+persisted. Do not put this batch operation in `UserService` or in a controller.
+
+`UserOperator.validate(rows)` is also a valid Ruby API if the operation is
+implemented as a stateless class method. Prefer an instance when it needs an
+account, actor, or collaborators, as above. Keep the chosen API explicit and
+consistent; no dispatcher or method registry is needed.
+
+Operators define their own clear return value and expected failures. They do
+not automatically provide `result`, `successful?`, or the service response
+contract. Let unexpected errors propagate; handle expected failures at the
+calling service or controller boundary.
 
 ## Using an Operator from a Service
 
@@ -103,25 +151,25 @@ deletion workflow:
 
 ```ruby
 def destroy
-  Ticket.transaction do
-    operator.cancel_pending_tasks!
-    operator.remove_from_calendar!
-    resource.destroy!
-  end
+    Ticket.transaction do
+        operator.cancel_pending_tasks!
+        operator.remove_from_calendar!
+        resource.destroy!
+    end
 
-  self
-rescue ActiveRecord::RecordInvalid => exception
-  error(exception.record.errors.full_messages.to_sentence)
-  self
+    self
+rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotDestroyed => exception
+    error(exception.record.errors.full_messages.to_sentence)
+    self
 end
 
 private
 
 def operator
-  @operator ||= TicketOperator.new(
-    ticket: resource,
-    actor: current_user
-  )
+    @operator ||= TicketOperator.new(
+        ticket: resource,
+        actor: current_user
+    )
 end
 ```
 
@@ -136,18 +184,18 @@ invoke the operator directly:
 
 ```ruby
 def close
-  service = TicketService.new(current_user, query).find(id: params[:id])
-  return respond_with_not_found unless service.found?
+    service = TicketService.new(current_user, query).find(id: params[:id])
+    return respond_with_not_found unless service.found?
 
-  ticket = TicketOperator.new(
-    ticket: service.result,
-    actor: current_user
-  ).close!
+    ticket = TicketOperator.new(
+        ticket: service.result,
+        actor: current_user
+    ).close!
 
-  respond_with_lesli(
-    turbo: stream_notification_success("Ticket closed"),
-    json: ticket
-  )
+    respond_with_lesli(
+        turbo: stream_notification_success("Ticket closed"),
+        json: ticket
+    )
 end
 ```
 
@@ -167,7 +215,7 @@ For example, `close!`, `reopen!`, and `assign!` can remain in
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/backend/operators.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/29</p>
+    <p><b>Last Update: </b>2026/11/16</p>
 </section>
 
 <!-- This code was automatically generated -->

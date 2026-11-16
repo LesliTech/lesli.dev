@@ -14,10 +14,11 @@ app/assets/stylesheets/lesli_bell/application.css
 
 Edit the file under `source/tailwind`; do not edit the compiled stylesheet by hand. Commit the generated asset whenever the source or a scanned template changes.
 
-LesliBell's entrypoint disables automatic source discovery and scans the notification view explicitly:
+LesliBell's entrypoint disables automatic source discovery and scans notification and announcement views explicitly:
 
 ```css
 @source "../../app/views/lesli_bell/notifications/index.html.erb";
+@source "../../app/views/lesli_bell/announcements";
 ```
 
 Add an `@source` rule when another template or helper starts using Tailwind utilities. The entrypoint references LesliAssets' Tailwind theme so semantic utilities such as `bg-info-50`, `border-warning-300`, and `text-danger-900` compile against Lesli's design tokens.
@@ -43,6 +44,8 @@ The builder discovers LesliBell's entrypoint and writes the compiled output to `
 
 ## View Conventions
 
+Persistent announcement banners belong to Core's `lesli/partials/application-lesli-announcements` partial. Their utilities are compiled into the global LesliAssets stylesheet, including the complete category classes defined in `Lesli::AnnouncementsHelper`, so banners also work on pages belonging to other engines. Interface labels belong to Core's `lesli.announcements` translations; administration and dismissal errors belong to LesliBell. See [Announcements](/engines/bell/announcements/overview) for visibility and Turbo behavior.
+
 - Wrap authenticated pages with `LesliView::Layout::Container`.
 - Prefer LesliView components for headers, toolbars, buttons, and empty states.
 - Use complete semantic class names for notification categories.
@@ -55,7 +58,7 @@ See [Views and Layouts](/engines/lesli/frontend/views), [Styles with Tailwind CS
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliBell/tree/master/docs/about/frontend.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/22</p>
+    <p><b>Last Update: </b>2026/11/13</p>
 </section>
 
 <!-- This code was automatically generated -->
