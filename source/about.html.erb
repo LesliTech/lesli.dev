@@ -1,17 +1,18 @@
 ---
-title: "About Lesli — Why We Built a Modular Rails Framework"
-description: "Learn why Lesli exists, the principles behind it, who it is for, and how it helps teams build software they can own and evolve."
+title: "What is Lesli? — Open-Source SaaS Framework for Ruby on Rails"
+description: "Lesli is an open-source Ruby on Rails framework that provides reusable architecture, optional modules, and shared tools for building SaaS products and business software."
 ---
 
 <header class="about-header">
     <%= partial("partials/lesli-navigation", locals: { logo: true }) %>
 
     <div class="container about-hero">
-        <p class="about-eyebrow">About Lesli</p>
-        <h1>A better foundation for teams <span class="lesli-title-colored">building software for the long term.</span></h1>
+        <p class="about-eyebrow">What is Lesli?</p>
+        <h1>A modular Rails foundation for <span class="lesli-title-colored">software built to grow.</span></h1>
         <p class="about-introduction">
-            Lesli exists so teams can spend less time rebuilding common application infrastructure and more time
-            creating the workflows, experiences, and value that make their product different.
+            Lesli is an open-source framework built on Ruby on Rails for creating SaaS products, internal platforms,
+            customer portals, and workflow software. It provides reusable architecture, shared conventions, and
+            optional application capabilities—while your team keeps ownership of the code, data, integrations, and product.
         </p>
 
         <ul class="about-pillars" aria-label="Principles behind Lesli">
@@ -37,7 +38,7 @@ description: "Learn why Lesli exists, the principles behind it, who it is for, a
 <main class="about-content">
     <section class="about-purpose">
         <div class="container">
-            <p class="about-section-label">Why Lesli exists</p>
+            <p class="about-section-label">The problem</p>
             <h2>Build the product—not the same foundation again.</h2>
             <div class="about-purpose-copy">
                 <p>
@@ -52,16 +53,52 @@ description: "Learn why Lesli exists, the principles behind it, who it is for, a
         </div>
     </section>
 
+    <section class="about-how" id="how-lesli-works">
+        <div class="container">
+            <div class="about-section-heading">
+                <p class="about-section-label">How Lesli works</p>
+                <h2>Start with Rails. Add only what you need.</h2>
+                <p>
+                    Your Rails application remains the host. Lesli supplies a shared foundation and reusable packages
+                    that you can adopt as your product requires them.
+                </p>
+            </div>
+
+            <div class="about-how-grid">
+                <article>
+                    <span class="ri-stack-line" aria-hidden="true"></span>
+                    <h3>Lesli Core</h3>
+                    <p>Shared architecture, conventions, services, and development workflows for Rails applications.</p>
+                </article>
+                <article>
+                    <span class="ri-puzzle-2-line" aria-hidden="true"></span>
+                    <h3>Engines</h3>
+                    <p>Optional application capabilities such as access control, auditing, notifications, and support.</p>
+                </article>
+                <article>
+                    <span class="ri-tools-line" aria-hidden="true"></span>
+                    <h3>Gems and tools</h3>
+                    <p>Reusable components, assets, utilities, testing support, and delivery automation.</p>
+                </article>
+            </div>
+
+            <p class="about-how-note">
+                Engines and gems are not mandatory layers. Choose the packages your application needs and keep
+                product-specific workflows in your own code.
+            </p>
+        </div>
+    </section>
+
     <section class="about-editorial">
         <div class="container">
             <div class="about-editorial-grid">
                 <article>
-                    <p class="about-section-label">Who it is for</p>
-                    <h2>Teams building software that will evolve.</h2>
+                    <p class="about-section-label">What you can build</p>
+                    <h2>Business software designed to evolve.</h2>
                     <p>
                         Lesli fits multi-account SaaS products, internal operations platforms, customer portals,
-                        workflow applications, and custom business systems—especially when roles, domains,
-                        integrations, and history grow over time.
+                        administration systems, workflow applications, and custom business systems—especially when
+                        roles, domains, integrations, and history grow over time.
                     </p>
                 </article>
 
@@ -80,16 +117,19 @@ description: "Learn why Lesli exists, the principles behind it, who it is for, a
 
     <section class="about-closing">
         <div class="container">
-            <p class="about-section-label">The idea</p>
-            <h2>Start with structure. Keep control.</h2>
-            <p>Use the foundation, add only what your product needs, and keep ownership of what you build.</p>
+            <p class="about-section-label">Start building</p>
+            <h2>Start with structure. Build what makes your product different.</h2>
+            <p>Use the shared foundation, choose only what you need, and keep ownership of the product you create.</p>
             <div class="about-actions">
-                <a class="button-primary" href="/#how-lesli-works">
-                    See how Lesli works
+                <a class="button-primary" href="/engines/lesli/start/">
+                    Build with Lesli
                     <span class="ri-arrow-right-line" aria-hidden="true"></span>
                 </a>
                 <a class="button-primary-ghost" href="/engines/lesli/about/architecture/">
                     Explore the architecture
+                </a>
+                <a class="button-primary-ghost" href="https://demo.lesli.dev/" target="_blank" rel="noopener noreferrer">
+                    Try the demo
                 </a>
             </div>
         </div>
