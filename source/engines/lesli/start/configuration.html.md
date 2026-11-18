@@ -35,11 +35,11 @@ You only need to add settings that your application overrides.
 | `datetime` | Defines the time zone, week start, and display formats | Lesli Core and LesliDate |
 | `theme` and `layout` | Defines shared visual and layout preferences | Lesli Core and presentation packages |
 | `security` | Defines registration, account, and development-password behavior | Lesli Core and LesliShield |
-| `babel` | Defines available application locales | LesliBabel |
-| `shield` | Defines the post-login path and default role | LesliShield |
-| `audit` | Controls audit writes and data-retention periods | LesliAudit |
-| `mailer` | Defines the shared email-template path | Lesli Core |
-| `support` | Defines support ticket settings | LesliSupport |
+| `leslibabel` | Defines available application locales | LesliBabel |
+| `leslishield` | Defines the post-login path and default role | LesliShield |
+| `lesliaudit` | Controls audit writes and data-retention periods | LesliAudit |
+| `leslimailer` | Defines the shared email-template path | Lesli Core |
+| `leslisupport` | Defines support ticket settings | LesliSupport |
 
 Settings for optional engines have an effect only when the corresponding engine is installed.
 
@@ -241,7 +241,7 @@ Use Rails credentials or a deployment secret manager for sensitive values rather
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/start/configuration.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/11/16</p>
+    <p><b>Last Update: </b>2026/11/18</p>
 </section>
 
 <!-- This code was automatically generated -->

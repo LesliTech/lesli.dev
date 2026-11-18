@@ -131,10 +131,9 @@ bin/rails server
 
 ### Tests
 
-From the engine directory, prepare the dummy database and run the suite:
+From the engine directory, run the suite. Rails prepares the test database from the dummy schema:
 
 ```shell
-RAILS_ENV=test bundle exec rake -f test/dummy/Rakefile db:migrate
 bundle exec rake test
 ```
 
@@ -196,7 +195,7 @@ The complete license text is available in the [license file](./license).
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliDashboard/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/11/13</p>
+    <p><b>Last Update: </b>2026/11/16</p>
 </section>
 
 <!-- This code was automatically generated -->

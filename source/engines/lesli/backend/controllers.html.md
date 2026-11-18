@@ -18,7 +18,8 @@ Use `Lesli::ApplicationController` instead for public pages that do not need the
 
 Controllers are HTTP adapters. Each CRUD action calls the corresponding
 resource service operation: `index`, `show`, `create`, `update`, or `destroy`.
-Use `find` before operations on an existing record. `new` and `edit` prepare
+Selector endpoints call the service's `list` method for lightweight `id`/`name`
+options. Use `find` before operations on an existing record. `new` and `edit` prepare
 forms, and do not require placeholder service methods.
 
 Keep persistence calls and business workflows out of controller actions. Delegate resource CRUD to services and named

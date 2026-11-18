@@ -59,7 +59,7 @@ With the engine mounted at `/audit`, the current interface exposes:
 ### Requests access and query behavior
 
 LesliShield permissions determine whether a user may open `/audit/requests`.
-Once access is granted, the built-in `owner` and `admin` roles receive the
+Once access is granted, the built-in `owner` and `lesliadmin` roles receive the
 account-wide reporting scope. Other authorized roles receive only records
 belonging to the current user. The neutral **Requests** name reflects both
 possible scopes.
@@ -98,7 +98,7 @@ in [Traffic](/engines/audit/traffic/overview).
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliAudit/tree/master/docs/analytics/overview.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/27</p>
+    <p><b>Last Update: </b>2026/11/18</p>
 </section>
 
 <!-- This code was automatically generated -->

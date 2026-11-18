@@ -19,12 +19,13 @@ service = MyEngine::TicketService.new(current_user, query)
 
 The base class stores `current_user`, `query`, a result resource, and a list of errors for the lifetime of the service instance.
 
-## CRUD Contract
+## CRUD and Selector Contract
 
 One service represents one resource and follows the Rails resource lifecycle:
 
 ```ruby
 TicketService#index
+TicketService#list
 TicketService#show
 TicketService#create
 TicketService#update
@@ -100,6 +101,7 @@ The return values are part of the service contract:
 | ------ | --------------------- |
 | `find` | The service object, with the record available through `result` |
 | `index` | An Active Record relation or collection |
+| `list` | A lightweight collection of selector options, usually `id` and `name` |
 | `show` | The stored record or a detailed query result |
 | `create` | The service object |
 | `update` | The service object |
@@ -109,10 +111,29 @@ Assign the new record to `resource` before calling `save`. When validation
 fails, the controller can retrieve the invalid record through `result` and
 render the form without losing its values.
 
-Do not add separate public methods such as `list`, `validate`, `import`, or
-`notify`. Listing records is the read side of CRUD: keep resource listings and
-their filters in `index`. A named processing or business operation belongs in
-an operator, even when it only reads data.
+### Selector Lists
+
+`list` belongs in the resource service. It is a read operation for selection
+components, not a business workflow and not an operator responsibility.
+Implement it whenever a resource needs selector options:
+
+* `index`: administrative listing, normally paginated and containing table data.
+* `list`: lightweight selector options, normally only `id` and `name`, without pagination.
+* `show`: the detail of one resource.
+
+Keep account scoping and access restrictions in `list`, and select only the
+columns needed to build the options. Explicit filters are appropriate; an
+`options: true` switch on `index` is unnecessary.
+
+```ruby
+def list
+    current_user.account.my_engine.tickets.order(:subject, :id)
+        .select(:id, "subject AS name")
+end
+```
+
+Do not add business workflows such as `validate`, `import`, or `notify` to the
+service. Those belong in an operator.
 
 `find` is the existing lookup helper used before `show`, `update`, and
 `destroy`, not an additional business action. The same exception applies to
@@ -298,6 +319,30 @@ Keep HTTP rendering in controllers, CRUD failures in services, and non-CRUD
 business behavior in operators. See the
 [application architecture](/engines/lesli/backend/architecture/) for the full
 dependency contract.
+
+## Core Read APIs
+
+Core exposes separate administrative and selector reads:
+
+```ruby
+users = Lesli::UserService.new(current_user, query).index
+options = Lesli::UserService.new(current_user).list
+reviewers = Lesli::UserService.new(current_user).list(role: "reviewer")
+roles = Lesli::RoleService.new(current_user).list
+```
+
+The user `index` returns a paginated relation. User `list` returns an unpaginated
+array with `id` and `name` string keys, using the email as the display name when
+no first name is available. Its optional comma-separated role filter uses
+Shield associations and returns no matches when Shield is absent.
+
+Role `list` returns a relation selecting only `id` and `name`. It requires
+Shield's permission context and restricts results to the current account and
+permission level.
+
+The redundant `UserService#sessions`, `#roles`, and `#logs` methods were removed;
+read those associations from the scoped record returned by `show`.
+Optional-engine associations require their owning engine to be installed.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/backend/services.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>

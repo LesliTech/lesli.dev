@@ -119,7 +119,7 @@ end
 
 The helper declares:
 
-* The engine root and singleton `dashboard` routes
+* The engine root and singleton `leslidashboard` routes
 * `items/tasks` routes for `create` and `update`
 * An `items/discussions` route for `create`
 * An `up` health-check route
@@ -154,7 +154,7 @@ Route output is the source of truth when host routes, Lesli helpers, and mounted
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/backend/router.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/23</p>
+    <p><b>Last Update: </b>2026/11/18</p>
 </section>
 
 <!-- This code was automatically generated -->

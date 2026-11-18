@@ -135,7 +135,19 @@ From a complete Lesli development workspace, run the engine test suite from the 
 
 ```shell
 cd engines/LesliShield
-bin/rails test
+bundle exec rake test
+```
+
+The standalone suite does not require LesliAudit or LesliBell. Test account
+helpers initialize those workspaces only when the engines are loaded. Tests
+that inspect persisted audit events are skipped without LesliAudit; role CRUD,
+permission checks, privilege compilation, and rollback tests still run.
+
+To verify audit persistence with the optional engines installed, run from the
+LesliBuilder root using its bundle and a dedicated test database:
+
+```shell
+RAILS_ENV=test bundle exec bin/rails test engines/LesliShield/test/services/lesli_shield/role_audit_test.rb engines/LesliShield/test/services/lesli_shield/role_privilege_deployment_service_test.rb
 ```
 
 <br />
@@ -190,7 +202,7 @@ The complete license text is available in the [license file](./license).
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliShield/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/23</p>
+    <p><b>Last Update: </b>2026/11/16</p>
 </section>
 
 <!-- This code was automatically generated -->

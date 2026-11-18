@@ -26,7 +26,7 @@ controller action, job, or task may invoke an operator directly.
 | --- | --- |
 | Model | Associations, persistence invariants, validations, small scopes, and local callbacks |
 | Controller | Authentication, authorization, parameters, HTTP formats, redirects, and status codes |
-| Service | Account-scoped `index`, `show`, `create`, `update`, and `destroy` operations |
+| Service | Account-scoped `index`, `list`, `show`, `create`, `update`, and `destroy` operations |
 | Operator | Named non-CRUD operations such as `close!`, `reopen!`, `assign!`, or `notify_owner!` |
 
 ### Models
@@ -44,15 +44,20 @@ Streams, redirect, or depend on `ActionController::Parameters`.
 
 ### Services
 
-A resource service exposes only the CRUD operations its controller needs:
+A resource service exposes CRUD operations and lightweight selector reads:
 
 ```ruby
 TicketService#index
+TicketService#list
 TicketService#show
 TicketService#create
 TicketService#update
 TicketService#destroy
 ```
+
+`list` belongs in the service: it returns selector options, usually `id` and
+`name`, while `index` provides the administrative listing. Both are reads, so
+neither needs an operator.
 
 Services own account-scoped lookup, persistence, and the standard Lesli result
 contract. They may coordinate an operator when a CRUD action needs additional

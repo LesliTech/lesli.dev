@@ -48,7 +48,7 @@ The global Lesli styles apply Open Sans to the document body and Domine to headi
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliAssets/tree/master/docs/theme/fonts.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/09/14</p>
+    <p><b>Last Update: </b>2026/11/17</p>
 </section>
 
 <!-- This code was automatically generated -->

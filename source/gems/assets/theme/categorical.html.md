@@ -150,7 +150,7 @@ Do not assume `500` supports white text. For ordinary text, the documented palet
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliAssets/tree/master/docs/theme/categorical.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/09/27</p>
+    <p><b>Last Update: </b>2026/11/17</p>
 </section>
 
 <!-- This code was automatically generated -->

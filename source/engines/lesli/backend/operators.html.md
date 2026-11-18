@@ -2,7 +2,8 @@
 
 Operators implement named operations that are not part of a resource's CRUD
 lifecycle. They are useful for state transitions, data processing, imports,
-notifications, and workflows involving more than one model.
+notifications, and workflows involving more than one model. Selector queries
+belong in the service's `list` method; they do not require an operator.
 
 ```ruby
 module MyEngine
@@ -212,6 +213,35 @@ Begin with one operator per resource. Extract a separate operator only when:
 
 For example, `close!`, `reopen!`, and `assign!` can remain in
 `TicketOperator`, while a complex import can become `TicketImportOperator`.
+
+## Core Operators
+
+Core provides two operators without a shared base class:
+
+```ruby
+# Register controller/action descriptors from installed routes.
+Lesli::ResourceOperator.new.register!
+
+# Provision or reconfigure an existing Core account.
+operator = Lesli::AccountOperator.new(account: account)
+operator.initialize_roles!
+operator.initialize_engines!
+```
+
+Resource registration is transactional and preserves existing resource IDs on
+repeated runs. It does not grant privileges itself. The `lesli:resources:build`
+task invokes this operator; `Lesli::ResourceService.new(nil).index(matrix: true)`
+remains the read API used by translation scanning.
+
+Account creation still provisions its roles and installed engine workspaces
+automatically. The existing model callbacks delegate to `AccountOperator`, so
+console and seeder creation keep the same behavior. Database configuration
+also invokes the operator. Each initialization method is transactional and
+returns the account. Existing roles retain their configured defaults, and
+existing engine accounts do not generate repeated initialization events.
+
+`ResourceService#build` has been replaced by `ResourceOperator#register!`.
+Account model initialization methods remain as callback delegation points.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/backend/operators.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>

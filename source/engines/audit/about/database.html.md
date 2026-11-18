@@ -228,7 +228,7 @@ to its Audit account and then to all tenant audit data. A hard-deleted user
 cascades aggregate request rows and nullifies actor references on journals and
 activity events, preserving their immutable identity snapshots.
 
-LesliAudit installs the `audit` association on `Lesli::Account` through
+LesliAudit installs the `lesliaudit` association on `Lesli::Account` through
 `LesliAudit::AccountAssociations`. Every Audit-owned record then belongs to
 `LesliAudit::Account`, while user-owned records also reference `Lesli::User`.
 Destroying an Audit account is a deliberate hard purge and deletes its
@@ -305,7 +305,7 @@ See [Database Architecture](/engines/lesli/database/structure) and [Migration Ve
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliAudit/tree/master/docs/about/database.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/11/12</p>
+    <p><b>Last Update: </b>2026/11/18</p>
 </section>
 
 <!-- This code was automatically generated -->

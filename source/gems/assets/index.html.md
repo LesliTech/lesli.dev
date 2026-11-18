@@ -170,9 +170,12 @@ make build.tailwind
 Run the default test task from the LesliAssets directory:
 
 ```shell
-bundle exec rake
+bundle exec rake test
 make test.mails
 ```
+
+Run the Ruby suite with Rake, not `rails test`: this gem's standalone test
+bundle does not include the Rails test runner.
 
 ### Code quality
 
@@ -237,7 +240,7 @@ The complete license text is available in the [license file](./license).
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliAssets/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/23</p>
+    <p><b>Last Update: </b>2026/11/16</p>
 </section>
 
 <!-- This code was automatically generated -->
