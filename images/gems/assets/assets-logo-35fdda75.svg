@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" fill="#0c2856">
+  <title>LesliAssets shared design resources</title>
+  <desc>A shared resource folder containing image and document assets.</desc>
+
+  <path d="M8 31a7 7 0 0 1 7-7h25l8 9h37a7 7 0 0 1 7 7v41a7 7 0 0 1-7 7H15a7 7 0 0 1-7-7Z"/>
+  <rect width="72" height="42" x="14" y="39" fill="#d8e1ef" rx="4"/>
+  <rect width="31" height="29" x="20" y="46" rx="3"/>
+  <circle cx="28" cy="54" r="4" fill="#d8e1ef"/>
+  <path d="m23 70 8-9 5 5 5-6 7 10Z" fill="#d8e1ef"/>
+  <path d="M58 45h18l6 6v24H58Z"/>
+  <path d="M76 45v7h6" fill="#d8e1ef"/>
+  <rect width="15" height="4" x="63" y="58" fill="#d8e1ef" rx="2"/>
+  <rect width="12" height="4" x="63" y="67" fill="#d8e1ef" rx="2"/>
+</svg>

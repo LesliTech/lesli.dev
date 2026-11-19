@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" fill="#0c2856">
+  <title>LesliSystem shared infrastructure</title>
+  <desc>Interconnected application modules resting on one shared foundation.</desc>
+
+  <path d="M23 43V34a5 5 0 0 1 5-5h17V18h10v11h17a5 5 0 0 1 5 5v7h-8v-4H55v8H45v-8H31v6Z"/>
+  <rect width="24" height="31" x="11" y="43" rx="4"/>
+  <rect width="24" height="37" x="38" y="39" rx="4"/>
+  <rect width="24" height="31" x="65" y="43" rx="4"/>
+  <g fill="#d8e1ef">
+    <rect width="14" height="5" x="16" y="50" rx="2"/>
+    <rect width="14" height="5" x="16" y="61" rx="2"/>
+    <rect width="14" height="5" x="43" y="47" rx="2"/>
+    <rect width="14" height="5" x="43" y="58" rx="2"/>
+    <rect width="14" height="5" x="70" y="50" rx="2"/>
+    <rect width="14" height="5" x="70" y="61" rx="2"/>
+  </g>
+  <rect width="84" height="10" x="8" y="78" rx="5"/>
+</svg>
