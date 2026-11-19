@@ -137,6 +137,61 @@ Use the name **Lesli Blue** when referring to the brand color in design and docu
 }
 ```
 
+### Semantic interface colors
+
+The semantic scales bring Lesli closer to Tailwind's sky, emerald, amber and rose
+tones, with adjusted solid shades for readable button labels. Token names and
+shade keys remain unchanged. Use `50–100` for soft backgrounds, `200–300` for
+decorative borders, `500` for solid actions, `600` for hover, and `700–900` for text
+and stronger states.
+
+The scales use perceptually spaced OKLab transitions around the fixed `500`
+identity colors. Shades `50–100` retain their soft surface colors; `600` is the
+hover tone. Warning also retains its `600` to preserve contrast with dark labels.
+Shades `200–300` are decorative borders, not sufficient on their own to identify
+interactive controls or focus states.
+
+| Solid surface | Color | Foreground | Contrast |
+| --- | --- | --- | --- |
+| `info-500` | `#087EAE` | White | 4.56:1 |
+| `success-500` | `#09855E` | White | 4.64:1 |
+| `warning-500` | `#F0A51B` | `warning-900` (`#452B08`) | 6.31:1 |
+| `danger-500` | `#D73554` | White | 4.64:1 |
+
+These ratios apply to the listed opaque pairs. Check contrast again when adding
+opacity or using different foregrounds. In particular, warning requires dark
+text; its `600` hover surface also keeps at least 4.5:1 against `warning-900`.
+The default semantic alias resolves to `500`, the main solid action tone.
+Use `500` for info, success and danger buttons with white text and `600` for hover.
+
+| Palette | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Info | `#F0F9FF` | `#DEF2FC` | `#B0D5E9` | `#82B7D5` | `#529BC2` | `#087EAE` | `#0F6F99` | `#136085` | `#145271` | `#14445E` |
+| Success | `#EDFCF5` | `#D5F7E7` | `#A9DAC3` | `#7DBDA0` | `#4FA17E` | `#09855E` | `#0E7554` | `#11664A` | `#125740` | `#124936` |
+| Warning | `#FFFBED` | `#FFF1C6` | `#FCDEA4` | `#F9CC80` | `#F5B858` | `#F0A51B` | `#D18B10` | `#97620E` | `#71490C` | `#452B08` |
+| Danger | `#FFF1F4` | `#FFE1E8` | `#FABAC1` | `#F1929C` | `#E56877` | `#D73554` | `#BF324D` | `#A72E45` | `#902A3E` | `#792637` |
+
+Warning `700` is tuned for readable text on `warning-100`. Across all four
+palettes, use `100` with `700` for badges and `50` with `900` for messages.
+
+#### Upgrading from 4.1.0
+
+Version 4.2.0 refreshes the semantic colors while retaining the public Sass and
+CSS token names. The default Sass variant remains `500`. Rebuild consuming
+stylesheets after updating the dependency; generated CSS contains the palette
+from the installed package version.
+
+Use `500` for the base solid action and `600` for hover. If an application adopted
+the interim `600` base and `700` hover recommendation, return those solid actions
+to `500` and `600`. Keep white labels for Info, Success and Danger, and
+`warning-900` labels for Warning. Recheck custom opacity and foreground pairs.
+
+See [release notes](./CHANGELOG.md) for the complete release summary.
+
+The primary, neutral, categorical and engine identity palettes are unchanged.
+Rebuild `css/colors.css` after modifying the Sass maps before distributing the
+updated package.
+
 ### Categorical colors
 
 Categorical colors are reusable, non-semantic colors for categories, datasets, charts, calendars, avatars, tabs, modules, and other product areas. They do not communicate success, warning, danger, or information. Each family has five intentional roles: `100` for subtle backgrounds, `300` for soft accents, `500` for identity, `700` for strong accents, and `900` for dark surfaces and foregrounds.
@@ -233,7 +288,7 @@ The package generates variables for every palette entry, including:
 
 ```css
 --lesli-color-primary-500: #276AD6;
---lesli-color-success-600: #1D704F;
+--lesli-color-success-500: #09855E;
 --lesli-color-categorical-sky-300: #97C4E4;
 --lesli-color-engine-finance-500: var(--lesli-color-categorical-gold-500);
 ```
@@ -292,7 +347,7 @@ The mapped colors become standard Tailwind utilities:
     Save changes
 </button>
 
-<p class="text-success-500">Changes saved successfully.</p>
+<p class="text-success-700">Changes saved successfully.</p>
 
 <div class="border border-categorical-sky-300 bg-engine-finance text-neutral-900">
     Finance
@@ -423,6 +478,11 @@ npm test
 
 The `prepack` script regenerates `css/colors.css` automatically before the package is packed or published.
 
+Before publishing, run `npm test`, `npm run build`, `git diff --check`, and
+`npm pack --dry-run`. Confirm that `package.json` and the root lockfile metadata
+declare the same version. Review solid, light and outlined states in a consuming
+application before releasing the package.
+
 <br />
 
 ## Documentation
@@ -472,7 +532,7 @@ The complete license text is available in the [license file](./license).
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="../LesliBuilder/tools/lesli-css/readme.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/11/11</p>
+    <p><b>Last Update: </b>2026/11/18</p>
 </section>
 
 <!-- This code was automatically generated -->

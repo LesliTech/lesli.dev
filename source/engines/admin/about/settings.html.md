@@ -6,9 +6,27 @@ LesliAdmin provides an administrative view of the effective Lesli configuration 
 /admin/settings
 ```
 
-The page is organized into Default, Modules, and About tabs.
+The page is organized into Appearance, Default, Modules, and About tabs.
 
 ---
+
+## Account Appearance
+
+The Appearance tab uses LesliView form controls to select the primary color for
+the authenticated account. Save color updates `lesli_theme_color_primary` in
+that account's LesliAdmin settings, with `user_id: nil`. Account and user IDs
+cannot be changed through the form. The existing settings authorization applies.
+
+Restore Lesli color clears the stored override and returns to the interface
+default, Primary 700 (`#194A99`). Primary 500 (`#276AD6`) remains the brand color. It does not persist the default as an account preference.
+Saving or restoring redirects to the full settings page so Turbo also refreshes
+the theme in the document head. Other users see the change on their next page
+request. Semantic status colors remain independent of the account primary.
+
+Invalid values leave the saved color unchanged and return HTTP 422 with form
+errors. The model accepts three- or six-digit hexadecimal colors; the native
+picker displays six digits. JSON updates return `primary_color`, or `errors`
+when validation fails.
 
 ## Default Configuration
 
@@ -83,7 +101,7 @@ make build.tailwind
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliAdmin/tree/master/docs/about/settings.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/21</p>
+    <p><b>Last Update: </b>2026/11/18</p>
 </section>
 
 <!-- This code was automatically generated -->

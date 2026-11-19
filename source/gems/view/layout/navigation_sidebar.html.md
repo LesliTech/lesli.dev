@@ -137,7 +137,12 @@ chosen classes; the component does not load or validate icon assets.
 
 ## Component implementation
 
-The shared markup lives in `lib/lesli_view/layout/navigation_sidebar.html.erb`.
+The Ruby class remains in `layout/navigation_sidebar.rb`. Its template and CSS
+are grouped in the adjacent `layout/navigation_sidebar/` directory. The CSS uses
+semantic component classes and unprefixed `@apply`, and is imported by the shared
+LesliView stylesheet. Runtime theme variables remain in LesliAssets.
+
+The shared markup lives in `lib/lesli_view/layout/navigation_sidebar/navigation_sidebar.html.erb`.
 Do not copy it into engines. Their partials should only build navigation items
 and render the component. No domain queries or routes belong in the component.
 
@@ -156,7 +161,7 @@ copies while ensuring that only the appropriate one is displayed.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliView/tree/master/docs/layout/navigation_sidebar.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/11/15</p>
+    <p><b>Last Update: </b>2026/11/18</p>
 </section>
 
 <!-- This code was automatically generated -->

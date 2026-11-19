@@ -31,9 +31,28 @@ If several data inputs are supplied, later conversion options take precedence ov
 
 The rendered page requires the `window.LesliChart` JavaScript provided by the Lesli frontend assets. Rendering waits for Turbo when the document is still loading.
 
+## Component files
+
+```text
+lib/lesli_view/charts/
+    bar.rb
+    line.rb
+    general.rb
+    general/
+        general.html.erb
+        general.css
+```
+
+`Bar` and `Line` inherit the template from `General`, so they do not need
+separate directories or duplicated presentation files. Their Ruby API is unchanged.
+
+The sidecar stylesheet uses semantic classes and unprefixed `@apply`, and is
+imported by `source/tailwind/view.css` into the existing LesliView stylesheet.
+Global theme variables remain in LesliAssets.
+
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliView/tree/master/docs/charts/general.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/06</p>
+    <p><b>Last Update: </b>2026/11/18</p>
 </section>
 
 <!-- This code was automatically generated -->

@@ -29,9 +29,28 @@ record, preserving the submitted message and displaying its validation errors.
 
 These components are domain-coupled and are intended for Lesli engines that implement the standard discussion concern and routes.
 
+## Component files
+
+```text
+lib/lesli_view/items/
+    discussions.rb
+    discussions/
+        discussions.html.erb
+        discussions.css
+    discussion.rb
+    discussion/
+        discussion.html.erb
+        discussion.css
+```
+
+Ruby classes retain their public API. Each template and stylesheet lives in
+the adjacent component directory. The stylesheets use semantic classes and
+unprefixed `@apply`, and are imported by `source/tailwind/view.css` into the
+existing LesliView stylesheet. Global theme variables remain in LesliAssets.
+
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliView/tree/master/docs/items/discussion.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/22</p>
+    <p><b>Last Update: </b>2026/11/18</p>
 </section>
 
 <!-- This code was automatically generated -->

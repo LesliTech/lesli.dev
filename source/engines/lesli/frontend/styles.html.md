@@ -10,7 +10,9 @@ source/tailwind/application.css
 app/assets/stylesheets/<package_name>/application.css
 ```
 
-Edit files under `source/tailwind`. Files under `app/assets/stylesheets` are generated output and will be replaced by the next build.
+Edit engine sources under `source/tailwind`. LesliView component styles live beside
+their templates under `lib/lesli_view` and are imported by its Tailwind entrypoint.
+Files under `app/assets/stylesheets` are generated output.
 
 ---
 
@@ -21,8 +23,12 @@ The authenticated Lesli layout loads three stylesheets in order:
 | Stylesheet | Responsibility | Turbo tracking |
 | --- | --- | --- |
 | `lesli_assets/application` | Base theme, design tokens, fonts, icons, and application-shell utilities | `reload` |
-| `lesli_view/view` | Utilities and component styles provided by LesliView | `reload` |
+| `lesli_view/view` | Reusable component, partial and layout styles | `reload` |
 | `<current_engine>/application` | Utilities and rules used by the current engine | `dynamic` |
+
+LesliAssets compiles its global configuration and shared application utilities
+into `lesli_assets/application.css`. Its source entrypoint contains the shared
+`@source` declarations; no separate utility asset is required.
 
 Because the engine stylesheet loads last, use it for feature-specific presentation. Changes that should affect every engine belong in LesliAssets; reusable component styles belong with the corresponding LesliView component.
 
@@ -57,6 +63,31 @@ each compiled stylesheet because they implement the utilities themselves.
 
 ---
 
+## Utility and Component Classes
+
+Core, every engine and LesliAssets use standard Tailwind classes without package
+prefixes:
+
+```erb
+<div class="flex flex-col gap-4 sm:flex-row">
+    <%= render LesliView::Elements::Button.new("Continue", url: next_path) %>
+</div>
+```
+
+LesliView owns named presentation classes such as `lesli-button` and
+`lesli-error`. Preserve these names. Its CSS uses unprefixed `@apply` internally,
+but does not publish global utility selectors.
+
+Each package compiles independently against LesliAssets' global configuration.
+Repeated utilities between engine bundles are accepted; global theme definitions
+remain centralized. Content passed into a LesliView slot belongs to the caller,
+so its utility classes must be included in that engine's source discovery.
+
+The documentation website continues using Bulma. This application styling
+convention does not require converting website examples or layouts.
+
+---
+
 ## Create an Engine Entrypoint
 
 Place the entrypoint at `source/tailwind/application.css` in the engine:
@@ -64,7 +95,7 @@ Place the entrypoint at `source/tailwind/application.css` in the engine:
 ```css
 @layer theme, components, utilities;
 
-@reference "tailwindcss/theme.css";
+@import "tailwindcss/theme.css" theme(reference);
 @reference "../../../../gems/LesliAssets/source/tailwind/settings/theme.css";
 @import "tailwindcss/utilities.css" layer(utilities) source(none);
 
@@ -72,17 +103,18 @@ Place the entrypoint at `source/tailwind/application.css` in the engine:
 @source "../../app/helpers/my_engine/**/*.rb";
 
 @layer components {
-  .ticket-status {
-    @apply inline-flex rounded-full px-2.5 py-1 text-sm font-medium;
-  }
+    .ticket-status {
+        @apply inline-flex rounded-full px-2.5 py-1 text-sm font-medium;
+    }
 }
 ```
 
 `source(none)` disables automatic source detection. Every file containing Tailwind classes must therefore be covered by an `@source` rule. Include Ruby helpers and ViewComponent classes when they construct complete utility class names.
 
 The shared-theme reference above assumes the standard Builder directory layout.
-Adjust its path for a different source checkout. Do not import the Tailwind theme
-with `@import` in an engine: that would emit another copy of the global variables.
+Adjust the reference paths for a different source checkout. Keep `theme(reference)`
+on the Tailwind theme import so the engine does not emit another copy of the
+global variables.
 
 Tailwind cannot discover fragments such as `"bg-#{color}-500"`. Map application states to complete class strings instead:
 
@@ -131,7 +163,7 @@ The builder excludes dependency, temporary, version-control, and generated asset
 Prefer a token that describes the role of a color instead of copying a hexadecimal value.
 
 ```erb
-<button class="bg-primary text-white hover:bg-primary-600">
+<button class="bg-primary text-white hover:bg-primary-700">
   Save changes
 </button>
 
@@ -160,11 +192,15 @@ Use the `lesli_theme_*` keys consumed by the shared stylesheet's fallback variab
 }
 ```
 
+Without an override, the interface primary resolves to Lesli Primary 700
+(`--lesli-color-primary-700`, `#194A99`). The brand remains Primary 500 (`#276AD6`). Account overrides change unnumbered
+`primary`, without redefining the numbered brand palette.
+
 The layout converts underscores to hyphens, producing variables such as
 `--lesli-theme-color-primary`. It emits no style block when the colors hash is
 empty. The block uses `dynamic` tracking so a previous page's customization is
-removed when it changes or is no longer supplied. The built-in customization
-loader is not currently active; a host must supply these values explicitly.
+removed when it changes or is no longer supplied. Core loads the account-wide primary color from LesliAdmin settings on HTML
+and PDF requests. Other custom properties can still be supplied by the host.
 
 See the [Lesli color system](/gems/assets/theme/colors), [semantic colors](/gems/assets/theme/semantics), and [brand guide](/gems/assets/theme/brand) before introducing a new color.
 
@@ -181,9 +217,30 @@ See the [Lesli color system](/gems/assets/theme/colors), [semantic colors](/gems
 
 Do not use arbitrary values to recreate a token that already exists. A small amount of repetition in a template is preferable to a global class whose name does not describe a reusable interface concept.
 
+### Saving an account primary color
+
+When LesliAdmin is installed, store the preference in the account's local
+administration settings (not in user-specific settings):
+
+```ruby
+setting = account.admin.settings.find_or_initialize_by(
+    name: "lesli_theme_color_primary",
+    user_id: nil
+)
+setting.update!(value: "#7C3AED")
+```
+
+Core applies this preference on subsequent authenticated page requests. Three-
+and six-digit hexadecimal colors are supported. A missing administration
+workspace, a missing or blank setting, or an invalid color emits no override;
+LesliAssets then uses the interface default, Primary 700 (`#194A99`). Core also works without
+LesliAdmin or an authenticated user. No database default or CSS rebuild is needed.
+Set the value to `nil` to return to the default color. Account administrators can also use the Appearance tab at `/admin/settings`
+to select a color or restore the interface default.
+
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/Lesli/tree/master/docs/frontend/styles.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/11/17</p>
+    <p><b>Last Update: </b>2026/11/18</p>
 </section>
 
 <!-- This code was automatically generated -->

@@ -20,11 +20,11 @@ Use `LesliView::Forms::BuilderHorizontal` when every supported control should us
 <% end %>
 ```
 
-Semantic categories become `is-*` CSS classes. `alert` and `error` normalize to `danger`; `notice` normalizes to `info`. Caller CSS classes are merged with the required Lesli classes rather than replacing them.
+Semantic categories become `is-*` CSS classes. `alert` and `error` normalize to `danger`; `notice` normalizes to `success`, matching notifications. Caller CSS classes are merged with the required Lesli classes rather than replacing them.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliView/tree/master/docs/forms/builder.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/22</p>
+    <p><b>Last Update: </b>2026/11/18</p>
 </section>
 
 <!-- This code was automatically generated -->

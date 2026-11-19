@@ -18,9 +18,23 @@
 
 The component uses Tailwind CSS for presentation and includes tab, tablist, and tabpanel semantics. Tabs can be selected with a pointer, `Tab`, `Enter`, `Space`, or the arrow keys.
 
+## Component files
+
+```text
+lib/lesli_view/components/
+    tabs.rb
+    tabs/
+        tabs.html.erb
+        tabs.css
+```
+
+The Ruby API is unchanged. The sidecar stylesheet uses semantic classes and
+unprefixed `@apply`, and is imported by `source/tailwind/view.css` into the
+existing LesliView stylesheet. Global theme variables remain in LesliAssets.
+
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliView/tree/master/docs/components/tabs.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/09</p>
+    <p><b>Last Update: </b>2026/11/18</p>
 </section>
 
 <!-- This code was automatically generated -->

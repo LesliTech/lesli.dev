@@ -28,9 +28,23 @@ The title and actions remain in two top-aligned columns. The title section uses
 the available width while the actions section keeps the width required by its
 content.
 
+## Component files
+
+```text
+lib/lesli_view/components/
+    header.rb
+    header/
+        header.html.erb
+        header.css
+```
+
+The Ruby API is unchanged. The sidecar stylesheet uses semantic classes and
+unprefixed `@apply`, and is imported by `source/tailwind/view.css` into the
+existing LesliView stylesheet. Global theme variables remain in LesliAssets.
+
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliView/tree/master/docs/components/header.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/11/12</p>
+    <p><b>Last Update: </b>2026/11/18</p>
 </section>
 
 <!-- This code was automatically generated -->

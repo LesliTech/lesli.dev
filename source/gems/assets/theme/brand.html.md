@@ -34,7 +34,7 @@ Use the compact icon when horizontal space is limited, including application nav
 
 ## Lesli Blue
 
-**Lesli Blue** is the official name of the Lesli brand color. Its canonical token is `primary-500` (`#276AD6`). Use Primary for Lesli identity, primary actions, links, focus states, and selected navigation.
+**Lesli Blue** is the official name of the Lesli brand color. Its canonical token is `primary-500` (`#276AD6`). Use `primary-500` for Lesli identity. Interface actions, links, focus states and selected navigation use unnumbered `primary`, which follows the account override or defaults to `primary-700` (`#194A99`).
 
 Primary is not a synonym for Info, and it is separate from the Sky and Indigo categorical families.
 
@@ -117,7 +117,7 @@ The current customization helper resolves these packaged defaults. Automatic per
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliAssets/tree/master/docs/theme/brand.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/11/17</p>
+    <p><b>Last Update: </b>2026/11/18</p>
 </section>
 
 <!-- This code was automatically generated -->

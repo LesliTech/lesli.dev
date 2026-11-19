@@ -30,7 +30,7 @@ Load the shared stylesheet before the component stylesheet in the layout's `<hea
 
 LesliAssets defines the global Lesli palette and the complete Tailwind theme,
 including spacing, typography, radii, and animations. LesliView uses `@reference`
-to compile utilities without emitting those variables again. The standard Lesli
+to compile component styles without emitting those variables again. The standard Lesli
 layout already loads these stylesheets in this order. Public layouts can load
 `lesli_assets/public` instead of `lesli_assets/application`; both provide the
 complete theme. A custom host must update LesliAssets alongside LesliView when
@@ -44,43 +44,70 @@ Verify the installation in an ERB view:
 
 Use the fully qualified constants shown in these guides. Most components accept a block through ViewComponent, while components with named slots document those slots explicitly.
 
-## Prefixed utilities
+## Component styles
 
-LesliView uses the `lesliview:` Tailwind prefix. The prefix comes before every variant:
+LesliView renders semantic classes such as `lesli-button`, `lesli-header`, and
+`lesli-panel-dialog`. Component stylesheets use unprefixed Tailwind utilities
+inside `@apply`, including responsive and interaction variants:
 
-```erb
-<div class="lesliview:flex lesliview:flex-col lesliview:gap-3 lesliview:sm:flex-row lesliview:sm:gap-4">
-    <%= content %>
-</div>
+```css
+@layer components {
+    .lesli-panel-dialog {
+        @apply fixed w-full bg-white sm:max-w-2xl lg:max-w-3xl;
+    }
+}
 ```
 
-The same convention applies to utilities in Ruby helpers, Alpine class bindings,
-transition attributes, and `@apply`. Group markers use `lesliview:group` together with
-variants such as `lesliview:group-hover:text-sky-700`. Component classes such as
-`lesli-button`, modifiers such as `is-primary`, and icon classes keep their names.
+The entrypoint imports each component stylesheet explicitly and disables utility
+discovery. It emits component rules, not global utility selectors such as
+`.flex` or `.text-sm`. Alpine bindings and transitions also use component classes.
+Keep modifiers scoped to their component; a Ruby class or sidecar directory alone
+does not isolate CSS.
 
-The inline aliases in LesliAssets' `source/tailwind/settings/shared-theme.css`
-connect these utilities to the global theme. They do not define a second palette
-or duplicate runtime values. Both packages continue to compile independently.
+Theme values remain global in LesliAssets. LesliView references that theme at
+build time and compiles independently into `lesli_view/view.css`.
+
+### Component file structure
+
+Keep the Ruby class next to a directory containing its template and stylesheet:
+
+```text
+lib/lesli_view/
+    partials/
+        error.rb
+        error/
+            error.html.erb
+            error.css
+```
+
+This convention applies to `components`, `elements`, `items`, `layout`,
+`partials`, `widgets` and `charts`. Register new component CSS with an explicit
+import in `source/tailwind/view.css`.
+
+Only create a directory when a component has presentation files. For example,
+`Charts::Bar` and `Charts::Line` share `General`'s template and stylesheet.
+
+Forms keep their current Ruby files and shared `forms/form.css`. Do not create
+individual directories or duplicate styles for builders and field helpers.
+
+The files under `app/assets/stylesheets/lesli_view/` are generated output.
+Edit component CSS and rebuild instead of editing the compiled stylesheet.
 
 ### Upgrading
 
-Upgrade and publish templates and compiled CSS together. Code selecting a
-LesliView utility class must use the prefixed name; prefer stable component
-classes or data attributes for JavaScript selectors. CSS class names containing
-colons need escaping when used in a CSS selector.
+Publish templates and compiled CSS together. Use component classes or data
+attributes for JavaScript selectors. Do not add a Tailwind package prefix.
 
 Engines may keep passing their own classes through `css_class:`, `class_name:`,
-or form options. Those classes remain unchanged and must be compiled by the
-calling engine. Likewise, content supplied in component blocks belongs to the
-caller. Adding `lesliview:` to a caller's class does not make LesliView scan that engine.
+or form options. Those classes must be compiled by the calling engine, as must
+styles used by content supplied in component blocks. Engines compile their own
+unprefixed Tailwind utilities against the shared LesliAssets theme.
 
-Load `lesli_view/view` in public authentication layouts as well. Engines must not
-recompile LesliView's component CSS inside their unprefixed Tailwind entrypoints;
-load the published component stylesheet instead. The standard Lesli Devise
-layout follows this arrangement.
+Load `lesli_view/view` in public authentication layouts as well. Engines should
+load this stylesheet instead of recompiling component CSS. The standard Lesli
+Devise layout follows this arrangement.
 
-The documentation website continues to use Bulma for its own previews and layout.
+The documentation website continues to use Bulma for its previews and layout.
 
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliView/tree/master/docs/about/installation.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>

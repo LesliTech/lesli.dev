@@ -18,9 +18,25 @@ The engine value must support symbol access for `name`, `summary`, `version`, `b
 
 This partial uses the legacy engine-status presentation and assumes LesliDate and the shared icon styles are loaded.
 
+## Component files
+
+```text
+lib/lesli_view/partials/
+    engine_spec.rb
+    engine_spec/
+        engine_spec.html.erb
+        engine_spec.css
+```
+
+The Ruby class keeps the same public API. Its template and stylesheet live in
+the adjacent component directory. The stylesheet uses semantic classes and
+unprefixed Tailwind utilities inside `@apply`; `source/tailwind/view.css` imports
+it into the existing LesliView stylesheet. Global theme variables remain in
+LesliAssets.
+
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliView/tree/master/docs/partials/engine_spec.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/06</p>
+    <p><b>Last Update: </b>2026/11/18</p>
 </section>
 
 <!-- This code was automatically generated -->

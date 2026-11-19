@@ -22,9 +22,23 @@ Each activity should provide string keys for `date`, `operation`, `actor`, and o
 
 The actor is displayed as secondary metadata below the date so the event and description remain the visual focus.
 
+## Component files
+
+```text
+lib/lesli_view/components/
+    timeline.rb
+    timeline/
+        timeline.html.erb
+        timeline.css
+```
+
+The Ruby API is unchanged. The sidecar stylesheet uses semantic classes and
+unprefixed `@apply`, and is imported by `source/tailwind/view.css` into the
+existing LesliView stylesheet. Global theme variables remain in LesliAssets.
+
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliView/tree/master/docs/components/timeline.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/21</p>
+    <p><b>Last Update: </b>2026/11/18</p>
 </section>
 
 <!-- This code was automatically generated -->

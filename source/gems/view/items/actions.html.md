@@ -14,9 +14,24 @@ The resource must expose an `actions` association whose records provide `id`, `t
 
 Both paths are required by the current template even though the initializer accepts `nil`. Completed actions render disabled and cannot be toggled again through this component.
 
+## Component files
+
+```text
+lib/lesli_view/items/
+    actions.rb
+    actions/
+        actions.html.erb
+        actions.css
+```
+
+Ruby classes retain their public API. Each template and stylesheet lives in
+the adjacent component directory. The stylesheets use semantic classes and
+unprefixed `@apply`, and are imported by `source/tailwind/view.css` into the
+existing LesliView stylesheet. Global theme variables remain in LesliAssets.
+
 <section class="lesli-markdown-info">
     <p><a target="blank" href="https://github.com/LesliTech/LesliView/tree/master/docs/items/actions.md"><i class="ri-external-link-fill"></i>&nbsp;Edit this page</a><p/>
-    <p><b>Last Update: </b>2026/10/06</p>
+    <p><b>Last Update: </b>2026/11/18</p>
 </section>
 
 <!-- This code was automatically generated -->
